@@ -54,6 +54,325 @@ function GridBg({ opacity = 0.06 }: { opacity?: number }) {
   );
 }
 
+// ─── Visual Helpers for Cards ─────────────────────────────────────────────────
+function WhyGOCVisual({ step }: { step: number }) {
+  if (step === 0) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center p-4">
+        <div className="w-full max-w-[220px] rounded-xl border bg-white p-3 shadow-sm" style={{ borderColor: BORDER }}>
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[9px] font-black uppercase text-black/40">Performance ROI</span>
+            <span className="text-[9px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">✓ Active</span>
+          </div>
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between text-[10px]">
+              <span className="text-black/50">Traditional Ads Cost</span>
+              <span className="font-semibold text-black/80 line-through">$1,200</span>
+            </div>
+            <div className="flex items-center justify-between text-[10px]">
+              <span className="text-black/50">GOC Prizes Paid</span>
+              <span className="font-bold text-black">$350</span>
+            </div>
+            <div className="h-1.5 bg-black/5 rounded-full overflow-hidden mt-1">
+              <div className="h-full bg-black rounded-full" style={{ width: "85%" }} />
+            </div>
+            <div className="flex justify-between items-center text-[9px] text-black/40 mt-1">
+              <span>Wasted: $0</span>
+              <span className="font-bold text-black/70">3.4× ROI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (step === 1) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center p-3">
+        <div className="grid grid-cols-2 gap-2 w-full max-w-[240px]">
+          {[
+            { handle: "@skincare_mia", views: "140K", rating: "4.9", img: "https://picsum.photos/seed/mia/100/100" },
+            { handle: "@fitness_dan", views: "85K", rating: "4.8", img: "https://picsum.photos/seed/dan/100/100" }
+          ].map((c) => (
+            <div key={c.handle} className="rounded-lg border bg-white overflow-hidden shadow-xs relative flex flex-col" style={{ borderColor: BORDER }}>
+              <div className="h-14 relative overflow-hidden bg-black/5">
+                <img src={c.img} alt="" className="w-full h-full object-cover opacity-90" />
+                <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
+                  <div className="w-5 h-5 rounded-full bg-white/90 flex items-center justify-center">
+                    <Play size={8} className="fill-black text-black translate-x-px" />
+                  </div>
+                </div>
+              </div>
+              <div className="p-1.5 flex flex-col justify-between flex-1">
+                <p className="text-[8px] font-bold text-black truncate">{c.handle}</p>
+                <div className="flex items-center justify-between text-[8px] text-black/50 mt-0.5">
+                  <span className="font-medium">{c.views}</span>
+                  <span className="text-black/60 font-semibold">★ {c.rating}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="absolute inset-0 flex items-center justify-center p-4">
+      <div className="w-full max-w-[220px] rounded-xl border bg-white p-3 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
+        <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full opacity-10 flex items-center justify-center" style={{ background: BLK }}>
+          <Shield size={24} />
+        </div>
+        <div className="flex items-center gap-1.5 mb-2.5">
+          <div className="w-5 h-5 rounded bg-black flex items-center justify-center text-white">
+            <Shield size={10} />
+          </div>
+          <span className="text-[10px] font-extrabold text-black uppercase tracking-wide">IP LICENSE AGREEMENT</span>
+        </div>
+        <div className="space-y-1.5 text-[8px] text-black/60">
+          <div className="flex items-center gap-1.5">
+            <Check size={10} className="text-black" strokeWidth={3} />
+            <span>Full Perpetual Usage Rights</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <Check size={10} className="text-black" strokeWidth={3} />
+            <span>Ad Account Whitelisting</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <Check size={10} className="text-black" strokeWidth={3} />
+            <span>No Ongoing Royalty Fees</span>
+          </div>
+        </div>
+        <div className="mt-2.5 pt-2 border-t flex items-center justify-between" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
+          <span className="text-[8px] uppercase tracking-wider text-black/40 font-bold">Transfer Status:</span>
+          <span className="text-[8px] font-black text-black bg-[#d1f8ff] px-1.5 py-0.5 rounded">✓ COMPLETED</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HowItWorksVisual({ step }: { step: number }) {
+  if (step === 0) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center p-4">
+        <div className="w-full max-w-[220px] rounded-xl border bg-white p-3 shadow-sm" style={{ borderColor: BORDER }}>
+          <span className="text-[8px] font-black uppercase text-black/40 tracking-wider mb-1.5 block">1. Briefing Portal</span>
+          <p className="text-[9px] font-bold text-black mb-2 line-clamp-1">"Create a 30s TikTok reviewing glow..."</p>
+          <div className="flex gap-1.5 mb-3 flex-wrap">
+            <span className="text-[8px] font-bold px-1.5 py-0.5 rounded bg-black text-white">TikTok</span>
+            <span className="text-[8px] font-bold px-1.5 py-0.5 rounded bg-black/5 text-black/60 border border-black/10">Wellness</span>
+          </div>
+          <div className="flex items-center justify-between border-t pt-2" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
+            <div>
+              <p className="text-[7px] font-bold text-black/40 uppercase">Prize Pool</p>
+              <p className="text-xs font-black text-black">$5,000</p>
+            </div>
+            <button className="bg-black text-white text-[8px] font-black px-2.5 py-1 rounded-md shadow-xs">
+              Launch 🚀
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (step === 1) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center p-3">
+        <div className="w-full max-w-[200px] rounded-xl border bg-white p-3 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[8px] font-black uppercase text-black/40">Contest Live</span>
+            <div className="flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+              <span className="text-[8px] font-bold text-red-500">Live</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 mb-2">
+            <img src="https://i.pravatar.cc/40?img=33" className="w-6 h-6 rounded-full object-cover border" style={{ borderColor: BORDER }} />
+            <div className="flex-1 min-w-0">
+              <p className="text-[8px] font-bold text-black truncate">@glow_by_kate</p>
+              <p className="text-[7px] text-black/40">Uploaded 2m ago</p>
+            </div>
+          </div>
+          <div className="h-1.5 bg-black/5 rounded-full overflow-hidden mb-1.5">
+            <div className="h-full bg-black rounded-full animate-pulse" style={{ width: "65%" }} />
+          </div>
+          <div className="flex items-center justify-between text-[8px] text-black/50">
+            <span>Submissions: 34</span>
+            <span className="font-semibold text-black">Avg Score: 87</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 240 200" fill="none" opacity="0.15">
+        <circle cx="120" cy="90" r="70" stroke={BLK} strokeWidth="1" strokeDasharray="4 4" />
+        <circle cx="120" cy="90" r="45" stroke={BLK} strokeWidth="0.8" strokeDasharray="2 4" />
+      </svg>
+      <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center text-white shadow-md z-10">
+        <Trophy size={20} className="text-[#d1f8ff]" />
+      </div>
+      <div className="absolute top-4 left-6 bg-white border rounded-lg px-2 py-1 shadow-sm flex items-center gap-1.5" style={{ borderColor: BORDER }}>
+        <span className="text-[8px] font-bold text-black">🥇 1st: $1,750</span>
+      </div>
+      <div className="absolute bottom-6 right-6 bg-white border rounded-lg px-2 py-1 shadow-sm flex items-center gap-1.5" style={{ borderColor: BORDER }}>
+        <span className="text-[8px] font-bold text-black">✓ Payout Released</span>
+      </div>
+    </div>
+  );
+}
+
+function BentoVisual({ step }: { step: number }) {
+  if (step === 0) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center p-4">
+        <div className="flex flex-col gap-1.5 w-full max-w-[180px]">
+          <div className="flex gap-1.5 flex-wrap justify-center">
+            {["#Beauty", "#Skincare", "#Lifestyle"].map((tag, idx) => (
+              <span key={tag} className="text-[9px] font-bold px-2 py-0.5 rounded-full border shadow-xs"
+                style={{
+                  background: idx === 0 ? "#000000" : "#ffffff",
+                  color: idx === 0 ? "#ffffff" : "rgba(0,0,0,0.6)",
+                  borderColor: idx === 0 ? "#000000" : BORDER
+                }}>
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="flex gap-1.5 flex-wrap justify-center mt-0.5">
+            {["#Fitness", "#UGC"].map((tag) => (
+              <span key={tag} className="text-[9px] font-bold px-2 py-0.5 rounded-full border bg-white shadow-xs"
+                style={{ color: "rgba(0,0,0,0.6)", borderColor: BORDER }}>
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="mt-2.5 flex items-center justify-center gap-1.5 bg-white border rounded-lg p-1.5 shadow-sm" style={{ borderColor: BORDER }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+            <span className="text-[8px] font-black text-black">Matched: 142 Creators</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (step === 1) {
+    return (
+      <div className="absolute inset-0 flex flex-col justify-between p-3.5">
+        <div className="flex items-center justify-between mb-2">
+          <div>
+            <p className="text-[8px] font-bold text-black/40 uppercase">Performance Live</p>
+            <p className="text-sm font-black text-black">1,240,890 <span className="text-[9px] font-medium text-black/50">views</span></p>
+          </div>
+          <span className="text-[8px] font-black text-black bg-[#d1f8ff] px-2 py-0.5 rounded border border-black/10">Live API Feed</span>
+        </div>
+        <div className="flex-1 flex items-end">
+          <svg viewBox="0 0 160 40" className="w-full overflow-visible" style={{ height: 40 }}>
+            <defs>
+              <linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#000" stopOpacity="0.1" />
+                <stop offset="100%" stopColor="#000" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path d="M0,35 C20,30 40,10 60,18 C80,26 100,5 120,8 C140,10 160,2 L160,40 L0,40 Z" fill="url(#chart-fill)" />
+            <path d="M0,35 C20,30 40,10 60,18 C80,26 100,5 120,8 C140,10 160,2" fill="none" stroke="#000" strokeWidth="1.5" strokeLinecap="round" />
+            <circle cx="160" cy="2" r="2.5" fill="#000" />
+          </svg>
+        </div>
+      </div>
+    );
+  }
+  if (step === 2) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center p-4">
+        <div className="w-full max-w-[150px] rounded-xl border bg-white p-2.5 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
+          <div className="flex items-center gap-1.5 mb-1.5">
+            <Lock size={12} className="text-black" />
+            <span className="text-[8px] font-bold text-black uppercase tracking-wider">SECURE ESCROW</span>
+          </div>
+          <p className="text-[12px] font-black text-black mb-1">$5,000.00</p>
+          <div className="flex items-center justify-between text-[7px] text-black/50 border-t pt-1.5" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
+            <span>Status: Held</span>
+            <span className="text-green-600 font-semibold bg-green-50 px-1 rounded">Protected</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (step === 3) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center p-4">
+        <div className="w-full max-w-[180px] space-y-2">
+          {[
+            { handle: "@skincare_mia (5K followers)", er: "9.2% ER", val: 92 },
+            { handle: "@mega_celeb (1.2M followers)", er: "1.1% ER", val: 11 }
+          ].map((item, idx) => (
+            <div key={item.handle} className="space-y-0.5">
+              <div className="flex justify-between text-[7px] font-bold text-black/60">
+                <span>{item.handle}</span>
+                <span className={idx === 0 ? "text-black font-extrabold" : "text-black/40"}>{item.er}</span>
+              </div>
+              <div className="h-1.5 bg-black/5 rounded-full overflow-hidden">
+                <div className="h-full rounded-full" style={{ width: `${item.val}%`, background: idx === 0 ? "#000" : "rgba(0,0,0,0.2)" }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  if (step === 4) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center p-4">
+        <div className="relative w-24 h-24 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center text-white shadow-md z-10 border border-[#d1f8ff]/30">
+            <Zap size={12} className="text-[#d1f8ff]" />
+          </div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-white border shadow-sm flex items-center justify-center" style={{ borderColor: BORDER }}>
+            <Play size={8} className="text-black" />
+          </div>
+          <div className="absolute bottom-1 left-1 w-5 h-5 rounded-full bg-white border shadow-sm flex items-center justify-center" style={{ borderColor: BORDER }}>
+            <Instagram size={8} className="text-black" />
+          </div>
+          <div className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-white border shadow-sm flex items-center justify-center" style={{ borderColor: BORDER }}>
+            <Youtube size={8} className="text-red-600" />
+          </div>
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 96 96">
+            <line x1="48" y1="48" x2="48" y2="10" stroke="rgba(0,0,0,0.1)" strokeWidth="1" strokeDasharray="2 2" />
+            <line x1="48" y1="48" x2="14" y2="82" stroke="rgba(0,0,0,0.1)" strokeWidth="1" strokeDasharray="2 2" />
+            <line x1="48" y1="48" x2="82" y2="82" stroke="rgba(0,0,0,0.1)" strokeWidth="1" strokeDasharray="2 2" />
+          </svg>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="absolute inset-0 flex flex-col justify-between p-3.5">
+      <div className="flex items-center justify-between mb-1.5">
+        <span className="text-[8px] font-black uppercase text-black/40">Prize Leaderboard</span>
+        <span className="text-[8px] font-bold text-green-600">✓ Audited</span>
+      </div>
+      <div className="space-y-1">
+        {[
+          { rank: "🥇", handle: "@fitbyfiona", score: "98", prize: "$1,750" },
+          { rank: "🥈", handle: "@zenmove", score: "94", prize: "$1,000" },
+          { rank: "🥉", handle: "@runnerspark", score: "89", prize: "$750" }
+        ].map((item) => (
+          <div key={item.handle} className="flex items-center justify-between bg-white border rounded px-2 py-1 shadow-xs text-[8px]" style={{ borderColor: BORDER }}>
+            <div className="flex items-center gap-1">
+              <span>{item.rank}</span>
+              <span className="font-bold text-black">{item.handle}</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-black/40 text-[7px]">Score: {item.score}</span>
+              <span className="font-extrabold text-black">{item.prize}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ─── Nav ─────────────────────────────────────────────────────────────────────
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -88,7 +407,7 @@ function Nav() {
         <div className="hidden md:flex items-center gap-8">
           {[
             { label: "How It Works", href: "/" },
-            { label: "Creators", href: "/" },
+            { label: "Creators", href: "/creators" },
             { label: "Brands", href: "/brands" },
             { label: "Campaigns", href: "/campaigns" },
             { label: "Blog", href: "/" }
@@ -118,10 +437,16 @@ function Nav() {
       {mobileOpen && (
         <div className="md:hidden px-6 pb-6 pt-2 flex flex-col gap-4"
           style={{ background: "rgba(209,248,255,0.98)", borderTop: `1px solid ${BORDER}` }}>
-          {["How It Works", "Creators", "Brands", "Campaigns", "Blog"].map((label) => (
-            <Link key={label} to="/" onClick={() => setMobileOpen(false)}
+          {[
+            { label: "How It Works", href: "/" },
+            { label: "Creators", href: "/creators" },
+            { label: "Brands", href: "/brands" },
+            { label: "Campaigns", href: "/campaigns" },
+            { label: "Blog", href: "/" }
+          ].map((item) => (
+            <Link key={item.label} to={item.href} onClick={() => setMobileOpen(false)}
               className="text-sm text-black/70 font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              {label}
+              {item.label}
             </Link>
           ))}
           <div className="flex gap-3 pt-2">
@@ -350,7 +675,7 @@ function WhyGOC() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {reasons.map((r, i) => (
-            <div key={i} className="why-card rounded-2xl p-8 group transition-all duration-300 hover:-translate-y-1"
+            <div key={i} className="why-card rounded-2xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col"
               style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "rgba(0,0,0,0.14)";
@@ -360,20 +685,30 @@ function WhyGOC() {
                 e.currentTarget.style.borderColor = BORDER;
                 e.currentTarget.style.boxShadow = "0 4px 24px rgba(0,0,0,0.05)";
               }}>
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"
-                style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
-                <span className="text-black">{r.icon}</span>
+              {/* Visual Zone */}
+              <div className="relative h-40 w-full flex-shrink-0" style={{ background: ICE_DIM }}>
+                <GridBg opacity={0.06} />
+                <WhyGOCVisual step={i} />
+                <div className="absolute bottom-0 left-0 right-0 h-10 pointer-events-none"
+                  style={{ background: "linear-gradient(to bottom, transparent, #ffffff)" }} />
               </div>
-              <div className="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full"
-                style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-black/60">{r.highlight}</span>
+              {/* Content Zone */}
+              <div className="p-6 pt-2.5 flex-1 flex flex-col">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+                  style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
+                  <span className="text-black">{r.icon}</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full self-start"
+                  style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-black/60">{r.highlight}</span>
+                </div>
+                <h3 className="text-xl font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  {r.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-black/55 flex-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  {r.desc}
+                </p>
               </div>
-              <h3 className="text-xl font-extrabold text-black mb-3" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
-                {r.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                {r.desc}
-              </p>
             </div>
           ))}
         </div>
@@ -437,32 +772,42 @@ function HowItWorks() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {steps.map((step, i) => (
-            <div key={i} className="step-card rounded-2xl p-8 relative overflow-hidden"
-              style={{ background: "#ffffff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
-              {/* Step number watermark */}
-              <div className="absolute top-4 right-5 text-8xl font-extrabold pointer-events-none select-none"
-                style={{ color: "rgba(0,0,0,0.04)", fontFamily: "'Bricolage Grotesque', sans-serif", lineHeight: 1 }}>
-                {step.num}
+            <div key={i} className="step-card rounded-2xl overflow-hidden relative flex flex-col group transition-all duration-300 hover:-translate-y-1"
+              style={{ background: "#ffffff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)", minHeight: 400 }}>
+              
+              {/* Visual zone */}
+              <div className="relative h-44 w-full flex-shrink-0" style={{ background: ICE_DIM }}>
+                <GridBg opacity={0.06} />
+                <HowItWorksVisual step={i} />
+                <div className="absolute bottom-0 left-0 right-0 h-10 pointer-events-none"
+                  style={{ background: "linear-gradient(to bottom, transparent, #ffffff)" }} />
               </div>
 
-              <div className="relative z-10">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
+              {/* Text content */}
+              <div className="p-6 pt-2.5 flex-1 flex flex-col z-10 relative">
+                {/* Step number watermark */}
+                <div className="absolute top-2 right-4 text-6xl font-extrabold pointer-events-none select-none"
+                  style={{ color: "rgba(0,0,0,0.03)", fontFamily: "'Bricolage Grotesque', sans-serif", lineHeight: 1 }}>
+                  {step.num}
+                </div>
+
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
                   style={{ background: ICE, border: `1px solid rgba(0,0,0,0.1)` }}>
                   <span className="text-black">{step.icon}</span>
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 mb-4 px-2.5 py-1 rounded-full"
+                <div className="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full self-start"
                   style={{ background: "rgba(0,0,0,0.05)", border: `1px solid rgba(0,0,0,0.06)` }}>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-black/50">Step {i + 1}</span>
                 </div>
 
-                <h3 className="text-xl font-extrabold text-black mb-3" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <h3 className="text-xl font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
                   {step.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-black/55 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <p className="text-sm leading-relaxed text-black/55 mb-4 flex-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                   {step.desc}
                 </p>
-                <div className="pt-4 border-t" style={{ borderColor: "rgba(0,0,0,0.07)" }}>
+                <div className="pt-4 border-t mt-auto" style={{ borderColor: "rgba(0,0,0,0.07)" }}>
                   <p className="text-xs text-black/40 italic" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                     {step.detail}
                   </p>
@@ -699,7 +1044,7 @@ function FeaturesBento() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
           {features.map((f, i) => (
             <div key={i}
-              className={`bento-card rounded-2xl p-7 group transition-all duration-300 hover:-translate-y-1 ${f.wide ? "md:col-span-2" : "md:col-span-1"}`}
+              className={`bento-card rounded-2xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col ${f.wide ? "md:col-span-2 md:flex-row items-stretch" : "md:col-span-1"}`}
               style={{ background: "#ffffff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "rgba(0,0,0,0.14)";
@@ -709,16 +1054,47 @@ function FeaturesBento() {
                 e.currentTarget.style.borderColor = BORDER;
                 e.currentTarget.style.boxShadow = "0 4px 24px rgba(0,0,0,0.05)";
               }}>
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
-                <span className="text-black">{f.icon}</span>
-              </div>
-              <h3 className="text-lg font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
-                {f.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                {f.desc}
-              </p>
+              {f.wide ? (
+                <>
+                  <div className="p-7 flex-1 flex flex-col justify-center">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+                      style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
+                      <span className="text-black">{f.icon}</span>
+                    </div>
+                    <h3 className="text-lg font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                      {f.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                      {f.desc}
+                    </p>
+                  </div>
+                  <div className="relative w-full md:w-1/2 min-h-[140px] flex-shrink-0" style={{ background: ICE_DIM }}>
+                    <GridBg opacity={0.06} />
+                    <BentoVisual step={i} />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="relative h-36 w-full flex-shrink-0" style={{ background: ICE_DIM }}>
+                    <GridBg opacity={0.06} />
+                    <BentoVisual step={i} />
+                    <div className="absolute bottom-0 left-0 right-0 h-8 pointer-events-none"
+                      style={{ background: "linear-gradient(to bottom, transparent, #ffffff)" }} />
+                  </div>
+                  <div className="p-6 pt-2.5 flex-1">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+                      style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
+                      <span className="text-black">{f.icon}</span>
+                    </div>
+                    <h3 className="text-lg font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                      {f.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                      {f.desc}
+                    </p>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>

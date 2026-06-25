@@ -216,7 +216,7 @@ function Nav({ onBrowse, onHome, solid = false }: { onBrowse?: () => void; onHom
         <div className="hidden md:flex items-center gap-8">
           {[
             { label: "How It Works", href: "/" },
-            { label: "Creators", href: "/" },
+            { label: "Creators", href: "/creators" },
             { label: "Brands", href: "/brands" },
             { label: "Campaigns", href: "/campaigns" },
             { label: "Blog", href: "/" }
@@ -254,7 +254,7 @@ function Nav({ onBrowse, onHome, solid = false }: { onBrowse?: () => void; onHom
           style={{ background: "rgba(209, 248, 255, 0.98)", borderTop: "1px solid rgba(0,0,0,0.08)" }}>
           {[
             { label: "How It Works", href: "/" },
-            { label: "Creators", href: "/" },
+            { label: "Creators", href: "/creators" },
             { label: "Brands", href: "/brands" },
             { label: "Campaigns", href: "/campaigns" },
             { label: "Blog", href: "/" }
