@@ -220,10 +220,10 @@ export default function JoinCreatorPage() {
                 </p>
               </div>
               <button 
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/creator/dashboard")}
                 className="btn-primary-gradient px-8 py-3 rounded-full text-xs"
               >
-                Go to Landing Page
+                Enter Creator Dashboard
               </button>
             </div>
           )}

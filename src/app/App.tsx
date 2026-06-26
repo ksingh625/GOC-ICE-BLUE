@@ -2220,7 +2220,7 @@ function ForCreators() {
 // ─── Campaign Showcase ────────────────────────────────────────────────────────
 // ─── Campaign Inner Page Data ──────────────────────────────────────────────────
 
-const ALL_CAMPAIGN_DATA = [
+export const ALL_CAMPAIGN_DATA = [
   {
     id: 1,
     brand: "Creator Casino",

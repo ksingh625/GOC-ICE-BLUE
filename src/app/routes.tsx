@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import LandingPage from "./pages/LandingPage";
 import BrandPage from "./pages/BrandPage";
 import CampaignsPage from "./pages/CampaignsPage";
@@ -14,6 +14,17 @@ import ContactPage from "./pages/ContactPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsOfServicePage from "./pages/TermsOfServicePage";
 import JobsPage from "./pages/JobsPage";
+import LoginPage from "./pages/LoginPage";
+
+// Creator Dashboard imports
+import CreatorDashboardLayout from "./pages/creator/CreatorDashboardLayout";
+import CreatorDashboardPage from "./pages/creator/CreatorDashboardPage";
+import CreatorCampaignsPage from "./pages/creator/CreatorCampaignsPage";
+import CreatorSubmissionsPage from "./pages/creator/CreatorSubmissionsPage";
+import CreatorLeaderboardPage from "./pages/creator/CreatorLeaderboardPage";
+import CreatorGettingStartedPage from "./pages/creator/CreatorGettingStartedPage";
+import CreatorWalletPage from "./pages/creator/CreatorWalletPage";
+import CreatorSettingsPage from "./pages/creator/CreatorSettingsPage";
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +64,14 @@ export const router = createBrowserRouter([
     Component: JoinCreatorPage,
   },
   {
+    path: "/login",
+    Component: LoginPage,
+  },
+  {
+    path: "/signup",
+    Component: LoginPage,
+  },
+  {
     path: "/about",
     Component: AboutUsPage,
   },
@@ -76,9 +95,49 @@ export const router = createBrowserRouter([
     path: "/jobs",
     Component: JobsPage,
   },
+  
+  // Creator Portal Routes
+  {
+    path: "/creator",
+    Component: CreatorDashboardLayout,
+    children: [
+      {
+        path: "",
+        element: <Navigate to="dashboard" replace />,
+      },
+      {
+        path: "dashboard",
+        Component: CreatorDashboardPage,
+      },
+      {
+        path: "campaigns",
+        Component: CreatorCampaignsPage,
+      },
+      {
+        path: "submissions",
+        Component: CreatorSubmissionsPage,
+      },
+      {
+        path: "leaderboard",
+        Component: CreatorLeaderboardPage,
+      },
+      {
+        path: "getting-started",
+        Component: CreatorGettingStartedPage,
+      },
+      {
+        path: "wallet",
+        Component: CreatorWalletPage,
+      },
+      {
+        path: "settings",
+        Component: CreatorSettingsPage,
+      },
+    ],
+  },
+
   {
     path: "*",
     Component: LandingPage,
   },
 ]);
-

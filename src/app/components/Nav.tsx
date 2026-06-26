@@ -60,7 +60,8 @@ export function Nav({
 
   // Determine signup/login target based on path
   const isCreatorFlow = location.pathname.startsWith("/creators") || location.pathname.startsWith("/join-creator");
-  const authTarget = isCreatorFlow ? "/join-creator" : "/get-started";
+  const loginTarget = isCreatorFlow ? "/login?role=creator" : "/login?role=brand";
+  const signupTarget = isCreatorFlow ? "/signup?role=creator" : "/signup?role=brand";
   const signUpLabel = isCreatorFlow ? "Start Creating" : "Sign Up";
 
   return (
@@ -196,7 +197,7 @@ export function Nav({
           ) : (
             <>
               <Link
-                to={authTarget}
+                to={loginTarget}
                 className={
                   isDark
                     ? "btn-secondary-dark px-5 py-2 text-sm rounded-full text-white"
@@ -205,7 +206,7 @@ export function Nav({
               >
                 Login
               </Link>
-              <Link to={authTarget} className="btn-primary-gradient px-5 py-2 text-sm rounded-full">
+              <Link to={signupTarget} className="btn-primary-gradient px-5 py-2 text-sm rounded-full">
                 {signUpLabel}
               </Link>
             </>
@@ -277,14 +278,14 @@ export function Nav({
           ) : (
             <div className="flex gap-3 pt-2">
               <Link
-                to={authTarget}
+                to={loginTarget}
                 onClick={() => setMobileOpen(false)}
                 className="btn-secondary-dark flex-1 py-2.5 text-sm rounded-full text-center"
               >
                 Login
               </Link>
               <Link
-                to={authTarget}
+                to={signupTarget}
                 onClick={() => setMobileOpen(false)}
                 className="btn-primary-gradient flex-1 py-2.5 text-sm rounded-full text-center"
               >

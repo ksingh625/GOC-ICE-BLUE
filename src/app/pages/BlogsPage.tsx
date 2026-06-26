@@ -57,10 +57,10 @@ export default function BlogsPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-black">
       
-      <Nav solid={true} />
+      <Nav />
 
       {/* HERO */}
-      <section className="py-16 px-6 bg-gradient-to-b from-[#f0fafd] to-slate-50 text-left">
+      <section className="pt-24 pb-16 px-6 bg-gradient-to-b from-[#f0fafd] to-slate-50 text-left">
         <div className="max-w-5xl mx-auto">
           <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase bg-[#d1f8ff] text-black border border-black/5 mb-4">
             Resources & Blogs
