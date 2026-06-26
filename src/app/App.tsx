@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef, useCallback, useLayoutEffect } from "react";
 import { RouterProvider, Link, useNavigate } from "react-router";
 import { router } from "./routes";
+import { Nav } from "./components/Nav";
+import { Footer } from "./components/Footer";
+export { Nav, Footer };
 import GOCLogo from "../imports/GOC-Logo.png";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -174,102 +177,7 @@ function WaveDivider({ flip = false }: { flip?: boolean }) {
   );
 }
 
-// ─── Nav ──────────────────────────────────────────────────────────────────────
-function Nav({ onBrowse, onHome, solid = false }: { onBrowse?: () => void; onHome?: () => void; solid?: boolean }) {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const navRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handler);
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
-
-  useEffect(() => {
-    if (!navRef.current) return;
-    gsap.fromTo(navRef.current, { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.2 });
-  }, []);
-
-  const isSolid = solid || scrolled;
-
-  return (
-    <nav
-      ref={navRef}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-      style={{
-        background: isSolid ? "rgba(255,255,255,0.95)" : "transparent",
-        backdropFilter: isSolid ? "blur(20px)" : "none",
-        borderBottom: isSolid ? "1px solid rgba(0,0,0,0.08)" : "none",
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center group focus:outline-none">
-          <img
-            src={GOCLogo}
-            alt="Game of Creators"
-            className="transition-all duration-200 group-hover:opacity-90"
-            style={{ height: 36, width: "auto", filter: isSolid ? "brightness(0)" : "brightness(0)", cursor: "pointer" }}
-          />
-        </Link>
-
-        <div className="hidden md:flex items-center gap-8">
-          {[
-            { label: "How It Works", href: "/" },
-            { label: "Creators", href: "/creators" },
-            { label: "Brands", href: "/brands" },
-            { label: "Campaigns", href: "/campaigns" },
-            { label: "Blog", href: "/" }
-          ].map((item) => {
-            const isLink = item.href !== "#";
-            const Component = isLink ? Link : "a";
-            return (
-              <Component
-                key={item.label}
-                {...(isLink ? { to: item.href } : { href: "#" })}
-                className="text-sm font-medium relative group"
-                style={{ color: item.label === "Campaigns" ? "#000000" : "rgba(0,0,0,0.6)", fontFamily: "'DM Sans', sans-serif" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#000000")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = item.label === "Campaigns" ? "#000000" : "rgba(0,0,0,0.6)")}
-              >
-                {item.label}
-                <span className="absolute -bottom-0.5 left-0 w-0 h-px group-hover:w-full transition-all duration-300" style={{ background: "#000000" }} />
-              </Component>
-            );
-          })}
-        </div>
-
-        <div className="hidden md:flex items-center gap-3">
-          <button className="btn-secondary-dark px-5 py-2 text-sm rounded-full">Login</button>
-          <button className="btn-primary-gradient px-5 py-2 text-sm rounded-full">Sign Up</button>
-        </div>
-
-        <button className="md:hidden text-black" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
-
-      {mobileOpen && (
-        <div className="md:hidden px-6 pb-6 pt-2 flex flex-col gap-4"
-          style={{ background: "rgba(209, 248, 255, 0.98)", borderTop: "1px solid rgba(0,0,0,0.08)" }}>
-          {[
-            { label: "How It Works", href: "/" },
-            { label: "Creators", href: "/creators" },
-            { label: "Brands", href: "/brands" },
-            { label: "Campaigns", href: "/campaigns" },
-            { label: "Blog", href: "/" }
-          ].map((item) => (
-            <Link key={item.label} to={item.href} onClick={() => setMobileOpen(false)} className="text-sm text-black/70 font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>{item.label}</Link>
-          ))}
-          <div className="flex gap-3 pt-2">
-            <button className="btn-secondary-dark flex-1 py-2.5 text-sm rounded-full">Login</button>
-            <button className="btn-primary-gradient flex-1 py-2.5 text-sm rounded-full">Sign Up</button>
-          </div>
-        </div>
-      )}
-    </nav>
-  );
-}
+// Nav is imported from components/Nav
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 // ─── Brand marquee ────────────────────────────────────────────────────────────
@@ -3422,66 +3330,7 @@ function CTABanner() {
   );
 }
 
-// ─── Footer ───────────────────────────────────────────────────────────────────
-function Footer() {
-  const cols = [
-    { heading: "Platform", links: ["How It Works", "For Brands", "For Creators", "Campaigns", "Pricing"] },
-    { heading: "Company", links: ["About Us", "Blog", "Careers", "Press", "Contact"] },
-    { heading: "Legal", links: ["Privacy Policy", "Terms of Service", "Cookie Policy", "Creator Agreement"] },
-  ];
-
-  return (
-    <footer className="py-24 px-8" style={{ background: "linear-gradient(180deg, #ffffff 0%, #f0fcff 100%)" }}>
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-5 gap-12 mb-16">
-          <div className="md:col-span-2">
-            <div className="mb-4">
-              <img
-                src={GOCLogo}
-                alt="Game of Creators"
-                style={{ height: 32, width: "auto", filter: "none" }}
-              />
-            </div>
-            <p className="text-sm leading-relaxed mb-6 max-w-xs" style={{ color: "rgba(0,0,0,0.6)", fontFamily: "'DM Sans', sans-serif" }}>
-              Democratizing creator marketing. Making brand opportunities accessible to everyone, regardless of audience size, location, or background.
-            </p>
-            <div className="flex gap-3">
-              {[Instagram, Youtube, Twitter].map((Icon, i) => (
-                <a key={i} href="#"
-                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200"
-                  style={{ background: "rgba(0,0,0,0.03)", color: "rgba(0,0,0,0.5)", border: "1px solid rgba(0,0,0,0.08)" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = "#d1f8ff"; e.currentTarget.style.color = "#000000"; e.currentTarget.style.borderColor = "rgba(0,0,0,0.15)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(0,0,0,0.03)"; e.currentTarget.style.color = "rgba(0,0,0,0.5)"; e.currentTarget.style.borderColor = "rgba(0,0,0,0.08)"; e.currentTarget.style.transform = "none"; }}>
-                  <Icon size={15} />
-                </a>
-              ))}
-            </div>
-          </div>
-          {cols.map(({ heading, links }) => (
-            <div key={heading}>
-              <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: "rgba(0,0,0,0.45)", fontFamily: "'DM Sans', sans-serif" }}>{heading}</p>
-              <div className="flex flex-col gap-2.5">
-                {links.map((link) => (
-                  <a key={link} href="#" className="text-sm transition-colors duration-150"
-                    style={{ color: "rgba(0,0,0,0.65)", fontFamily: "'DM Sans', sans-serif" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#000000")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(0,0,0,0.65)")}>
-                    {link}
-                  </a>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8"
-          style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}>
-          <p className="text-xs" style={{ color: "rgba(0,0,0,0.4)", fontFamily: "'DM Sans', sans-serif" }}>© 2025 Game of Creators. All rights reserved.</p>
-          <p className="text-xs" style={{ color: "rgba(0,0,0,0.4)", fontFamily: "'DM Sans', sans-serif" }}>Built for creators. Trusted by brands. Powered by competition.</p>
-        </div>
-      </div>
-    </footer>
-  );
-}
+// Footer is imported from components/Footer
 
 // ─── Campaign Inner Page Data & Platforms ───────────────────────────────────
 const PLATFORMS = [

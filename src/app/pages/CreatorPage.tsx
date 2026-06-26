@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
+import { Nav, Footer } from "../App";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TextPlugin } from "gsap/TextPlugin";
@@ -55,91 +56,7 @@ function GridBg({ opacity = 0.06 }: { opacity?: number }) {
   );
 }
 
-// ─── Nav ─────────────────────────────────────────────────────────────────────
-function Nav() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const navRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handler);
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
-
-  useEffect(() => {
-    if (!navRef.current) return;
-    gsap.fromTo(navRef.current, { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.2 });
-  }, []);
-
-  return (
-    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-      style={{
-        background: scrolled ? "rgba(255,255,255,0.95)" : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? `1px solid ${BORDER}` : "none",
-      }}>
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center group focus:outline-none">
-          <img src={GOCLogo} alt="Game of Creators"
-            className="transition-all duration-200 group-hover:opacity-90"
-            style={{ height: 36, width: "auto", filter: "brightness(0)", cursor: "pointer" }} />
-        </Link>
-
-        <div className="hidden md:flex items-center gap-8">
-          {[
-            { label: "How It Works", href: "/" },
-            { label: "Creators", href: "/creators" },
-            { label: "Brands", href: "/brands" },
-            { label: "Campaigns", href: "/campaigns" },
-            { label: "Blog", href: "/" }
-          ].map((item) => (
-            <Link key={item.label} to={item.href}
-              className="text-sm font-medium relative group"
-              style={{ color: item.label === "Creators" ? BLK : "rgba(0,0,0,0.6)", fontFamily: "'DM Sans', sans-serif" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = BLK)}
-              onMouseLeave={(e) => (e.currentTarget.style.color = item.label === "Creators" ? BLK : "rgba(0,0,0,0.6)")}>
-              {item.label}
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px group-hover:w-full transition-all duration-300"
-                style={{ background: BLK }} />
-            </Link>
-          ))}
-        </div>
-
-        <div className="hidden md:flex items-center gap-3">
-          <button className="btn-secondary-dark px-5 py-2 text-sm rounded-full">Login</button>
-          <button className="btn-primary-gradient px-5 py-2 text-sm rounded-full">Start Creating</button>
-        </div>
-
-        <button className="md:hidden text-black" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
-
-      {mobileOpen && (
-        <div className="md:hidden px-6 pb-6 pt-2 flex flex-col gap-4"
-          style={{ background: "rgba(209,248,255,0.98)", borderTop: `1px solid ${BORDER}` }}>
-          {[
-            { label: "How It Works", href: "/" },
-            { label: "Creators", href: "/creators" },
-            { label: "Brands", href: "/brands" },
-            { label: "Campaigns", href: "/campaigns" },
-            { label: "Blog", href: "/" }
-          ].map((item) => (
-            <Link key={item.label} to={item.href} onClick={() => setMobileOpen(false)}
-              className="text-sm text-black/70 font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              {item.label}
-            </Link>
-          ))}
-          <div className="flex gap-3 pt-2">
-            <button className="btn-secondary-dark flex-1 py-2.5 text-sm rounded-full">Login</button>
-            <button className="btn-primary-gradient flex-1 py-2.5 text-sm rounded-full">Get Started</button>
-          </div>
-        </div>
-      )}
-    </nav>
-  );
-}
+// Nav is imported from ../App
 
 // ─── Visual Helpers for Cards ─────────────────────────────────────────────────
 function WhyCreatorVisual({ step }: { step: number }) {
@@ -1731,80 +1648,7 @@ function CTABanner() {
   );
 }
 
-// ─── Footer ───────────────────────────────────────────────────────────────────
-function Footer() {
-  return (
-    <footer className="py-16 px-6" style={{ background: "#ffffff", borderTop: `1px solid ${BORDER}` }}>
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div>
-            <img src={GOCLogo} alt="Game of Creators"
-              style={{ height: 32, width: "auto", marginBottom: 16, filter: "brightness(0)" }} />
-            <p className="text-sm mb-6 text-black/45 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              Democratized creator payments. Join open contests, upload complying UGC, and rank to win escrow-protected prizes.
-            </p>
-            <div className="flex items-center gap-3">
-              {[Instagram, Twitter, Youtube, Linkedin].map((Icon, i) => (
-                <a key={i} href="#"
-                  className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300"
-                  style={{ background: ICE_DIM, border: `1px solid ${BORDER}` }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = ICE;
-                    e.currentTarget.style.borderColor = "rgba(0,0,0,0.12)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = ICE_DIM;
-                    e.currentTarget.style.borderColor = BORDER;
-                  }}>
-                  <Icon size={15} className="text-black/60" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {[
-            { title: "Platform", links: ["How It Works", "For Brands", "For Creators", "Campaigns", "Analytics"] },
-            { title: "Company", links: ["About", "Blog", "Careers", "Press", "Contact"] },
-            { title: "Resources", links: ["Help Center", "Creator Guide", "Brand Guide", "Partners", "Terms"] },
-          ].map((col) => (
-            <div key={col.title}>
-              <h4 className="text-xs font-bold uppercase tracking-widest mb-4 text-black/40"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
-                {col.title}
-              </h4>
-              <ul className="space-y-3">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-sm text-black/55 transition-all duration-200 hover:text-black"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        <div className="pt-8 border-t flex flex-col md:flex-row items-center justify-between gap-4"
-          style={{ borderColor: BORDER }}>
-          <p className="text-sm text-black/35" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-            © 2026 Game of Creators. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (
-              <a key={item} href="#"
-                className="text-sm text-black/40 transition-all duration-200 hover:text-black"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                {item}
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
+// Footer is imported from ../App
 
 // ─── Social Proof / Testimonials ──────────────────────────────────────────────
 const TESTIMONIALS = [
