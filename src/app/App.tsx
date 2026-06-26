@@ -202,13 +202,14 @@ function BrandMarquee() {
     const track = trackRef.current;
     if (!track) return;
 
-    // Duplicate items so the loop is seamless
+    // We use half the scroll width because the items are doubled
     const totalW = track.scrollWidth / 2;
 
     const ctx = gsap.context(() => {
+      // Seamless GSAP loop
       tweenRef.current = gsap.to(track, {
         x: `-=${totalW}`,
-        duration: 22,
+        duration: 40, // Nice and slow
         ease: "none",
         repeat: -1,
         modifiers: {
@@ -218,36 +219,35 @@ function BrandMarquee() {
 
       // Fade the whole section in on scroll
       gsap.fromTo(sectionRef.current,
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.9, ease: "power2.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 92%" } }
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out",
+          scrollTrigger: { trigger: sectionRef.current, start: "top 95%" } }
       );
     }, sectionRef);
 
-    return () => {
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
-  const pause  = () => tweenRef.current?.pause();
-  const resume = () => tweenRef.current?.resume();
+  const pause  = () => tweenRef.current?.timeScale(0.2); 
+  const resume = () => tweenRef.current?.timeScale(1);
 
   return (
-    <div ref={sectionRef} className="mt-24 select-none" style={{ opacity: 0 }}>
-      {/* Label */}
-      <p className="text-center mb-10 text-xs font-semibold tracking-[0.22em] uppercase"
-        style={{ color: "rgba(0,0,0,0.35)", fontFamily: "'DM Sans', sans-serif" }}>
-        Trusted by leading brands
-      </p>
+    <div ref={sectionRef} className="mt-32 select-none relative z-20 mb-12" style={{ opacity: 0 }}>
+      {/* Sleek Header like the reference */}
+      <h3 className="text-center mb-12 text-lg md:text-xl font-medium tracking-tight"
+        style={{ color: "rgba(0,0,0,0.85)", fontFamily: "'DM Sans', sans-serif" }}>
+        The most innovative brands build on Game of Creators
+      </h3>
 
-      {/* Fade masks on edges */}
-      <div className="relative overflow-hidden">
-        <div className="absolute left-0 top-0 bottom-0 w-28 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, rgba(209,248,255,1) 0%, rgba(209,248,255,0) 100%)" }} />
-        <div className="absolute right-0 top-0 bottom-0 w-28 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, rgba(209,248,255,1) 0%, rgba(209,248,255,0) 100%)" }} />
-
-        {/* Scrolling track — doubled for seamless loop */}
+      {/* Perfect edge fade mask */}
+      <div 
+        className="relative overflow-hidden w-full max-w-6xl mx-auto"
+        style={{ 
+          WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+          maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)"
+        }}
+      >
+        {/* Scrolling track */}
         <div
           ref={trackRef}
           className="flex items-center"
@@ -257,34 +257,29 @@ function BrandMarquee() {
         >
           {[...BRANDS, ...BRANDS].map((brand, i) => {
             const isHovered = hoveredIdx === i;
+            // When nothing is hovered, default opacity is 0.4. When something is hovered, it's 1.0, others are 0.2.
+            const itemOpacity = hoveredIdx === null ? 0.45 : (isHovered ? 1 : 0.2);
+            
             return (
               <div
                 key={i}
-                className="flex items-center gap-2.5 cursor-pointer transition-all duration-300"
-                style={{ padding: "10px 36px" }}
+                className="flex items-center gap-2.5 cursor-pointer transition-all duration-500 group"
+                style={{ 
+                  padding: "10px 48px", // Generous spacing like the reference
+                  opacity: itemOpacity,
+                  filter: hoveredIdx === null ? "grayscale(100%)" : (isHovered ? "grayscale(0%)" : "grayscale(100%)")
+                }}
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
               >
-                {/* Separator dot */}
-                {i > 0 && (
-                  <span className="w-1 h-1 rounded-full mr-6 flex-shrink-0"
-                    style={{ background: "rgba(0,0,0,0.15)", marginLeft: -28 }} />
-                )}
-
-                {/* Icon */}
-                <span className="transition-all duration-300 flex-shrink-0"
-                  style={{ color: isHovered ? "#000000" : "rgba(0,0,0,0.3)" }}>
+                {/* Minimal Icon + Name Combo */}
+                <span className="flex-shrink-0 text-black">
                   {brand.icon}
                 </span>
-
-                {/* Name */}
                 <span
-                  className="font-bold tracking-[0.15em] uppercase text-sm transition-all duration-300 whitespace-nowrap"
+                  className="font-bold text-lg whitespace-nowrap text-black tracking-tight"
                   style={{
                     fontFamily: "'Bricolage Grotesque', sans-serif",
-                    color: isHovered ? "#000000" : "rgba(0,0,0,0.35)",
-                    textShadow: isHovered ? "0 0 20px rgba(0,0,0,0.1)" : "none",
-                    letterSpacing: "0.15em",
                   }}
                 >
                   {brand.name}
@@ -297,6 +292,7 @@ function BrandMarquee() {
     </div>
   );
 }
+
 
 // ─── Animated line chart inside dashboard ────────────────────────────────��────
 const CHART_LINE = "M0,50 C30,45 60,20 90,30 C120,40 150,10 180,15 C210,20 240,35 270,22 L300,18";
@@ -640,8 +636,31 @@ function Hero({ onBrowse }: { onBrowse?: () => void }) {
       tl.fromTo(badgeRef.current, { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.7 }, 0.3)
         .fromTo(headlineRef.current, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.9 }, 0.55)
         .fromTo(subRef.current, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.7 }, 0.8)
-        .fromTo(ctaRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 1.0)
-        .fromTo(dashRef.current, { opacity: 0, y: 60, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 1 }, 1.1);
+        .fromTo(ctaRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 1.0);
+
+      // Sleek blur & scale parallax scroll animation for the dashboard
+      if (dashRef.current) {
+        gsap.set(dashRef.current, { 
+          filter: "blur(24px)",
+          opacity: 0, 
+          scale: 0.92, 
+          y: 150 
+        });
+        
+        gsap.to(dashRef.current, {
+          filter: "blur(0px)",
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: dashRef.current,
+            start: "top 90%",
+            end: "top 30%",
+            scrub: 1, 
+          }
+        });
+      }
 
       // Orb slow float
       if (orbRef.current) {
@@ -717,14 +736,6 @@ function Hero({ onBrowse }: { onBrowse?: () => void }) {
       <SparkleSVG className="hero-sparkle absolute top-48 right-24 opacity-40" style={{ width: 14, height: 14 } as React.CSSProperties} />
       <SparkleSVG className="hero-sparkle absolute bottom-72 left-32 opacity-30" style={{ width: 12, height: 12 } as React.CSSProperties} />
       <SparkleSVG className="hero-sparkle absolute top-64 right-48 opacity-50" style={{ width: 16, height: 16 } as React.CSSProperties} />
-
-      {/* Animated ring */}
-      <div className="absolute pointer-events-none" style={{ bottom: "8%", left: "50%", transform: "translateX(-50%)" }}>
-        <svg width="1000" height="200" viewBox="0 0 1000 200" fill="none" opacity="0.12">
-          <ellipse cx="500" cy="180" rx="480" ry="60" stroke={AMBER} strokeWidth="1" strokeDasharray="8 4" />
-          <ellipse cx="500" cy="180" rx="340" ry="40" stroke={AMBER} strokeWidth="0.5" strokeDasharray="5 8" />
-        </svg>
-      </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 pt-28 pb-16">
         {/* Badge */}
