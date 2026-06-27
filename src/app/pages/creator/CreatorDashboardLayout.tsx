@@ -121,7 +121,7 @@ export default function CreatorDashboardLayout() {
       {/* ── SIDEBAR (DESKTOP) ── */}
       <aside 
         className={`hidden md:flex flex-col bg-white border-r border-neutral-200/60 transition-all duration-300 relative z-30 ${
-          sidebarCollapsed ? "w-20" : "w-64"
+          sidebarCollapsed ? "w-20" : "w-72"
         }`}
       >
         {/* Logo Section */}
@@ -132,36 +132,36 @@ export default function CreatorDashboardLayout() {
         </div>
 
         {/* Navigation Items */}
-        <div className="flex-1 py-6 px-3 space-y-1.5 overflow-y-auto">
+        <div className="flex-1 py-6 px-4 space-y-2 overflow-y-auto">
           {navItems.map((item) => {
             const active = location.pathname === item.href;
             return (
               <Link
                 key={item.label}
                 to={item.href}
-                className={`flex items-center gap-3.5 px-3 py-3 rounded-xl transition-all duration-200 group text-left relative ${
+                className={`flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all duration-200 group text-left relative ${
                   active 
-                    ? "bg-[#d1f8ff]/50 text-black font-bold" 
-                    : "text-neutral-500 hover:text-black hover:bg-neutral-50"
+                    ? "bg-black text-white shadow-md font-bold" 
+                    : "text-neutral-500 hover:text-black hover:bg-neutral-100"
                 }`}
               >
                 {/* Active left indicator tag */}
                 {active && (
-                  <div className="absolute left-0 top-3 bottom-3 w-1 bg-black rounded-r" />
+                  <div className="absolute left-0 top-3 bottom-3 w-1.5 bg-emerald-400 rounded-r shadow-sm" />
                 )}
-                <div className={`transition-transform duration-200 group-hover:scale-105 ${active ? "text-black" : "text-neutral-400 group-hover:text-black"}`}>
+                <div className={`transition-transform duration-200 group-hover:scale-105 ${active ? "text-white" : "text-neutral-400 group-hover:text-black"}`}>
                   {item.icon}
                 </div>
                 {!sidebarCollapsed && (
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs font-bold leading-tight">{item.label}</p>
-                    <p className="text-[9px] text-neutral-450 mt-0.5 leading-none font-medium truncate group-hover:text-neutral-600 transition-colors">
+                    <p className="text-sm font-bold leading-tight">{item.label}</p>
+                    <p className={`text-xs mt-1 leading-none font-medium truncate transition-colors ${active ? "text-white/70" : "text-neutral-400 group-hover:text-neutral-500"}`}>
                       {item.desc}
                     </p>
                   </div>
                 )}
                 {!sidebarCollapsed && !active && (
-                  <ChevronRight size={10} className="text-neutral-350 opacity-0 group-hover:opacity-100 transition-all duration-200" />
+                  <ChevronRight size={14} className="text-neutral-300 opacity-0 group-hover:opacity-100 transition-all duration-200" />
                 )}
               </Link>
             );
@@ -170,15 +170,15 @@ export default function CreatorDashboardLayout() {
 
         {/* Support Help Block */}
         {!sidebarCollapsed && (
-          <div className="p-4 m-3 rounded-2xl bg-[#d1f8ff]/20 border border-black/5 flex flex-col items-center text-center">
-            <div className="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center mb-2.5 shadow-sm">
-              <PhoneCall size={14} className="text-[#d1f8ff]" />
+          <div className="p-5 m-4 rounded-2xl bg-neutral-100 border border-neutral-200/80 flex flex-col items-center text-center">
+            <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center mb-3 shadow-sm">
+              <PhoneCall size={16} className="text-emerald-400" />
             </div>
-            <h4 className="text-[11px] font-extrabold text-black">We're here to help</h4>
-            <p className="text-[9px] text-neutral-500 mt-1 max-w-[150px] leading-normal font-semibold">Have doubts about payouts or uploading? Call Vishesh.</p>
+            <h4 className="text-sm font-black text-black">We're here to help</h4>
+            <p className="text-xs text-neutral-500 mt-1 max-w-[180px] leading-relaxed font-semibold">Have doubts about payouts or uploading? Call Vishesh.</p>
             <a 
               href="tel:+919876543210" 
-              className="mt-3 w-full py-1.5 rounded-lg bg-black text-white text-[10px] font-bold hover:bg-black/90 transition-colors inline-block"
+              className="mt-4 w-full py-2.5 rounded-xl bg-black text-white text-xs font-bold hover:bg-black/90 transition-colors inline-block"
             >
               Strategic Support
             </a>
@@ -265,9 +265,9 @@ export default function CreatorDashboardLayout() {
             </button>
 
             {/* Path details */}
-            <div className="flex items-center gap-1.5 text-xs text-neutral-500 font-medium">
-              <span>Creator</span>
-              <ChevronRight size={10} className="text-neutral-350" />
+            <div className="flex items-center gap-2 text-sm text-neutral-500 font-medium">
+              <span>Creator Portal</span>
+              <ChevronRight size={14} className="text-neutral-300" />
               <span className="text-black font-extrabold">{getPageTitle()}</span>
             </div>
           </div>
@@ -309,18 +309,18 @@ export default function CreatorDashboardLayout() {
             <div className="relative">
               <button 
                 onClick={() => setDrawerOpen(true)}
-                className="flex items-center gap-2 px-2 py-1 border border-neutral-200/80 rounded-full hover:bg-neutral-50 transition-colors focus:outline-none cursor-pointer"
+                className="flex items-center gap-3 px-3 py-1.5 border border-neutral-200/80 rounded-full hover:bg-neutral-50 transition-colors focus:outline-none cursor-pointer"
               >
-                <div className="w-7 h-7 rounded-full bg-black flex items-center justify-center font-black text-xs text-[#d1f8ff] shadow-sm">
+                <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center font-black text-sm text-white shadow-sm">
                   {currentAccount.avatar}
                 </div>
                 <div className="text-left hidden lg:block pr-1">
-                  <p className="text-[10px] font-black leading-none text-black">{currentAccount.name}</p>
-                  <span className="text-[8px] font-extrabold tracking-wider bg-[#d1f8ff] text-black border border-black/10 px-1.5 py-0.2 rounded mt-0.5 inline-block uppercase leading-none">
+                  <p className="text-xs font-black leading-none text-black">{currentAccount.name}</p>
+                  <span className="text-[10px] font-bold tracking-wider text-neutral-500 mt-1 inline-block leading-none">
                     {currentAccount.handle}
                   </span>
                 </div>
-                <ChevronDown size={11} className="text-neutral-450 hidden lg:block" />
+                <ChevronDown size={14} className="text-neutral-400 hidden lg:block" />
               </button>
             </div>
 
@@ -347,64 +347,64 @@ export default function CreatorDashboardLayout() {
             <div className="space-y-6">
               {/* Header */}
               <div className="flex items-center justify-between border-b border-neutral-100 pb-4">
-                <h3 className="text-sm font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <h3 className="text-lg font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
                   Creator Profile
                 </h3>
                 <button 
                   onClick={() => setDrawerOpen(false)} 
-                  className="w-8 h-8 rounded-lg border border-neutral-200 hover:bg-neutral-50 flex items-center justify-center text-neutral-500 hover:text-black transition-colors cursor-pointer"
+                  className="w-8 h-8 rounded-lg border border-neutral-200 hover:bg-neutral-100 flex items-center justify-center text-neutral-500 hover:text-black transition-colors cursor-pointer"
                 >
-                  <X size={16} />
+                  <X size={18} />
                 </button>
               </div>
 
               {/* Profile Card */}
-              <div className="p-4 rounded-2xl bg-[#d1f8ff]/20 border border-neutral-200/60 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-black text-[#d1f8ff] flex items-center justify-center font-black text-lg shadow-md border border-black/10">
+              <div className="p-5 rounded-2xl bg-neutral-50 border border-neutral-200 flex items-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-black text-white flex items-center justify-center font-black text-xl shadow-md border border-black/10">
                   {currentAccount.avatar}
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs font-black text-black leading-none">{currentAccount.name}</h4>
-                  <p className="text-[10px] text-neutral-500 font-bold mt-1.5">{currentAccount.handle}</p>
-                  <p className="text-[9px] text-neutral-450 mt-0.5 truncate">{currentAccount.email}</p>
+                  <h4 className="text-sm font-black text-black leading-none">{currentAccount.name}</h4>
+                  <p className="text-xs text-neutral-500 font-bold mt-2">{currentAccount.handle}</p>
+                  <p className="text-xs text-neutral-400 mt-1 truncate">{currentAccount.email}</p>
                 </div>
               </div>
 
               {/* Current Standing Statistics in Drawer */}
-              <div className="border border-neutral-200/80 rounded-2xl p-4 space-y-3.5">
-                <div className="flex justify-between items-center text-[10px] font-bold">
-                  <span className="text-neutral-400">Trust Score</span>
+              <div className="border border-neutral-200 rounded-2xl p-5 space-y-4">
+                <div className="flex justify-between items-center text-xs font-bold">
+                  <span className="text-neutral-500">Trust Score</span>
                   <span className="text-emerald-600">100 / 100 (Excellent)</span>
                 </div>
-                <div className="w-full bg-neutral-100 h-1.5 rounded-full overflow-hidden">
+                <div className="w-full bg-neutral-100 h-2 rounded-full overflow-hidden">
                   <div className="bg-emerald-500 h-full rounded-full" style={{ width: "100%" }} />
                 </div>
-                <div className="grid grid-cols-2 gap-3 pt-1 text-[9px] font-semibold text-neutral-400">
+                <div className="grid grid-cols-2 gap-4 pt-2 text-xs font-semibold text-neutral-500">
                   <div>
                     <p>Total Winnings</p>
-                    <p className="text-black font-extrabold mt-0.5">${totalEarningsVal.toFixed(2)}</p>
+                    <p className="text-black text-sm font-extrabold mt-1">${totalEarningsVal.toFixed(2)}</p>
                   </div>
                   <div>
                     <p>GOC Coins</p>
-                    <p className="text-black font-extrabold mt-0.5">{coins}</p>
+                    <p className="text-black text-sm font-extrabold mt-1">{coins}</p>
                   </div>
                 </div>
               </div>
 
               {/* Action items */}
-              <div className="space-y-1">
+              <div className="space-y-2">
                 <button 
                   onClick={() => {
                     setDrawerOpen(false);
                     setSwitcherOpen(true);
                   }}
-                  className="w-full flex items-center justify-between px-3.5 py-3 rounded-xl border border-neutral-200 hover:border-black hover:bg-neutral-50 transition-all text-xs font-bold text-neutral-700 hover:text-black cursor-pointer"
+                  className="w-full flex items-center justify-between px-4 py-4 rounded-xl border border-neutral-200 hover:border-black hover:bg-neutral-50 transition-all text-sm font-bold text-neutral-700 hover:text-black cursor-pointer"
                 >
-                  <span className="flex items-center gap-2.5">
-                    <RefreshCw size={14} className="text-neutral-450" />
+                  <span className="flex items-center gap-3">
+                    <RefreshCw size={16} className="text-neutral-500" />
                     Switch Creator Account
                   </span>
-                  <span className="text-[9px] bg-neutral-100 text-neutral-500 border border-neutral-200/60 px-2 py-0.5 rounded-md font-extrabold">
+                  <span className="text-xs bg-neutral-100 text-neutral-600 border border-neutral-200 px-2.5 py-1 rounded-md font-extrabold">
                     {currentAccount.handle}
                   </span>
                 </button>
@@ -412,30 +412,30 @@ export default function CreatorDashboardLayout() {
                 <Link 
                   to="/creator/settings" 
                   onClick={() => setDrawerOpen(false)}
-                  className="w-full flex items-center gap-2.5 px-3.5 py-3 rounded-xl hover:bg-neutral-50 transition-all text-xs font-bold text-neutral-700 hover:text-black text-left"
+                  className="w-full flex items-center gap-3 px-4 py-4 rounded-xl hover:bg-neutral-50 transition-all text-sm font-bold text-neutral-700 hover:text-black text-left"
                 >
-                  <Settings size={14} className="text-neutral-450" />
+                  <Settings size={16} className="text-neutral-500" />
                   Edit Profile Information
                 </Link>
 
                 <Link 
                   to="/creator/wallet" 
                   onClick={() => setDrawerOpen(false)}
-                  className="w-full flex items-center gap-2.5 px-3.5 py-3 rounded-xl hover:bg-neutral-50 transition-all text-xs font-bold text-neutral-700 hover:text-black text-left"
+                  className="w-full flex items-center gap-3 px-4 py-4 rounded-xl hover:bg-neutral-50 transition-all text-sm font-bold text-neutral-700 hover:text-black text-left"
                 >
-                  <Wallet size={14} className="text-neutral-450" />
+                  <Wallet size={16} className="text-neutral-500" />
                   View Wallet Balance
                 </Link>
               </div>
             </div>
 
             {/* Bottom logout block */}
-            <div className="border-t border-neutral-100 pt-4">
+            <div className="border-t border-neutral-100 pt-6">
               <button 
                 onClick={handleLogout}
-                className="w-full flex items-center justify-center gap-2 py-2.5 bg-red-50 hover:bg-red-500 text-red-500 hover:text-white transition-all rounded-xl text-xs font-extrabold cursor-pointer border border-red-200/45"
+                className="w-full flex items-center justify-center gap-2 py-3 bg-red-50 hover:bg-red-500 text-red-500 hover:text-white transition-all rounded-xl text-sm font-extrabold cursor-pointer border border-red-200"
               >
-                <LogOut size={13} />
+                <LogOut size={16} />
                 Sign Out
               </button>
             </div>
@@ -450,22 +450,22 @@ export default function CreatorDashboardLayout() {
           onClick={() => setSwitcherOpen(false)}
         >
           <div 
-            className="bg-white rounded-3xl border border-neutral-200 w-full max-w-md p-6 text-left space-y-6 shadow-2xl animate-fade-in"
+            className="bg-white rounded-3xl border border-neutral-200 w-full max-w-lg p-8 text-left space-y-6 shadow-2xl animate-fade-in"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex justify-between items-center border-b border-neutral-100 pb-3">
+            <div className="flex justify-between items-center border-b border-neutral-100 pb-4">
               <div>
-                <h3 className="text-base font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <h3 className="text-xl font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
                   Switch Creator Account
                 </h3>
-                <p className="text-[10px] text-neutral-450 font-semibold mt-0.5">Select the active identity you want to represent.</p>
+                <p className="text-xs text-neutral-500 font-semibold mt-1">Select the active identity you want to represent.</p>
               </div>
               <button 
                 onClick={() => setSwitcherOpen(false)} 
-                className="w-8 h-8 rounded-lg border border-neutral-200 hover:bg-neutral-50 flex items-center justify-center text-neutral-500 hover:text-black transition-colors cursor-pointer"
+                className="w-10 h-10 rounded-xl border border-neutral-200 hover:bg-neutral-50 flex items-center justify-center text-neutral-500 hover:text-black transition-colors cursor-pointer"
               >
-                <X size={16} />
+                <X size={18} />
               </button>
             </div>
 
@@ -481,40 +481,40 @@ export default function CreatorDashboardLayout() {
                       setSwitcherOpen(false);
                       setDrawerOpen(true);
                     }}
-                    className={`w-full p-4 rounded-2xl border text-left transition-all flex items-center justify-between gap-4 group cursor-pointer ${
+                    className={`w-full p-5 rounded-2xl border text-left transition-all flex items-center justify-between gap-4 group cursor-pointer ${
                       isActive 
-                        ? "bg-[#d1f8ff]/25 border-black shadow-sm" 
-                        : "bg-white border-neutral-200 hover:border-black/50 hover:bg-neutral-50/50"
+                        ? "bg-neutral-50 border-black shadow-sm" 
+                        : "bg-white border-neutral-200 hover:border-black hover:bg-neutral-50"
                     }`}
                   >
-                    <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm shadow-md transition-all ${
+                    <div className="flex items-center gap-4">
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center font-black text-lg shadow-sm transition-all ${
                         isActive 
-                          ? "bg-black text-[#d1f8ff]" 
+                          ? "bg-black text-white" 
                           : "bg-neutral-100 text-neutral-500 group-hover:bg-black group-hover:text-white"
                       }`}>
                         {acc.avatar}
                       </div>
                       <div>
-                        <h4 className="text-xs font-bold text-black flex items-center gap-1.5">
+                        <h4 className="text-sm font-bold text-black flex items-center gap-2">
                           {acc.name}
                           {isActive && (
-                            <span className="text-[8px] bg-black text-white px-1.5 py-0.2 rounded font-extrabold uppercase leading-none">
+                            <span className="text-[10px] bg-black text-white px-2 py-0.5 rounded font-extrabold uppercase leading-none">
                               Active
                             </span>
                           )}
                         </h4>
-                        <p className="text-[10px] text-neutral-550 font-extrabold mt-1">{acc.handle}</p>
-                        <p className="text-[9px] text-neutral-400 mt-0.5 leading-none font-medium">{acc.desc}</p>
+                        <p className="text-xs text-neutral-500 font-extrabold mt-1">{acc.handle}</p>
+                        <p className="text-[10px] text-neutral-400 mt-1 leading-none font-medium">{acc.desc}</p>
                       </div>
                     </div>
 
-                    <div className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all ${
+                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
                       isActive 
-                        ? "bg-black border-black text-[#d1f8ff]" 
+                        ? "bg-black border-black text-white" 
                         : "border-neutral-300 text-transparent group-hover:border-black"
                     }`}>
-                      <Check size={10} strokeWidth={3} />
+                      <Check size={14} strokeWidth={3} />
                     </div>
                   </button>
                 );
@@ -522,14 +522,14 @@ export default function CreatorDashboardLayout() {
             </div>
 
             {/* Add New Account Button */}
-            <div className="border-t border-neutral-100 pt-4">
+            <div className="border-t border-neutral-100 pt-6">
               <button
                 onClick={() => {
                   alert("Add New Account features are mocked for this simulation.");
                 }}
-                className="w-full flex items-center justify-center gap-2 py-3 bg-black text-white hover:bg-black/90 rounded-2xl text-xs font-extrabold transition-colors shadow-sm cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 py-4 bg-black text-white hover:bg-black/90 rounded-2xl text-sm font-extrabold transition-colors shadow-sm cursor-pointer"
               >
-                <Plus size={14} className="text-[#d1f8ff]" />
+                <Plus size={18} />
                 Add New Account
               </button>
             </div>

@@ -186,48 +186,48 @@ export default function LoginPage() {
     <div className="min-h-screen bg-white text-black flex flex-col md:flex-row font-sans" style={{ fontFamily: "'DM Sans', sans-serif" }}>
       
       {/* ── LEFT PANEL: PREMIUM VISUAL SHOWCASE ── */}
-      <div className="w-full md:w-[45%] bg-[#d1f8ff]/25 border-r border-neutral-200/50 flex flex-col justify-between p-8 md:p-12 relative overflow-hidden">
+      <div className="w-full md:w-[45%] bg-black text-white flex flex-col justify-between p-10 md:p-16 relative overflow-hidden">
         {/* Decorative dynamic blur spots */}
-        <div className="absolute top-[-20%] left-[-20%] w-[60%] aspect-square bg-[#d1f8ff]/40 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] aspect-square bg-slate-200/30 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-[-20%] left-[-20%] w-[60%] aspect-square bg-white/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] aspect-square bg-neutral-600/10 rounded-full blur-[100px] pointer-events-none" />
 
         {/* Header Logo */}
-        <Link to="/" className="flex items-center gap-2 relative z-10 self-start">
-          <img src={GOCLogo} alt="GOC Logo" className="h-9 w-auto filter brightness-0" />
-          <span className="font-extrabold text-sm tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
-            PORTAL
+        <Link to="/" className="flex items-center gap-3 relative z-10 self-start">
+          <img src={GOCLogo} alt="GOC Logo" className="h-10 w-auto filter brightness-0 invert" />
+          <span className="font-extrabold text-base tracking-widest mt-1.5 uppercase" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            Portal
           </span>
         </Link>
 
         {/* Pitch Statement */}
-        <div className="my-auto py-12 space-y-8 relative z-10 text-left">
-          <div className="space-y-3">
-            <span className="text-[10px] font-black uppercase tracking-widest text-neutral-450 bg-black/5 border border-black/10 px-3 py-1 rounded-full w-fit block">
+        <div className="my-auto py-16 space-y-10 relative z-10 text-left">
+          <div className="space-y-5">
+            <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white bg-white/10 border border-white/20 px-4 py-1.5 rounded-full w-fit block">
               Creator Arena 2.0
             </span>
-            <h1 className="text-3xl lg:text-4xl font-black text-black tracking-tight leading-[1.1]" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
               Enter the Arena <br className="hidden lg:inline" /> of GOC Creators.
             </h1>
-            <p className="text-xs text-neutral-500 font-medium max-w-sm">
+            <p className="text-sm md:text-base text-neutral-400 font-medium max-w-md leading-relaxed">
               The premier ecosystem where high-energy creators launch UGC clips and top brands build gamified prize challenges.
             </p>
           </div>
 
           {/* Features Highlights Cards */}
-          <div className="space-y-4 max-w-md">
+          <div className="space-y-4 max-w-lg">
             {/* Creator Feature Card */}
-            <div className={`p-4 rounded-2xl border transition-all duration-300 ${
+            <div className={`p-5 rounded-3xl border transition-all duration-300 ${
               role === "creator" 
-                ? "bg-white border-black shadow-md scale-[1.02]" 
-                : "bg-white/40 border-neutral-200/60 opacity-60"
+                ? "bg-white/10 border-white/30 shadow-lg scale-[1.02]" 
+                : "bg-white/5 border-transparent opacity-50 hover:opacity-70"
             }`}>
-              <div className="flex items-start gap-3">
-                <div className={`p-2 rounded-xl flex-shrink-0 ${role === "creator" ? "bg-black text-[#d1f8ff]" : "bg-neutral-100 text-neutral-450"}`}>
-                  <Sparkles size={16} />
+              <div className="flex items-start gap-4">
+                <div className={`p-3 rounded-2xl flex-shrink-0 ${role === "creator" ? "bg-white text-black" : "bg-white/10 text-white"}`}>
+                  <Sparkles size={20} />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-black">For Creators</h4>
-                  <p className="text-[10px] text-neutral-500 mt-1 font-semibold leading-relaxed">
+                  <h4 className="text-sm font-bold text-white mb-1.5">For Creators</h4>
+                  <p className="text-xs text-neutral-400 font-medium leading-relaxed">
                     Submit video links, track analytics, climb leaderboard podiums, and redeem earnings directly.
                   </p>
                 </div>
@@ -235,18 +235,18 @@ export default function LoginPage() {
             </div>
 
             {/* Brand Feature Card */}
-            <div className={`p-4 rounded-2xl border transition-all duration-300 ${
+            <div className={`p-5 rounded-3xl border transition-all duration-300 ${
               role === "brand" 
-                ? "bg-white border-black shadow-md scale-[1.02]" 
-                : "bg-white/40 border-neutral-200/60 opacity-60"
+                ? "bg-white/10 border-white/30 shadow-lg scale-[1.02]" 
+                : "bg-white/5 border-transparent opacity-50 hover:opacity-70"
             }`}>
-              <div className="flex items-start gap-3">
-                <div className={`p-2 rounded-xl flex-shrink-0 ${role === "brand" ? "bg-black text-[#d1f8ff]" : "bg-neutral-100 text-neutral-450"}`}>
-                  <Building2 size={16} />
+              <div className="flex items-start gap-4">
+                <div className={`p-3 rounded-2xl flex-shrink-0 ${role === "brand" ? "bg-white text-black" : "bg-white/10 text-white"}`}>
+                  <Building2 size={20} />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-black">For Brands & Agencies</h4>
-                  <p className="text-[10px] text-neutral-500 mt-1 font-semibold leading-relaxed">
+                  <h4 className="text-sm font-bold text-white mb-1.5">For Brands & Agencies</h4>
+                  <p className="text-xs text-neutral-400 font-medium leading-relaxed">
                     Draft campaign briefs, host competitive challenges, verify clips, and manage transparent distributions.
                   </p>
                 </div>
@@ -255,33 +255,19 @@ export default function LoginPage() {
           </div>
         </div>
 
-        {/* Real-time mock transaction ledger */}
-        <div className="relative z-10 border-t border-neutral-200/60 pt-6 text-left">
-          <p className="text-[9px] font-black uppercase tracking-wider text-neutral-400 mb-3 flex items-center gap-1.5">
-            <TrendingUp size={11} className="text-black" />
-            Arena Live Transactions Feed
-          </p>
-          <div className="space-y-2 max-h-24 overflow-y-auto">
-            {ledger.map((item, idx) => (
-              <div key={idx} className="flex items-center gap-2 text-[10px] text-neutral-500 font-semibold bg-white/45 p-2 rounded-lg border border-black/5">
-                <div className={`w-1.5 h-1.5 rounded-full ${item.type === "creator" ? "bg-emerald-500" : "bg-purple-500"}`} />
-                <p className="truncate">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+
       </div>
 
       {/* ── RIGHT PANEL: AUTHENTICATION FORM CARD ── */}
-      <div className="flex-1 flex flex-col justify-center items-center p-6 md:p-12 bg-white relative">
-        <div className="w-full max-w-md space-y-8 text-left">
+      <div className="flex-1 flex flex-col justify-center items-center p-8 md:p-16 bg-white relative">
+        <div className="w-full max-w-lg space-y-10 text-left">
           
           {/* Header Description */}
           <div>
-            <h2 className="text-2xl font-black text-black tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h2 className="text-3xl font-black text-black tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
               {mode === "signin" ? "Sign In to GOC" : "Complete Your Profile"}
             </h2>
-            <p className="text-xs text-neutral-500 mt-1.5 font-semibold">
+            <p className="text-sm text-neutral-500 mt-2 font-medium">
               {mode === "signin" 
                 ? "Enter your credentials or choose a quick-fill demo below."
                 : "Fill in the details below to join the gaming UGC movement."}
@@ -303,10 +289,10 @@ export default function LoginPage() {
           )}
 
           {/* Mode Tabs (Sign In vs Create Account) */}
-          <div className="bg-neutral-100 p-1 rounded-2xl border border-black/5 flex w-full">
+          <div className="bg-neutral-100 p-1.5 rounded-2xl border border-black/5 flex w-full">
             <button
               onClick={() => setMode("signin")}
-              className={`flex-1 py-2.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer ${
+              className={`flex-1 py-3 rounded-xl text-sm font-bold transition-all cursor-pointer ${
                 mode === "signin" 
                   ? "bg-white text-black shadow-sm" 
                   : "text-neutral-500 hover:text-black"
@@ -316,7 +302,7 @@ export default function LoginPage() {
             </button>
             <button
               onClick={() => setMode("signup")}
-              className={`flex-1 py-2.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer ${
+              className={`flex-1 py-3 rounded-xl text-sm font-bold transition-all cursor-pointer ${
                 mode === "signup" 
                   ? "bg-white text-black shadow-sm" 
                   : "text-neutral-500 hover:text-black"
@@ -327,21 +313,21 @@ export default function LoginPage() {
           </div>
 
           {/* Role selector buttons (Creator vs Brand) */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-4">
             {/* Creator Selector */}
             <button
               type="button"
               onClick={() => setRole("creator")}
-              className={`p-3.5 rounded-xl border-2 text-left transition-all cursor-pointer flex items-center gap-2.5 ${
+              className={`p-5 rounded-2xl border-2 text-left transition-all cursor-pointer flex flex-col gap-3 ${
                 role === "creator" 
-                  ? "bg-[#d1f8ff]/25 border-black" 
+                  ? "bg-[#f5f5f5] border-black" 
                   : "bg-white border-neutral-200 hover:border-black/30"
               }`}
             >
-              <Sparkles size={16} className={role === "creator" ? "text-black" : "text-neutral-400"} />
+              <Sparkles size={20} className={role === "creator" ? "text-black" : "text-neutral-400"} />
               <div>
-                <p className="text-xs font-bold text-black leading-none">Creator</p>
-                <p className="text-[8px] text-neutral-450 mt-1 font-semibold">Earn on videos</p>
+                <p className="text-sm font-bold text-black leading-none">Creator</p>
+                <p className="text-[10px] text-neutral-500 mt-1.5 font-semibold">Earn on videos</p>
               </div>
             </button>
 
@@ -349,16 +335,16 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={() => setRole("brand")}
-              className={`p-3.5 rounded-xl border-2 text-left transition-all cursor-pointer flex items-center gap-2.5 ${
+              className={`p-5 rounded-2xl border-2 text-left transition-all cursor-pointer flex flex-col gap-3 ${
                 role === "brand" 
-                  ? "bg-[#d1f8ff]/25 border-black" 
+                  ? "bg-[#f5f5f5] border-black" 
                   : "bg-white border-neutral-200 hover:border-black/30"
               }`}
             >
-              <Building2 size={16} className={role === "brand" ? "text-black" : "text-neutral-400"} />
+              <Building2 size={20} className={role === "brand" ? "text-black" : "text-neutral-400"} />
               <div>
-                <p className="text-xs font-bold text-black leading-none">Brand / Agency</p>
-                <p className="text-[8px] text-neutral-450 mt-1 font-semibold">Launch brief deals</p>
+                <p className="text-sm font-bold text-black leading-none">Brand / Agency</p>
+                <p className="text-[10px] text-neutral-500 mt-1.5 font-semibold">Launch brief deals</p>
               </div>
             </button>
           </div>
@@ -372,43 +358,43 @@ export default function LoginPage() {
                 {role === "creator" ? (
                   <>
                     <div>
-                      <label className="block text-[9px] font-black uppercase tracking-wider text-neutral-450 mb-1.5">Full Name</label>
+                      <label className="block text-xs font-black uppercase tracking-wider text-neutral-500 mb-2">Full Name</label>
                       <div className="relative">
-                        <User className="absolute left-3.5 top-3 text-neutral-450" size={14} />
+                        <User className="absolute left-4 top-3.5 text-neutral-450" size={16} />
                         <input 
                           type="text" 
                           required
                           placeholder="e.g. Ashish Singh"
                           value={fullName}
                           onChange={e => setFullName(e.target.value)}
-                          className="w-full pl-9 pr-4 py-2.5 border border-neutral-200 rounded-xl text-xs focus:outline-none focus:border-black bg-slate-50/20"
+                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20"
                         />
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[9px] font-black uppercase tracking-wider text-neutral-450 mb-1.5">Username (Technical ID)</label>
+                      <label className="block text-xs font-black uppercase tracking-wider text-neutral-500 mb-2">Username (Technical ID)</label>
                       <div className="relative">
-                        <span className="absolute left-3.5 top-3 text-neutral-450 text-xs font-bold">@</span>
+                        <span className="absolute left-4 top-3.5 text-neutral-450 text-sm font-bold">@</span>
                         <input 
                           type="text" 
                           required
                           placeholder="e.g. gamer_ash"
                           value={username}
                           onChange={e => setUsername(e.target.value)}
-                          className="w-full pl-9 pr-4 py-2.5 border border-neutral-200 rounded-xl text-xs focus:outline-none focus:border-black bg-slate-50/20"
+                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20"
                         />
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[9px] font-black uppercase tracking-wider text-neutral-450 mb-1.5">Telephone Number</label>
+                      <label className="block text-xs font-black uppercase tracking-wider text-neutral-500 mb-2">Telephone Number</label>
                       <div className="relative">
-                        <Phone className="absolute left-3.5 top-3 text-neutral-450" size={14} />
+                        <Phone className="absolute left-4 top-3.5 text-neutral-450" size={16} />
                         <input 
                           type="tel" 
                           placeholder="e.g. +91 9876543210"
                           value={phone}
                           onChange={e => setPhone(e.target.value)}
-                          className="w-full pl-9 pr-4 py-2.5 border border-neutral-200 rounded-xl text-xs focus:outline-none focus:border-black bg-slate-50/20"
+                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20"
                         />
                       </div>
                     </div>
@@ -416,30 +402,30 @@ export default function LoginPage() {
                 ) : (
                   <>
                     <div>
-                      <label className="block text-[9px] font-black uppercase tracking-wider text-neutral-450 mb-1.5">Brand / Company Name</label>
+                      <label className="block text-xs font-black uppercase tracking-wider text-neutral-500 mb-2">Brand / Company Name</label>
                       <div className="relative">
-                        <Building2 className="absolute left-3.5 top-3 text-neutral-450" size={14} />
+                        <Building2 className="absolute left-4 top-3.5 text-neutral-450" size={16} />
                         <input 
                           type="text" 
                           required
                           placeholder="e.g. Roobet Gaming"
                           value={brandName}
                           onChange={e => setBrandName(e.target.value)}
-                          className="w-full pl-9 pr-4 py-2.5 border border-neutral-200 rounded-xl text-xs focus:outline-none focus:border-black bg-slate-50/20"
+                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20"
                         />
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[9px] font-black uppercase tracking-wider text-neutral-450 mb-1.5">Website URL</label>
+                      <label className="block text-xs font-black uppercase tracking-wider text-neutral-500 mb-2">Website URL</label>
                       <div className="relative">
-                        <Globe className="absolute left-3.5 top-3 text-neutral-450" size={14} />
+                        <Globe className="absolute left-4 top-3.5 text-neutral-450" size={16} />
                         <input 
                           type="url" 
                           required
                           placeholder="e.g. https://roobet.com"
                           value={website}
                           onChange={e => setWebsite(e.target.value)}
-                          className="w-full pl-9 pr-4 py-2.5 border border-neutral-200 rounded-xl text-xs focus:outline-none focus:border-black bg-slate-50/20"
+                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20"
                         />
                       </div>
                     </div>
@@ -450,18 +436,18 @@ export default function LoginPage() {
 
             {/* Email Address Input */}
             <div className={`transition-all duration-350 ${highlightDemo ? "scale-[1.01] border-emerald-500" : ""}`}>
-              <label className="block text-[9px] font-black uppercase tracking-wider text-neutral-450 mb-1.5">
+              <label className="block text-xs font-black uppercase tracking-wider text-neutral-500 mb-2">
                 {role === "creator" ? "Email Address or Username" : "Corporate Email"}
               </label>
               <div className="relative">
-                <Mail className="absolute left-3.5 top-3.5 text-neutral-400" size={14} />
+                <Mail className="absolute left-4 top-4 text-neutral-400" size={16} />
                 <input 
                   type="text" 
                   required
                   placeholder={role === "creator" ? "e.g. creator@goc.com" : "e.g. brand@goc.com"}
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  className={`w-full pl-9 pr-4 py-2.5 border rounded-xl text-xs focus:outline-none focus:border-black bg-slate-50/20 transition-all ${
+                  className={`w-full pl-11 pr-4 py-3.5 border rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20 transition-all ${
                     highlightDemo ? "border-emerald-500 shadow-md ring-2 ring-emerald-500/10" : "border-neutral-200"
                   }`}
                 />
@@ -470,16 +456,16 @@ export default function LoginPage() {
 
             {/* Password Input */}
             <div className={`transition-all duration-350 ${highlightDemo ? "scale-[1.01]" : ""}`}>
-              <label className="block text-[9px] font-black uppercase tracking-wider text-neutral-450 mb-1.5">Password</label>
+              <label className="block text-xs font-black uppercase tracking-wider text-neutral-500 mb-2">Password</label>
               <div className="relative">
-                <Lock className="absolute left-3.5 top-3.5 text-neutral-400" size={14} />
+                <Lock className="absolute left-4 top-4 text-neutral-400" size={16} />
                 <input 
                   type="password" 
                   required
                   placeholder="••••••••••••"
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  className={`w-full pl-9 pr-4 py-2.5 border rounded-xl text-xs focus:outline-none focus:border-black bg-slate-50/20 transition-all ${
+                  className={`w-full pl-11 pr-4 py-3.5 border rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20 transition-all ${
                     highlightDemo ? "border-emerald-500 shadow-md ring-2 ring-emerald-500/10" : "border-neutral-200"
                   }`}
                 />
@@ -489,15 +475,15 @@ export default function LoginPage() {
             {/* Referral field (Optional for Creator SignUp) */}
             {mode === "signup" && role === "creator" && (
               <div>
-                <label className="block text-[9px] font-black uppercase tracking-wider text-neutral-450 mb-1.5">Referral Code (Optional)</label>
+                <label className="block text-xs font-black uppercase tracking-wider text-neutral-500 mb-2">Referral Code (Optional)</label>
                 <div className="relative">
-                  <Award className="absolute left-3.5 top-3 text-neutral-450" size={14} />
+                  <Award className="absolute left-4 top-3.5 text-neutral-450" size={16} />
                   <input 
                     type="text" 
                     placeholder="Enter GOC referral code"
                     value={referral}
                     onChange={e => setReferral(e.target.value)}
-                    className="w-full pl-9 pr-4 py-2.5 border border-neutral-200 rounded-xl text-xs focus:outline-none focus:border-black bg-slate-50/20"
+                    className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20"
                   />
                 </div>
               </div>
@@ -507,37 +493,37 @@ export default function LoginPage() {
             <button 
               type="submit"
               disabled={loading}
-              className="w-full btn-primary-gradient py-3.5 rounded-xl text-xs font-black shadow-sm cursor-pointer flex items-center justify-center gap-2 mt-6"
+              className="w-full bg-black text-white hover:bg-neutral-800 transition-colors py-4 rounded-xl text-sm font-black shadow-sm cursor-pointer flex items-center justify-center gap-2 mt-8"
             >
               {loading ? (
                 <span>Entering Arena...</span>
               ) : (
                 <>
                   <span>Enter The Arena</span>
-                  <ArrowRight size={13} className="text-[#d1f8ff]" />
+                  <ArrowRight size={16} className="text-white" />
                 </>
               )}
             </button>
           </form>
 
           {/* ── SANDBOX DEMO QUICK-LOGINS (10x UX) ── */}
-          <div className="border-t border-neutral-100 pt-6">
-            <p className="text-[9px] font-black uppercase tracking-wider text-neutral-400 mb-3 text-center">
+          <div className="border-t border-neutral-100 pt-8 mt-4">
+            <p className="text-xs font-black uppercase tracking-wider text-neutral-400 mb-4 text-center">
               Quick Sandbox Logins (Click to Auto-fill)
             </p>
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-2 gap-3">
               <button 
                 onClick={() => handleAutofill("creator")}
-                className="py-2.5 px-3 border border-neutral-200 rounded-xl hover:border-black text-[10px] font-bold text-neutral-700 hover:text-black transition-all bg-slate-50/30 flex items-center justify-center gap-1.5 cursor-pointer"
+                className="py-3 px-3 border border-neutral-200 rounded-xl hover:border-black text-xs font-bold text-neutral-700 hover:text-black transition-all bg-slate-50/30 flex items-center justify-center gap-2 cursor-pointer"
               >
-                <Sparkles size={11} className="text-amber-500" />
+                <Sparkles size={14} className="text-amber-500" />
                 gamer_ash (Creator)
               </button>
               <button 
                 onClick={() => handleAutofill("brand")}
-                className="py-2.5 px-3 border border-neutral-200 rounded-xl hover:border-black text-[10px] font-bold text-neutral-700 hover:text-black transition-all bg-slate-50/30 flex items-center justify-center gap-1.5 cursor-pointer"
+                className="py-3 px-3 border border-neutral-200 rounded-xl hover:border-black text-xs font-bold text-neutral-700 hover:text-black transition-all bg-slate-50/30 flex items-center justify-center gap-2 cursor-pointer"
               >
-                <Building2 size={11} className="text-purple-500" />
+                <Building2 size={14} className="text-purple-500" />
                 brand_admin (Brand)
               </button>
             </div>

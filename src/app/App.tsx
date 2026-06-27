@@ -13,7 +13,7 @@ import {
   Play, Check, Globe, Sparkles, Target, Award, BarChart3, Camera,
   DollarSign, Shield, Menu, X, Instagram, Youtube, Twitter,
   ChevronRight, Flame, Crown, Rocket, ArrowUpRight, Facebook,
-  Clock, Calendar,
+  Clock, Calendar, CheckCircle,
 } from "lucide-react";
 
 // Register GSAP plugins
@@ -239,14 +239,8 @@ function BrandMarquee() {
         The most innovative brands build on Game of Creators
       </h3>
 
-      {/* Perfect edge fade mask */}
-      <div 
-        className="relative overflow-hidden w-full max-w-6xl mx-auto"
-        style={{ 
-          WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
-          maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)"
-        }}
-      >
+      {/* Perfect edge fade mask removed as requested for solid clean edges */}
+      <div className="relative overflow-hidden w-full max-w-6xl mx-auto">
         {/* Scrolling track */}
         <div
           ref={trackRef}
@@ -638,17 +632,18 @@ function Hero({ onBrowse }: { onBrowse?: () => void }) {
         .fromTo(subRef.current, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.7 }, 0.8)
         .fromTo(ctaRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 1.0);
 
-      // Sleek blur & scale parallax scroll animation for the dashboard
+      // Cool 3D scroll animation for the dashboard mockup
       if (dashRef.current) {
         gsap.set(dashRef.current, { 
-          filter: "blur(24px)",
-          opacity: 0, 
-          scale: 0.92, 
-          y: 150 
+          transformPerspective: 1400, 
+          rotationX: 25, 
+          opacity: 0.4, 
+          scale: 0.85, 
+          y: 80 
         });
         
         gsap.to(dashRef.current, {
-          filter: "blur(0px)",
+          rotationX: 0,
           opacity: 1,
           scale: 1,
           y: 0,
@@ -737,7 +732,7 @@ function Hero({ onBrowse }: { onBrowse?: () => void }) {
       <SparkleSVG className="hero-sparkle absolute bottom-72 left-32 opacity-30" style={{ width: 12, height: 12 } as React.CSSProperties} />
       <SparkleSVG className="hero-sparkle absolute top-64 right-48 opacity-50" style={{ width: 16, height: 16 } as React.CSSProperties} />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 pt-28 pb-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-28 pb-16">
         {/* Badge */}
         <div ref={badgeRef} className="group inline-flex items-center gap-2.5 rounded-full p-1 pr-4 mb-8 text-xs font-medium transition-all duration-300 cursor-pointer"
           style={{ 
@@ -826,7 +821,7 @@ function Hero({ onBrowse }: { onBrowse?: () => void }) {
         </div>
 
         {/* Dashboard Mockup */}
-        <div ref={dashRef} className="relative mx-auto max-w-3xl rounded-xl overflow-hidden"
+        <div ref={dashRef} className="relative mx-auto max-w-4xl rounded-xl overflow-hidden"
           style={{ border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 20px 50px rgba(0,0,0,0.06)", background: "#ffffff" }}>
           <HeroDashboard />
         </div>
@@ -886,8 +881,8 @@ function StatsBanner() {
                 boxShadow: "0 4px 30px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 1)"
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(0, 0, 0, 0.15)";
-                e.currentTarget.style.background = "rgba(209, 248, 255, 0.4)";
+                e.currentTarget.style.borderColor = "rgba(0, 0, 0, 0.25)";
+                e.currentTarget.style.background = "#fafafa";
                 e.currentTarget.style.boxShadow = "0 12px 40px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1)";
               }}
               onMouseLeave={(e) => {
@@ -898,21 +893,19 @@ function StatsBanner() {
             >
               {/* Card top-right glow light */}
               <div className="absolute top-0 right-0 w-24 h-24 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{ background: `radial-gradient(circle, rgba(209,248,255,0.8) 0%, transparent 70%)` }} />
+                style={{ background: `radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 70%)` }} />
 
               {/* Icon Container */}
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center mb-4">
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300"
                   style={{ 
-                    background: "#d1f8ff", 
+                    background: "#f0f0f0", 
                     color: "#000000",
                     border: "1px solid rgba(0, 0, 0, 0.08)"
                   }}
                 >
                   {icon}
                 </div>
-                {/* Accent spark dot */}
-                <span className="w-1.5 h-1.5 rounded-full transition-all duration-500 opacity-40 group-hover:opacity-100 group-hover:scale-125" style={{ background: AMBER }} />
               </div>
 
               {/* Big Stat Value */}
@@ -966,8 +959,8 @@ function StepVisual({ step, tab }: { step: number; tab: "brands" | "creators" })
         <div className="relative w-36 rounded-2xl p-3 shadow-md"
           style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}>
           <p className="text-xs font-bold text-black mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>New Campaign</p>
-          <div className="h-1.5 rounded-full mb-1.5 w-full" style={{ background: "rgba(0,0,0,0.06)" }}>
-            <div className="h-full rounded-full w-3/4" style={{ background: "linear-gradient(90deg, #d1f8ff, #000000)" }} />
+          <div className="h-1.5 rounded-full mb-1.5 w-full" style={{ background: "rgba(0,0,0,0.06)", overflow: "hidden" }}>
+            <div className="h-full rounded-full w-3/4" style={{ background: "#000000" }} />
           </div>
           <div className="flex items-center justify-between mt-2">
             <span className="text-xs" style={{ color: "rgba(0,0,0,0.5)", fontFamily: "'DM Sans', sans-serif" }}>Budget</span>
@@ -1002,12 +995,15 @@ function StepVisual({ step, tab }: { step: number; tab: "brands" | "creators" })
             <span className="ml-auto text-xs font-bold" style={{ color: "#000000", fontFamily: "'DM Sans', sans-serif" }}>342</span>
           </div>
           {[
-            { name: "Sofia R.", views: "24K", badge: "🥇", col: "#000000" },
-            { name: "Marcus T.", views: "18K", badge: "🥈", col: "rgba(0,0,0,0.6)" },
-            { name: "Jay P.", views: "9K", badge: "🥉", col: "rgba(0,0,0,0.3)" },
-          ].map(({ name, views, badge, col }) => (
-            <div key={name} className="flex items-center gap-2 px-3 py-2" style={{ borderBottom: "1px solid rgba(0,0,0,0.04)" }}>
-              <span className="text-sm">{badge}</span>
+            { name: "Sofia R.", views: "24K", rank: 1, col: "#000000" },
+            { name: "Marcus T.", views: "18K", rank: 2, col: "rgba(0,0,0,0.6)" },
+            { name: "Jay P.", views: "9K", rank: 3, col: "rgba(0,0,0,0.3)" },
+          ].map(({ name, views, rank, col }) => (
+            <div key={name} className="flex items-center gap-2.5 px-3 py-2" style={{ borderBottom: "1px solid rgba(0,0,0,0.04)" }}>
+              <div className="w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold" 
+                style={{ background: rank === 1 ? "#000" : "#f5f5f5", color: rank === 1 ? "#fff" : "#000" }}>
+                {rank}
+              </div>
               <div className="flex-1">
                 <p className="text-xs font-semibold text-black" style={{ fontFamily: "'DM Sans', sans-serif" }}>{name}</p>
                 <div className="h-0.5 rounded-full mt-1 w-full" style={{ background: "rgba(0,0,0,0.06)" }}>
@@ -1024,13 +1020,15 @@ function StepVisual({ step, tab }: { step: number; tab: "brands" | "creators" })
     // Step 3 — Trophy / scale
     return (
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 60%, rgba(209,248,255,0.4) 0%, transparent 70%)" }} />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 60%, rgba(0,0,0,0.05) 0%, transparent 70%)" }} />
         {/* Dashed orbit rings */}
         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 240 200" fill="none" opacity="0.3">
-          <ellipse cx="120" cy="100" rx="90" ry="55" stroke={AMBER} strokeWidth="1" strokeDasharray="5 5" />
-          <ellipse cx="120" cy="100" rx="55" ry="33" stroke={AMBER} strokeWidth="0.8" strokeDasharray="3 6" />
+          <ellipse cx="120" cy="100" rx="90" ry="55" stroke={"#000"} strokeWidth="1" strokeDasharray="4 6" />
+          <ellipse cx="120" cy="100" rx="55" ry="33" stroke={"#000"} strokeWidth="0.5" strokeDasharray="3 6" />
         </svg>
-        <TrophySVG size={80} />
+        <div className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg" style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}>
+          <Award size={40} className="text-black" />
+        </div>
         {/* Floating reward pills */}
         <div className="absolute top-5 right-6 px-2.5 py-1 rounded-full text-xs font-bold"
           style={{ background: "#ffffff", color: "#000000", border: "1px solid rgba(0,0,0,0.08)", fontFamily: "'DM Sans', sans-serif" }}>
@@ -1038,7 +1036,7 @@ function StepVisual({ step, tab }: { step: number; tab: "brands" | "creators" })
         </div>
         <div className="absolute bottom-7 left-5 px-2.5 py-1 rounded-full text-xs font-semibold"
           style={{ background: "#ffffff", color: "#000000", border: "1px solid rgba(0,0,0,0.08)", fontFamily: "'DM Sans', sans-serif" }}>
-          ✓ Licensed
+          <CheckCircle size={12} className="inline mr-1" /> Approved
         </div>
       </div>
     );
@@ -1294,26 +1292,23 @@ function HowItWorks() {
           ))}
         </div>
 
-        {/* Connector dots below cards */}
-        <div className="hidden md:flex justify-center items-center gap-2 mt-6">
+        {/* Sleek Step Tabs below cards */}
+        <div className="hidden md:flex justify-center items-center gap-8 mt-12">
           {[0, 1, 2].map((i) => (
-            <div key={i} className="flex items-center gap-2">
-              <button
-                onClick={() => setActiveCard(i)}
-                aria-label={`Go to step ${i + 1}`}
-                className="w-4 h-4 rounded-full flex items-center justify-center transition-all duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-amber-500"
-                style={{ background: "transparent" }}
-              >
-                <div
-                  className="w-2 h-2 rounded-full transition-all duration-300"
-                  style={{
-                    background: activeCard === i ? AMBER : "rgba(0,0,0,0.15)",
-                    transform: activeCard === i ? "scale(1.25)" : "scale(1)",
-                  }}
-                />
-              </button>
-              {i < 2 && <div className="w-20 h-px" style={{ background: "rgba(255,255,255,0.08)" }} />}
-            </div>
+            <button
+              key={i}
+              onClick={() => setActiveCard(i)}
+              className="flex items-center gap-3 pb-3 transition-all duration-300 outline-none"
+              style={{
+                borderBottom: activeCard === i ? "2px solid #000000" : "2px solid rgba(0,0,0,0.08)",
+                opacity: activeCard === i ? 1 : 0.4,
+              }}
+            >
+              <span className="text-xs font-bold font-mono text-black">0{i + 1}</span>
+              <span className="text-sm font-bold text-black" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                {steps[tab][i].title}
+              </span>
+            </button>
           ))}
         </div>
 
@@ -1357,7 +1352,7 @@ function ComparisonTable() {
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-black leading-tight"
             style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
-            GOC vs. the old way
+            GOC vs the old way
           </h2>
           <p className="mt-4 text-base max-w-xl mx-auto"
             style={{ color: "rgba(0,0,0,0.55)", fontFamily: "'DM Sans', sans-serif" }}>
@@ -1372,7 +1367,6 @@ function ComparisonTable() {
             style={{ background: "#000000", color: "#ffffff", fontFamily: "'DM Sans', sans-serif" }}>
             <div className="px-6 py-4">Feature</div>
             <div className="px-6 py-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#d1f8ff]" />
               Game of Creators
             </div>
             <div className="px-6 py-4" style={{ color: "rgba(255,255,255,0.45)" }}>Traditional</div>
@@ -1420,7 +1414,7 @@ function ComparisonTable() {
 // ─── For Brands ───────────────────────────────────────────────────────────────
 function BrandFeatureCard({ title, desc, icon, children }: { title: string; desc: string; icon: React.ReactNode; children: React.ReactNode }) {
   return (
-    <div className="bento-card-step p-6 rounded-2xl flex flex-col justify-between w-[320px] sm:w-[400px] md:w-[440px] h-[460px] flex-shrink-0"
+    <div className="bento-card-step w-full rounded-[24px] p-6 lg:p-8 flex flex-col"
       style={{
         background: "#ffffff",
         border: "1px solid rgba(0,0,0,0.08)",
@@ -1428,8 +1422,8 @@ function BrandFeatureCard({ title, desc, icon, children }: { title: string; desc
         transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = "#000000";
-        e.currentTarget.style.background = "rgba(209, 248, 255, 0.15)";
+        e.currentTarget.style.borderColor = "rgba(0,0,0,0.2)";
+        e.currentTarget.style.background = "#fafafa";
         e.currentTarget.style.transform = "translateY(-4px)";
         e.currentTarget.style.boxShadow = "0 12px 30px rgba(0,0,0,0.06)";
       }}
@@ -1441,7 +1435,7 @@ function BrandFeatureCard({ title, desc, icon, children }: { title: string; desc
       }}
     >
       <div>
-        <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ background: "#d1f8ff", color: "#000000" }}>
+        <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ background: "#f5f5f5", border: "1px solid rgba(0,0,0,0.05)", color: "#000000" }}>
           {icon}
         </div>
         <h4 className="text-lg font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
@@ -1473,7 +1467,7 @@ function ForBrands() {
 
   const fullText = "Create a 15-second TikTok/Reels reviewing our hydration glow serum. Focus on lightweight texture, show packaging, and demonstrate organic glow...";
 
-  // GSAP scroll trigger entry and horizontal scroll animation
+  // GSAP scroll trigger entry
   useEffect(() => {
     if (!sectionRef.current) return;
     const ctx = gsap.context(() => {
@@ -1482,36 +1476,10 @@ function ForBrands() {
         { opacity: 1, x: 0, duration: 0.9, ease: "power3.out",
           scrollTrigger: { trigger: sectionRef.current, start: "top 70%" } });
 
-      // Horizontal scroll on desktop
-      const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
-      if (isDesktop) {
-        const track = sectionRef.current?.querySelector(".horizontal-track");
-        if (track) {
-          const trackWidth = track.scrollWidth;
-          const containerWidth = track.parentElement?.clientWidth || 0;
-          const scrollDistance = trackWidth - containerWidth;
-          
-          if (scrollDistance > 0) {
-            gsap.to(track, {
-              x: -scrollDistance,
-              ease: "none",
-              scrollTrigger: {
-                trigger: sectionRef.current,
-                pin: true,
-                scrub: 0.8,
-                start: "top 12%",
-                end: () => `+=${scrollDistance * 1.5}`,
-                invalidateOnRefresh: true,
-              }
-            });
-          }
-        }
-      } else {
-        // Mobile cards animation
-        gsap.fromTo(".bento-card-step", { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, stagger: 0.12, duration: 0.7, ease: "power2.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 70%" } });
-      }
+      // Cards animation
+      gsap.fromTo(".bento-card-step", { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, stagger: 0.12, duration: 0.7, ease: "power2.out",
+          scrollTrigger: { trigger: sectionRef.current, start: "top 60%" } });
     }, sectionRef);
     return () => ctx.revert();
   }, []);
@@ -1550,7 +1518,7 @@ function ForBrands() {
         particleCount: 50,
         spread: 50,
         origin: { y: 0.75, x: 0.25 },
-        colors: ["#d1f8ff", "#000000", "#ffffff"]
+        colors: ["#f5f5f5", "#000000", "#ffffff"]
       });
     } catch (err) {
       console.error("Confetti failed", err);
@@ -1571,29 +1539,39 @@ function ForBrands() {
       </div>
 
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-12 items-start justify-between">
+        {/* Top Section: Text and Simulator */}
+        <div className="flex flex-col lg:flex-row gap-12 items-center justify-between mb-32">
           
-          {/* Left Column: Heading and Interactive Campaign Simulator */}
-          <div className="w-full lg:w-[38%] brands-left lg:sticky lg:top-28">
+          {/* Left Column: Heading and Description */}
+          <div className="w-full lg:w-1/2 brands-left">
             <span className="text-xs font-semibold tracking-[0.2em] uppercase mb-2 block" style={{ color: AMBER, fontFamily: "'DM Sans', sans-serif" }}>For Brands</span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-4 leading-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
               Creator-led content
               <br />
               at scale — finally
             </h2>
-            <p className="text-base mb-6 leading-relaxed" style={{ color: "rgba(0,0,0,0.65)", fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="text-base mb-8 leading-relaxed" style={{ color: "rgba(0,0,0,0.65)", fontFamily: "'DM Sans', sans-serif" }}>
               Launch content challenges and watch hundreds of creators compete to represent your brand. Only pay for the UGC that performs.
             </p>
 
+            <div className="mt-8 flex justify-start mb-8 lg:mb-0">
+              <Link to="/brands" className="btn-primary-gradient inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm group">
+                Launch Your First Campaign <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column: Interactive Campaign Simulator */}
+          <div className="w-full lg:w-1/2">
             {/* Campaign Simulator Sandbox */}
-            <div className="rounded-2xl p-5 relative overflow-hidden border border-black/8 shadow-md" 
+            <div className="rounded-2xl p-5 relative overflow-hidden border border-black/8 shadow-xl" 
               style={{ background: "#ffffff", backdropFilter: "blur(12px)" }}>
               
               <div className="flex justify-between items-center mb-4 pb-3 border-b border-black/8">
                 <span className="text-xs font-bold text-black uppercase tracking-wider" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
                   Campaign Builder Live
                 </span>
-                <span className="flex items-center gap-1.5 text-[10px] text-black font-bold bg-[#d1f8ff] px-2 py-0.5 rounded-full border border-black/10">
+                <span className="flex items-center gap-1.5 text-[10px] text-black font-bold bg-[#f5f5f5] px-2 py-0.5 rounded-full border border-black/10">
                   <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" /> Sandbox
                 </span>
               </div>
@@ -1629,7 +1607,7 @@ function ForBrands() {
                   <div className="space-y-4">
                     <div>
                       <p className="text-[10px] text-black/50 uppercase font-bold mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Creative Requirements</p>
-                      <div className="bg-[#d1f8ff] rounded-xl p-3 border border-black/8 min-h-[64px] text-xs leading-relaxed text-black" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                      <div className="bg-[#f5f5f5] rounded-xl p-3 border border-black/8 min-h-[64px] text-xs leading-relaxed text-black" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                         {typedText}<span className="inline-block w-1.5 h-3.5 bg-black ml-0.5 animate-pulse" />
                       </div>
                     </div>
@@ -1680,7 +1658,7 @@ function ForBrands() {
                         { label: "🥈 Top 5 Pool", val: `$${(budget * 0.4 / 5).toFixed(0)} ea` },
                         { label: "🥉 Top 15 Pool", val: `$${(budget * 0.25 / 15).toFixed(0)} ea` }
                       ].map((reward) => (
-                        <div key={reward.label} className="bg-[#d1f8ff] border border-black/8 rounded-xl p-2.5 text-center">
+                        <div key={reward.label} className="bg-[#f5f5f5] border border-black/8 rounded-xl p-2.5 text-center">
                           <p className="text-[9px] text-black/60 mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>{reward.label}</p>
                           <p className="text-xs font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{reward.val}</p>
                         </div>
@@ -1700,7 +1678,7 @@ function ForBrands() {
                     ].map((creator) => {
                       const isL = licensed[creator.name];
                       return (
-                        <div key={creator.name} className="flex items-center justify-between bg-[#d1f8ff] rounded-xl p-2 border border-black/8">
+                        <div key={creator.name} className="flex items-center justify-between bg-[#f5f5f5] rounded-xl p-2 border border-black/8">
                           <div className="flex items-center gap-2">
                             <div className="w-7 h-7 rounded-full bg-white border border-black/10 flex items-center justify-center text-[10px] font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
                               {creator.name.charAt(0)}
@@ -1742,21 +1720,24 @@ function ForBrands() {
                 </div>
               </div>
             </div>
-
-            <div className="mt-8 flex justify-start">
-              <Link to="/brands" className="btn-primary-gradient inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm group">
-                Launch Your First Campaign <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />
-              </Link>
-            </div>
           </div>
+        </div>
 
-          {/* Right Column: Premium Horizontal Scroll Showcase */}
-          <div className="w-full lg:w-[58%] overflow-hidden relative desktop-scroll-container py-4 -my-4">
+        {/* Feature Cards Stack with Scroll Effect */}
+        <div className="max-w-4xl mx-auto w-full mb-20 relative">
+          <div className="absolute -left-6 lg:-left-16 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 text-black/40 opacity-70 pointer-events-none">
+             <div className="w-1 h-24 rounded-full bg-black/10 relative overflow-hidden">
+                <div className="absolute top-0 w-full h-6 bg-black rounded-full animate-[bounce_2s_infinite]" />
+             </div>
+             <span className="text-[9px] font-bold uppercase tracking-widest" style={{ writingMode: 'vertical-lr', transform: 'rotate(180deg)' }}>Scroll to explore</span>
+          </div>
+          
+          <div className="w-full h-[650px] overflow-y-auto flex flex-col gap-6 p-2 lg:p-4 rounded-[2rem]"
+               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
             
-            {/* Desktop Horizontal Scroll Track */}
-            <div className="hidden lg:flex gap-6 horizontal-track pb-4 pt-2" style={{ width: "max-content" }}>
+            <div className="sticky top-0 z-10 w-full transition-all duration-300">
               <BrandFeatureCard
-                title="Scale & Speed"
+              title="Scale & Speed"
                 desc="Get dozens of content variations in hours, not weeks. A/B test creatives without high agency retainers."
                 icon={<BarChart3 size={18} />}
               >
@@ -1774,25 +1755,25 @@ function ForBrands() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mt-2">
-                  <div className="relative h-32 flex items-center justify-center overflow-hidden bg-[#d1f8ff] rounded-xl border border-black/8 p-3">
+                  <div className="relative h-32 flex items-center justify-center overflow-hidden bg-[#f5f5f5] rounded-xl border border-black/8 p-3">
                     <div className="relative w-24 h-24 scale-95">
                       <div className="absolute bottom-2 right-4 w-12 h-18 rounded-lg overflow-hidden border border-black/10 transition-all duration-500 hover:rotate-[-12deg]"
                         style={{ background: "#ffffff", transform: "rotate(-5deg)", transformOrigin: "bottom center" }}>
-                        <img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?w=100&h=120&fit=crop&auto=format" className="w-full h-full object-cover opacity-80" />
+                        <img src="https://images.unsplash.com/photo-1618641986557-1ecd230959aa?w=100&h=120&fit=crop&auto=format" className="w-full h-full object-cover opacity-80" />
                       </div>
                       <div className="absolute bottom-1 right-1 w-12 h-18 rounded-lg overflow-hidden border border-black/10 transition-all duration-500 hover:rotate-[12deg]"
                         style={{ background: "#ffffff", transform: "rotate(5deg)", transformOrigin: "bottom center" }}>
-                        <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=100&h=120&fit=crop&auto=format" className="w-full h-full object-cover opacity-90" />
+                        <img src="https://images.unsplash.com/photo-1512418490979-9ce792e3eb82?w=100&h=120&fit=crop&auto=format" className="w-full h-full object-cover opacity-90" />
                       </div>
                       <div className="absolute bottom-0 right-2 w-12 h-18 rounded-lg overflow-hidden border border-black/10"
                         style={{ background: "#ffffff" }}>
-                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=100&h=120&fit=crop&auto=format" className="w-full h-full object-cover" />
+                        <img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?w=100&h=120&fit=crop&auto=format" className="w-full h-full object-cover" />
                         <div className="absolute bottom-1 left-1 text-[5px] font-bold text-white bg-black px-0.5 py-0.2 rounded">@sophia</div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-[#d1f8ff] border border-black/8 rounded-xl p-3 flex flex-col justify-center">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex flex-col justify-center">
                     <div className="relative border-l border-black/10 pl-3 py-0.5 space-y-2">
                       {[
                         { time: "0h", title: "Live", desc: "Creators matched" },
@@ -1812,9 +1793,11 @@ function ForBrands() {
                   </div>
                 </div>
               </BrandFeatureCard>
+            </div>
 
+            <div className="sticky top-6 z-20 w-full transition-all duration-300">
               <BrandFeatureCard
-                title="Niche Talent & Safety"
+              title="Niche Talent & Safety"
                 desc="Reach creators across any demographic, country, and niche with automated AI brand-safety guardrails."
                 icon={<Users size={18} />}
               >
@@ -1832,7 +1815,7 @@ function ForBrands() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mt-2">
-                  <div className="bg-[#d1f8ff] border border-black/8 rounded-xl p-3 flex flex-col justify-between h-32">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex flex-col justify-between h-32">
                     <div className="flex items-center gap-1 justify-center -space-x-1 mt-2">
                       {[
                         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop",
@@ -1851,7 +1834,7 @@ function ForBrands() {
                     </div>
                   </div>
 
-                  <div className="bg-[#d1f8ff] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
                     <div className="w-full bg-white border border-black/8 rounded-lg p-2.5 flex flex-col justify-between h-[96px]">
                       <div>
                         <p className="text-[7px] text-black/45 uppercase font-bold tracking-wider">Safety Filters</p>
@@ -1867,9 +1850,11 @@ function ForBrands() {
                   </div>
                 </div>
               </BrandFeatureCard>
+            </div>
 
+            <div className="sticky top-12 z-30 w-full transition-all duration-300">
               <BrandFeatureCard
-                title="Clear Rights & Max ROI"
+              title="Clear Rights & Max ROI"
                 desc="Every winning submission comes with full advertising rights. Keep acquisition costs up to 85% lower."
                 icon={<Shield size={18} />}
               >
@@ -1887,14 +1872,14 @@ function ForBrands() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mt-2">
-                  <div className="bg-[#d1f8ff] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
                     <div className="w-full bg-white border border-black/8 rounded-lg p-2.5 flex flex-col justify-between h-[96px] relative overflow-hidden">
                       <div className="absolute -right-3 -bottom-3 w-8 h-8 rounded-full border border-black/15 flex items-center justify-center text-[5px] text-black/15 font-black uppercase rotate-[-20deg]">
                         OK
                       </div>
                       <div className="flex justify-between items-center border-b border-black/8 pb-0.5">
                         <span className="text-[6px] text-black/40 font-bold uppercase">Rights</span>
-                        <span className="text-[5px] text-black font-bold bg-[#d1f8ff] px-0.5 rounded">Unlimited</span>
+                        <span className="text-[5px] text-black font-bold bg-[#f5f5f5] px-0.5 rounded">Unlimited</span>
                       </div>
                       <div className="space-y-0.5 my-1">
                         <div className="w-8 h-0.5 bg-black/10 rounded-full" />
@@ -1904,67 +1889,7 @@ function ForBrands() {
                     </div>
                   </div>
 
-                  <div className="bg-[#d1f8ff] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
-                    <div className="w-full bg-white border border-black/8 rounded-lg p-2.5 flex flex-col justify-between h-[96px]">
-                      <div className="flex items-end justify-around h-10 mt-1">
-                        <div className="flex flex-col items-center w-5">
-                          <div className="w-full bg-black/10 rounded-t-sm h-8" />
-                          <span className="text-[5px] text-black/40 font-bold mt-0.5">Agency</span>
-                        </div>
-                        <div className="flex flex-col items-center w-5">
-                          <div className="w-full bg-black rounded-t-sm h-2.5" />
-                          <span className="text-[5px] text-black font-bold mt-0.5">GOC</span>
-                        </div>
-                      </div>
-                      <div className="text-[7px] font-black text-center text-black bg-[#d1f8ff] rounded py-0.5">
-                        85% SAVINGS
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </BrandFeatureCard>
-            </div>
-
-            {/* Mobile/Tablet Vertical Stack */}
-            <div className="lg:hidden flex flex-col gap-6 mt-8 w-full">
-              <BrandFeatureCard
-                title="Scale & Speed"
-                desc="Get dozens of content variations in hours, not weeks. A/B test creatives without high agency retainers."
-                icon={<BarChart3 size={18} />}
-              >
-                <div className="grid grid-cols-2 gap-4 pt-4 border-t border-black/8">
-                  <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>Output</p>
-                    <p className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>30+ Variations</p>
-                    <p className="text-[9px] text-black/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>per campaign brief</p>
-                  </div>
-                  <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>Efficiency</p>
-                    <p className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>4x Faster</p>
-                    <p className="text-[9px] text-black/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>content turnaround</p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3 mt-2">
-                  <div className="relative h-32 flex items-center justify-center overflow-hidden bg-[#d1f8ff] rounded-xl border border-black/8 p-3">
-                    <div className="relative w-24 h-24 scale-95">
-                      <div className="absolute bottom-2 right-4 w-12 h-18 rounded-lg overflow-hidden border border-black/10 transition-all duration-500 hover:rotate-[-12deg]"
-                        style={{ background: "#ffffff", transform: "rotate(-5deg)", transformOrigin: "bottom center" }}>
-                        <img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?w=100&h=120&fit=crop&auto=format" className="w-full h-full object-cover opacity-80" />
-                      </div>
-                      <div className="absolute bottom-1 right-1 w-12 h-18 rounded-lg overflow-hidden border border-black/10 transition-all duration-500 hover:rotate-[12deg]"
-                        style={{ background: "#ffffff", transform: "rotate(5deg)", transformOrigin: "bottom center" }}>
-                        <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=100&h=120&fit=crop&auto=format" className="w-full h-full object-cover opacity-90" />
-                      </div>
-                      <div className="absolute bottom-0 right-2 w-12 h-18 rounded-lg overflow-hidden border border-black/10"
-                        style={{ background: "#ffffff" }}>
-                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=100&h=120&fit=crop&auto=format" className="w-full h-full object-cover" />
-                        <div className="absolute bottom-1 left-1 text-[5px] font-bold text-white bg-black px-0.5 py-0.2 rounded">@sophia</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="bg-[#d1f8ff] border border-black/8 rounded-xl p-3 flex flex-col justify-center">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex flex-col justify-center">
                     <div className="relative border-l border-black/10 pl-3 py-0.5 space-y-2">
                       {[
                         { time: "0h", title: "Live", desc: "Creators matched" },
@@ -1984,9 +1909,11 @@ function ForBrands() {
                   </div>
                 </div>
               </BrandFeatureCard>
+            </div>
 
+            <div className="sticky top-[72px] z-40 w-full transition-all duration-300">
               <BrandFeatureCard
-                title="Niche Talent & Safety"
+              title="Niche Talent & Safety"
                 desc="Reach creators across any demographic, country, and niche with automated AI brand-safety guardrails."
                 icon={<Users size={18} />}
               >
@@ -2004,7 +1931,7 @@ function ForBrands() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mt-2">
-                  <div className="bg-[#d1f8ff] border border-black/8 rounded-xl p-3 flex flex-col justify-between h-32">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex flex-col justify-between h-32">
                     <div className="flex items-center gap-1 justify-center -space-x-1 mt-2">
                       {[
                         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop",
@@ -2023,7 +1950,7 @@ function ForBrands() {
                     </div>
                   </div>
 
-                  <div className="bg-[#d1f8ff] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
                     <div className="w-full bg-white border border-black/8 rounded-lg p-2.5 flex flex-col justify-between h-[96px]">
                       <div>
                         <p className="text-[7px] text-black/45 uppercase font-bold tracking-wider">Safety Filters</p>
@@ -2039,9 +1966,11 @@ function ForBrands() {
                   </div>
                 </div>
               </BrandFeatureCard>
+            </div>
 
+            <div className="sticky top-[96px] z-50 w-full transition-all duration-300">
               <BrandFeatureCard
-                title="Clear Rights & Max ROI"
+              title="Clear Rights & Max ROI"
                 desc="Every winning submission comes with full advertising rights. Keep acquisition costs up to 85% lower."
                 icon={<Shield size={18} />}
               >
@@ -2059,14 +1988,14 @@ function ForBrands() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mt-2">
-                  <div className="bg-[#d1f8ff] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
                     <div className="w-full bg-white border border-black/8 rounded-lg p-2.5 flex flex-col justify-between h-[96px] relative overflow-hidden">
                       <div className="absolute -right-3 -bottom-3 w-8 h-8 rounded-full border border-black/15 flex items-center justify-center text-[5px] text-black/15 font-black uppercase rotate-[-20deg]">
                         OK
                       </div>
                       <div className="flex justify-between items-center border-b border-black/8 pb-0.5">
                         <span className="text-[6px] text-black/40 font-bold uppercase">Rights</span>
-                        <span className="text-[5px] text-black font-bold bg-[#d1f8ff] px-0.5 rounded">Unlimited</span>
+                        <span className="text-[5px] text-black font-bold bg-[#f5f5f5] px-0.5 rounded">Unlimited</span>
                       </div>
                       <div className="space-y-0.5 my-1">
                         <div className="w-8 h-0.5 bg-black/10 rounded-full" />
@@ -2076,7 +2005,7 @@ function ForBrands() {
                     </div>
                   </div>
 
-                  <div className="bg-[#d1f8ff] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
                     <div className="w-full bg-white border border-black/8 rounded-lg p-2.5 flex flex-col justify-between h-[96px]">
                       <div className="flex items-end justify-around h-10 mt-1">
                         <div className="flex flex-col items-center w-5">
@@ -2088,7 +2017,7 @@ function ForBrands() {
                           <span className="text-[5px] text-black font-bold mt-0.5">GOC</span>
                         </div>
                       </div>
-                      <div className="text-[7px] font-black text-center text-black bg-[#d1f8ff] rounded py-0.5">
+                      <div className="text-[7px] font-black text-center text-black bg-[#f5f5f5] rounded py-0.5">
                         85% SAVINGS
                       </div>
                     </div>
@@ -2096,7 +2025,9 @@ function ForBrands() {
                 </div>
               </BrandFeatureCard>
             </div>
-
+            
+            {/* Spacer to allow scrolling past the last card */}
+            <div className="h-[450px] w-full shrink-0" />
           </div>
         </div>
       </div>
@@ -2129,7 +2060,7 @@ function ForCreators() {
   ];
 
   return (
-    <section ref={sectionRef} className="py-40 px-8 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #f0fafd 0%, #ffffff 100%)" }}>
+    <section ref={sectionRef} className="py-40 px-8 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #f5f5f5 0%, #ffffff 100%)" }}>
       <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none opacity-5">
         <HeroOrb size={500} opacity={1} blur={40} />
       </div>
@@ -2164,14 +2095,14 @@ function ForCreators() {
                     <p className="text-sm font-bold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Sofia R.</p>
                     <p className="text-xs" style={{ color: "rgba(0,0,0,0.5)", fontFamily: "'DM Sans', sans-serif" }}>UGC Creator · 2.1K followers</p>
                   </div>
-                  <div className="ml-auto px-2.5 py-1 rounded-full text-xs font-bold" style={{ background: "#d1f8ff", color: "#000000", border: "1px solid rgba(0,0,0,0.05)", fontFamily: "'DM Sans', sans-serif" }}>
+                  <div className="ml-auto px-2.5 py-1 rounded-full text-xs font-bold" style={{ background: "#f5f5f5", color: "#000000", border: "1px solid rgba(0,0,0,0.05)", fontFamily: "'DM Sans', sans-serif" }}>
                     🏆 Campaign Winner
                   </div>
                 </div>
                 <div className="grid grid-cols-3 gap-3">
                   {[{ label: "Campaigns Won", val: "7" }, { label: "Total Earned", val: "$3,240" }, { label: "Content Score", val: "9.4/10" }].map(({ label, val }) => (
                     <div key={label} className="rounded-xl p-2.5 text-center group cursor-default transition-all duration-200 hover:scale-105"
-                      style={{ background: "#d1f8ff", border: "1px solid rgba(0,0,0,0.05)", boxShadow: "0 4px 12px rgba(0,0,0,0.02)" }}>
+                      style={{ background: "#f5f5f5", border: "1px solid rgba(0,0,0,0.05)", boxShadow: "0 4px 12px rgba(0,0,0,0.02)" }}>
                       <p className="text-base font-bold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{val}</p>
                       <p className="text-xs mt-0.5" style={{ color: "rgba(0,0,0,0.5)", fontFamily: "'DM Sans', sans-serif" }}>{label}</p>
                     </div>
@@ -2990,7 +2921,7 @@ function Testimonials() {
                 fontFamily: "'DM Sans',sans-serif",
                 boxShadow:  filter===f ? "0 4px 12px rgba(0,0,0,0.15)" : "0 2px 6px rgba(0,0,0,0.02)",
               }}
-              onMouseEnter={e => { if(filter!==f){ e.currentTarget.style.background="#d1f8ff"; e.currentTarget.style.color="#000000"; } }}
+              onMouseEnter={e => { if(filter!==f){ e.currentTarget.style.background="#f5f5f5"; e.currentTarget.style.color="#000000"; } }}
               onMouseLeave={e => { if(filter!==f){ e.currentTarget.style.background="#ffffff"; e.currentTarget.style.color="#000000"; } }}>
               {f === "all" ? "All Stories" : f === "brand" ? "Brand Partners" : "UGC Creators"}
             </button>
@@ -3023,7 +2954,7 @@ function Testimonials() {
                 {/* Subtle top right background glow */}
                 <div className="absolute -right-16 -top-16 w-32 h-32 rounded-full pointer-events-none opacity-20 filter blur-xl"
                   style={{
-                    background: "radial-gradient(circle, #d1f8ff 0%, transparent 70%)"
+                    background: "radial-gradient(circle, #e5e5e5 0%, transparent 70%)"
                   }}
                 />
 
@@ -3036,7 +2967,7 @@ function Testimonials() {
                       </div>
                       <span className="px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider"
                         style={{ 
-                          background: "#d1f8ff", 
+                          background: "#f5f5f5", 
                           color: "#000000",
                           border: "1px solid rgba(0,0,0,0.05)"
                         }}>
@@ -3266,14 +3197,7 @@ function CTABanner() {
           <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
             style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.6) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
-          {/* SVG trophy decoration */}
-          <div className="absolute left-8 top-1/2 -translate-y-1/2 opacity-10 hidden md:block">
-            <TrophySVG size={120} />
-          </div>
-          <div className="absolute right-8 top-1/2 -translate-y-1/2 opacity-10 hidden md:block rotate-12">
-            <TrophySVG size={100} />
-          </div>
-
+          {/* SVG trophy decoration removed as per user request */}
           {/* Sparkles */}
           <SparkleSVG className="absolute top-8 left-1/4 opacity-40" />
           <SparkleSVG className="absolute bottom-8 right-1/4 opacity-30" style={{ width: 14, height: 14 } as React.CSSProperties} />
@@ -4568,7 +4492,7 @@ function VideoShowcase() {
 
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-14 vs-header">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-[0.2em] uppercase mb-3" style={{ background: "#d1f8ff", color: "#000000", border: "1px solid rgba(0,0,0,0.08)", fontFamily: "'DM Sans', sans-serif" }}>
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-[0.2em] uppercase mb-3" style={{ background: "#f5f5f5", color: "#000000", border: "1px solid rgba(0,0,0,0.08)", fontFamily: "'DM Sans', sans-serif" }}>
             Creator Showcase
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 tracking-tight">

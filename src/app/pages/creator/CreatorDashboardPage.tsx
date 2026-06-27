@@ -177,13 +177,13 @@ export default function CreatorDashboardPage() {
     <div className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto">
 
       {/* ── GREETING BANNER ── */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div>
-          <p className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-1">Creator Dashboard</p>
-          <h1 className="text-2xl font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <p className="text-sm font-bold text-neutral-500 uppercase tracking-widest mb-2">Creator Dashboard</p>
+          <h1 className="text-3xl md:text-4xl font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
             Good morning, Ashish 👋
           </h1>
-          <p className="text-xs text-neutral-500 mt-1">
+          <p className="text-sm text-neutral-500 mt-2">
             {submissions.length > 0
               ? `${submissions.length} submission${submissions.length > 1 ? "s" : ""} tracked · ${pendingCount} awaiting review`
               : "No submissions yet — browse campaigns to start earning."}
@@ -191,39 +191,39 @@ export default function CreatorDashboardPage() {
         </div>
         <button
           onClick={handleCopyLink}
-          className="inline-flex items-center gap-2 bg-black text-white hover:bg-neutral-800 transition-all font-black px-4 py-2.5 rounded-xl text-xs border border-black/10 flex-shrink-0 cursor-pointer"
+          className="inline-flex items-center gap-2 bg-black text-white hover:bg-neutral-800 transition-all font-black px-6 py-3 rounded-xl text-sm border border-black/10 flex-shrink-0 shadow-md cursor-pointer"
         >
-          <Share2 size={13} />
+          <Share2 size={16} />
           {copied ? "Copied! 🎉" : "Refer & Earn 200 Coins"}
         </button>
       </div>
 
       {/* ── STAT CARDS ── */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
         {stats.map((s, i) => (
           <div
             key={i}
-            className={`rounded-2xl p-5 border transition-all hover:scale-[1.02] cursor-pointer ${
+            className={`rounded-2xl p-6 border transition-all hover:scale-[1.02] cursor-pointer shadow-sm ${
               s.dark
-                ? "bg-black text-white border-black"
-                : "bg-white border-neutral-200/60 text-black"
+                ? "bg-black text-white border-black shadow-lg"
+                : "bg-white border-neutral-200 text-black"
             }`}
           >
-            <div className="flex items-start justify-between mb-3">
-              <div className={`w-8 h-8 rounded-xl flex items-center justify-center ${s.dark ? "bg-white/10" : "bg-neutral-100"}`}>
-                <span className={s.dark ? "text-[#d1f8ff]" : "text-black"}>{s.icon}</span>
+            <div className="flex items-start justify-between mb-4">
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${s.dark ? "bg-white/10" : "bg-neutral-100"}`}>
+                <span className={s.dark ? "text-white" : "text-black"}>{s.icon}</span>
               </div>
-              <span className={`text-[10px] font-bold px-2 py-1 rounded-full ${s.dark ? "bg-white/10 text-white/70" : "bg-neutral-100 text-neutral-500"}`}>
+              <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${s.dark ? "bg-white/10 text-white/80" : "bg-neutral-100 text-neutral-600"}`}>
                 {s.trend}
               </span>
             </div>
-            <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: s.dark ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.4)" }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: s.dark ? "rgba(255,255,255,0.6)" : "rgba(0,0,0,0.5)" }}>
               {s.label}
             </p>
-            <p className="text-2xl font-black leading-none" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <p className="text-4xl font-black leading-none" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
               {s.value}
             </p>
-            <p className="text-[10px] mt-1.5" style={{ color: s.dark ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.4)" }}>
+            <p className="text-xs mt-2 font-medium" style={{ color: s.dark ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.5)" }}>
               {s.sub}
             </p>
           </div>
@@ -234,20 +234,20 @@ export default function CreatorDashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
 
         {/* CHART — 2 cols */}
-        <div className="lg:col-span-2 bg-white border border-neutral-200/60 rounded-2xl p-6">
-          <div className="flex items-center justify-between mb-5">
+        <div className="lg:col-span-2 bg-white border border-neutral-200/60 rounded-2xl p-6 lg:p-8">
+          <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+              <h2 className="text-lg font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
                 Performance
               </h2>
-              <p className="text-[11px] text-neutral-500 mt-0.5">6-week earnings and views trend</p>
+              <p className="text-xs text-neutral-500 mt-1">6-week earnings and views trend</p>
             </div>
-            <div className="flex items-center bg-neutral-100 rounded-lg p-0.5 border border-neutral-200/60">
+            <div className="flex items-center bg-neutral-100 rounded-lg p-1 border border-neutral-200">
               {(["earnings", "views"] as const).map(t => (
                 <button
                   key={t}
                   onClick={() => setChartTab(t)}
-                  className={`px-3 py-1.5 rounded-md text-[10px] font-black transition-all cursor-pointer capitalize ${
+                  className={`px-4 py-2 rounded-md text-xs font-black transition-all cursor-pointer capitalize ${
                     chartTab === t ? "bg-white text-black shadow-sm" : "text-neutral-500 hover:text-black"
                   }`}
                 >
@@ -258,7 +258,7 @@ export default function CreatorDashboardPage() {
           </div>
 
           {/* SVG Chart */}
-          <div className="relative select-none rounded-xl overflow-hidden" style={{ height: 160 }}>
+          <div className="relative select-none rounded-xl overflow-hidden" style={{ height: 200 }}>
             <svg
               ref={svgRef}
               viewBox={`0 0 ${W} ${H}`}
@@ -334,16 +334,16 @@ export default function CreatorDashboardPage() {
         </div>
 
         {/* CHECKLIST — 1 col */}
-        <div className="bg-white border border-neutral-200/60 rounded-2xl p-6 flex flex-col">
-          <div className="mb-4">
-            <h2 className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+        <div className="bg-white border border-neutral-200/60 rounded-2xl p-6 lg:p-8 flex flex-col">
+          <div className="mb-5">
+            <h2 className="text-lg font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
               Creator Checklist
             </h2>
-            <div className="flex items-center justify-between mt-3 mb-1.5">
-              <p className="text-[10px] text-neutral-500">{completedTasks} of {checklistItems.length} done</p>
-              <p className="text-[10px] font-black text-black">{progressPct}%</p>
+            <div className="flex items-center justify-between mt-4 mb-2">
+              <p className="text-xs text-neutral-500 font-bold">{completedTasks} of {checklistItems.length} done</p>
+              <p className="text-xs font-black text-black">{progressPct}%</p>
             </div>
-            <div className="w-full bg-neutral-100 h-1.5 rounded-full overflow-hidden">
+            <div className="w-full bg-neutral-100 h-2 rounded-full overflow-hidden">
               <div
                 className="h-full bg-black rounded-full transition-all duration-700"
                 style={{ width: `${progressPct}%` }}
@@ -351,30 +351,30 @@ export default function CreatorDashboardPage() {
             </div>
           </div>
 
-          <div className="space-y-2.5 flex-1">
+          <div className="space-y-3 flex-1">
             {checklistItems.map((t, i) => (
               <button
                 key={i}
                 onClick={() => navigate(t.href)}
-                className="w-full flex items-center gap-3 p-3 rounded-xl border text-left transition-all hover:border-black group cursor-pointer"
+                className="w-full flex items-center gap-4 p-4 rounded-xl border text-left transition-all hover:border-black group cursor-pointer"
                 style={{ borderColor: t.done ? "rgba(16,185,129,0.2)" : "rgba(0,0,0,0.08)", background: t.done ? "rgba(16,185,129,0.04)" : "white" }}
               >
-                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors ${t.done ? "bg-emerald-500 border-emerald-500" : "border-neutral-300 group-hover:border-black"}`}>
-                  {t.done && <CheckCircle size={11} className="text-white fill-white" strokeWidth={3} />}
+                <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors ${t.done ? "bg-emerald-500 border-emerald-500" : "border-neutral-300 group-hover:border-black"}`}>
+                  {t.done && <CheckCircle size={14} className="text-white fill-white" strokeWidth={3} />}
                 </div>
-                <span className={`text-xs font-bold flex-1 leading-tight ${t.done ? "text-neutral-400 line-through" : "text-black"}`}>
+                <span className={`text-sm font-bold flex-1 leading-tight ${t.done ? "text-neutral-400 line-through" : "text-black"}`}>
                   {t.label}
                 </span>
-                {!t.done && <ChevronRight size={12} className="text-neutral-300 group-hover:text-black transition-colors flex-shrink-0" />}
+                {!t.done && <ChevronRight size={16} className="text-neutral-300 group-hover:text-black transition-colors flex-shrink-0" />}
               </button>
             ))}
           </div>
 
           <button
             onClick={() => navigate("/creator/campaigns")}
-            className="mt-5 w-full btn-primary-gradient py-3 rounded-xl text-xs font-black flex items-center justify-center gap-1.5"
+            className="mt-6 w-full bg-black text-white hover:bg-neutral-800 transition-colors py-4 rounded-xl text-sm font-black flex items-center justify-center gap-2 shadow-sm cursor-pointer"
           >
-            <Flame size={13} />
+            <Flame size={16} />
             Explore Live Campaigns
           </button>
         </div>
@@ -384,19 +384,19 @@ export default function CreatorDashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
         {/* RECENT SUBMISSIONS */}
-        <div className="bg-white border border-neutral-200/60 rounded-2xl p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Recent Submissions</h2>
+        <div className="bg-white border border-neutral-200/60 rounded-2xl p-6 lg:p-8">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-lg font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Recent Submissions</h2>
             <button
               onClick={() => navigate("/creator/submissions")}
-              className="flex items-center gap-1 text-xs font-bold text-neutral-500 hover:text-black transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 text-sm font-bold text-neutral-500 hover:text-black transition-colors cursor-pointer"
             >
-              View all <ArrowUpRight size={12} />
+              View all <ArrowUpRight size={14} />
             </button>
           </div>
 
           {submissions.length > 0 ? (
-            <div className="space-y-3">
+            <div className="space-y-4">
               {submissions.slice(0, 3).map(sub => {
                 const verified = sub.status === "VERIFIED" || sub.status === "PAID";
                 const statusColors: Record<string, string> = {
@@ -406,36 +406,36 @@ export default function CreatorDashboardPage() {
                   REJECTED: "text-red-600 bg-red-50 border-red-100",
                 };
                 return (
-                  <div key={sub.id} className="flex items-center justify-between p-3.5 rounded-xl border border-neutral-200/60 hover:border-neutral-300 transition-colors">
-                    <div className="flex items-center gap-3 min-w-0">
-                      <div className="w-8 h-8 rounded-xl bg-neutral-100 border border-neutral-200/60 flex items-center justify-center flex-shrink-0 text-neutral-600">
-                        {sub.platform === "TikTok" ? <Music2 size={14} /> : sub.platform === "YouTube" ? <Youtube size={14} /> : <Instagram size={14} />}
+                  <div key={sub.id} className="flex items-center justify-between p-4 rounded-2xl border border-neutral-200 hover:border-neutral-300 transition-colors">
+                    <div className="flex items-center gap-4 min-w-0">
+                      <div className="w-10 h-10 rounded-xl bg-neutral-100 border border-neutral-200/60 flex items-center justify-center flex-shrink-0 text-neutral-600">
+                        {sub.platform === "TikTok" ? <Music2 size={16} /> : sub.platform === "YouTube" ? <Youtube size={16} /> : <Instagram size={16} />}
                       </div>
                       <div className="min-w-0">
-                        <p className="text-xs font-black text-black truncate">{sub.campaignTitle}</p>
-                        <p className="text-[10px] text-neutral-400 mt-0.5">{sub.views.toLocaleString()} views · {sub.date}</p>
+                        <p className="text-sm font-black text-black truncate">{sub.campaignTitle}</p>
+                        <p className="text-xs text-neutral-500 mt-1">{sub.views.toLocaleString()} views · {sub.date}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 flex-shrink-0">
-                      <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full border ${statusColors[sub.status]}`}>
+                    <div className="flex items-center gap-3 flex-shrink-0">
+                      <span className={`text-[10px] font-black uppercase px-2.5 py-1 rounded-md border ${statusColors[sub.status]}`}>
                         {sub.status}
                       </span>
-                      <p className="text-xs font-black text-black">${sub.earned.toFixed(2)}</p>
+                      <p className="text-sm font-black text-black">${sub.earned.toFixed(2)}</p>
                     </div>
                   </div>
                 );
               })}
             </div>
           ) : (
-            <div className="py-12 flex flex-col items-center text-center">
-              <div className="w-12 h-12 rounded-2xl bg-neutral-50 border border-neutral-200 flex items-center justify-center text-neutral-400 mb-3">
-                <Inbox size={20} />
+            <div className="py-14 flex flex-col items-center text-center">
+              <div className="w-14 h-14 rounded-2xl bg-neutral-50 border border-neutral-200 flex items-center justify-center text-neutral-400 mb-4">
+                <Inbox size={24} />
               </div>
-              <p className="text-sm font-black text-black">No submissions yet</p>
-              <p className="text-xs text-neutral-500 mt-1 max-w-[200px]">Browse campaigns and submit your first clip to start earning.</p>
+              <p className="text-base font-black text-black">No submissions yet</p>
+              <p className="text-sm text-neutral-500 mt-2 max-w-[250px]">Browse campaigns and submit your first clip to start earning.</p>
               <button
                 onClick={() => navigate("/creator/campaigns")}
-                className="mt-4 btn-primary-gradient px-4 py-2 rounded-xl text-xs font-black"
+                className="mt-6 bg-black text-white hover:bg-neutral-800 transition-colors px-6 py-3 rounded-xl text-sm font-black cursor-pointer shadow-sm"
               >
                 Browse Campaigns
               </button>
@@ -444,39 +444,39 @@ export default function CreatorDashboardPage() {
         </div>
 
         {/* ACTIVITY FEED */}
-        <div className="bg-white border border-neutral-200/60 rounded-2xl p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+        <div className="bg-white border border-neutral-200/60 rounded-2xl p-6 lg:p-8 flex flex-col">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-lg font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
               Activity Feed
             </h2>
-            <span className="text-[9px] font-black bg-black text-white px-2 py-1 rounded-full">Live</span>
+            <span className="text-[10px] font-black bg-black text-white px-2.5 py-1 rounded-md">Live</span>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-4 flex-1">
             {recentActivity.map((item, i) => (
-              <div key={i} className="flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-colors">
-                <div className="flex-shrink-0 mt-0.5">{item.icon}</div>
+              <div key={i} className="flex items-start gap-4 p-4 rounded-2xl hover:bg-neutral-50 border border-transparent hover:border-neutral-200 transition-colors">
+                <div className="flex-shrink-0">{item.icon}</div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs font-semibold text-black leading-snug">{item.text}</p>
-                  <p className="text-[10px] text-neutral-400 mt-0.5">{item.time}</p>
+                  <p className="text-sm font-semibold text-black leading-snug">{item.text}</p>
+                  <p className="text-xs text-neutral-500 mt-1 font-medium">{item.time}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Quick actions */}
-          <div className="mt-5 pt-4 border-t border-neutral-100 grid grid-cols-2 gap-2">
+          <div className="mt-6 pt-5 border-t border-neutral-100 grid grid-cols-2 gap-3">
             <button
               onClick={() => navigate("/creator/submissions")}
-              className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-neutral-200 text-xs font-bold text-neutral-600 hover:border-black hover:text-black transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 py-3 rounded-xl border border-neutral-200 text-sm font-bold text-neutral-600 hover:border-black hover:text-black transition-all cursor-pointer"
             >
-              <Target size={12} /> New Submission
+              <Target size={14} /> New Submission
             </button>
             <button
               onClick={() => navigate("/creator/wallet")}
-              className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-neutral-200 text-xs font-bold text-neutral-600 hover:border-black hover:text-black transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 py-3 rounded-xl border border-neutral-200 text-sm font-bold text-neutral-600 hover:border-black hover:text-black transition-all cursor-pointer"
             >
-              <TrendingUp size={12} /> View Wallet
+              <TrendingUp size={14} /> View Wallet
             </button>
           </div>
         </div>
