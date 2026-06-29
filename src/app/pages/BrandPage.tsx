@@ -28,8 +28,7 @@ function Badge({ icon, label }: { icon: React.ReactNode; label: string }) {
     <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6"
       style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.1)` }}>
       <span className="text-black/60">{icon}</span>
-      <span className="text-xs font-bold uppercase tracking-widest text-black/70"
-        style={{ fontFamily: "'DM Sans', sans-serif" }}>{label}</span>
+      <span className="text-xs font-bold uppercase tracking-widest text-black/70">{label}</span>
     </div>
   );
 }
@@ -60,7 +59,7 @@ function WhyGOCVisual({ step }: { step: number }) {
   if (step === 0) {
     return (
       <div className="absolute inset-0 flex items-center justify-center p-4">
-        <div className="w-full max-w-[220px] rounded-xl border bg-white p-3 shadow-sm" style={{ borderColor: BORDER }}>
+        <div className="w-full max-w-[220px] rounded-3xl border bg-white p-3 shadow-sm" style={{ borderColor: BORDER }}>
           <div className="flex items-center justify-between mb-2">
             <span className="text-[9px] font-black uppercase text-black/40">Performance ROI</span>
             <span className="text-[9px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">✓ Active</span>
@@ -94,7 +93,7 @@ function WhyGOCVisual({ step }: { step: number }) {
             { handle: "@skincare_mia", views: "140K", rating: "4.9", img: "https://picsum.photos/seed/mia/100/100" },
             { handle: "@fitness_dan", views: "85K", rating: "4.8", img: "https://picsum.photos/seed/dan/100/100" }
           ].map((c) => (
-            <div key={c.handle} className="rounded-lg border bg-white overflow-hidden shadow-xs relative flex flex-col" style={{ borderColor: BORDER }}>
+            <div key={c.handle} className="rounded-full border bg-white overflow-hidden shadow-xs relative flex flex-col" style={{ borderColor: BORDER }}>
               <div className="h-14 relative overflow-hidden bg-black/5">
                 <img src={c.img} alt="" className="w-full h-full object-cover opacity-90" />
                 <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
@@ -118,7 +117,7 @@ function WhyGOCVisual({ step }: { step: number }) {
   }
   return (
     <div className="absolute inset-0 flex items-center justify-center p-4">
-      <div className="w-full max-w-[220px] rounded-xl border bg-white p-3 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
+      <div className="w-full max-w-[220px] rounded-3xl border bg-white p-3 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
         <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full opacity-10 flex items-center justify-center" style={{ background: BLK }}>
           <Shield size={24} />
         </div>
@@ -155,7 +154,7 @@ function HowItWorksVisual({ step }: { step: number }) {
   if (step === 0) {
     return (
       <div className="absolute inset-0 flex items-center justify-center p-4">
-        <div className="w-full max-w-[220px] rounded-xl border bg-white p-3 shadow-sm" style={{ borderColor: BORDER }}>
+        <div className="w-full max-w-[220px] rounded-3xl border bg-white p-3 shadow-sm" style={{ borderColor: BORDER }}>
           <span className="text-[8px] font-black uppercase text-black/40 tracking-wider mb-1.5 block">1. Briefing Portal</span>
           <p className="text-[9px] font-bold text-black mb-2 line-clamp-1">"Create a 30s TikTok reviewing glow..."</p>
           <div className="flex gap-1.5 mb-3 flex-wrap">
@@ -167,7 +166,7 @@ function HowItWorksVisual({ step }: { step: number }) {
               <p className="text-[7px] font-bold text-black/40 uppercase">Prize Pool</p>
               <p className="text-xs font-black text-black">$5,000</p>
             </div>
-            <button className="bg-black text-white text-[8px] font-black px-2.5 py-1 rounded-md shadow-xs">
+            <button className="bg-black text-white text-[8px] font-black px-2.5 py-1 rounded-full shadow-xs">
               Launch 🚀
             </button>
           </div>
@@ -178,7 +177,7 @@ function HowItWorksVisual({ step }: { step: number }) {
   if (step === 1) {
     return (
       <div className="absolute inset-0 flex items-center justify-center p-3">
-        <div className="w-full max-w-[200px] rounded-xl border bg-white p-3 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
+        <div className="w-full max-w-[200px] rounded-3xl border bg-white p-3 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
           <div className="flex items-center justify-between mb-2">
             <span className="text-[8px] font-black uppercase text-black/40">Contest Live</span>
             <div className="flex items-center gap-1">
@@ -213,10 +212,10 @@ function HowItWorksVisual({ step }: { step: number }) {
       <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center text-white shadow-md z-10">
         <Trophy size={20} className="text-[#d1f8ff]" />
       </div>
-      <div className="absolute top-4 left-6 bg-white border rounded-lg px-2 py-1 shadow-sm flex items-center gap-1.5" style={{ borderColor: BORDER }}>
+      <div className="absolute top-4 left-6 bg-white border rounded-full px-2 py-1 shadow-sm flex items-center gap-1.5" style={{ borderColor: BORDER }}>
         <span className="text-[8px] font-bold text-black">🥇 1st: $1,750</span>
       </div>
-      <div className="absolute bottom-6 right-6 bg-white border rounded-lg px-2 py-1 shadow-sm flex items-center gap-1.5" style={{ borderColor: BORDER }}>
+      <div className="absolute bottom-6 right-6 bg-white border rounded-full px-2 py-1 shadow-sm flex items-center gap-1.5" style={{ borderColor: BORDER }}>
         <span className="text-[8px] font-bold text-black">✓ Payout Released</span>
       </div>
     </div>
@@ -248,7 +247,7 @@ function BentoVisual({ step }: { step: number }) {
               </span>
             ))}
           </div>
-          <div className="mt-2.5 flex items-center justify-center gap-1.5 bg-white border rounded-lg p-1.5 shadow-sm" style={{ borderColor: BORDER }}>
+          <div className="mt-2.5 flex items-center justify-center gap-1.5 bg-white border rounded-3xl p-1.5 shadow-sm" style={{ borderColor: BORDER }}>
             <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
             <span className="text-[8px] font-black text-black">Matched: 142 Creators</span>
           </div>
@@ -285,7 +284,7 @@ function BentoVisual({ step }: { step: number }) {
   if (step === 2) {
     return (
       <div className="absolute inset-0 flex items-center justify-center p-4">
-        <div className="w-full max-w-[150px] rounded-xl border bg-white p-2.5 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
+        <div className="w-full max-w-[150px] rounded-3xl border bg-white p-2.5 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
           <div className="flex items-center gap-1.5 mb-1.5">
             <Lock size={12} className="text-black" />
             <span className="text-[8px] font-bold text-black uppercase tracking-wider">SECURE ESCROW</span>
@@ -427,15 +426,14 @@ function BrandHero() {
             style={{ background: ICE, boxShadow: "0 0 8px rgba(209,248,255,0.8)" }}>
             <Crown size={11} />
           </span>
-          <span className="text-xs font-bold uppercase tracking-widest text-black/70"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <span className="text-xs font-bold uppercase tracking-widest text-black/70">
             Performance-Based Creator Marketing
           </span>
         </div>
 
         {/* Headline */}
         <h1 ref={headRef} className="hero-h1 text-5xl md:text-7xl font-extrabold leading-[1.05] mb-6 tracking-tight"
-          style={{ color: BLK, fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          style={{ color: BLK }}>
           Make Your Product<br />
           <span className="relative">
             Go{" "}
@@ -450,7 +448,7 @@ function BrandHero() {
 
         {/* Subheadline */}
         <p className="hero-sub text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
-          style={{ color: "rgba(0,0,0,0.55)", fontFamily: "'DM Sans', sans-serif" }}>
+          style={{ color: "rgba(0,0,0,0.55)" }}>
           Set a prize pool, brief thousands of creators, and only pay for the content that actually performs.
           Authentic UGC at scale — without the agency markup.
         </p>
@@ -474,11 +472,10 @@ function BrandHero() {
             { val: "0", label: "Upfront Risk" },
             { val: "3 Steps", label: "To Go Live" },
           ].map((stat) => (
-            <div key={stat.label} className="rounded-2xl px-4 py-5 text-center"
+            <div key={stat.label} className="rounded-full px-4 py-5 text-center"
               style={{ background: "#ffffff", border: `1px solid ${BORDER}`, boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
-              <p className="text-2xl font-extrabold text-black mb-1"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{stat.val}</p>
-              <p className="text-xs text-black/50 font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>{stat.label}</p>
+              <p className="font-heading text-2xl font-extrabold text-black mb-1">{stat.val}</p>
+              <p className="text-xs text-black/50 font-medium">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -516,7 +513,7 @@ function TrustBar() {
   return (
     <div className="py-10 border-y overflow-hidden" style={{ background: ICE_DIM, borderColor: BORDER }}>
       <p className="text-center mb-6 text-xs font-semibold tracking-[0.22em] uppercase"
-        style={{ color: "rgba(0,0,0,0.35)", fontFamily: "'DM Sans', sans-serif" }}>
+        style={{ color: "rgba(0,0,0,0.35)" }}>
         Trusted by leading brands
       </p>
       <div className="relative overflow-hidden">
@@ -530,8 +527,7 @@ function TrustBar() {
               style={{ padding: "6px 32px" }}>
               {i > 0 && <span className="w-1 h-1 rounded-full mr-6 flex-shrink-0" style={{ background: "rgba(0,0,0,0.15)", marginLeft: -24 }} />}
               <span className="text-black/30">{brand.icon}</span>
-              <span className="font-bold tracking-[0.15em] uppercase text-sm text-black/35 whitespace-nowrap"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{brand.name}</span>
+              <span className="font-heading font-bold tracking-[0.15em] uppercase text-sm text-black/35 whitespace-nowrap">{brand.name}</span>
             </div>
           ))}
         </div>
@@ -581,18 +577,17 @@ function WhyGOC() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<Trophy size={13} />} label="Why Game of Creators" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             Why Brands Choose GOC
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             The smartest brands don't pay for followers. They pay for results.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {reasons.map((r, i) => (
-            <div key={i} className="why-card rounded-2xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col"
+            <div key={i} className="why-card rounded-3xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col"
               style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "rgba(0,0,0,0.14)";
@@ -611,7 +606,7 @@ function WhyGOC() {
               </div>
               {/* Content Zone */}
               <div className="p-6 pt-2.5 flex-1 flex flex-col">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+                <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 flex-shrink-0"
                   style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
                   <span className="text-black">{r.icon}</span>
                 </div>
@@ -619,10 +614,10 @@ function WhyGOC() {
                   style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-black/60">{r.highlight}</span>
                 </div>
-                <h3 className="text-xl font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <h3 className="text-xl font-extrabold text-black mb-2">
                   {r.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-black/55 flex-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <p className="text-sm leading-relaxed text-black/55 flex-1">
                   {r.desc}
                 </p>
               </div>
@@ -678,18 +673,17 @@ function HowItWorks() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<Zap size={13} />} label="How It Works" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             Three Steps to Go Viral
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             From brief to live campaign in minutes. No contracts, no minimums.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {steps.map((step, i) => (
-            <div key={i} className="step-card rounded-2xl overflow-hidden relative flex flex-col group transition-all duration-300 hover:-translate-y-1"
+            <div key={i} className="step-card rounded-3xl overflow-hidden relative flex flex-col group transition-all duration-300 hover:-translate-y-1"
               style={{ background: "#ffffff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)", minHeight: 400 }}>
               
               {/* Visual zone */}
@@ -703,12 +697,12 @@ function HowItWorks() {
               {/* Text content */}
               <div className="p-6 pt-2.5 flex-1 flex flex-col z-10 relative">
                 {/* Step number watermark */}
-                <div className="absolute top-2 right-4 text-6xl font-extrabold pointer-events-none select-none"
-                  style={{ color: "rgba(0,0,0,0.03)", fontFamily: "'Bricolage Grotesque', sans-serif", lineHeight: 1 }}>
+                <div className="font-heading absolute top-2 right-4 text-6xl font-extrabold pointer-events-none select-none"
+                  style={{ color: "rgba(0,0,0,0.03)", lineHeight: 1 }}>
                   {step.num}
                 </div>
 
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+                <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 flex-shrink-0"
                   style={{ background: ICE, border: `1px solid rgba(0,0,0,0.1)` }}>
                   <span className="text-black">{step.icon}</span>
                 </div>
@@ -718,14 +712,14 @@ function HowItWorks() {
                   <span className="text-[10px] font-bold uppercase tracking-wider text-black/50">Step {i + 1}</span>
                 </div>
 
-                <h3 className="text-xl font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <h3 className="text-xl font-extrabold text-black mb-2">
                   {step.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-black/55 mb-4 flex-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <p className="text-sm leading-relaxed text-black/55 mb-4 flex-1">
                   {step.desc}
                 </p>
                 <div className="pt-4 border-t mt-auto" style={{ borderColor: "rgba(0,0,0,0.07)" }}>
-                  <p className="text-xs text-black/40 italic" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  <p className="text-xs text-black/40 italic">
                     {step.detail}
                   </p>
                 </div>
@@ -771,19 +765,18 @@ function ROICalculator() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<BarChart3 size={13} />} label="ROI Estimator" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             See Your Estimated Returns
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             Adjust the sliders to model your campaign performance.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 items-start">
           {/* Controls */}
-          <div className="rounded-2xl p-8" style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
-            <h3 className="text-lg font-extrabold text-black mb-8" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <div className="rounded-3xl p-8" style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
+            <h3 className="text-lg font-extrabold text-black mb-8">
               Configure Your Campaign
             </h3>
 
@@ -791,9 +784,8 @@ function ROICalculator() {
               {/* Prize Pool Slider */}
               <div>
                 <div className="flex justify-between items-center mb-3">
-                  <label className="text-sm font-bold text-black/60 uppercase tracking-wide text-xs"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}>Prize Pool Budget</label>
-                  <span className="text-2xl font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <label className="text-sm font-bold text-black/60 uppercase tracking-wide text-xs">Prize Pool Budget</label>
+                  <span className="font-heading text-2xl font-extrabold text-black">
                     ${budget.toLocaleString()}
                   </span>
                 </div>
@@ -801,7 +793,7 @@ function ROICalculator() {
                   onChange={(e) => setBudget(Number(e.target.value))}
                   className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
                   style={{ background: `linear-gradient(to right, ${BLK} 0%, ${BLK} ${((budget - 1000) / 24000) * 100}%, rgba(0,0,0,0.12) ${((budget - 1000) / 24000) * 100}%, rgba(0,0,0,0.12) 100%)` }} />
-                <div className="flex justify-between text-xs text-black/30 mt-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <div className="flex justify-between text-xs text-black/30 mt-2">
                   <span>$1,000</span><span>$25,000</span>
                 </div>
               </div>
@@ -809,9 +801,8 @@ function ROICalculator() {
               {/* Creators Slider */}
               <div>
                 <div className="flex justify-between items-center mb-3">
-                  <label className="text-sm font-bold text-black/60 uppercase tracking-wide text-xs"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}>Creator Participants (est.)</label>
-                  <span className="text-2xl font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <label className="text-sm font-bold text-black/60 uppercase tracking-wide text-xs">Creator Participants (est.)</label>
+                  <span className="font-heading text-2xl font-extrabold text-black">
                     {creators}
                   </span>
                 </div>
@@ -819,13 +810,13 @@ function ROICalculator() {
                   onChange={(e) => setCreators(Number(e.target.value))}
                   className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
                   style={{ background: `linear-gradient(to right, ${BLK} 0%, ${BLK} ${((creators - 10) / 190) * 100}%, rgba(0,0,0,0.12) ${((creators - 10) / 190) * 100}%, rgba(0,0,0,0.12) 100%)` }} />
-                <div className="flex justify-between text-xs text-black/30 mt-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <div className="flex justify-between text-xs text-black/30 mt-2">
                   <span>10</span><span>200+</span>
                 </div>
               </div>
 
               {/* Reward Structure */}
-              <div className="rounded-xl p-4" style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
+              <div className="rounded-3xl p-4" style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
                 <p className="text-[10px] font-black uppercase tracking-widest text-black/40 mb-3">Prize Distribution</p>
                 <div className="space-y-2">
                   {[
@@ -834,8 +825,8 @@ function ROICalculator() {
                     { tier: "🥉 Top 15 Pool", pct: 0.25, label: "25% split" },
                   ].map((t) => (
                     <div key={t.tier} className="flex items-center justify-between">
-                      <span className="text-xs text-black/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>{t.tier}</span>
-                      <span className="text-sm font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                      <span className="text-xs text-black/60">{t.tier}</span>
+                      <span className="font-heading text-sm font-extrabold text-black">
                         ${(budget * t.pct).toLocaleString()}
                         <span className="text-[10px] font-normal text-black/40 ml-1">({t.label})</span>
                       </span>
@@ -854,32 +845,32 @@ function ROICalculator() {
               { label: "Estimated CPM", val: `$${cpm}`, icon: <DollarSign size={18} />, sub: "vs. $12–25 for traditional ads" },
               { label: "Projected ROI Multiple", val: `${roiMultiplier}×`, icon: <TrendingUp size={18} />, sub: "Based on avg. engagement value" },
             ].map((metric, i) => (
-              <div key={i} className="rounded-2xl p-6 flex items-center gap-5"
+              <div key={i} className="rounded-3xl p-6 flex items-center gap-5"
                 style={{ background: i === 3 ? BLK : "#fff", border: `1px solid ${i === 3 ? BLK : BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
+                <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
                   style={{ background: i === 3 ? ICE : ICE_DIM }}>
                   <span style={{ color: BLK }}>{metric.icon}</span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-bold uppercase tracking-wide mb-1"
-                    style={{ color: i === 3 ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.45)", fontFamily: "'DM Sans', sans-serif" }}>
+                    style={{ color: i === 3 ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.45)" }}>
                     {metric.label}
                   </p>
-                  <p className="text-3xl font-extrabold"
-                    style={{ color: i === 3 ? "#fff" : BLK, fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <p className="font-heading text-3xl font-extrabold"
+                    style={{ color: i === 3 ? "#fff" : BLK }}>
                     {metric.val}
                   </p>
                 </div>
                 <p className="text-[10px] text-right max-w-[110px] flex-shrink-0"
-                  style={{ color: i === 3 ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.35)", fontFamily: "'DM Sans', sans-serif" }}>
+                  style={{ color: i === 3 ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.35)" }}>
                   {metric.sub}
                 </p>
               </div>
             ))}
 
-            <div className="rounded-2xl p-5 text-center"
+            <div className="rounded-3xl p-5 text-center"
               style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.07)` }}>
-              <p className="text-xs text-black/50 mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-xs text-black/50 mb-1">
                 Disclaimer: Estimates based on platform averages. Actual results vary.
               </p>
             </div>
@@ -949,11 +940,10 @@ function FeaturesBento() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<Sparkles size={13} />} label="Platform Features" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             Built for Brand Results
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             Every feature is designed around one goal: giving your brand the best content, at the lowest cost per result.
           </p>
         </div>
@@ -961,7 +951,7 @@ function FeaturesBento() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
           {features.map((f, i) => (
             <div key={i}
-              className={`bento-card rounded-2xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col ${f.wide ? "md:col-span-2 md:flex-row items-stretch" : "md:col-span-1"}`}
+              className={`bento-card rounded-3xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col ${f.wide ? "md:col-span-2 md:flex-row items-stretch" : "md:col-span-1"}`}
               style={{ background: "#ffffff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "rgba(0,0,0,0.14)";
@@ -974,14 +964,14 @@ function FeaturesBento() {
               {f.wide ? (
                 <>
                   <div className="p-7 flex-1 flex flex-col justify-center">
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 flex-shrink-0"
                       style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
                       <span className="text-black">{f.icon}</span>
                     </div>
-                    <h3 className="text-lg font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                    <h3 className="text-lg font-extrabold text-black mb-2">
                       {f.title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                    <p className="text-sm leading-relaxed text-black/55">
                       {f.desc}
                     </p>
                   </div>
@@ -999,14 +989,14 @@ function FeaturesBento() {
                       style={{ background: "linear-gradient(to bottom, transparent, #ffffff)" }} />
                   </div>
                   <div className="p-6 pt-2.5 flex-1">
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 flex-shrink-0"
                       style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
                       <span className="text-black">{f.icon}</span>
                     </div>
-                    <h3 className="text-lg font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                    <h3 className="text-lg font-extrabold text-black mb-2">
                       {f.title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                    <p className="text-sm leading-relaxed text-black/55">
                       {f.desc}
                     </p>
                   </div>
@@ -1073,11 +1063,10 @@ function BrandPortalSimulator() {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <Badge icon={<Tv size={13} />} label="Interactive Demo" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             The Brand Portal in Action
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             Try briefing, budgeting, and licensing creator content — all in one place.
           </p>
         </div>
@@ -1092,7 +1081,7 @@ function BrandPortalSimulator() {
               <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
               <span className="w-3 h-3 rounded-full bg-[#27c93f]" />
             </div>
-            <div className="flex items-center gap-1.5 px-5 py-1.5 rounded-lg text-xs"
+            <div className="flex items-center gap-1.5 px-5 py-1.5 rounded-full text-xs"
               style={{ background: "#fff", border: `1px solid ${BORDER}`, width: 260 }}>
               <div className="w-1.5 h-1.5 rounded-full bg-[#27c93f] animate-pulse" />
               <span className="text-black/45 select-none font-mono">brand.gameofcreators.com</span>
@@ -1104,11 +1093,9 @@ function BrandPortalSimulator() {
           {simStep === "brief" && (
             <div className="p-8 grid md:grid-cols-2 gap-8 items-center min-h-[480px]">
               <div>
-                <span className="text-xs font-bold text-black/40 uppercase tracking-wider mb-2 block"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Step 1 of 3</span>
-                <h3 className="text-2xl font-extrabold text-black mb-4"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Draft Your Campaign Brief</h3>
-                <p className="text-sm leading-relaxed mb-6 text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <span className="font-heading text-xs font-bold text-black/40 uppercase tracking-wider mb-2 block">Step 1 of 3</span>
+                <h3 className="text-2xl font-extrabold text-black mb-4">Draft Your Campaign Brief</h3>
+                <p className="text-sm leading-relaxed mb-6 text-black/55">
                   Define the creative requirements, choose your brand niche, and select target social platforms.
                 </p>
 
@@ -1121,7 +1108,7 @@ function BrandPortalSimulator() {
                       { id: "youtube", label: "YouTube", icon: <Youtube size={13} /> },
                     ].map((p) => (
                       <button key={p.id} onClick={() => setPlatform(p.id as any)}
-                        className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold border transition-all duration-300 cursor-pointer"
+                        className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-full text-xs font-bold border transition-all duration-300 cursor-pointer"
                         style={{
                           background: platform === p.id ? ICE : "transparent",
                           borderColor: platform === p.id ? "rgba(0,0,0,0.15)" : BORDER,
@@ -1138,7 +1125,7 @@ function BrandPortalSimulator() {
                   <div className="grid grid-cols-2 gap-2">
                     {["Skincare & Beauty", "Fitness & Activewear", "Craft Food & Beverage", "Home & Lifestyle"].map((n) => (
                       <button key={n} onClick={() => setNiche(n)}
-                        className="py-2.5 px-4 rounded-xl text-xs font-bold border transition-all duration-300 cursor-pointer text-left"
+                        className="py-2.5 px-4 rounded-full text-xs font-bold border transition-all duration-300 cursor-pointer text-left"
                         style={{
                           background: niche === n ? ICE : "transparent",
                           borderColor: niche === n ? "rgba(0,0,0,0.15)" : BORDER,
@@ -1151,10 +1138,10 @@ function BrandPortalSimulator() {
                 </div>
               </div>
 
-              <div className="rounded-2xl p-6 border" style={{ background: ICE_DIM, borderColor: "rgba(0,0,0,0.06)" }}>
+              <div className="rounded-3xl p-6 border" style={{ background: ICE_DIM, borderColor: "rgba(0,0,0,0.06)" }}>
                 <p className="text-[10px] text-black/40 uppercase font-black tracking-widest mb-3">Live Brief Preview</p>
-                <div className="bg-white border rounded-xl p-4 min-h-[140px] text-sm leading-relaxed text-black"
-                  style={{ borderColor: BORDER, fontFamily: "'DM Sans', sans-serif" }}>
+                <div className="bg-white border rounded-3xl p-4 min-h-[140px] text-sm leading-relaxed text-black"
+                  style={{ borderColor: BORDER }}>
                   {briefText}
                   <span className="inline-block w-1.5 h-4 bg-black ml-0.5 animate-pulse" />
                 </div>
@@ -1169,7 +1156,7 @@ function BrandPortalSimulator() {
                   </span>
                 </div>
                 <button onClick={() => setSimStep("budget")}
-                  className="btn-primary-gradient w-full py-4 rounded-xl text-sm flex items-center justify-center gap-2 mt-4">
+                  className="btn-primary-gradient w-full py-4 rounded-full text-sm flex items-center justify-center gap-2 mt-4">
                   Continue to Budgeting <ArrowRight size={16} />
                 </button>
               </div>
@@ -1181,17 +1168,17 @@ function BrandPortalSimulator() {
             <div className="p-8 grid md:grid-cols-2 gap-8 items-center min-h-[480px]">
               <div>
                 <span className="text-xs font-bold text-black/40 uppercase tracking-wider mb-2 block">Step 2 of 3</span>
-                <h3 className="text-2xl font-extrabold text-black mb-4" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <h3 className="text-2xl font-extrabold text-black mb-4">
                   Set Your Prize Pool
                 </h3>
-                <p className="text-sm leading-relaxed mb-6 text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <p className="text-sm leading-relaxed mb-6 text-black/55">
                   Creators compete for rewards based on content performance. Adjust to set reward distributions.
                 </p>
 
                 <div className="space-y-4 mb-6">
                   <div className="flex justify-between items-center">
                     <span className="text-xs font-bold text-black/40 uppercase tracking-wide">Total Prize Pool</span>
-                    <span className="text-3xl font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                    <span className="font-heading text-3xl font-extrabold text-black">
                       ${budget.toLocaleString()}
                     </span>
                   </div>
@@ -1199,24 +1186,24 @@ function BrandPortalSimulator() {
                     onChange={(e) => setBudget(Number(e.target.value))}
                     className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
                     style={{ background: `linear-gradient(to right, ${BLK} 0%, ${BLK} ${((budget - 1500) / 13500) * 100}%, rgba(0,0,0,0.12) ${((budget - 1500) / 13500) * 100}%, rgba(0,0,0,0.12) 100%)` }} />
-                  <div className="flex justify-between text-xs text-black/30" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  <div className="flex justify-between text-xs text-black/30">
                     <span>$1,500</span><span>$15,000</span>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
                   <button onClick={() => setSimStep("brief")}
-                    className="flex-1 border border-black/10 hover:border-black/20 text-black/60 py-3.5 rounded-xl text-sm font-bold cursor-pointer transition-all duration-300">
+                    className="flex-1 border border-black/10 hover:border-black/20 text-black/60 py-3.5 rounded-full text-sm font-bold cursor-pointer transition-all duration-300">
                     ← Back
                   </button>
                   <button onClick={simulateLaunch}
-                    className="btn-primary-gradient flex-1 py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
+                    className="btn-primary-gradient flex-1 py-3.5 rounded-full text-sm font-bold flex items-center justify-center gap-2">
                     Launch Campaign! <Rocket size={15} />
                   </button>
                 </div>
               </div>
 
-              <div className="rounded-2xl p-6 border" style={{ background: ICE_DIM, borderColor: "rgba(0,0,0,0.06)" }}>
+              <div className="rounded-3xl p-6 border" style={{ background: ICE_DIM, borderColor: "rgba(0,0,0,0.06)" }}>
                 <p className="text-[10px] text-black/40 uppercase font-black tracking-widest mb-4">Reward Structure</p>
                 <div className="space-y-3">
                   {[
@@ -1224,13 +1211,13 @@ function BrandPortalSimulator() {
                     { label: "🥈 Top 5 Pool", val: `$${(budget * 0.4 / 5).toFixed(0)} ea`, share: "40% of pool" },
                     { label: "🥉 Top 15 Pool", val: `$${(budget * 0.25 / 15).toFixed(0)} ea`, share: "25% of pool" },
                   ].map((r) => (
-                    <div key={r.label} className="flex justify-between items-center p-3 rounded-xl bg-white border"
+                    <div key={r.label} className="flex justify-between items-center p-3 rounded-3xl bg-white border"
                       style={{ borderColor: BORDER }}>
                       <div>
                         <p className="text-xs font-bold text-black">{r.label}</p>
                         <p className="text-[9px] text-black/40">{r.share}</p>
                       </div>
-                      <span className="text-base font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                      <span className="font-heading text-base font-extrabold text-black">
                         {r.val}
                       </span>
                     </div>
@@ -1245,10 +1232,10 @@ function BrandPortalSimulator() {
             <div className="p-8 flex flex-col items-center justify-center min-h-[480px] text-center">
               <div className="w-16 h-16 rounded-full border-4 animate-spin mb-6"
                 style={{ borderColor: `rgba(0,0,0,0.08) rgba(0,0,0,0.08) rgba(0,0,0,0.08) ${BLK}` }} />
-              <h3 className="text-2xl font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+              <h3 className="text-2xl font-extrabold text-black mb-2">
                 Matching Creators to Your Brief...
               </h3>
-              <p className="text-sm text-black/45 max-w-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-sm text-black/45 max-w-sm">
                 GOC is distributing your campaign to matching creators across TikTok, Instagram and YouTube.
               </p>
             </div>
@@ -1261,12 +1248,12 @@ function BrandPortalSimulator() {
               <div className="px-8 py-4 flex items-center justify-between border-b"
                 style={{ borderColor: BORDER, background: "#fafafa" }}>
                 <div>
-                  <h4 className="text-sm font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h4 className="text-sm font-extrabold text-black">
                     Campaign Manager
                   </h4>
                   <p className="text-[10px] text-black/40 mt-0.5">Active: {niche} Challenge · Prize pool: ${budget.toLocaleString()}</p>
                 </div>
-                <div className="flex gap-1 p-1 rounded-lg border" style={{ background: ICE_DIM, borderColor: BORDER }}>
+                <div className="flex gap-1 p-1 rounded-3xl border" style={{ background: ICE_DIM, borderColor: BORDER }}>
                   {[
                     { key: "submissions", label: `Submissions (${creators.filter(c => !c.licensed).length})` },
                     { key: "library", label: `Licensed (${creators.filter(c => c.licensed).length})` },
@@ -1290,16 +1277,16 @@ function BrandPortalSimulator() {
                     {creators.filter(c => !c.licensed).length === 0 ? (
                       <div className="text-center py-16">
                         <CheckCircle2 size={36} className="mx-auto mb-3 text-green-500" />
-                        <h5 className="text-base font-extrabold text-black mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>All Submissions Processed</h5>
+                        <h5 className="text-base font-extrabold text-black mb-1">All Submissions Processed</h5>
                         <p className="text-xs text-black/45">Check the Licensed tab to push content to ads.</p>
                       </div>
                     ) : (
                       <div className="grid sm:grid-cols-2 gap-4">
                         {creators.filter(c => !c.licensed).map((c) => (
-                          <div key={c.id} className="rounded-2xl p-4 border flex gap-4 hover:border-black/14 transition-all duration-300"
+                          <div key={c.id} className="rounded-3xl p-4 border flex gap-4 hover:border-black/14 transition-all duration-300"
                             style={{ background: "#fff", borderColor: BORDER, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
                             <div onClick={() => setSelectedCreator(c)}
-                              className="w-20 h-28 rounded-xl overflow-hidden relative cursor-pointer group flex-shrink-0">
+                              className="w-20 h-28 rounded-full overflow-hidden relative cursor-pointer group flex-shrink-0">
                               <img src={c.thumbnail} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                               <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
                                 <div className="w-8 h-8 rounded-full bg-white/85 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -1324,7 +1311,7 @@ function BrandPortalSimulator() {
                                   Score {c.score}
                                 </span>
                                 <button onClick={() => handleLicenseCreator(c.id)}
-                                  className="ml-auto bg-black hover:bg-neutral-800 text-white font-extrabold text-[10px] px-3.5 py-1.5 rounded-lg cursor-pointer transition-colors">
+                                  className="ml-auto bg-black hover:bg-neutral-800 text-white font-extrabold text-[10px] px-3.5 py-1.5 rounded-full cursor-pointer transition-colors">
                                   License & Pay
                                 </button>
                               </div>
@@ -1350,9 +1337,9 @@ function BrandPortalSimulator() {
                           const isSyncMeta = syncingAds[c.id + 100];
                           const isSyncTT = syncingAds[c.id + 200];
                           return (
-                            <div key={c.id} className="rounded-2xl p-4 border flex gap-4"
+                            <div key={c.id} className="rounded-3xl p-4 border flex gap-4"
                               style={{ background: "#fff", borderColor: BORDER, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
-                              <div className="w-16 h-24 rounded-xl overflow-hidden relative flex-shrink-0">
+                              <div className="w-16 h-24 rounded-full overflow-hidden relative flex-shrink-0">
                                 <img src={c.thumbnail} className="w-full h-full object-cover" />
                                 <div className="absolute top-1.5 left-1.5 w-4 h-4 rounded-full bg-green-500 flex items-center justify-center text-white text-[8px]">✓</div>
                               </div>
@@ -1367,14 +1354,14 @@ function BrandPortalSimulator() {
                                     setSyncingAds(prev => ({ ...prev, [c.id + 100]: true }));
                                     setTimeout(() => setSyncingAds(prev => ({ ...prev, [c.id + 100]: false })), 1500);
                                   }} disabled={isSyncMeta}
-                                    className="flex-1 flex items-center justify-center gap-1 bg-blue-600 hover:bg-blue-700 text-white font-bold text-[9px] py-1.5 px-2 rounded-lg cursor-pointer disabled:opacity-50">
+                                    className="flex-1 flex items-center justify-center gap-1 bg-blue-600 hover:bg-blue-700 text-white font-bold text-[9px] py-1.5 px-2 rounded-full cursor-pointer disabled:opacity-50">
                                     {isSyncMeta ? "Syncing..." : "Sync Meta Ads"}
                                   </button>
                                   <button onClick={() => {
                                     setSyncingAds(prev => ({ ...prev, [c.id + 200]: true }));
                                     setTimeout(() => setSyncingAds(prev => ({ ...prev, [c.id + 200]: false })), 1500);
                                   }} disabled={isSyncTT}
-                                    className="flex-1 flex items-center justify-center gap-1 bg-black border text-white font-bold text-[9px] py-1.5 px-2 rounded-lg cursor-pointer disabled:opacity-50"
+                                    className="flex-1 flex items-center justify-center gap-1 bg-black border text-white font-bold text-[9px] py-1.5 px-2 rounded-full cursor-pointer disabled:opacity-50"
                                     style={{ borderColor: "rgba(0,0,0,0.2)" }}>
                                     {isSyncTT ? "Syncing..." : "Sync TikTok"}
                                   </button>
@@ -1404,7 +1391,7 @@ function BrandPortalSimulator() {
       {selectedCreator && (
         <div className="fixed inset-0 z-[300] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
           onClick={() => setSelectedCreator(null)}>
-          <div className="relative w-full max-w-sm rounded-2xl overflow-hidden bg-black border"
+          <div className="relative w-full max-w-sm rounded-3xl overflow-hidden bg-black border"
             style={{ borderColor: "rgba(255,255,255,0.1)" }}
             onClick={(e) => e.stopPropagation()}>
             <button onClick={() => setSelectedCreator(null)}
@@ -1453,25 +1440,23 @@ function Integrations() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<Globe size={13} />} label="Integrations" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             Connect Your Stack
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             GOC plugs into your existing workflow — from campaign launch to ads delivery.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="rounded-2xl p-8" style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
-            <h3 className="text-lg font-extrabold text-black mb-6 flex items-center gap-2"
-              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <div className="rounded-3xl p-8" style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
+            <h3 className="text-lg font-extrabold text-black mb-6 flex items-center gap-2">
               <Share2 size={18} className="text-black/60" /> Social Platforms
             </h3>
             <div className="grid grid-cols-2 gap-3">
               {platforms.map((p) => (
                 <div key={p.name}
-                  className="flex items-center gap-3 p-3.5 rounded-xl transition-all duration-300 cursor-pointer"
+                  className="flex items-center gap-3 p-3.5 rounded-3xl transition-all duration-300 cursor-pointer"
                   style={{ background: "#f9fafb", border: `1px solid ${BORDER}` }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background = `${p.color}10`;
@@ -1482,16 +1467,15 @@ function Integrations() {
                     e.currentTarget.style.borderColor = BORDER;
                   }}>
                   <div style={{ color: p.color }}>{p.icon}</div>
-                  <span className="text-sm font-semibold text-black/80" style={{ fontFamily: "'DM Sans', sans-serif" }}>{p.name}</span>
+                  <span className="text-sm font-semibold text-black/80">{p.name}</span>
                   <CheckCircle2 size={14} className="ml-auto text-green-500" />
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="rounded-2xl p-8" style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
-            <h3 className="text-lg font-extrabold text-black mb-6 flex items-center gap-2"
-              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <div className="rounded-3xl p-8" style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
+            <h3 className="text-lg font-extrabold text-black mb-6 flex items-center gap-2">
               <Briefcase size={18} className="text-black/60" /> Business Tools
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -1514,7 +1498,7 @@ function Integrations() {
               ))}
             </div>
             <div className="mt-6 pt-5 border-t" style={{ borderColor: BORDER }}>
-              <p className="text-sm text-black/45" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-sm text-black/45">
                 + Custom API integrations for enterprise campaigns
               </p>
             </div>
@@ -1573,34 +1557,31 @@ function FAQ() {
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<Lightbulb size={13} />} label="FAQ" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             Common Questions
           </h2>
-          <p className="text-lg text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg text-black/55">
             Everything you need to know before launching your first campaign.
           </p>
         </div>
 
         <div className="space-y-3">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="rounded-2xl overflow-hidden transition-all duration-300"
+            <div key={idx} className="rounded-3xl overflow-hidden transition-all duration-300"
               style={{
                 background: openIdx === idx ? ICE_DIM : "#fafafa",
                 border: `1px solid ${openIdx === idx ? "rgba(0,0,0,0.1)" : BORDER}`,
               }}>
               <button onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
                 className="w-full px-6 py-5 flex items-center justify-between text-left">
-                <span className="text-base font-bold text-black pr-4"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <span className="font-heading text-base font-bold text-black pr-4">
                   {faq.question}
                 </span>
                 <ChevronRight size={18} className="flex-shrink-0 transition-all duration-300"
                   style={{ color: openIdx === idx ? BLK : "rgba(0,0,0,0.3)", transform: openIdx === idx ? "rotate(90deg)" : "none" }} />
               </button>
               <div className="overflow-hidden transition-all duration-300" style={{ maxHeight: openIdx === idx ? "200px" : "0" }}>
-                <p className="px-6 pb-5 text-base leading-relaxed text-black/60"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <p className="px-6 pb-5 text-base leading-relaxed text-black/60">
                   {faq.answer}
                 </p>
               </div>
@@ -1648,32 +1629,31 @@ function CTABanner() {
             style={{ background: `radial-gradient(ellipse, ${ICE} 0%, transparent 70%)`, opacity: 0.12, filter: "blur(30px)" }} />
 
           <div className="relative z-10">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6"
               style={{ background: ICE, boxShadow: `0 8px 24px rgba(209,248,255,0.25)` }}>
               <Rocket size={28} className="text-black" />
             </div>
-            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6"
-              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
               Ready to Launch Your<br />First Campaign?
             </h2>
             <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10"
-              style={{ color: "rgba(255,255,255,0.6)", fontFamily: "'DM Sans', sans-serif" }}>
+              style={{ color: "rgba(255,255,255,0.6)" }}>
               Join 500+ brands using Game of Creators to get authentic UGC at scale — and pay only for results.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button className="flex items-center gap-3 px-10 py-5 rounded-full font-bold text-base transition-all duration-300"
-                style={{ background: "#ffffff", color: BLK, boxShadow: "0 8px 24px rgba(255,255,255,0.15)", fontFamily: "'DM Sans', sans-serif" }}>
+                style={{ background: "#ffffff", color: BLK, boxShadow: "0 8px 24px rgba(255,255,255,0.15)" }}>
                 <span>Launch Your Campaign</span>
                 <ArrowRight size={18} />
               </button>
               <button className="flex items-center gap-2.5 px-8 py-5 rounded-full font-bold text-base transition-all duration-300"
-                style={{ background: "rgba(255,255,255,0.08)", color: "#fff", border: "1px solid rgba(255,255,255,0.15)", fontFamily: "'DM Sans', sans-serif" }}>
+                style={{ background: "rgba(255,255,255,0.08)", color: "#fff", border: "1px solid rgba(255,255,255,0.15)" }}>
                 <Megaphone size={18} /> Talk to a Human
               </button>
             </div>
 
-            <p className="mt-8 text-sm" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="mt-8 text-sm" style={{ color: "rgba(255,255,255,0.35)" }}>
               No subscription fees · No minimums · Only pay the prize pool you set
             </p>
           </div>
@@ -1744,11 +1724,10 @@ function SocialProof() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<Star size={13} />} label="Social Proof" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             What Brands Say About GOC
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             Real results from real campaigns. No agencies, no guesswork.
           </p>
         </div>
@@ -1756,14 +1735,14 @@ function SocialProof() {
         {/* Metrics Bar */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
           {METRICS.map((m, i) => (
-            <div key={i} className="metric-card rounded-2xl p-6 text-center"
+            <div key={i} className="metric-card rounded-3xl p-6 text-center"
               style={{ background: i % 2 === 0 ? ICE_DIM : "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.04)" }}>
-              <div className="w-10 h-10 rounded-xl mx-auto flex items-center justify-center mb-3"
+              <div className="w-10 h-10 rounded-full mx-auto flex items-center justify-center mb-3"
                 style={{ background: i % 2 === 0 ? ICE : ICE_DIM }}>
                 <span className="text-black">{m.icon}</span>
               </div>
-              <p className="text-3xl font-extrabold text-black mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{m.val}</p>
-              <p className="text-xs text-black/45 font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>{m.label}</p>
+              <p className="font-heading text-3xl font-extrabold text-black mb-1">{m.val}</p>
+              <p className="text-xs text-black/45 font-medium">{m.label}</p>
             </div>
           ))}
         </div>
@@ -1775,8 +1754,7 @@ function SocialProof() {
           {/* Quote content */}
           <div className="max-w-3xl mx-auto text-center">
             <div className="text-5xl mb-6 leading-none" style={{ color: ICE, fontFamily: "Georgia, serif" }}>"</div>
-            <p className="text-xl md:text-2xl font-medium leading-relaxed text-black mb-8"
-              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <p className="font-heading text-xl md:text-2xl font-medium leading-relaxed text-black mb-8">
               {t.quote}
             </p>
 
@@ -1785,7 +1763,7 @@ function SocialProof() {
               {t.stats.map((s) => (
                 <div key={s.label} className="flex items-center gap-1.5 px-4 py-2 rounded-full"
                   style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
-                  <span className="text-lg font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{s.val}</span>
+                  <span className="font-heading text-lg font-extrabold text-black">{s.val}</span>
                   <span className="text-xs text-black/45 font-medium">{s.label}</span>
                 </div>
               ))}
@@ -1795,8 +1773,8 @@ function SocialProof() {
             <div className="flex items-center justify-center gap-3">
               <img src={t.avatar} className="w-12 h-12 rounded-full border-2" style={{ borderColor: ICE }} />
               <div className="text-left">
-                <p className="text-sm font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{t.name}</p>
-                <p className="text-xs text-black/45" style={{ fontFamily: "'DM Sans', sans-serif" }}>{t.role}</p>
+                <p className="font-heading text-sm font-extrabold text-black">{t.name}</p>
+                <p className="text-xs text-black/45">{t.role}</p>
               </div>
             </div>
           </div>
@@ -1877,18 +1855,17 @@ function BrandProtection() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<Shield size={13} />} label="Brand Protection" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             Your Brand Is Protected
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             We built GOC to be the safest way for a brand to run creator campaigns — legally, financially, and reputationally.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-5">
           {protections.map((p, i) => (
-            <div key={i} className="protect-card rounded-2xl p-7 group transition-all duration-300 hover:-translate-y-1"
+            <div key={i} className="protect-card rounded-3xl p-7 group transition-all duration-300 hover:-translate-y-1"
               style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "rgba(0,0,0,0.14)";
@@ -1899,7 +1876,7 @@ function BrandProtection() {
                 e.currentTarget.style.boxShadow = "0 4px 24px rgba(0,0,0,0.05)";
               }}>
               <div className="flex items-start justify-between mb-5">
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
                   style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
                   <span className="text-black">{p.icon}</span>
                 </div>
@@ -1908,10 +1885,10 @@ function BrandProtection() {
                   {p.badge}
                 </div>
               </div>
-              <h3 className="text-lg font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+              <h3 className="text-lg font-extrabold text-black mb-2">
                 {p.title}
               </h3>
-              <p className="text-sm leading-relaxed text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-sm leading-relaxed text-black/55">
                 {p.desc}
               </p>
             </div>
@@ -1919,24 +1896,24 @@ function BrandProtection() {
         </div>
 
         {/* Trust strip */}
-        <div className="mt-10 rounded-2xl px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6"
+        <div className="mt-10 rounded-full px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6"
           style={{ background: BLK, border: "1px solid rgba(255,255,255,0.06)" }}>
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
+            <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
               style={{ background: ICE }}>
               <Shield size={22} className="text-black" />
             </div>
             <div>
-              <p className="font-extrabold text-white text-sm" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+              <p className="font-heading font-extrabold text-white text-sm">
                 Enterprise-grade compliance, startup-friendly pricing.
               </p>
-              <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>
                 GOC content agreements are reviewed and enforced under Indian and international IP law.
               </p>
             </div>
           </div>
           <button className="flex-shrink-0 flex items-center gap-2.5 px-7 py-3.5 rounded-full font-bold text-sm transition-all duration-300 whitespace-nowrap"
-            style={{ background: "#ffffff", color: BLK, fontFamily: "'DM Sans', sans-serif" }}>
+            style={{ background: "#ffffff", color: BLK }}>
             View Legal Framework <ArrowRight size={16} />
           </button>
         </div>

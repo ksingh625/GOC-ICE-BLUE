@@ -132,7 +132,6 @@ export default function CreatorGettingStartedPage() {
             </span>
             <h1
               className="text-3xl md:text-4xl font-black text-white leading-tight mb-3"
-              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
             >
               Turn your content into<br />
               <span className="text-[#d1f8ff]">real income</span>
@@ -146,14 +145,14 @@ export default function CreatorGettingStartedPage() {
           <div className="flex flex-col gap-3 flex-shrink-0 w-full md:w-auto">
             <button
               onClick={() => navigate("/creator/campaigns")}
-              className="flex items-center justify-center gap-2 bg-[#d1f8ff] text-black hover:bg-white transition-all font-black px-6 py-3.5 rounded-2xl text-sm shadow-lg"
+              className="flex items-center justify-center gap-2 bg-[#d1f8ff] text-black hover:bg-white transition-all font-black px-6 py-3.5 rounded-full text-sm shadow-lg"
             >
               <Rocket size={15} />
               Browse Live Campaigns
             </button>
             <button
               onClick={() => navigate("/creator/submissions")}
-              className="flex items-center justify-center gap-2 bg-white/10 text-white hover:bg-white/20 transition-all font-bold px-6 py-3 rounded-2xl text-sm border border-white/10"
+              className="flex items-center justify-center gap-2 bg-white/10 text-white hover:bg-white/20 transition-all font-bold px-6 py-3 rounded-full text-sm border border-white/10"
             >
               Submit Your First Clip
               <ArrowRight size={14} />
@@ -168,8 +167,8 @@ export default function CreatorGettingStartedPage() {
             { val: "2,000+", label: "Active creators" },
             { val: "100%", label: "Escrow secured" },
           ].map((s, i) => (
-            <div key={i} className="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-center">
-              <p className="text-xl font-black text-white" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{s.val}</p>
+            <div key={i} className="bg-white/5 border border-white/10 rounded-full px-4 py-3 text-center">
+              <p className="font-heading text-xl font-black text-white">{s.val}</p>
               <p className="text-[10px] text-white/50 font-semibold mt-0.5">{s.label}</p>
             </div>
           ))}
@@ -180,11 +179,11 @@ export default function CreatorGettingStartedPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {perks.map((p, i) => (
           <div key={i} className={`${p.bg} border border-neutral-200/60 rounded-3xl p-6 flex gap-4 items-start`}>
-            <div className="w-10 h-10 rounded-2xl bg-white border border-neutral-200/60 flex items-center justify-center flex-shrink-0 shadow-sm text-black">
+            <div className="w-10 h-10 rounded-full bg-white border border-neutral-200/60 flex items-center justify-center flex-shrink-0 shadow-sm text-black">
               {p.icon}
             </div>
             <div>
-              <h3 className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{p.title}</h3>
+              <h3 className="text-sm font-black text-black">{p.title}</h3>
               <p className="text-[11px] text-neutral-500 mt-1 leading-relaxed">{p.desc}</p>
             </div>
           </div>
@@ -194,7 +193,7 @@ export default function CreatorGettingStartedPage() {
       {/* ── HOW IT WORKS — 4 STEPS ── */}
       <div className="bg-white border border-neutral-200/60 rounded-3xl p-8 shadow-sm">
         <div className="mb-8">
-          <h2 className="text-xl font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-xl font-black text-black">
             How it works
           </h2>
           <p className="text-xs text-neutral-500 mt-1">Four simple steps from browse to bank.</p>
@@ -207,7 +206,7 @@ export default function CreatorGettingStartedPage() {
           {steps.map((s, i) => (
             <div key={i} className="relative z-10 flex flex-col items-start gap-4">
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center text-black shadow-sm border border-neutral-200/60 relative"
+                className="w-16 h-16 rounded-full flex items-center justify-center text-black shadow-sm border border-neutral-200/60 relative"
                 style={{ background: s.color }}
               >
                 {s.icon}
@@ -218,7 +217,7 @@ export default function CreatorGettingStartedPage() {
                 </span>
               </div>
               <div>
-                <h4 className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{s.title}</h4>
+                <h4 className="text-sm font-black text-black">{s.title}</h4>
                 <p className="text-[11px] text-neutral-500 mt-1.5 leading-relaxed">{s.desc}</p>
               </div>
             </div>
@@ -229,7 +228,7 @@ export default function CreatorGettingStartedPage() {
       {/* ── CAMPAIGN TYPES — INTERACTIVE TABS ── */}
       <div className="bg-white border border-neutral-200/60 rounded-3xl p-8 shadow-sm">
         <div className="mb-6">
-          <h2 className="text-xl font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-xl font-black text-black">
             Campaign Types
           </h2>
           <p className="text-xs text-neutral-500 mt-1">Pick what works for your content style and audience.</p>
@@ -241,7 +240,7 @@ export default function CreatorGettingStartedPage() {
             <button
               key={i}
               onClick={() => setActiveCampType(i)}
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold transition-all border cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold transition-all border cursor-pointer ${
                 activeCampType === i
                   ? "bg-black text-white border-black shadow-md"
                   : "bg-white text-neutral-500 border-neutral-200 hover:border-neutral-400 hover:text-black"
@@ -257,23 +256,23 @@ export default function CreatorGettingStartedPage() {
         {(() => {
           const t = campaignTypes[activeCampType];
           return (
-            <div className={`bg-gradient-to-br ${t.color} border ${t.border} rounded-2xl p-6 transition-all`}>
+            <div className={`bg-gradient-to-br ${t.color} border ${t.border} rounded-3xl p-6 transition-all`}>
               <div className="flex items-start justify-between gap-4 mb-3">
                 <div>
                   <span className="inline-block text-[10px] font-black bg-black/5 border border-black/10 rounded-full px-2.5 py-1 mb-2">
                     {t.badge}
                   </span>
-                  <h3 className="text-lg font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h3 className="text-lg font-black text-black">
                     {t.title} Campaigns
                   </h3>
                   <p className="text-xs text-neutral-500 font-semibold mt-0.5">{t.tagline}</p>
                 </div>
-                <div className="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center shadow-sm flex-shrink-0">
+                <div className="w-10 h-10 rounded-full bg-white border border-neutral-200 flex items-center justify-center shadow-sm flex-shrink-0">
                   {t.icon}
                 </div>
               </div>
               <p className="text-sm text-neutral-600 leading-relaxed mb-4">{t.desc}</p>
-              <div className="bg-white/80 border border-neutral-200/60 rounded-xl px-4 py-3">
+              <div className="bg-white/80 border border-neutral-200/60 rounded-full px-4 py-3">
                 <p className="text-[10px] font-black uppercase tracking-wider text-neutral-400 mb-1">Example</p>
                 <p className="text-xs font-semibold text-black">{t.example}</p>
               </div>
@@ -286,10 +285,10 @@ export default function CreatorGettingStartedPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-white border border-emerald-200/60 rounded-3xl p-6 shadow-sm">
           <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-8 h-8 rounded-xl bg-emerald-50 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center">
               <CheckCircle size={16} className="text-emerald-600" />
             </div>
-            <h3 className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h3 className="text-sm font-black text-black">
               If Approved ✓
             </h3>
           </div>
@@ -310,10 +309,10 @@ export default function CreatorGettingStartedPage() {
 
         <div className="bg-white border border-red-200/60 rounded-3xl p-6 shadow-sm">
           <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-8 h-8 rounded-xl bg-red-50 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
               <XCircle size={16} className="text-red-500" />
             </div>
-            <h3 className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h3 className="text-sm font-black text-black">
               If Rejected ✗
             </h3>
           </div>
@@ -334,7 +333,7 @@ export default function CreatorGettingStartedPage() {
       </div>
 
       {/* ── COMPLIANCE BADGE STRIP ── */}
-      <div className="bg-[#d1f8ff]/20 border border-[#d1f8ff] rounded-2xl px-6 py-4 flex flex-wrap items-center gap-3">
+      <div className="bg-[#d1f8ff]/20 border border-[#d1f8ff] rounded-full px-6 py-4 flex flex-wrap items-center gap-3">
         <Shield size={18} className="text-black flex-shrink-0" />
         <span className="text-xs font-black text-black">Content Compliance Rules:</span>
         {["Authentic review", "Hook in 1–3s", "Show the product", "No competitors", "No bots/fakes"].map((rule, i) => (
@@ -346,7 +345,7 @@ export default function CreatorGettingStartedPage() {
 
       {/* ── FAQ ── */}
       <div className="bg-white border border-neutral-200/60 rounded-3xl p-8 shadow-sm">
-        <h2 className="text-xl font-black text-black mb-6" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+        <h2 className="text-xl font-black text-black mb-6">
           Frequently Asked Questions
         </h2>
 
@@ -356,7 +355,7 @@ export default function CreatorGettingStartedPage() {
             return (
               <div
                 key={idx}
-                className={`border rounded-2xl overflow-hidden transition-all duration-200 ${
+                className={`border rounded-3xl overflow-hidden transition-all duration-200 ${
                   isOpen ? "border-black" : "border-neutral-200"
                 }`}
               >
@@ -384,7 +383,7 @@ export default function CreatorGettingStartedPage() {
       {/* ── BOTTOM CTA ── */}
       <div className="rounded-3xl border border-neutral-200/60 bg-white p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
         <div>
-          <h3 className="text-lg font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h3 className="text-lg font-black text-black">
             Ready to start earning?
           </h3>
           <p className="text-xs text-neutral-500 mt-1">Browse active campaigns and make your first submission today.</p>
@@ -392,7 +391,7 @@ export default function CreatorGettingStartedPage() {
         <div className="flex gap-3 flex-shrink-0">
           <button
             onClick={() => navigate("/creator/campaigns")}
-            className="btn-primary-gradient flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-black shadow-sm"
+            className="btn-primary-gradient flex items-center gap-2 px-6 py-3 rounded-full text-sm font-black shadow-sm"
           >
             <Rocket size={14} />
             Explore Campaigns

@@ -120,7 +120,7 @@ export default function PricingPage() {
 
         {/* Social Media Pill */}
         <div className="flex justify-center gap-4 mb-6">
-          <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-2xl bg-white border border-black/10 shadow-sm">
+          <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white border border-black/10 shadow-sm">
             <Instagram size={20} className="text-pink-500 fill-pink-500/10" />
             <Youtube size={20} className="text-red-500" />
             <span className="w-1.5 h-1.5 rounded-full bg-black animate-ping" />
@@ -128,7 +128,7 @@ export default function PricingPage() {
         </div>
 
         {/* Headlines */}
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 text-black">
           Game Of Creators{" "}
           <span className="relative inline-block">
             Pricing
@@ -137,7 +137,7 @@ export default function PricingPage() {
             </svg>
           </span>
         </h1>
-        <p className="text-base md:text-lg text-black/60 max-w-xl mx-auto font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+        <p className="text-base md:text-lg text-black/60 max-w-xl mx-auto font-medium">
           The World's First Platform to Democratise Brand Deals
         </p>
       </header>
@@ -148,7 +148,7 @@ export default function PricingPage() {
           <div className="inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-black/5 border border-black/10 text-black/70 mb-3">
             Select the ideal payment plan
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2 text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2 text-black">
             Choose Your{" "}
             <span className="relative inline-block">
               Game Plan
@@ -157,7 +157,7 @@ export default function PricingPage() {
               </svg>
             </span>
           </h2>
-          <p className="text-xs text-black/50 max-w-md mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-xs text-black/50 max-w-md mx-auto">
             Select the perfect plan to start winning with creator contests
           </p>
 
@@ -200,7 +200,7 @@ export default function PricingPage() {
                 <div>
                   {/* Plan Icon Header */}
                   <div className="flex justify-between items-start mb-6">
-                    <div className="p-3 rounded-2xl bg-black/5 border border-black/10 inline-block" style={{ color: p.color }}>
+                    <div className="p-3 rounded-3xl bg-black/5 border border-black/10 inline-block" style={{ color: p.color }}>
                       {p.name.includes("Explorer") && <Users size={20} />}
                       {p.name.includes("Starter") && <Rocket size={20} />}
                       {p.name.includes("Builder") && <Award size={20} />}
@@ -209,8 +209,8 @@ export default function PricingPage() {
                   </div>
 
                   {/* Title & Desc */}
-                  <h3 className="text-xl font-bold tracking-tight mb-2 text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{p.name}</h3>
-                  <p className="text-xs text-black/50 leading-relaxed mb-6 font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>{p.desc}</p>
+                  <h3 className="text-xl font-bold tracking-tight mb-2 text-black">{p.name}</h3>
+                  <p className="text-xs text-black/50 leading-relaxed mb-6 font-medium">{p.desc}</p>
 
                   {/* Price */}
                   <div className="mb-6 flex items-baseline gap-1 text-black">
@@ -226,7 +226,7 @@ export default function PricingPage() {
                     {p.features.map((f, i) => (
                       <div key={i} className="flex items-start gap-2.5">
                         <Check size={13} className="text-black mt-0.5 flex-shrink-0" />
-                        <span className="text-[11px] leading-snug text-black/70 font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>{f}</span>
+                        <span className="text-[11px] leading-snug text-black/70 font-medium">{f}</span>
                       </div>
                     ))}
                   </div>
@@ -235,7 +235,7 @@ export default function PricingPage() {
                 {/* Subscribe button */}
                 <button 
                   onClick={() => navigate("/get-started")}
-                  className={`w-full py-3 rounded-2xl text-xs font-extrabold cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 ${
+                  className={`w-full py-3 rounded-full text-xs font-extrabold cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 ${
                     p.popular 
                       ? "btn-primary-gradient shadow-sm" 
                       : "btn-secondary-white"
@@ -253,7 +253,7 @@ export default function PricingPage() {
       {/* WHAT'S INCLUDED SECTION */}
       <section className="py-24 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-3 text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-3 text-black">
             What's Included in{" "}
             <span className="relative inline-block">
               Every Plan
@@ -262,7 +262,7 @@ export default function PricingPage() {
               </svg>
             </span>
           </h2>
-          <p className="text-sm text-black/50 max-w-lg mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-sm text-black/50 max-w-lg mx-auto">
             Essential Elements for Your Influencer Marketing Strategy
           </p>
         </div>
@@ -292,14 +292,14 @@ export default function PricingPage() {
           ].map((item, i) => (
             <div 
               key={i} 
-              className="p-6 rounded-2xl bg-white border border-black/5 hover:border-black/15 shadow-sm flex items-start gap-4 transition-all duration-300"
+              className="p-6 rounded-3xl bg-white border border-black/5 hover:border-black/15 shadow-sm flex items-start gap-4 transition-all duration-300"
             >
-              <div className="p-3.5 rounded-xl bg-[#d1f8ff] border border-black/5 text-black">
+              <div className="p-3.5 rounded-3xl bg-[#d1f8ff] border border-black/5 text-black">
                 {item.icon}
               </div>
               <div>
-                <h3 className="text-base font-extrabold text-black mb-1.5" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{item.title}</h3>
-                <p className="text-xs text-black/50 leading-relaxed font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>{item.desc}</p>
+                <h3 className="text-base font-extrabold text-black mb-1.5">{item.title}</h3>
+                <p className="text-xs text-black/50 leading-relaxed font-medium">{item.desc}</p>
               </div>
             </div>
           ))}
@@ -314,10 +314,10 @@ export default function PricingPage() {
           <div className="absolute right-0 top-0 w-80 h-80 rounded-full bg-[#d1f8ff]/10 filter blur-[80px] pointer-events-none" />
 
           <div className="flex-1 text-left relative z-10">
-            <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 leading-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 leading-tight">
               Not sure which <span className="text-[#d1f8ff]">plan</span> is right for you?
             </h3>
-            <p className="text-xs text-white/60 mb-6 max-w-lg leading-relaxed font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="text-xs text-white/60 mb-6 max-w-lg leading-relaxed font-medium">
               Book a demo with <strong>Vishesh</strong>, Founder of Game Of Creators. Join hundreds of businesses driving success with Game Of Creators! Book your free consultation today to get all your questions answered and start launching impactful campaigns.
             </p>
             <button 
@@ -330,9 +330,9 @@ export default function PricingPage() {
           </div>
 
           <div className="flex-shrink-0 relative z-10 w-full max-w-[280px]">
-            <div className="p-4 rounded-2xl bg-white/10 border border-white/25 backdrop-blur-md shadow-2xl relative">
+            <div className="p-4 rounded-3xl bg-white/10 border border-white/25 backdrop-blur-md shadow-2xl relative">
               {/* Laptop illustration */}
-              <div className="aspect-[4/3] rounded-xl bg-slate-950 flex flex-col items-center justify-center p-3 relative overflow-hidden border border-white/5">
+              <div className="aspect-[4/3] rounded-3xl bg-slate-950 flex flex-col items-center justify-center p-3 relative overflow-hidden border border-white/5">
                 <Laptop size={44} className="text-[#d1f8ff] mb-2" />
                 <div className="text-center text-white">
                   <p className="text-[10px] font-bold">1:1 Strategic Call</p>

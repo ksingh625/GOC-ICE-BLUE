@@ -75,7 +75,7 @@ export default function JoinCreatorPage() {
           {step === 1 && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-black mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Join the Creator Arena</h2>
+                <h2 className="text-2xl font-black mb-1">Join the Creator Arena</h2>
                 <p className="text-xs text-neutral-500">Sign up to compete in brand deals and earn guaranteed payouts.</p>
               </div>
 
@@ -90,7 +90,7 @@ export default function JoinCreatorPage() {
                       placeholder="e.g. Ashish Singh"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-black transition-colors"
+                      className="w-full pl-11 pr-4 py-3 rounded-full border border-neutral-200 text-sm focus:outline-none focus:border-black transition-colors"
                     />
                   </div>
                 </div>
@@ -105,7 +105,7 @@ export default function JoinCreatorPage() {
                       placeholder="e.g. ashish@gmail.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-black transition-colors"
+                      className="w-full pl-11 pr-4 py-3 rounded-full border border-neutral-200 text-sm focus:outline-none focus:border-black transition-colors"
                     />
                   </div>
                 </div>
@@ -115,7 +115,7 @@ export default function JoinCreatorPage() {
                 type="button"
                 onClick={() => setStep(2)}
                 disabled={!name || !email}
-                className="w-full btn-primary-gradient py-3.5 rounded-xl text-xs flex items-center justify-center gap-1.5"
+                className="w-full btn-primary-gradient py-3.5 rounded-full text-xs flex items-center justify-center gap-1.5"
               >
                 Next: Connect Socials & Niche
                 <ArrowRight size={14} />
@@ -126,7 +126,7 @@ export default function JoinCreatorPage() {
           {step === 2 && (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <h2 className="text-2xl font-black mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Niches & Social handles</h2>
+                <h2 className="text-2xl font-black mb-1">Niches & Social handles</h2>
                 <p className="text-xs text-neutral-500">Connect your profiles to receive matching contest alerts.</p>
               </div>
 
@@ -156,24 +156,24 @@ export default function JoinCreatorPage() {
                 <label className="block text-xs font-extrabold uppercase tracking-wider text-neutral-600">Your Handles (Optional)</label>
                 
                 <div className="flex gap-2">
-                  <div className="w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center flex-shrink-0 text-pink-500"><Instagram size={18} /></div>
+                  <div className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0 text-pink-500"><Instagram size={18} /></div>
                   <input 
                     type="text" 
                     placeholder="Instagram handle (e.g. ashish_ugc)"
                     value={instagram}
                     onChange={(e) => setInstagram(e.target.value)}
-                    className="flex-1 px-3.5 rounded-xl border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors"
+                    className="flex-1 px-3.5 rounded-full border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors"
                   />
                 </div>
 
                 <div className="flex gap-2">
-                  <div className="w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center flex-shrink-0 text-red-600"><Youtube size={18} /></div>
+                  <div className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0 text-red-600"><Youtube size={18} /></div>
                   <input 
                     type="text" 
                     placeholder="YouTube channel (e.g. ashish_creators)"
                     value={youtube}
                     onChange={(e) => setYoutube(e.target.value)}
-                    className="flex-1 px-3.5 rounded-xl border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors"
+                    className="flex-1 px-3.5 rounded-full border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors"
                   />
                 </div>
               </div>
@@ -181,7 +181,7 @@ export default function JoinCreatorPage() {
               {/* Portfolio Drag Uploader Mock */}
               <div>
                 <label className="block text-xs font-extrabold uppercase tracking-wider text-neutral-600 mb-1.5">Sample Video Portfolio</label>
-                <div className="border-2 border-dashed border-neutral-200 hover:border-black/20 p-6 rounded-2xl text-center cursor-pointer transition-colors bg-neutral-50/50">
+                <div className="border-2 border-dashed border-neutral-200 hover:border-black/20 p-6 rounded-3xl text-center cursor-pointer transition-colors bg-neutral-50/50">
                   <Camera size={24} className="mx-auto mb-2 text-neutral-400" />
                   <p className="text-xs font-bold text-neutral-700">Drag your video file here</p>
                   <p className="text-[10px] text-neutral-400 mt-0.5">MP4, MOV up to 60MB</p>
@@ -192,14 +192,14 @@ export default function JoinCreatorPage() {
                 <button 
                   type="button" 
                   onClick={() => setStep(1)}
-                  className="px-5 py-3 rounded-xl border border-neutral-200 text-xs font-bold text-neutral-500 hover:text-black transition-colors cursor-pointer"
+                  className="px-5 py-3 rounded-full border border-neutral-200 text-xs font-bold text-neutral-500 hover:text-black transition-colors cursor-pointer"
                 >
                   Back
                 </button>
                 <button 
                   type="submit"
                   disabled={submitting}
-                  className="flex-1 btn-primary-gradient py-3.5 rounded-xl text-xs flex items-center justify-center gap-1.5"
+                  className="flex-1 btn-primary-gradient py-3.5 rounded-full text-xs flex items-center justify-center gap-1.5"
                 >
                   {submitting ? "Submitting Application..." : "Submit Application"}
                   <ArrowRight size={14} />
@@ -214,7 +214,7 @@ export default function JoinCreatorPage() {
                 <Check size={28} />
               </div>
               <div>
-                <h2 className="text-2xl font-black text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Application Received!</h2>
+                <h2 className="text-2xl font-black text-black mb-2">Application Received!</h2>
                 <p className="text-xs text-neutral-500 max-w-sm mx-auto leading-relaxed">
                   Thank you, <strong>{name}</strong>! We've received your application. Our community team will review your niches and sample portfolio. You should receive a confirmation email at <strong>{email}</strong> within 24-48 hours.
                 </p>

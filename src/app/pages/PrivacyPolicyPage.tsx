@@ -27,19 +27,19 @@ export default function PrivacyPolicyPage() {
         {/* Right Content */}
         <div className="md:col-span-3 space-y-10">
           <div>
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Privacy Policy</h1>
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">Privacy Policy</h1>
             <p className="text-[10px] text-neutral-400 font-semibold">Last Updated: June 25, 2026</p>
           </div>
 
           <section id="introduction" className="space-y-3">
-            <h2 className="text-lg font-extrabold text-black border-b border-neutral-100 pb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>1. Introduction</h2>
+            <h2 className="text-lg font-extrabold text-black border-b border-neutral-100 pb-2">1. Introduction</h2>
             <p className="text-xs text-neutral-600 leading-relaxed font-medium">
               At Game of Creators ("GOC", "we", "us", or "our"), we value your privacy. This Privacy Policy details how we collect, store, share, and protect information collected from brands, agencies, and content creators using our platform, websites, and associated services.
             </p>
           </section>
 
           <section id="data-collection" className="space-y-3">
-            <h2 className="text-lg font-extrabold text-black border-b border-neutral-100 pb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>2. Information We Collect</h2>
+            <h2 className="text-lg font-extrabold text-black border-b border-neutral-100 pb-2">2. Information We Collect</h2>
             <p className="text-xs text-neutral-600 leading-relaxed font-medium">
               We collect information to support contest matching, licensing, and transaction security:
             </p>
@@ -51,21 +51,21 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section id="data-usage" className="space-y-3">
-            <h2 className="text-lg font-extrabold text-black border-b border-neutral-100 pb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>3. How We Use Data</h2>
+            <h2 className="text-lg font-extrabold text-black border-b border-neutral-100 pb-2">3. How We Use Data</h2>
             <p className="text-xs text-neutral-600 leading-relaxed font-medium">
               We use collected information to verify contest submissions, calculate leaderboard standings, distribute payments, transfer intellectual property licenses, and synchronize winning media with linked Meta/TikTok ad accounts.
             </p>
           </section>
 
           <section id="intellectual-property" className="space-y-3">
-            <h2 className="text-lg font-extrabold text-black border-b border-neutral-100 pb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>4. UGC Licensing & IP</h2>
+            <h2 className="text-lg font-extrabold text-black border-b border-neutral-100 pb-2">4. UGC Licensing & IP</h2>
             <p className="text-xs text-neutral-600 leading-relaxed font-medium">
               Content creators retain ownership of their content until a brand chooses to reward and license it. Upon reward distribution, the specified intellectual property rights (perpetual, worldwide usage rights) are transferred legally according to GOC guidelines.
             </p>
           </section>
 
           <section id="security" className="space-y-3">
-            <h2 className="text-lg font-extrabold text-black border-b border-neutral-100 pb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>5. Data Security</h2>
+            <h2 className="text-lg font-extrabold text-black border-b border-neutral-100 pb-2">5. Data Security</h2>
             <p className="text-xs text-neutral-600 leading-relaxed font-medium">
               We secure data with standard TLS encryption, secure escrow protocols, and restrict developer access to raw personal details. No credentials are sold or shared for external marketing.
             </p>

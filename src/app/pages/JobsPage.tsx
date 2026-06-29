@@ -81,7 +81,7 @@ export default function JobsPage() {
           <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase bg-[#d1f8ff] text-black border border-black/5 mb-4">
             Careers at GOC
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Join the Gaming Arena
           </h1>
           <p className="text-sm text-black/60 max-w-lg font-medium">
@@ -96,7 +96,7 @@ export default function JobsPage() {
           <button
             key={dept}
             onClick={() => setFilter(dept)}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+            className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
               filter === dept 
                 ? "bg-black text-white" 
                 : "bg-slate-100 text-neutral-600 hover:bg-slate-200/70"
@@ -123,7 +123,7 @@ export default function JobsPage() {
                   {job.type}
                 </span>
               </div>
-              <h3 className="text-lg font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{job.title}</h3>
+              <h3 className="text-lg font-extrabold text-black">{job.title}</h3>
               <p className="text-xs text-neutral-500 max-w-xl font-medium leading-relaxed">{job.desc}</p>
               
               <div className="flex items-center gap-4 text-[10px] text-neutral-400 font-semibold pt-1">
@@ -134,7 +134,7 @@ export default function JobsPage() {
 
             <button 
               onClick={() => setSelectedJob(job)}
-              className="btn-primary-gradient px-6 py-3 rounded-xl text-xs whitespace-nowrap align-self-start md:align-self-center"
+              className="btn-primary-gradient px-6 py-3 rounded-full text-xs whitespace-nowrap align-self-start md:align-self-center"
             >
               Apply Now
             </button>
@@ -157,7 +157,7 @@ export default function JobsPage() {
               <form onSubmit={handleApplySubmit} className="space-y-5">
                 <div>
                   <p className="text-[10px] font-extrabold uppercase tracking-widest text-purple-600 mb-1">Apply for Position</p>
-                  <h3 className="text-xl font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{selectedJob.title}</h3>
+                  <h3 className="text-xl font-extrabold text-black">{selectedJob.title}</h3>
                   <p className="text-[10px] text-neutral-450">{selectedJob.loc}</p>
                 </div>
 
@@ -169,7 +169,7 @@ export default function JobsPage() {
                     placeholder="e.g. Ashish Singh"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors"
+                    className="w-full px-4 py-3 rounded-full border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors"
                   />
                 </div>
 
@@ -181,7 +181,7 @@ export default function JobsPage() {
                     placeholder="e.g. ashish@gmail.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors"
+                    className="w-full px-4 py-3 rounded-full border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors"
                   />
                 </div>
 
@@ -190,7 +190,7 @@ export default function JobsPage() {
                   <label className="block text-[10px] font-extrabold uppercase text-neutral-500 mb-1.5">Upload Resume</label>
                   <div 
                     onClick={() => setResumeUploaded(true)}
-                    className="border-2 border-dashed border-neutral-200 hover:border-black/20 p-5 rounded-2xl text-center cursor-pointer transition-colors bg-neutral-50/50"
+                    className="border-2 border-dashed border-neutral-200 hover:border-black/20 p-5 rounded-3xl text-center cursor-pointer transition-colors bg-neutral-50/50"
                   >
                     {resumeUploaded ? (
                       <div className="flex items-center justify-center gap-1.5 text-emerald-600 font-bold text-xs">
@@ -207,7 +207,7 @@ export default function JobsPage() {
 
                 <button 
                   type="submit"
-                  className="w-full btn-primary-gradient py-3.5 rounded-xl text-xs flex items-center justify-center gap-1.5"
+                  className="w-full btn-primary-gradient py-3.5 rounded-full text-xs flex items-center justify-center gap-1.5"
                 >
                   Submit Application
                   <Send size={13} />
@@ -219,7 +219,7 @@ export default function JobsPage() {
                   <Check size={24} />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-black text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Application Sent!</h2>
+                  <h2 className="text-2xl font-black text-black mb-2">Application Sent!</h2>
                   <p className="text-xs text-neutral-500 leading-relaxed">
                     Thank you for applying, {name}. Our recruiters will review your resume and details and get in touch with you shortly.
                   </p>

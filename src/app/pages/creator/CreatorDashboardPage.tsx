@@ -152,22 +152,22 @@ export default function CreatorDashboardPage() {
 
   const recentActivity = [
     {
-      icon: <span className="w-8 h-8 rounded-xl bg-[#d1f8ff]/50 border border-[#d1f8ff] flex items-center justify-center flex-shrink-0"><Target size={14} className="text-black" /></span>,
+      icon: <span className="w-8 h-8 rounded-full bg-[#d1f8ff]/50 border border-[#d1f8ff] flex items-center justify-center flex-shrink-0"><Target size={14} className="text-black" /></span>,
       text: "New Roobet campaign launched — $2,000 pool",
       time: "2h ago",
     },
     {
-      icon: <span className="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center flex-shrink-0"><CheckCircle size={14} className="text-emerald-600" /></span>,
+      icon: <span className="w-8 h-8 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center flex-shrink-0"><CheckCircle size={14} className="text-emerald-600" /></span>,
       text: "Your TikTok clip was verified successfully",
       time: "5h ago",
     },
     {
-      icon: <span className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center flex-shrink-0"><DollarSign size={14} className="text-amber-600" /></span>,
+      icon: <span className="w-8 h-8 rounded-full bg-amber-50 border border-amber-100 flex items-center justify-center flex-shrink-0"><DollarSign size={14} className="text-amber-600" /></span>,
       text: "Received $12.45 — Roobet Official Clipping",
       time: "1 day ago",
     },
     {
-      icon: <span className="w-8 h-8 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center flex-shrink-0"><Trophy size={14} className="text-black" /></span>,
+      icon: <span className="w-8 h-8 rounded-full bg-neutral-100 border border-neutral-200 flex items-center justify-center flex-shrink-0"><Trophy size={14} className="text-black" /></span>,
       text: "You moved to #8 on the leaderboard",
       time: "2 days ago",
     },
@@ -180,7 +180,7 @@ export default function CreatorDashboardPage() {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div>
           <p className="text-sm font-bold text-neutral-500 uppercase tracking-widest mb-2">Creator Dashboard</p>
-          <h1 className="text-3xl md:text-4xl font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h1 className="text-3xl md:text-4xl font-black text-black">
             Good morning, Ashish 👋
           </h1>
           <p className="text-sm text-neutral-500 mt-2">
@@ -191,7 +191,7 @@ export default function CreatorDashboardPage() {
         </div>
         <button
           onClick={handleCopyLink}
-          className="inline-flex items-center gap-2 bg-black text-white hover:bg-neutral-800 transition-all font-black px-6 py-3 rounded-xl text-sm border border-black/10 flex-shrink-0 shadow-md cursor-pointer"
+          className="inline-flex items-center gap-2 bg-black text-white hover:bg-neutral-800 transition-all font-black px-6 py-3 rounded-full text-sm border border-black/10 flex-shrink-0 shadow-md cursor-pointer"
         >
           <Share2 size={16} />
           {copied ? "Copied! 🎉" : "Refer & Earn 200 Coins"}
@@ -203,14 +203,14 @@ export default function CreatorDashboardPage() {
         {stats.map((s, i) => (
           <div
             key={i}
-            className={`rounded-2xl p-6 border transition-all hover:scale-[1.02] cursor-pointer shadow-sm ${
+            className={`rounded-3xl p-6 border transition-all hover:scale-[1.02] cursor-pointer shadow-sm ${
               s.dark
                 ? "bg-black text-white border-black shadow-lg"
                 : "bg-white border-neutral-200 text-black"
             }`}
           >
             <div className="flex items-start justify-between mb-4">
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${s.dark ? "bg-white/10" : "bg-neutral-100"}`}>
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center ${s.dark ? "bg-white/10" : "bg-neutral-100"}`}>
                 <span className={s.dark ? "text-white" : "text-black"}>{s.icon}</span>
               </div>
               <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${s.dark ? "bg-white/10 text-white/80" : "bg-neutral-100 text-neutral-600"}`}>
@@ -220,7 +220,7 @@ export default function CreatorDashboardPage() {
             <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: s.dark ? "rgba(255,255,255,0.6)" : "rgba(0,0,0,0.5)" }}>
               {s.label}
             </p>
-            <p className="text-4xl font-black leading-none" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <p className="font-heading text-4xl font-black leading-none">
               {s.value}
             </p>
             <p className="text-xs mt-2 font-medium" style={{ color: s.dark ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.5)" }}>
@@ -234,20 +234,20 @@ export default function CreatorDashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
 
         {/* CHART — 2 cols */}
-        <div className="lg:col-span-2 bg-white border border-neutral-200/60 rounded-2xl p-6 lg:p-8">
+        <div className="lg:col-span-2 bg-white border border-neutral-200/60 rounded-3xl p-6 lg:p-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-lg font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+              <h2 className="text-lg font-black text-black">
                 Performance
               </h2>
               <p className="text-xs text-neutral-500 mt-1">6-week earnings and views trend</p>
             </div>
-            <div className="flex items-center bg-neutral-100 rounded-lg p-1 border border-neutral-200">
+            <div className="flex items-center bg-neutral-100 rounded-3xl p-1 border border-neutral-200">
               {(["earnings", "views"] as const).map(t => (
                 <button
                   key={t}
                   onClick={() => setChartTab(t)}
-                  className={`px-4 py-2 rounded-md text-xs font-black transition-all cursor-pointer capitalize ${
+                  className={`px-4 py-2 rounded-full text-xs font-black transition-all cursor-pointer capitalize ${
                     chartTab === t ? "bg-white text-black shadow-sm" : "text-neutral-500 hover:text-black"
                   }`}
                 >
@@ -258,7 +258,7 @@ export default function CreatorDashboardPage() {
           </div>
 
           {/* SVG Chart */}
-          <div className="relative select-none rounded-xl overflow-hidden" style={{ height: 200 }}>
+          <div className="relative select-none rounded-full overflow-hidden" style={{ height: 200 }}>
             <svg
               ref={svgRef}
               viewBox={`0 0 ${W} ${H}`}
@@ -334,9 +334,9 @@ export default function CreatorDashboardPage() {
         </div>
 
         {/* CHECKLIST — 1 col */}
-        <div className="bg-white border border-neutral-200/60 rounded-2xl p-6 lg:p-8 flex flex-col">
+        <div className="bg-white border border-neutral-200/60 rounded-3xl p-6 lg:p-8 flex flex-col">
           <div className="mb-5">
-            <h2 className="text-lg font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h2 className="text-lg font-black text-black">
               Creator Checklist
             </h2>
             <div className="flex items-center justify-between mt-4 mb-2">
@@ -356,7 +356,7 @@ export default function CreatorDashboardPage() {
               <button
                 key={i}
                 onClick={() => navigate(t.href)}
-                className="w-full flex items-center gap-4 p-4 rounded-xl border text-left transition-all hover:border-black group cursor-pointer"
+                className="w-full flex items-center gap-4 p-4 rounded-3xl border text-left transition-all hover:border-black group cursor-pointer"
                 style={{ borderColor: t.done ? "rgba(16,185,129,0.2)" : "rgba(0,0,0,0.08)", background: t.done ? "rgba(16,185,129,0.04)" : "white" }}
               >
                 <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors ${t.done ? "bg-emerald-500 border-emerald-500" : "border-neutral-300 group-hover:border-black"}`}>
@@ -372,7 +372,7 @@ export default function CreatorDashboardPage() {
 
           <button
             onClick={() => navigate("/creator/campaigns")}
-            className="mt-6 w-full bg-black text-white hover:bg-neutral-800 transition-colors py-4 rounded-xl text-sm font-black flex items-center justify-center gap-2 shadow-sm cursor-pointer"
+            className="mt-6 w-full bg-black text-white hover:bg-neutral-800 transition-colors py-4 rounded-full text-sm font-black flex items-center justify-center gap-2 shadow-sm cursor-pointer"
           >
             <Flame size={16} />
             Explore Live Campaigns
@@ -384,9 +384,9 @@ export default function CreatorDashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
         {/* RECENT SUBMISSIONS */}
-        <div className="bg-white border border-neutral-200/60 rounded-2xl p-6 lg:p-8">
+        <div className="bg-white border border-neutral-200/60 rounded-3xl p-6 lg:p-8">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-lg font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Recent Submissions</h2>
+            <h2 className="text-lg font-black text-black">Recent Submissions</h2>
             <button
               onClick={() => navigate("/creator/submissions")}
               className="flex items-center gap-1.5 text-sm font-bold text-neutral-500 hover:text-black transition-colors cursor-pointer"
@@ -406,9 +406,9 @@ export default function CreatorDashboardPage() {
                   REJECTED: "text-red-600 bg-red-50 border-red-100",
                 };
                 return (
-                  <div key={sub.id} className="flex items-center justify-between p-4 rounded-2xl border border-neutral-200 hover:border-neutral-300 transition-colors">
+                  <div key={sub.id} className="flex items-center justify-between p-4 rounded-3xl border border-neutral-200 hover:border-neutral-300 transition-colors">
                     <div className="flex items-center gap-4 min-w-0">
-                      <div className="w-10 h-10 rounded-xl bg-neutral-100 border border-neutral-200/60 flex items-center justify-center flex-shrink-0 text-neutral-600">
+                      <div className="w-10 h-10 rounded-full bg-neutral-100 border border-neutral-200/60 flex items-center justify-center flex-shrink-0 text-neutral-600">
                         {sub.platform === "TikTok" ? <Music2 size={16} /> : sub.platform === "YouTube" ? <Youtube size={16} /> : <Instagram size={16} />}
                       </div>
                       <div className="min-w-0">
@@ -417,7 +417,7 @@ export default function CreatorDashboardPage() {
                       </div>
                     </div>
                     <div className="flex items-center gap-3 flex-shrink-0">
-                      <span className={`text-[10px] font-black uppercase px-2.5 py-1 rounded-md border ${statusColors[sub.status]}`}>
+                      <span className={`text-[10px] font-black uppercase px-2.5 py-1 rounded-full border ${statusColors[sub.status]}`}>
                         {sub.status}
                       </span>
                       <p className="text-sm font-black text-black">${sub.earned.toFixed(2)}</p>
@@ -428,14 +428,14 @@ export default function CreatorDashboardPage() {
             </div>
           ) : (
             <div className="py-14 flex flex-col items-center text-center">
-              <div className="w-14 h-14 rounded-2xl bg-neutral-50 border border-neutral-200 flex items-center justify-center text-neutral-400 mb-4">
+              <div className="w-14 h-14 rounded-full bg-neutral-50 border border-neutral-200 flex items-center justify-center text-neutral-400 mb-4">
                 <Inbox size={24} />
               </div>
               <p className="text-base font-black text-black">No submissions yet</p>
               <p className="text-sm text-neutral-500 mt-2 max-w-[250px]">Browse campaigns and submit your first clip to start earning.</p>
               <button
                 onClick={() => navigate("/creator/campaigns")}
-                className="mt-6 bg-black text-white hover:bg-neutral-800 transition-colors px-6 py-3 rounded-xl text-sm font-black cursor-pointer shadow-sm"
+                className="mt-6 bg-black text-white hover:bg-neutral-800 transition-colors px-6 py-3 rounded-full text-sm font-black cursor-pointer shadow-sm"
               >
                 Browse Campaigns
               </button>
@@ -444,17 +444,17 @@ export default function CreatorDashboardPage() {
         </div>
 
         {/* ACTIVITY FEED */}
-        <div className="bg-white border border-neutral-200/60 rounded-2xl p-6 lg:p-8 flex flex-col">
+        <div className="bg-white border border-neutral-200/60 rounded-3xl p-6 lg:p-8 flex flex-col">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-lg font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h2 className="text-lg font-black text-black">
               Activity Feed
             </h2>
-            <span className="text-[10px] font-black bg-black text-white px-2.5 py-1 rounded-md">Live</span>
+            <span className="text-[10px] font-black bg-black text-white px-2.5 py-1 rounded-full">Live</span>
           </div>
 
           <div className="space-y-4 flex-1">
             {recentActivity.map((item, i) => (
-              <div key={i} className="flex items-start gap-4 p-4 rounded-2xl hover:bg-neutral-50 border border-transparent hover:border-neutral-200 transition-colors">
+              <div key={i} className="flex items-start gap-4 p-4 rounded-3xl hover:bg-neutral-50 border border-transparent hover:border-neutral-200 transition-colors">
                 <div className="flex-shrink-0">{item.icon}</div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold text-black leading-snug">{item.text}</p>
@@ -468,13 +468,13 @@ export default function CreatorDashboardPage() {
           <div className="mt-6 pt-5 border-t border-neutral-100 grid grid-cols-2 gap-3">
             <button
               onClick={() => navigate("/creator/submissions")}
-              className="flex items-center justify-center gap-2 py-3 rounded-xl border border-neutral-200 text-sm font-bold text-neutral-600 hover:border-black hover:text-black transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 py-3 rounded-full border border-neutral-200 text-sm font-bold text-neutral-600 hover:border-black hover:text-black transition-all cursor-pointer"
             >
               <Target size={14} /> New Submission
             </button>
             <button
               onClick={() => navigate("/creator/wallet")}
-              className="flex items-center justify-center gap-2 py-3 rounded-xl border border-neutral-200 text-sm font-bold text-neutral-600 hover:border-black hover:text-black transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 py-3 rounded-full border border-neutral-200 text-sm font-bold text-neutral-600 hover:border-black hover:text-black transition-all cursor-pointer"
             >
               <TrendingUp size={14} /> View Wallet
             </button>

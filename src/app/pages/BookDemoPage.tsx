@@ -76,7 +76,7 @@ export default function BookDemoPage() {
               </div>
             </div>
 
-            <h1 className="text-2xl font-black mb-3 leading-snug" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h1 className="text-2xl font-black mb-3 leading-snug">
               Book your 1:1 demo consultation
             </h1>
             <p className="text-xs text-neutral-500 leading-relaxed mb-6 font-medium">
@@ -113,7 +113,7 @@ export default function BookDemoPage() {
                         key={d.num}
                         type="button"
                         onClick={() => setSelectedDate(d.date)}
-                        className={`flex-1 p-3 rounded-xl border text-center transition-all cursor-pointer ${
+                        className={`flex-1 p-3 rounded-3xl border text-center transition-all cursor-pointer ${
                           selectedDate === d.date 
                             ? "bg-black border-black text-white" 
                             : "bg-white border-neutral-200 hover:border-black/20"
@@ -138,7 +138,7 @@ export default function BookDemoPage() {
                           key={t}
                           type="button"
                           onClick={() => setSelectedTime(t)}
-                          className={`p-2.5 rounded-xl border text-center text-xs font-bold transition-all cursor-pointer ${
+                          className={`p-2.5 rounded-3xl border text-center text-xs font-bold transition-all cursor-pointer ${
                             selectedTime === t 
                               ? "bg-black border-black text-white" 
                               : "bg-white border-neutral-200 hover:border-black/20"
@@ -167,7 +167,7 @@ export default function BookDemoPage() {
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder="e.g. Ashish Singh"
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors"
+                          className="w-full px-3.5 py-2.5 rounded-full border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors"
                         />
                       </div>
 
@@ -179,7 +179,7 @@ export default function BookDemoPage() {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="e.g. ashish@gmail.com"
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors"
+                          className="w-full px-3.5 py-2.5 rounded-full border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors"
                         />
                       </div>
                     </div>
@@ -192,7 +192,7 @@ export default function BookDemoPage() {
                           value={website}
                           onChange={(e) => setWebsite(e.target.value)}
                           placeholder="e.g. cosmetics.com"
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors"
+                          className="w-full px-3.5 py-2.5 rounded-full border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors"
                         />
                       </div>
 
@@ -201,7 +201,7 @@ export default function BookDemoPage() {
                         <select 
                           value={budget}
                           onChange={(e) => setBudget(e.target.value)}
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-neutral-200 text-xs bg-white focus:outline-none focus:border-black transition-colors"
+                          className="w-full px-3.5 py-2.5 rounded-full border border-neutral-200 text-xs bg-white focus:outline-none focus:border-black transition-colors"
                         >
                           <option value="">Select Spend</option>
                           <option value="<$1k">Under $1k</option>
@@ -214,7 +214,7 @@ export default function BookDemoPage() {
 
                     <button 
                       type="submit"
-                      className="w-full btn-primary-gradient py-3.5 rounded-xl text-xs flex items-center justify-center gap-1.5"
+                      className="w-full btn-primary-gradient py-3.5 rounded-full text-xs flex items-center justify-center gap-1.5"
                     >
                       Book Free Strategic Call
                       <ArrowRight size={14} />
@@ -229,7 +229,7 @@ export default function BookDemoPage() {
                   <Check size={28} />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-black text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Booking Confirmed!</h2>
+                  <h2 className="text-2xl font-black text-black mb-2">Booking Confirmed!</h2>
                   <p className="text-xs text-neutral-500 max-w-sm mx-auto leading-relaxed">
                     Awesome, {name}! Your meeting with Vishesh is confirmed for <strong>{selectedDate}</strong> at <strong>{selectedTime}</strong>. A calendar invite and Google Meet link has been sent to <strong>{email}</strong>.
                   </p>

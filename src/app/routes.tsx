@@ -22,9 +22,20 @@ import CreatorDashboardPage from "./pages/creator/CreatorDashboardPage";
 import CreatorCampaignsPage from "./pages/creator/CreatorCampaignsPage";
 import CreatorSubmissionsPage from "./pages/creator/CreatorSubmissionsPage";
 import CreatorLeaderboardPage from "./pages/creator/CreatorLeaderboardPage";
+import CreatorDailyChallengePage from "./pages/creator/CreatorDailyChallengePage";
 import CreatorGettingStartedPage from "./pages/creator/CreatorGettingStartedPage";
 import CreatorWalletPage from "./pages/creator/CreatorWalletPage";
 import CreatorSettingsPage from "./pages/creator/CreatorSettingsPage";
+
+// Brand Dashboard imports
+import BrandDashboardLayout from "./pages/brand/BrandDashboardLayout";
+import BrandDashboardPage from "./pages/brand/BrandDashboardPage";
+import BrandCampaignsPage from "./pages/brand/BrandCampaignsPage";
+import BrandAnalyticsPage from "./pages/brand/BrandAnalyticsPage";
+import BrandBillingPage from "./pages/brand/BrandBillingPage";
+import BrandGettingStartedPage from "./pages/brand/BrandGettingStartedPage";
+import BrandSettingsPage from "./pages/brand/BrandSettingsPage";
+import BrandCreateCampaignPage from "./pages/brand/BrandCreateCampaignPage";
 
 export const router = createBrowserRouter([
   {
@@ -122,6 +133,10 @@ export const router = createBrowserRouter([
         Component: CreatorLeaderboardPage,
       },
       {
+        path: "daily-challenge",
+        Component: CreatorDailyChallengePage,
+      },
+      {
         path: "getting-started",
         Component: CreatorGettingStartedPage,
       },
@@ -132,6 +147,46 @@ export const router = createBrowserRouter([
       {
         path: "settings",
         Component: CreatorSettingsPage,
+      },
+    ],
+  },
+
+  // Brand Portal Routes
+  {
+    path: "/brand",
+    Component: BrandDashboardLayout,
+    children: [
+      {
+        path: "",
+        element: <Navigate to="dashboard" replace />,
+      },
+      {
+        path: "dashboard",
+        Component: BrandDashboardPage,
+      },
+      {
+        path: "campaigns/create",
+        Component: BrandCreateCampaignPage,
+      },
+      {
+        path: "campaigns",
+        Component: BrandCampaignsPage,
+      },
+      {
+        path: "analytics",
+        Component: BrandAnalyticsPage,
+      },
+      {
+        path: "billing",
+        Component: BrandBillingPage,
+      },
+      {
+        path: "getting-started",
+        Component: BrandGettingStartedPage,
+      },
+      {
+        path: "settings",
+        Component: BrandSettingsPage,
       },
     ],
   },

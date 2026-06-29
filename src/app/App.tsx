@@ -234,8 +234,8 @@ function BrandMarquee() {
   return (
     <div ref={sectionRef} className="mt-32 select-none relative z-20 mb-12" style={{ opacity: 0 }}>
       {/* Sleek Header like the reference */}
-      <h3 className="text-center mb-12 text-lg md:text-xl font-medium tracking-tight"
-        style={{ color: "rgba(0,0,0,0.85)", fontFamily: "'DM Sans', sans-serif" }}>
+      <h3 className="font-sans text-center mb-12 text-lg md:text-xl font-medium tracking-tight"
+        style={{ color: "rgba(0,0,0,0.85)" }}>
         The most innovative brands build on Game of Creators
       </h3>
 
@@ -271,10 +271,7 @@ function BrandMarquee() {
                   {brand.icon}
                 </span>
                 <span
-                  className="font-bold text-lg whitespace-nowrap text-black tracking-tight"
-                  style={{
-                    fontFamily: "'Bricolage Grotesque', sans-serif",
-                  }}
+                  className="font-heading font-bold text-lg whitespace-nowrap text-black tracking-tight"
                 >
                   {brand.name}
                 </span>
@@ -433,9 +430,9 @@ function HeroDashboard() {
           <div className="w-3 h-3 rounded-full" style={{ background: "#22c55e" }} />
         </div>
         <div className="flex-1 mx-4">
-          <div className="h-6 rounded-md px-3 flex items-center" style={{ background: "#d1f8ff", border: "1px solid rgba(0,0,0,0.08)", maxWidth: 280 }}>
+          <div className="h-6 rounded-full px-3 flex items-center" style={{ background: "#d1f8ff", border: "1px solid rgba(0,0,0,0.08)", maxWidth: 280 }}>
             <div className="w-1.5 h-1.5 rounded-full mr-2 animate-pulse" style={{ background: "#000000" }} />
-            <span className="text-xs" style={{ color: "rgba(0,0,0,0.6)", fontFamily: "'DM Sans', sans-serif" }}>app.gameofcreators.com</span>
+            <span className="text-xs" style={{ color: "rgba(0,0,0,0.6)" }}>app.gameofcreators.com</span>
           </div>
         </div>
       </div>
@@ -459,11 +456,10 @@ function HeroDashboard() {
             const active = activeNav === label;
             return (
               <button key={label} onClick={() => setActiveNav(label)}
-                className="px-3 py-2 rounded-lg text-xs flex items-center gap-2.5 transition-all duration-200 text-left w-full"
+                className="px-3 py-2 rounded-full text-xs flex items-center gap-2.5 transition-all duration-200 text-left w-full"
                 style={{
                   background: active ? "#d1f8ff" : "transparent",
                   color: active ? "#000000" : "rgba(0,0,0,0.5)",
-                  fontFamily: "'DM Sans', sans-serif",
                   fontWeight: active ? 600 : 400,
                   border: "1px solid transparent",
                 }}>
@@ -481,25 +477,25 @@ function HeroDashboard() {
           {/* Header row */}
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-bold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+              <p className="font-heading text-sm font-bold text-black">
                 Good Morning, Alex 👋
               </p>
-              <p className="text-xs mt-0.5 flex items-center gap-1.5" style={{ color: "rgba(0,0,0,0.6)", fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-xs mt-0.5 flex items-center gap-1.5" style={{ color: "rgba(0,0,0,0.6)" }}>
                 3 active campaigns ·{" "}
                 <span className="font-semibold tabular-nums" style={{ color: "#000000" }}>{liveCount}</span>
                 {" "}new submissions today
                 <span className="w-1 h-1 rounded-full animate-pulse" style={{ background: "#000000" }} />
               </p>
             </div>
-            <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-extrabold text-black border border-black/10"
-              style={{ background: "#d1f8ff", fontFamily: "'Bricolage Grotesque', sans-serif" }}>A</div>
+            <div className="font-heading w-8 h-8 rounded-full flex items-center justify-center text-xs font-extrabold text-black border border-black/10"
+              style={{ background: "#d1f8ff" }}>A</div>
           </div>
 
           {/* Stat cards */}
           <div className="grid grid-cols-4 gap-2">
             {stats.map(({ label, display, delta, color }, i) => (
               <div key={label}
-                className="rounded-xl p-3 cursor-pointer transition-all duration-200 relative overflow-hidden"
+                className="rounded-3xl p-3 cursor-pointer transition-all duration-200 relative overflow-hidden"
                 style={{
                   background: hoveredStat === i ? "#d1f8ff" : "#ffffff",
                   border: "1px solid rgba(0,0,0,0.08)",
@@ -509,19 +505,19 @@ function HeroDashboard() {
                 onMouseEnter={() => setHoveredStat(i)}
                 onMouseLeave={() => setHoveredStat(null)}
               >
-                <p className="text-xs mb-1.5" style={{ color: "rgba(0,0,0,0.5)", fontFamily: "'DM Sans', sans-serif" }}>{label}</p>
-                <p className="text-base font-extrabold tabular-nums text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{display}</p>
-                <p className="text-xs mt-1 font-semibold tabular-nums" style={{ color, fontFamily: "'DM Sans', sans-serif" }}>{delta}</p>
+                <p className="text-xs mb-1.5" style={{ color: "rgba(0,0,0,0.5)" }}>{label}</p>
+                <p className="font-heading text-base font-extrabold tabular-nums text-black">{display}</p>
+                <p className="text-xs mt-1 font-semibold tabular-nums" style={{ color }}>{delta}</p>
               </div>
             ))}
           </div>
 
           {/* Animated chart */}
-          <div className="rounded-xl p-3 relative" style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 16px rgba(0,0,0,0.02)" }}>
+          <div className="rounded-3xl p-3 relative" style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 16px rgba(0,0,0,0.02)" }}>
             <div className="flex items-center justify-between mb-2">
-              <p className="text-xs font-bold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Submission Volume</p>
-              <span className="text-xs px-2.5 py-1 rounded-lg font-semibold"
-                style={{ background: "#d1f8ff", color: "#000000", border: "1px solid rgba(0,0,0,0.1)", fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="font-heading text-xs font-bold text-black">Submission Volume</p>
+              <span className="text-xs px-2.5 py-1 rounded-full font-semibold"
+                style={{ background: "#d1f8ff", color: "#000000", border: "1px solid rgba(0,0,0,0.1)" }}>
                 This Week
               </span>
             </div>
@@ -576,25 +572,25 @@ function HeroDashboard() {
           </div>
 
           {/* Active campaign row */}
-          <div className="flex items-center justify-between px-3.5 py-2.5 rounded-xl cursor-pointer group transition-all duration-200"
+          <div className="flex items-center justify-between px-3.5 py-2.5 rounded-full cursor-pointer group transition-all duration-200"
             style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 16px rgba(0,0,0,0.02)" }}
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#000000"; e.currentTarget.style.background = "rgba(209,248,255,0.4)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.05)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(0,0,0,0.08)"; e.currentTarget.style.background = "#ffffff"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.02)"; }}>
             <div className="flex items-center gap-3">
               {/* Campaign thumbnail placeholder */}
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+              <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
                 style={{ background: "#d1f8ff", border: "1px solid rgba(0,0,0,0.08)" }}>
                 <Flame size={14} style={{ color: "#000000" }} />
               </div>
               <div>
-                <p className="text-xs font-bold text-black" style={{ fontFamily: "'DM Sans', sans-serif" }}>Summer Vibes Challenge</p>
-                <p className="text-xs" style={{ color: "rgba(0,0,0,0.5)", fontFamily: "'DM Sans', sans-serif" }}>
+                <p className="text-xs font-bold text-black">Summer Vibes Challenge</p>
+                <p className="text-xs" style={{ color: "rgba(0,0,0,0.5)" }}>
                   <span className="tabular-nums">{submissions > 0 ? Math.min(submissions > 342 ? 342 : submissions, 342).toLocaleString() : "342"}</span> submissions · 8 days left
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-sm font-extrabold" style={{ color: "#000000", fontFamily: "'Bricolage Grotesque', sans-serif" }}>$2,500</span>
+              <span className="font-heading text-sm font-extrabold" style={{ color: "#000000" }}>$2,500</span>
               <ChevronRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: "#000000" }} />
             </div>
           </div>
@@ -761,7 +757,7 @@ function Hero({ onBrowse }: { onBrowse?: () => void }) {
             <Flame size={11} className="fill-white" />
             Contests
           </span>
-          <span className="flex items-center gap-1 text-black/80 font-medium tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <span className="flex items-center gap-1 text-black/80 font-medium tracking-wide">
             Contest-Driven Creator Marketing
             <ArrowUpRight size={13} className="text-black/40 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-black" />
           </span>
@@ -770,7 +766,7 @@ function Hero({ onBrowse }: { onBrowse?: () => void }) {
         {/* Headline */}
         <h1 ref={headlineRef}
           className="text-4xl md:text-6xl font-extrabold text-black leading-[1.05] mb-6"
-          style={{ fontFamily: "'Bricolage Grotesque', sans-serif", textShadow: "none" }}>
+          style={{ textShadow: "none" }}>
           Reach new audiences
           <br />
           with contest-driven{" "}
@@ -786,7 +782,7 @@ function Hero({ onBrowse }: { onBrowse?: () => void }) {
 
         {/* Sub */}
         <p ref={subRef} className="text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed"
-          style={{ color: "rgba(0,0,0,0.65)", fontFamily: "'DM Sans', sans-serif" }}>
+          style={{ color: "rgba(0,0,0,0.65)" }}>
           Brands discover winning content. Creators earn rewards, recognition,
           and real opportunities — regardless of follower count.
         </p>
@@ -813,7 +809,7 @@ function Hero({ onBrowse }: { onBrowse?: () => void }) {
         {/* Scroll hint */}
         <div className="flex justify-center mb-10">
           <div className="flex flex-col items-center gap-1.5 opacity-40">
-            <span className="text-xs" style={{ color: "rgba(0,0,0,0.5)", fontFamily: "'DM Sans', sans-serif" }}>Scroll to explore</span>
+            <span className="text-xs" style={{ color: "rgba(0,0,0,0.5)" }}>Scroll to explore</span>
             <div className="w-px h-8 relative overflow-hidden" style={{ background: "rgba(0,0,0,0.1)" }}>
               <div className="w-full h-3 absolute animate-bounce" style={{ background: `linear-gradient(to bottom, ${AMBER}, transparent)`, top: 0 }} />
             </div>
@@ -821,7 +817,7 @@ function Hero({ onBrowse }: { onBrowse?: () => void }) {
         </div>
 
         {/* Dashboard Mockup */}
-        <div ref={dashRef} className="relative mx-auto max-w-4xl rounded-xl overflow-hidden"
+        <div ref={dashRef} className="relative mx-auto max-w-4xl rounded-full overflow-hidden"
           style={{ border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 20px 50px rgba(0,0,0,0.06)", background: "#ffffff" }}>
           <HeroDashboard />
         </div>
@@ -874,7 +870,7 @@ function StatsBanner() {
           {stats.map(({ value, prefix, suffix, label, icon }) => (
             <div 
               key={label} 
-              className="stat-item group relative rounded-2xl p-5 transition-all duration-500 cursor-pointer overflow-hidden"
+              className="stat-item group relative rounded-3xl p-5 transition-all duration-500 cursor-pointer overflow-hidden"
               style={{ 
                 background: "#ffffff", 
                 border: "1px solid rgba(0, 0, 0, 0.08)",
@@ -897,7 +893,7 @@ function StatsBanner() {
 
               {/* Icon Container */}
               <div className="flex items-center mb-4">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300"
+                <div className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300"
                   style={{ 
                     background: "#f0f0f0", 
                     color: "#000000",
@@ -909,16 +905,12 @@ function StatsBanner() {
               </div>
 
               {/* Big Stat Value */}
-              <p className="text-2xl md:text-3xl font-extrabold mb-1 tracking-tight text-black transition-all duration-300 group-hover:translate-x-1"
-                style={{ 
-                  fontFamily: "'Bricolage Grotesque', sans-serif",
-                }}>
+              <p className="font-heading text-2xl md:text-3xl font-extrabold mb-1 tracking-tight text-black transition-all duration-300 group-hover:translate-x-1">
                 <AnimatedCounter target={value} prefix={prefix} suffix={suffix} />
               </p>
 
               {/* Label */}
-              <p className="text-xs font-semibold tracking-wider uppercase transition-colors duration-300 text-black/50 group-hover:text-black/75" 
-                style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-xs font-semibold tracking-wider uppercase transition-colors duration-300 text-black/50 group-hover:text-black/75">
                 {label}
               </p>
             </div>
@@ -943,31 +935,31 @@ function StepVisual({ step, tab }: { step: number; tab: "brands" | "creators" })
         {/* Amber radial glow */}
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 80%, rgba(209,248,255,0.4) 0%, transparent 80%)" }} />
         {/* Floating icons */}
-        <div className="absolute top-5 left-6 w-11 h-11 rounded-2xl flex items-center justify-center shadow-md"
+        <div className="absolute top-5 left-6 w-11 h-11 rounded-full flex items-center justify-center shadow-md"
           style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}>
           <Target size={22} style={{ color: "#000000" }} />
         </div>
-        <div className="absolute top-4 right-8 w-10 h-10 rounded-2xl flex items-center justify-center shadow-md"
+        <div className="absolute top-4 right-8 w-10 h-10 rounded-full flex items-center justify-center shadow-md"
           style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}>
           <Users size={18} style={{ color: "#000000" }} />
         </div>
-        <div className="absolute bottom-6 left-8 w-9 h-9 rounded-xl flex items-center justify-center"
+        <div className="absolute bottom-6 left-8 w-9 h-9 rounded-full flex items-center justify-center"
           style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}>
           <BarChart3 size={16} style={{ color: "#000000" }} />
         </div>
         {/* Centre mini card */}
-        <div className="relative w-36 rounded-2xl p-3 shadow-md"
+        <div className="relative w-36 rounded-3xl p-3 shadow-md"
           style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}>
-          <p className="text-xs font-bold text-black mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>New Campaign</p>
+          <p className="text-xs font-bold text-black mb-2">New Campaign</p>
           <div className="h-1.5 rounded-full mb-1.5 w-full" style={{ background: "rgba(0,0,0,0.06)", overflow: "hidden" }}>
             <div className="h-full rounded-full w-3/4" style={{ background: "#000000" }} />
           </div>
           <div className="flex items-center justify-between mt-2">
-            <span className="text-xs" style={{ color: "rgba(0,0,0,0.5)", fontFamily: "'DM Sans', sans-serif" }}>Budget</span>
-            <span className="text-xs font-bold" style={{ color: "#000000", fontFamily: "'DM Sans', sans-serif" }}>$5,000</span>
+            <span className="text-xs" style={{ color: "rgba(0,0,0,0.5)" }}>Budget</span>
+            <span className="text-xs font-bold" style={{ color: "#000000" }}>$5,000</span>
           </div>
-          <div className="mt-2 py-1.5 rounded-lg text-center text-xs font-bold cursor-pointer"
-            style={{ background: "#000000", color: "#ffffff", fontFamily: "'DM Sans', sans-serif" }}>
+          <div className="mt-2 py-1.5 rounded-full text-center text-xs font-bold cursor-pointer"
+            style={{ background: "#000000", color: "#ffffff" }}>
             Publish →
           </div>
         </div>
@@ -978,7 +970,7 @@ function StepVisual({ step, tab }: { step: number; tab: "brands" | "creators" })
               style={{ background: c, borderColor: "rgba(0,0,0,0.08)" }} />
           ))}
           <div className="w-7 h-7 rounded-full border flex items-center justify-center text-[10px] font-bold shadow-sm"
-            style={{ background: "#ffffff", borderColor: "rgba(0,0,0,0.08)", color: "#000000", fontFamily: "'DM Sans', sans-serif" }}>+</div>
+            style={{ background: "#ffffff", borderColor: "rgba(0,0,0,0.08)", color: "#000000" }}>+</div>
         </div>
       </div>
     );
@@ -987,12 +979,12 @@ function StepVisual({ step, tab }: { step: number; tab: "brands" | "creators" })
       // Step 2 — Submissions feed
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.02) 0%, transparent 70%)" }} />
-        <div className="w-44 rounded-2xl overflow-hidden shadow-md"
+        <div className="w-44 rounded-3xl overflow-hidden shadow-md"
           style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}>
           <div className="px-3 py-2.5 flex items-center gap-2" style={{ borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
             <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#000000" }} />
-            <span className="text-xs font-bold text-black" style={{ fontFamily: "'DM Sans', sans-serif" }}>Submissions</span>
-            <span className="ml-auto text-xs font-bold" style={{ color: "#000000", fontFamily: "'DM Sans', sans-serif" }}>342</span>
+            <span className="text-xs font-bold text-black">Submissions</span>
+            <span className="ml-auto text-xs font-bold" style={{ color: "#000000" }}>342</span>
           </div>
           {[
             { name: "Sofia R.", views: "24K", rank: 1, col: "#000000" },
@@ -1005,12 +997,12 @@ function StepVisual({ step, tab }: { step: number; tab: "brands" | "creators" })
                 {rank}
               </div>
               <div className="flex-1">
-                <p className="text-xs font-semibold text-black" style={{ fontFamily: "'DM Sans', sans-serif" }}>{name}</p>
+                <p className="text-xs font-semibold text-black">{name}</p>
                 <div className="h-0.5 rounded-full mt-1 w-full" style={{ background: "rgba(0,0,0,0.06)" }}>
                   <div className="h-full rounded-full" style={{ width: views === "24K" ? "100%" : views === "18K" ? "75%" : "40%", background: col }} />
                 </div>
               </div>
-              <span className="text-xs" style={{ color: "#000000", fontFamily: "'DM Sans', sans-serif" }}>{views}</span>
+              <span className="text-xs" style={{ color: "#000000" }}>{views}</span>
             </div>
           ))}
         </div>
@@ -1031,11 +1023,11 @@ function StepVisual({ step, tab }: { step: number; tab: "brands" | "creators" })
         </div>
         {/* Floating reward pills */}
         <div className="absolute top-5 right-6 px-2.5 py-1 rounded-full text-xs font-bold"
-          style={{ background: "#ffffff", color: "#000000", border: "1px solid rgba(0,0,0,0.08)", fontFamily: "'DM Sans', sans-serif" }}>
+          style={{ background: "#ffffff", color: "#000000", border: "1px solid rgba(0,0,0,0.08)" }}>
           $5,000 paid
         </div>
         <div className="absolute bottom-7 left-5 px-2.5 py-1 rounded-full text-xs font-semibold"
-          style={{ background: "#ffffff", color: "#000000", border: "1px solid rgba(0,0,0,0.08)", fontFamily: "'DM Sans', sans-serif" }}>
+          style={{ background: "#ffffff", color: "#000000", border: "1px solid rgba(0,0,0,0.08)" }}>
           <CheckCircle size={12} className="inline mr-1" /> Approved
         </div>
       </div>
@@ -1047,11 +1039,11 @@ function StepVisual({ step, tab }: { step: number; tab: "brands" | "creators" })
     // Step 1 — Browse campaigns
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 80%, rgba(209,248,255,0.4) 0%, transparent 70%)" }} />
-      <div className="w-44 rounded-2xl overflow-hidden shadow-md"
+      <div className="w-44 rounded-3xl overflow-hidden shadow-md"
         style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}>
         <div className="px-3 py-2.5" style={{ borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
-          <p className="text-xs font-bold text-black" style={{ fontFamily: "'DM Sans', sans-serif" }}>Open Campaigns</p>
-          <p className="text-xs" style={{ color: "rgba(0,0,0,0.5)", fontFamily: "'DM Sans', sans-serif" }}>200+ live now</p>
+          <p className="text-xs font-bold text-black">Open Campaigns</p>
+          <p className="text-xs" style={{ color: "rgba(0,0,0,0.5)" }}>200+ live now</p>
         </div>
         {[
           { brand: "NovaSport", reward: "$5,000", col: "#000000" },
@@ -1059,9 +1051,9 @@ function StepVisual({ step, tab }: { step: number; tab: "brands" | "creators" })
           { brand: "Brewlabs", reward: "$2,500", col: "rgba(0,0,0,0.3)" },
         ].map(({ brand, reward, col }) => (
           <div key={brand} className="flex items-center gap-2 px-3 py-2" style={{ borderBottom: "1px solid rgba(0,0,0,0.04)" }}>
-            <div className="w-5 h-5 rounded-md flex-shrink-0" style={{ background: col, opacity: 0.8 }} />
-            <span className="text-xs text-black flex-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>{brand}</span>
-            <span className="text-xs font-bold" style={{ color: "#000000", fontFamily: "'DM Sans', sans-serif" }}>{reward}</span>
+            <div className="w-5 h-5 rounded-full flex-shrink-0" style={{ background: col, opacity: 0.8 }} />
+            <span className="text-xs text-black flex-1">{brand}</span>
+            <span className="text-xs font-bold" style={{ color: "#000000" }}>{reward}</span>
           </div>
         ))}
       </div>
@@ -1072,7 +1064,7 @@ function StepVisual({ step, tab }: { step: number; tab: "brands" | "creators" })
     // Step 2 — Create & Submit
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.02) 0%, transparent 70%)" }} />
-      <div className="relative w-36 rounded-2xl overflow-hidden shadow-md"
+      <div className="relative w-36 rounded-3xl overflow-hidden shadow-md"
         style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}>
         <img src="https://images.unsplash.com/photo-1618641986557-1ecd230959aa?w=200&h=130&fit=crop&auto=format"
           alt="Creator" className="w-full h-24 object-cover opacity-90" />
@@ -1080,19 +1072,19 @@ function StepVisual({ step, tab }: { step: number; tab: "brands" | "creators" })
         <div className="px-3 pb-3">
           <div className="flex items-center gap-1.5 mb-2">
             <div className="w-1.5 h-1.5 rounded-full" style={{ background: AMBER }} />
-            <span className="text-xs font-semibold" style={{ color: AMBER, fontFamily: "'DM Sans', sans-serif" }}>Recording...</span>
+            <span className="text-xs font-semibold" style={{ color: AMBER }}>Recording...</span>
           </div>
           <div className="h-1 rounded-full w-full" style={{ background: "rgba(0,0,0,0.06)" }}>
             <div className="h-full rounded-full w-2/3" style={{ background: "linear-gradient(90deg, #d1f8ff, #000000)" }} />
           </div>
-          <p className="text-xs mt-2 font-bold text-black" style={{ fontFamily: "'DM Sans', sans-serif" }}>NovaSport Brief</p>
+          <p className="text-xs mt-2 font-bold text-black">NovaSport Brief</p>
         </div>
       </div>
       {/* Platform badges */}
       <div className="absolute top-4 right-5 flex flex-col gap-1.5">
         {[{ icon: <Instagram size={11} />, name: "IG" }, { icon: <Youtube size={11} />, name: "YT" }].map(({ icon, name }) => (
-          <div key={name} className="flex items-center gap-1 px-2 py-1 rounded-lg text-xs"
-            style={{ background: "#ffffff", color: "#000000", border: "1px solid rgba(0,0,0,0.08)", fontFamily: "'DM Sans', sans-serif" }}>
+          <div key={name} className="flex items-center gap-1 px-2 py-1 rounded-full text-xs"
+            style={{ background: "#ffffff", color: "#000000", border: "1px solid rgba(0,0,0,0.08)" }}>
             {icon} {name}
           </div>
         ))}
@@ -1104,14 +1096,14 @@ function StepVisual({ step, tab }: { step: number; tab: "brands" | "creators" })
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 60%, rgba(209,248,255,0.4) 0%, transparent 70%)" }} />
-      <div className="w-40 rounded-2xl p-4 shadow-md"
+      <div className="w-40 rounded-3xl p-4 shadow-md"
         style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}>
-        <p className="text-xs mb-1" style={{ color: "rgba(0,0,0,0.5)", fontFamily: "'DM Sans', sans-serif" }}>Available balance</p>
-        <p className="text-3xl font-extrabold mb-3 text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>$1,500</p>
-        <button className="btn-primary-gradient w-full py-2 rounded-xl text-xs">
+        <p className="text-xs mb-1" style={{ color: "rgba(0,0,0,0.5)" }}>Available balance</p>
+        <p className="font-heading text-3xl font-extrabold mb-3 text-black">$1,500</p>
+        <button className="btn-primary-gradient w-full py-2 rounded-full text-xs">
           Cash out
         </button>
-        <p className="text-center text-xs mt-2" style={{ color: "rgba(0,0,0,0.4)", fontFamily: "'DM Sans', sans-serif" }}>Within 24 hrs</p>
+        <p className="text-center text-xs mt-2" style={{ color: "rgba(0,0,0,0.4)" }}>Within 24 hrs</p>
       </div>
     </div>
   );
@@ -1178,14 +1170,13 @@ function HowItWorks() {
         {/* Header */}
         <div className="text-center mb-8">
           <span className="hiw-header text-xs font-semibold tracking-[0.2em] uppercase mb-4 block"
-            style={{ color: AMBER, fontFamily: "'DM Sans', sans-serif" }}>How It Works</span>
+            style={{ color: AMBER }}>How It Works</span>
         </div>
-        <h2 className="hiw-header text-4xl md:text-5xl font-extrabold text-black text-center mb-6"
-          style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+        <h2 className="hiw-header text-4xl md:text-5xl font-extrabold text-black text-center mb-6">
           Built for both sides of the equation
         </h2>
         <p className="hiw-header text-center text-lg max-w-xl mx-auto mb-14"
-          style={{ color: "rgba(0,0,0,0.6)", fontFamily: "'DM Sans', sans-serif" }}>
+          style={{ color: "rgba(0,0,0,0.6)" }}>
           Whether you're a brand chasing scale or a creator seeking opportunity, GOC is your arena.
         </p>
 
@@ -1198,7 +1189,6 @@ function HowItWorks() {
                 style={{
                   background: tab === t ? "#000000" : "transparent",
                   color: tab === t ? "#ffffff" : "rgba(0,0,0,0.5)",
-                  fontFamily: "'DM Sans', sans-serif",
                   boxShadow: tab === t ? "0 4px 12px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.2)" : "none",
                 }}>
                 For {t === "brands" ? "Brands" : "Creators"}
@@ -1244,12 +1234,11 @@ function HowItWorks() {
                 {/* Step badge — sits right on the boundary like in the reference */}
                 <div className="mb-5">
                   <span
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold"
                     style={{
                       background: "#d1f8ff",
                       color: "#000000",
                       border: "1px solid rgba(0,0,0,0.08)",
-                      fontFamily: "'DM Sans', sans-serif",
                     }}
                   >
                     <span className="w-1.5 h-1.5 rounded-full" style={{ background: AMBER }} />
@@ -1259,13 +1248,12 @@ function HowItWorks() {
 
                 <h3
                   className="text-lg font-extrabold text-black mb-3 leading-snug"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
                 >
                   {title}
                 </h3>
                 <p
                   className="text-sm leading-relaxed flex-1"
-                  style={{ color: "rgba(0,0,0,0.65)", fontFamily: "'DM Sans', sans-serif" }}
+                  style={{ color: "rgba(0,0,0,0.65)" }}
                 >
                   {desc}
                 </p>
@@ -1275,7 +1263,7 @@ function HowItWorks() {
                   className={`mt-5 flex items-center gap-1.5 text-xs font-semibold transition-all duration-200 ${
                     activeCard === i ? "opacity-100" : "opacity-0 group-hover:opacity-100"
                   }`}
-                  style={{ color: AMBER, fontFamily: "'DM Sans', sans-serif" }}
+                  style={{ color: AMBER }}
                 >
                   Learn more <ArrowRight size={12} />
                 </div>
@@ -1305,7 +1293,7 @@ function HowItWorks() {
               }}
             >
               <span className="text-xs font-bold font-mono text-black">0{i + 1}</span>
-              <span className="text-sm font-bold text-black" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <span className="text-sm font-bold text-black">
                 {steps[tab][i].title}
               </span>
             </button>
@@ -1347,24 +1335,23 @@ function ComparisonTable() {
         {/* Header */}
         <div className="text-center mb-12">
           <span className="text-xs font-semibold tracking-[0.22em] uppercase mb-3 block"
-            style={{ color: "rgba(0,0,0,0.4)", fontFamily: "'DM Sans', sans-serif" }}>
+            style={{ color: "rgba(0,0,0,0.4)" }}>
             Why switch
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black leading-tight"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black leading-tight">
             GOC vs the old way
           </h2>
           <p className="mt-4 text-base max-w-xl mx-auto"
-            style={{ color: "rgba(0,0,0,0.55)", fontFamily: "'DM Sans', sans-serif" }}>
+            style={{ color: "rgba(0,0,0,0.55)" }}>
             Traditional influencer marketing is slow, expensive, and opaque. GOC flips every one of those problems.
           </p>
         </div>
 
         {/* Table */}
-        <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 8px 40px rgba(0,0,0,0.04)" }}>
+        <div className="rounded-3xl overflow-hidden" style={{ border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 8px 40px rgba(0,0,0,0.04)" }}>
           {/* Column headers */}
           <div className="grid grid-cols-3 text-xs font-extrabold uppercase tracking-widest"
-            style={{ background: "#000000", color: "#ffffff", fontFamily: "'DM Sans', sans-serif" }}>
+            style={{ background: "#000000", color: "#ffffff" }}>
             <div className="px-6 py-4">Feature</div>
             <div className="px-6 py-4 flex items-center gap-2">
               Game of Creators
@@ -1383,15 +1370,14 @@ function ComparisonTable() {
               onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(209,248,255,0.35)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = highlight ? "rgba(209,248,255,0.18)" : "#ffffff"; }}
             >
-              <div className="px-6 py-4 text-sm font-semibold text-black/60 flex items-center"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}>{label}</div>
+              <div className="px-6 py-4 text-sm font-semibold text-black/60 flex items-center">{label}</div>
               <div className="px-6 py-4 flex items-center gap-2">
                 <Check size={14} style={{ color: "#000000", flexShrink: 0 }} />
-                <span className="text-sm font-bold text-black" style={{ fontFamily: "'DM Sans', sans-serif" }}>{goc}</span>
+                <span className="text-sm font-bold text-black">{goc}</span>
               </div>
               <div className="px-6 py-4 flex items-center gap-2">
                 <X size={14} style={{ color: "rgba(0,0,0,0.25)", flexShrink: 0 }} />
-                <span className="text-sm" style={{ color: "rgba(0,0,0,0.4)", fontFamily: "'DM Sans', sans-serif" }}>{old}</span>
+                <span className="text-sm" style={{ color: "rgba(0,0,0,0.4)" }}>{old}</span>
               </div>
             </div>
           ))}
@@ -1399,7 +1385,7 @@ function ComparisonTable() {
 
         {/* CTA nudge */}
         <div className="text-center mt-10">
-          <p className="text-sm" style={{ color: "rgba(0,0,0,0.5)", fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-sm" style={{ color: "rgba(0,0,0,0.5)" }}>
             Ready to leave the old playbook behind?
           </p>
           <button className="btn-primary-gradient mt-4 px-7 py-3 rounded-full text-sm font-bold flex items-center gap-2 mx-auto">
@@ -1435,13 +1421,13 @@ function BrandFeatureCard({ title, desc, icon, children }: { title: string; desc
       }}
     >
       <div>
-        <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ background: "#f5f5f5", border: "1px solid rgba(0,0,0,0.05)", color: "#000000" }}>
+        <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ background: "#f5f5f5", border: "1px solid rgba(0,0,0,0.05)", color: "#000000" }}>
           {icon}
         </div>
-        <h4 className="text-lg font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+        <h4 className="text-lg font-extrabold text-black mb-2">
           {title}
         </h4>
-        <p className="text-xs leading-relaxed mb-6" style={{ color: "rgba(0,0,0,0.6)", fontFamily: "'DM Sans', sans-serif" }}>
+        <p className="text-xs leading-relaxed mb-6" style={{ color: "rgba(0,0,0,0.6)" }}>
           {desc}
         </p>
       </div>
@@ -1544,13 +1530,13 @@ function ForBrands() {
           
           {/* Left Column: Heading and Description */}
           <div className="w-full lg:w-1/2 brands-left">
-            <span className="text-xs font-semibold tracking-[0.2em] uppercase mb-2 block" style={{ color: AMBER, fontFamily: "'DM Sans', sans-serif" }}>For Brands</span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-4 leading-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase mb-2 block" style={{ color: AMBER }}>For Brands</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-4 leading-tight">
               Creator-led content
               <br />
               at scale — finally
             </h2>
-            <p className="text-base mb-8 leading-relaxed" style={{ color: "rgba(0,0,0,0.65)", fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="text-base mb-8 leading-relaxed" style={{ color: "rgba(0,0,0,0.65)" }}>
               Launch content challenges and watch hundreds of creators compete to represent your brand. Only pay for the UGC that performs.
             </p>
 
@@ -1564,11 +1550,11 @@ function ForBrands() {
           {/* Right Column: Interactive Campaign Simulator */}
           <div className="w-full lg:w-1/2">
             {/* Campaign Simulator Sandbox */}
-            <div className="rounded-2xl p-5 relative overflow-hidden border border-black/8 shadow-xl" 
+            <div className="rounded-3xl p-5 relative overflow-hidden border border-black/8 shadow-xl" 
               style={{ background: "#ffffff", backdropFilter: "blur(12px)" }}>
               
               <div className="flex justify-between items-center mb-4 pb-3 border-b border-black/8">
-                <span className="text-xs font-bold text-black uppercase tracking-wider" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <span className="font-heading text-xs font-bold text-black uppercase tracking-wider">
                   Campaign Builder Live
                 </span>
                 <span className="flex items-center gap-1.5 text-[10px] text-black font-bold bg-[#f5f5f5] px-2 py-0.5 rounded-full border border-black/10">
@@ -1589,7 +1575,7 @@ function ForBrands() {
                       setActiveStep(s.id);
                       setIsAutoPlaying(false);
                     }}
-                    className="py-1.5 px-1 rounded-lg text-[10px] font-black tracking-wide text-center transition-all duration-300 cursor-pointer"
+                    className="py-1.5 px-1 rounded-full text-[10px] font-black tracking-wide text-center transition-all duration-300 cursor-pointer"
                     style={{
                       background: activeStep === s.id ? "#000000" : "rgba(0,0,0,0.03)",
                       color: activeStep === s.id ? "#ffffff" : "rgba(0,0,0,0.5)",
@@ -1606,8 +1592,8 @@ function ForBrands() {
                 {activeStep === 0 && (
                   <div className="space-y-4">
                     <div>
-                      <p className="text-[10px] text-black/50 uppercase font-bold mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Creative Requirements</p>
-                      <div className="bg-[#f5f5f5] rounded-xl p-3 border border-black/8 min-h-[64px] text-xs leading-relaxed text-black" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                      <p className="text-[10px] text-black/50 uppercase font-bold mb-1">Creative Requirements</p>
+                      <div className="bg-[#f5f5f5] rounded-3xl p-3 border border-black/8 min-h-[64px] text-xs leading-relaxed text-black">
                         {typedText}<span className="inline-block w-1.5 h-3.5 bg-black ml-0.5 animate-pulse" />
                       </div>
                     </div>
@@ -1619,7 +1605,7 @@ function ForBrands() {
                       ].map((req, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-[10px] text-black/75">
                           <Check size={10} className="text-black stroke-[3]" />
-                          <span style={{ fontFamily: "'DM Sans', sans-serif" }}>{req}</span>
+                          <span>{req}</span>
                         </div>
                       ))}
                     </div>
@@ -1630,8 +1616,8 @@ function ForBrands() {
                   <div className="space-y-4">
                     <div>
                       <div className="flex justify-between items-baseline mb-1">
-                        <p className="text-[10px] text-black/50 uppercase font-bold" style={{ fontFamily: "'DM Sans', sans-serif" }}>Set Campaign Budget</p>
-                        <span className="text-base font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                        <p className="text-[10px] text-black/50 uppercase font-bold">Set Campaign Budget</p>
+                        <span className="font-heading text-base font-extrabold text-black">
                           ${budget.toLocaleString()}
                         </span>
                       </div>
@@ -1645,7 +1631,7 @@ function ForBrands() {
                           setIsAutoPlaying(false);
                           setBudget(Number(e.target.value));
                         }}
-                        className="w-full h-1 bg-black/10 rounded-lg appearance-none cursor-pointer mt-2"
+                        className="w-full h-1 bg-black/10 rounded-full appearance-none cursor-pointer mt-2"
                         style={{
                           background: `linear-gradient(to right, #000000 0%, #000000 ${((budget - 1000) / 14000) * 100}%, rgba(0,0,0,0.1) ${((budget - 1000) / 14000) * 100}%, rgba(0,0,0,0.1) 100%)`
                         }}
@@ -1658,9 +1644,9 @@ function ForBrands() {
                         { label: "🥈 Top 5 Pool", val: `$${(budget * 0.4 / 5).toFixed(0)} ea` },
                         { label: "🥉 Top 15 Pool", val: `$${(budget * 0.25 / 15).toFixed(0)} ea` }
                       ].map((reward) => (
-                        <div key={reward.label} className="bg-[#f5f5f5] border border-black/8 rounded-xl p-2.5 text-center">
-                          <p className="text-[9px] text-black/60 mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>{reward.label}</p>
-                          <p className="text-xs font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{reward.val}</p>
+                        <div key={reward.label} className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-2.5 text-center">
+                          <p className="text-[9px] text-black/60 mb-1">{reward.label}</p>
+                          <p className="font-heading text-xs font-black text-black">{reward.val}</p>
                         </div>
                       ))}
                     </div>
@@ -1669,7 +1655,7 @@ function ForBrands() {
 
                 {activeStep === 2 && (
                   <div className="space-y-3">
-                    <p className="text-[10px] text-black/50 uppercase font-bold" style={{ fontFamily: "'DM Sans', sans-serif" }}>Review & License Submissions</p>
+                    <p className="text-[10px] text-black/50 uppercase font-bold">Review & License Submissions</p>
                     
                     {[
                       { name: "Elena R.", score: "9.4", desc: "Texture demonstration" },
@@ -1678,9 +1664,9 @@ function ForBrands() {
                     ].map((creator) => {
                       const isL = licensed[creator.name];
                       return (
-                        <div key={creator.name} className="flex items-center justify-between bg-[#f5f5f5] rounded-xl p-2 border border-black/8">
+                        <div key={creator.name} className="flex items-center justify-between bg-[#f5f5f5] rounded-3xl p-2 border border-black/8">
                           <div className="flex items-center gap-2">
-                            <div className="w-7 h-7 rounded-full bg-white border border-black/10 flex items-center justify-center text-[10px] font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                            <div className="font-heading w-7 h-7 rounded-full bg-white border border-black/10 flex items-center justify-center text-[10px] font-black text-black">
                               {creator.name.charAt(0)}
                             </div>
                             <div>
@@ -1694,14 +1680,13 @@ function ForBrands() {
                               ★ {creator.score}
                             </span>
                             {isL ? (
-                              <span className="text-[9px] font-extrabold text-black bg-white border border-black/10 px-2 py-1 rounded-lg">
+                              <span className="text-[9px] font-extrabold text-black bg-white border border-black/10 px-2 py-1 rounded-full">
                                 Licensed ✓
                               </span>
                             ) : (
                               <button
                                 onClick={() => handleLicense(creator.name)}
-                                className="text-[9px] font-bold text-white bg-black hover:bg-black/80 px-2 py-1 rounded-lg transition-all duration-300 cursor-pointer"
-                                style={{ fontFamily: "'DM Sans', sans-serif" }}
+                                className="text-[9px] font-bold text-white bg-black hover:bg-black/80 px-2 py-1 rounded-full transition-all duration-300 cursor-pointer"
                               >
                                 License
                               </button>
@@ -1714,7 +1699,7 @@ function ForBrands() {
                 )}
 
                 {/* Simulated live counter */}
-                <div className="mt-4 flex justify-between items-center text-[9px] text-black/40 border-t border-black/8 pt-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <div className="mt-4 flex justify-between items-center text-[9px] text-black/40 border-t border-black/8 pt-3">
                   <span>Estimated Reach: <strong className="text-black">{(budget * 15).toLocaleString()} views</strong></span>
                   <span>Licensed: <strong className="text-black">{Object.values(licensed).filter(Boolean).length} / 3</strong></span>
                 </div>
@@ -1743,29 +1728,29 @@ function ForBrands() {
               >
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-black/8">
                   <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>Output</p>
-                    <p className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>30+ Variations</p>
-                    <p className="text-[9px] text-black/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>per campaign brief</p>
+                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Output</p>
+                    <p className="font-heading text-sm font-black text-black">30+ Variations</p>
+                    <p className="text-[9px] text-black/60">per campaign brief</p>
                   </div>
                   <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>Efficiency</p>
-                    <p className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>4x Faster</p>
-                    <p className="text-[9px] text-black/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>content turnaround</p>
+                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Efficiency</p>
+                    <p className="font-heading text-sm font-black text-black">4x Faster</p>
+                    <p className="text-[9px] text-black/60">content turnaround</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mt-2">
-                  <div className="relative h-32 flex items-center justify-center overflow-hidden bg-[#f5f5f5] rounded-xl border border-black/8 p-3">
+                  <div className="relative h-32 flex items-center justify-center overflow-hidden bg-[#f5f5f5] rounded-3xl border border-black/8 p-3">
                     <div className="relative w-24 h-24 scale-95">
-                      <div className="absolute bottom-2 right-4 w-12 h-18 rounded-lg overflow-hidden border border-black/10 transition-all duration-500 hover:rotate-[-12deg]"
+                      <div className="absolute bottom-2 right-4 w-12 h-18 rounded-full overflow-hidden border border-black/10 transition-all duration-500 hover:rotate-[-12deg]"
                         style={{ background: "#ffffff", transform: "rotate(-5deg)", transformOrigin: "bottom center" }}>
                         <img src="https://images.unsplash.com/photo-1618641986557-1ecd230959aa?w=100&h=120&fit=crop&auto=format" className="w-full h-full object-cover opacity-80" />
                       </div>
-                      <div className="absolute bottom-1 right-1 w-12 h-18 rounded-lg overflow-hidden border border-black/10 transition-all duration-500 hover:rotate-[12deg]"
+                      <div className="absolute bottom-1 right-1 w-12 h-18 rounded-full overflow-hidden border border-black/10 transition-all duration-500 hover:rotate-[12deg]"
                         style={{ background: "#ffffff", transform: "rotate(5deg)", transformOrigin: "bottom center" }}>
                         <img src="https://images.unsplash.com/photo-1512418490979-9ce792e3eb82?w=100&h=120&fit=crop&auto=format" className="w-full h-full object-cover opacity-90" />
                       </div>
-                      <div className="absolute bottom-0 right-2 w-12 h-18 rounded-lg overflow-hidden border border-black/10"
+                      <div className="absolute bottom-0 right-2 w-12 h-18 rounded-full overflow-hidden border border-black/10"
                         style={{ background: "#ffffff" }}>
                         <img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?w=100&h=120&fit=crop&auto=format" className="w-full h-full object-cover" />
                         <div className="absolute bottom-1 left-1 text-[5px] font-bold text-white bg-black px-0.5 py-0.2 rounded">@sophia</div>
@@ -1773,7 +1758,7 @@ function ForBrands() {
                     </div>
                   </div>
 
-                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex flex-col justify-center">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex flex-col justify-center">
                     <div className="relative border-l border-black/10 pl-3 py-0.5 space-y-2">
                       {[
                         { time: "0h", title: "Live", desc: "Creators matched" },
@@ -1784,7 +1769,7 @@ function ForBrands() {
                           <div className="absolute -left-[16.5px] top-[3px] w-1.5 h-1.5 rounded-full border border-white bg-black" />
                           <div className="flex items-center gap-1">
                             <span className="text-[7px] font-mono px-0.5 rounded bg-white text-black/50">{item.time}</span>
-                            <h5 className="font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{item.title}</h5>
+                            <h5 className="font-extrabold text-black">{item.title}</h5>
                           </div>
                           <p className="text-[7px] text-black/60 leading-none">{item.desc}</p>
                         </div>
@@ -1803,19 +1788,19 @@ function ForBrands() {
               >
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-black/8">
                   <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>Creator Pool</p>
-                    <p className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>8,400+ Active</p>
-                    <p className="text-[9px] text-black/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>highly vetted profiles</p>
+                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Creator Pool</p>
+                    <p className="font-heading text-sm font-black text-black">8,400+ Active</p>
+                    <p className="text-[9px] text-black/60">highly vetted profiles</p>
                   </div>
                   <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>Moderation</p>
-                    <p className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>AI Auto-Review</p>
-                    <p className="text-[9px] text-black/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>safety filter active</p>
+                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Moderation</p>
+                    <p className="font-heading text-sm font-black text-black">AI Auto-Review</p>
+                    <p className="text-[9px] text-black/60">safety filter active</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mt-2">
-                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex flex-col justify-between h-32">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex flex-col justify-between h-32">
                     <div className="flex items-center gap-1 justify-center -space-x-1 mt-2">
                       {[
                         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop",
@@ -1834,11 +1819,11 @@ function ForBrands() {
                     </div>
                   </div>
 
-                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
-                    <div className="w-full bg-white border border-black/8 rounded-lg p-2.5 flex flex-col justify-between h-[96px]">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex items-center justify-center h-32">
+                    <div className="w-full bg-white border border-black/8 rounded-3xl p-2.5 flex flex-col justify-between h-[96px]">
                       <div>
                         <p className="text-[7px] text-black/45 uppercase font-bold tracking-wider">Safety Filters</p>
-                        <p className="text-[9px] font-black text-black leading-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Strict Brand Fit</p>
+                        <p className="font-heading text-[9px] font-black text-black leading-tight">Strict Brand Fit</p>
                       </div>
                       <div className="flex justify-between items-center mt-1">
                         <span className="text-[7px] text-black/60 font-semibold">Moderation Mode</span>
@@ -1860,20 +1845,20 @@ function ForBrands() {
               >
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-black/8">
                   <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>Ad Rights</p>
-                    <p className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Pre-Cleared</p>
-                    <p className="text-[9px] text-black/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>unlimited ads usage</p>
+                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Ad Rights</p>
+                    <p className="font-heading text-sm font-black text-black">Pre-Cleared</p>
+                    <p className="text-[9px] text-black/60">unlimited ads usage</p>
                   </div>
                   <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>ROI Spark</p>
-                    <p className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>85% Savings</p>
-                    <p className="text-[9px] text-black/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>vs traditional agency</p>
+                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">ROI Spark</p>
+                    <p className="font-heading text-sm font-black text-black">85% Savings</p>
+                    <p className="text-[9px] text-black/60">vs traditional agency</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mt-2">
-                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
-                    <div className="w-full bg-white border border-black/8 rounded-lg p-2.5 flex flex-col justify-between h-[96px] relative overflow-hidden">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex items-center justify-center h-32">
+                    <div className="w-full bg-white border border-black/8 rounded-3xl p-2.5 flex flex-col justify-between h-[96px] relative overflow-hidden">
                       <div className="absolute -right-3 -bottom-3 w-8 h-8 rounded-full border border-black/15 flex items-center justify-center text-[5px] text-black/15 font-black uppercase rotate-[-20deg]">
                         OK
                       </div>
@@ -1889,7 +1874,7 @@ function ForBrands() {
                     </div>
                   </div>
 
-                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex flex-col justify-center">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex flex-col justify-center">
                     <div className="relative border-l border-black/10 pl-3 py-0.5 space-y-2">
                       {[
                         { time: "0h", title: "Live", desc: "Creators matched" },
@@ -1900,7 +1885,7 @@ function ForBrands() {
                           <div className="absolute -left-[16.5px] top-[3px] w-1.5 h-1.5 rounded-full border border-white bg-black" />
                           <div className="flex items-center gap-1">
                             <span className="text-[7px] font-mono px-0.5 rounded bg-white text-black/50">{item.time}</span>
-                            <h5 className="font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{item.title}</h5>
+                            <h5 className="font-extrabold text-black">{item.title}</h5>
                           </div>
                           <p className="text-[7px] text-black/60 leading-none">{item.desc}</p>
                         </div>
@@ -1919,19 +1904,19 @@ function ForBrands() {
               >
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-black/8">
                   <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>Creator Pool</p>
-                    <p className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>8,400+ Active</p>
-                    <p className="text-[9px] text-black/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>highly vetted profiles</p>
+                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Creator Pool</p>
+                    <p className="font-heading text-sm font-black text-black">8,400+ Active</p>
+                    <p className="text-[9px] text-black/60">highly vetted profiles</p>
                   </div>
                   <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>Moderation</p>
-                    <p className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>AI Auto-Review</p>
-                    <p className="text-[9px] text-black/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>safety filter active</p>
+                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Moderation</p>
+                    <p className="font-heading text-sm font-black text-black">AI Auto-Review</p>
+                    <p className="text-[9px] text-black/60">safety filter active</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mt-2">
-                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex flex-col justify-between h-32">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex flex-col justify-between h-32">
                     <div className="flex items-center gap-1 justify-center -space-x-1 mt-2">
                       {[
                         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop",
@@ -1950,11 +1935,11 @@ function ForBrands() {
                     </div>
                   </div>
 
-                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
-                    <div className="w-full bg-white border border-black/8 rounded-lg p-2.5 flex flex-col justify-between h-[96px]">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex items-center justify-center h-32">
+                    <div className="w-full bg-white border border-black/8 rounded-3xl p-2.5 flex flex-col justify-between h-[96px]">
                       <div>
                         <p className="text-[7px] text-black/45 uppercase font-bold tracking-wider">Safety Filters</p>
-                        <p className="text-[9px] font-black text-black leading-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Strict Brand Fit</p>
+                        <p className="font-heading text-[9px] font-black text-black leading-tight">Strict Brand Fit</p>
                       </div>
                       <div className="flex justify-between items-center mt-1">
                         <span className="text-[7px] text-black/60 font-semibold">Moderation Mode</span>
@@ -1976,20 +1961,20 @@ function ForBrands() {
               >
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-black/8">
                   <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>Ad Rights</p>
-                    <p className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Pre-Cleared</p>
-                    <p className="text-[9px] text-black/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>unlimited ads usage</p>
+                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Ad Rights</p>
+                    <p className="font-heading text-sm font-black text-black">Pre-Cleared</p>
+                    <p className="text-[9px] text-black/60">unlimited ads usage</p>
                   </div>
                   <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>ROI Spark</p>
-                    <p className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>85% Savings</p>
-                    <p className="text-[9px] text-black/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>vs traditional agency</p>
+                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">ROI Spark</p>
+                    <p className="font-heading text-sm font-black text-black">85% Savings</p>
+                    <p className="text-[9px] text-black/60">vs traditional agency</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mt-2">
-                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
-                    <div className="w-full bg-white border border-black/8 rounded-lg p-2.5 flex flex-col justify-between h-[96px] relative overflow-hidden">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex items-center justify-center h-32">
+                    <div className="w-full bg-white border border-black/8 rounded-3xl p-2.5 flex flex-col justify-between h-[96px] relative overflow-hidden">
                       <div className="absolute -right-3 -bottom-3 w-8 h-8 rounded-full border border-black/15 flex items-center justify-center text-[5px] text-black/15 font-black uppercase rotate-[-20deg]">
                         OK
                       </div>
@@ -2005,8 +1990,8 @@ function ForBrands() {
                     </div>
                   </div>
 
-                  <div className="bg-[#f5f5f5] border border-black/8 rounded-xl p-3 flex items-center justify-center h-32">
-                    <div className="w-full bg-white border border-black/8 rounded-lg p-2.5 flex flex-col justify-between h-[96px]">
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex items-center justify-center h-32">
+                    <div className="w-full bg-white border border-black/8 rounded-3xl p-2.5 flex flex-col justify-between h-[96px]">
                       <div className="flex items-end justify-around h-10 mt-1">
                         <div className="flex flex-col items-center w-5">
                           <div className="w-full bg-black/10 rounded-t-sm h-8" />
@@ -2068,15 +2053,15 @@ function ForCreators() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Creator card */}
           <div className="creators-card-wrap relative">
-            <div className="rounded-2xl overflow-hidden" style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.1)", boxShadow: "0 12px 36px rgba(0,0,0,0.05)" }}>
+            <div className="rounded-3xl overflow-hidden" style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.1)", boxShadow: "0 12px 36px rgba(0,0,0,0.05)" }}>
               <div className="relative">
                 <img src="https://images.unsplash.com/photo-1618641986557-1ecd230959aa?w=600&h=300&fit=crop&auto=format"
                   alt="Creator filming content" className="w-full h-46 object-cover" style={{ opacity: 0.9 }} />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #ffffff 15%, transparent 55%)" }} />
                 <div className="absolute top-4 right-4 flex flex-col gap-2">
                   {[{ icon: <Instagram size={13} />, name: "Instagram" }, { icon: <Youtube size={13} />, name: "YouTube" }, { icon: <Twitter size={13} />, name: "TikTok" }].map(({ icon, name }) => (
-                    <div key={name} className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold"
-                      style={{ background: "rgba(255,255,255,0.9)", color: "#000000", backdropFilter: "blur(8px)", border: "1px solid rgba(0,0,0,0.08)", fontFamily: "'DM Sans', sans-serif" }}>
+                    <div key={name} className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-semibold"
+                      style={{ background: "rgba(255,255,255,0.9)", color: "#000000", backdropFilter: "blur(8px)", border: "1px solid rgba(0,0,0,0.08)" }}>
                       {icon} {name}
                     </div>
                   ))}
@@ -2092,19 +2077,19 @@ function ForCreators() {
                   <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm"
                     style={{ background: "#000000" }}>S</div>
                   <div>
-                    <p className="text-sm font-bold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Sofia R.</p>
-                    <p className="text-xs" style={{ color: "rgba(0,0,0,0.5)", fontFamily: "'DM Sans', sans-serif" }}>UGC Creator · 2.1K followers</p>
+                    <p className="font-heading text-sm font-bold text-black">Sofia R.</p>
+                    <p className="text-xs" style={{ color: "rgba(0,0,0,0.5)" }}>UGC Creator · 2.1K followers</p>
                   </div>
-                  <div className="ml-auto px-2.5 py-1 rounded-full text-xs font-bold" style={{ background: "#f5f5f5", color: "#000000", border: "1px solid rgba(0,0,0,0.05)", fontFamily: "'DM Sans', sans-serif" }}>
+                  <div className="ml-auto px-2.5 py-1 rounded-full text-xs font-bold" style={{ background: "#f5f5f5", color: "#000000", border: "1px solid rgba(0,0,0,0.05)" }}>
                     🏆 Campaign Winner
                   </div>
                 </div>
                 <div className="grid grid-cols-3 gap-3">
                   {[{ label: "Campaigns Won", val: "7" }, { label: "Total Earned", val: "$3,240" }, { label: "Content Score", val: "9.4/10" }].map(({ label, val }) => (
-                    <div key={label} className="rounded-xl p-2.5 text-center group cursor-default transition-all duration-200 hover:scale-105"
+                    <div key={label} className="rounded-3xl p-2.5 text-center group cursor-default transition-all duration-200 hover:scale-105"
                       style={{ background: "#f5f5f5", border: "1px solid rgba(0,0,0,0.05)", boxShadow: "0 4px 12px rgba(0,0,0,0.02)" }}>
-                      <p className="text-base font-bold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{val}</p>
-                      <p className="text-xs mt-0.5" style={{ color: "rgba(0,0,0,0.5)", fontFamily: "'DM Sans', sans-serif" }}>{label}</p>
+                      <p className="font-heading text-base font-bold text-black">{val}</p>
+                      <p className="text-xs mt-0.5" style={{ color: "rgba(0,0,0,0.5)" }}>{label}</p>
                     </div>
                   ))}
                 </div>
@@ -2115,36 +2100,36 @@ function ForCreators() {
             <div className="absolute -bottom-4 -left-4 px-4 py-2.5 rounded-full flex items-center gap-2"
               style={{ background: "#ffffff", border: "1px solid #000000", backdropFilter: "blur(12px)", boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}>
               <Zap size={13} style={{ color: "#000000" }} />
-              <span className="text-xs font-bold" style={{ color: "#000000", fontFamily: "'DM Sans', sans-serif" }}>Merit-Based, Not Follower-Based</span>
+              <span className="text-xs font-bold" style={{ color: "#000000" }}>Merit-Based, Not Follower-Based</span>
             </div>
             <div className="absolute -top-4 -right-4 px-3 py-2 rounded-full flex items-center gap-1.5"
               style={{ background: "#ffffff", border: "1px solid #000000", backdropFilter: "blur(12px)", boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}>
               <div className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
-              <span className="text-xs font-bold text-black" style={{ fontFamily: "'DM Sans', sans-serif" }}>47 live campaigns</span>
+              <span className="text-xs font-bold text-black">47 live campaigns</span>
             </div>
           </div>
 
           {/* Right copy */}
           <div className="creators-right">
-            <span className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 block" style={{ color: "#000000", fontFamily: "'DM Sans', sans-serif" }}>For Creators</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4 leading-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 block" style={{ color: "#000000" }}>For Creators</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4 leading-tight">
               Your talent wins,
               <br />
               not your follower count
             </h2>
-            <p className="text-base mb-8 leading-relaxed" style={{ color: "rgba(0,0,0,0.7)", fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="text-base mb-8 leading-relaxed" style={{ color: "rgba(0,0,0,0.7)" }}>
               GOC is the level playing field the creator economy never had. Submit your best work, compete on merit, and earn real money.
             </p>
             <div className="flex flex-col gap-4 mb-8">
               {perks.map(({ icon, title, desc }) => (
                 <div key={title} className="flex items-start gap-5 group cursor-default">
-                  <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-200 group-hover:scale-110"
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-200 group-hover:scale-110"
                     style={{ background: "#ffffff", color: "#000000", border: "1px solid rgba(0,0,0,0.1)" }}>
                     {icon}
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-black mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{title}</h4>
-                    <p className="text-xs" style={{ color: "rgba(0,0,0,0.6)", fontFamily: "'DM Sans', sans-serif" }}>{desc}</p>
+                    <h4 className="text-sm font-bold text-black mb-1">{title}</h4>
+                    <p className="text-xs" style={{ color: "rgba(0,0,0,0.6)" }}>{desc}</p>
                   </div>
                 </div>
               ))}
@@ -2455,7 +2440,7 @@ function TagPill({ label }: { label: string }) {
   const c = TAG_COLORS[label] ?? { bg: "#d1f8ff", text: "#000000" };
   return (
     <span className="px-2 py-0.5 rounded text-xs font-semibold whitespace-nowrap"
-      style={{ background: c.bg, color: c.text, fontFamily: "'DM Sans', sans-serif", fontSize: 11 }}>
+      style={{ background: c.bg, color: c.text, fontSize: 11 }}>
       {label}
     </span>
   );
@@ -2507,11 +2492,10 @@ function CampaignShowcase({ onBrowse }: { onBrowse?: () => void }) {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div>
             <span className="text-xs font-semibold tracking-[0.2em] uppercase mb-3 block"
-              style={{ color: "#000000", fontFamily: "'DM Sans',sans-serif" }}>
+              style={{ color: "#000000" }}>
               Live Campaigns
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-black leading-tight"
-              style={{ fontFamily: "'Bricolage Grotesque',sans-serif" }}>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-black leading-tight">
               Open challenges,<br />real rewards
             </h2>
           </div>
@@ -2526,12 +2510,11 @@ function CampaignShowcase({ onBrowse }: { onBrowse?: () => void }) {
         <div className="flex flex-wrap gap-2 mb-10">
           {FILTERS.map(f => (
             <button key={f} onClick={() => setFilter(f)}
-              className="px-4 py-1.5 rounded-xl text-xs font-bold transition-all duration-200"
+              className="px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-200"
               style={{
                 background: filter===f ? "#000000" : "#ffffff",
                 color:      filter===f ? "#ffffff" : "#000000",
                 border:     filter===f ? "1px solid #000000" : "1px solid rgba(0,0,0,0.1)",
-                fontFamily: "'DM Sans',sans-serif",
                 boxShadow:  filter===f ? "0 4px 12px rgba(0,0,0,0.15)" : "0 2px 6px rgba(0,0,0,0.02)",
               }}
               onMouseEnter={e => { if(filter!==f){ e.currentTarget.style.background="#d1f8ff"; e.currentTarget.style.color="#000000"; } }}
@@ -2553,7 +2536,7 @@ function CampaignShowcase({ onBrowse }: { onBrowse?: () => void }) {
             return (
               <div
                 key={c.title}
-                className="sc-card group relative rounded-2xl cursor-pointer flex flex-col overflow-hidden"
+                className="sc-card group relative rounded-3xl cursor-pointer flex flex-col overflow-hidden"
                 style={{
                   background: "#ffffff",
                   border: isH ? "1px solid rgba(0,0,0,0.18)" : "1px solid rgba(0,0,0,0.07)",
@@ -2597,18 +2580,17 @@ function CampaignShowcase({ onBrowse }: { onBrowse?: () => void }) {
                   </div>
 
                   {/* Brand badge — top left */}
-                  <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-lg"
+                  <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-full"
                     style={{
                       background: "rgba(0,0,0,0.7)",
                       backdropFilter: "blur(8px)",
                       border: "1px solid rgba(255,255,255,0.1)",
                     }}>
-                    <div className="w-4 h-4 rounded-sm flex items-center justify-center text-[8px] font-extrabold text-white"
-                      style={{ background: c.logoColor, fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                    <div className="font-heading w-4 h-4 rounded-full flex items-center justify-center text-[8px] font-extrabold text-white"
+                      style={{ background: c.logoColor }}>
                       {c.logo}
                     </div>
-                    <span className="text-[10px] font-bold text-white/90 truncate max-w-[80px]"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}>{c.brand}</span>
+                    <span className="text-[10px] font-bold text-white/90 truncate max-w-[80px]">{c.brand}</span>
                   </div>
 
                   {/* HOT / Match — top right */}
@@ -2627,7 +2609,6 @@ function CampaignShowcase({ onBrowse }: { onBrowse?: () => void }) {
                           background: "rgba(209,248,255,0.92)",
                           border: "1px solid rgba(0,0,0,0.1)",
                           backdropFilter: "blur(6px)",
-                          fontFamily: "'DM Sans', sans-serif",
                         }}>
                         {matchRate}% Match
                       </span>
@@ -2647,12 +2628,11 @@ function CampaignShowcase({ onBrowse }: { onBrowse?: () => void }) {
                   </div>
 
                   {/* Pay rate — bottom right */}
-                  <div className="absolute bottom-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full text-[9px] font-extrabold text-white"
+                  <div className="font-heading absolute bottom-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full text-[9px] font-extrabold text-white"
                     style={{
                       background: "rgba(0,0,0,0.7)",
                       backdropFilter: "blur(6px)",
                       border: "1px solid rgba(255,255,255,0.1)",
-                      fontFamily: "'Bricolage Grotesque', sans-serif",
                     }}>
                     <DollarSign size={9} />
                     {c.payRate}/{c.payUnit.includes("1K") ? "1K" : "view"}
@@ -2671,7 +2651,6 @@ function CampaignShowcase({ onBrowse }: { onBrowse?: () => void }) {
                           background: "rgba(209,248,255,0.55)",
                           color: "rgba(0,0,0,0.55)",
                           border: "1px solid rgba(0,0,0,0.06)",
-                          fontFamily: "'DM Sans', sans-serif",
                         }}>
                         {t}
                       </span>
@@ -2681,7 +2660,6 @@ function CampaignShowcase({ onBrowse }: { onBrowse?: () => void }) {
                   {/* Title */}
                   <h3 className="text-sm font-bold text-black leading-snug line-clamp-2"
                     style={{
-                      fontFamily: "'Bricolage Grotesque', sans-serif",
                       opacity: isH ? 0.85 : 1,
                       transition: "opacity 0.2s",
                     }}>
@@ -2690,8 +2668,7 @@ function CampaignShowcase({ onBrowse }: { onBrowse?: () => void }) {
 
                   {/* Budget progress */}
                   <div className="mt-auto">
-                    <div className="flex justify-between items-center text-[10px] mb-1.5"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                    <div className="flex justify-between items-center text-[10px] mb-1.5">
                       <span className="font-semibold text-black/50">Budget</span>
                       <span className="font-extrabold" style={{ color: isAlmostFull ? "#ef4444" : "#000" }}>
                         {c.spent} <span className="text-black/35 font-medium">/ {c.budget}</span>
@@ -2719,10 +2696,8 @@ function CampaignShowcase({ onBrowse }: { onBrowse?: () => void }) {
                       { label: "Creators", val: c.creators.toLocaleString() },
                     ].map(({ label, val }) => (
                       <div key={label} className="text-center">
-                        <p className="text-[8px] text-black/35 uppercase tracking-widest font-semibold"
-                          style={{ fontFamily: "'DM Sans', sans-serif" }}>{label}</p>
-                        <p className="text-xs font-extrabold text-black mt-0.5"
-                          style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{val}</p>
+                        <p className="text-[8px] text-black/35 uppercase tracking-widest font-semibold">{label}</p>
+                        <p className="font-heading text-xs font-extrabold text-black mt-0.5">{val}</p>
                       </div>
                     ))}
                   </div>
@@ -2901,10 +2876,10 @@ function Testimonials() {
             <Sparkles size={11} className="fill-current" />
             Social Proof
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-4" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-4">
             Brands and creators,<br />both winning
           </h2>
-          <p className="text-sm max-w-lg mx-auto" style={{ color: "rgba(0,0,0,0.6)", fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-sm max-w-lg mx-auto" style={{ color: "rgba(0,0,0,0.6)" }}>
             Hear from D2C founders scaling their content library and creators building independent careers.
           </p>
         </div>
@@ -2918,7 +2893,6 @@ function Testimonials() {
                 background: filter===f ? "#000000" : "#ffffff",
                 color:      filter===f ? "#ffffff" : "#000000",
                 border:     filter===f ? "1px solid #000000" : "1px solid rgba(0,0,0,0.1)",
-                fontFamily: "'DM Sans',sans-serif",
                 boxShadow:  filter===f ? "0 4px 12px rgba(0,0,0,0.15)" : "0 2px 6px rgba(0,0,0,0.02)",
               }}
               onMouseEnter={e => { if(filter!==f){ e.currentTarget.style.background="#f5f5f5"; e.currentTarget.style.color="#000000"; } }}
@@ -2932,7 +2906,7 @@ function Testimonials() {
         <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 [column-fill:_balance]">
           {filteredQuotes.map(({ text, name, role, avatar, type, metric, platform }) => (
             <div key={name} className="testimonial-card-wrapper break-inside-avoid">
-              <div className="testimonial-card p-6 rounded-2xl transition-all duration-500 cursor-default relative overflow-hidden flex flex-col justify-between"
+              <div className="testimonial-card p-6 rounded-3xl transition-all duration-500 cursor-default relative overflow-hidden flex flex-col justify-between"
                 style={{ 
                   background: "#ffffff", 
                   border: "1px solid rgba(0,0,0,0.08)", 
@@ -2976,7 +2950,7 @@ function Testimonials() {
                     </div>
                     
                     {metric && (
-                      <span className="px-2.5 py-1 rounded-lg text-[10px] font-black border tracking-wide tabular-nums"
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-black border tracking-wide tabular-nums"
                         style={{ 
                           background: "#000000",
                           borderColor: "#000000",
@@ -2988,7 +2962,7 @@ function Testimonials() {
                   </div>
 
                   {/* Testimonial Quote text */}
-                  <p className="text-[13px] md:text-[14px] leading-relaxed mb-6 relative z-10" style={{ color: "rgba(0,0,0,0.85)", fontFamily: "'DM Sans', sans-serif" }}>
+                  <p className="text-[13px] md:text-[14px] leading-relaxed mb-6 relative z-10" style={{ color: "rgba(0,0,0,0.85)" }}>
                     "{text}"
                   </p>
                 </div>
@@ -3003,8 +2977,8 @@ function Testimonials() {
                       </div>
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{name}</p>
-                      <p className="text-[10px]" style={{ color: "rgba(0,0,0,0.5)", fontFamily: "'DM Sans', sans-serif" }}>{role}</p>
+                      <p className="font-heading text-xs font-bold text-black">{name}</p>
+                      <p className="text-[10px]" style={{ color: "rgba(0,0,0,0.5)" }}>{role}</p>
                     </div>
                   </div>
 
@@ -3053,44 +3027,44 @@ function WhoItsFor() {
     <section ref={sectionRef} className="py-40 px-8" style={{ background: "linear-gradient(180deg, #ffffff 0%, #f0fafd 100%)" }}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 block" style={{ color: "#000000", fontFamily: "'DM Sans', sans-serif" }}>Who GOC Is For</span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Built for the entire<br />creator economy</h2>
+          <span className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 block" style={{ color: "#000000" }}>Who GOC Is For</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black">Built for the entire<br />creator economy</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-12">
-          <div className="who-card rounded-2xl p-6 transition-all duration-300"
+          <div className="who-card rounded-3xl p-6 transition-all duration-300"
             style={{ background: "#d1f8ff", border: "1px solid rgba(0,0,0,0.1)", boxShadow: "0 8px 28px rgba(0,0,0,0.02)" }}
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#000000"; e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.05)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(0,0,0,0.1)"; e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(0,0,0,0.02)"; }}>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "#ffffff", color: "#000000", border: "1px solid rgba(0,0,0,0.1)" }}><Target size={20} /></div>
-              <h3 className="text-xl font-bold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Brands</h3>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "#ffffff", color: "#000000", border: "1px solid rgba(0,0,0,0.1)" }}><Target size={20} /></div>
+              <h3 className="text-xl font-bold text-black">Brands</h3>
             </div>
             {brandTypes.map((item) => (
               <div key={item} className="flex items-center gap-3 py-2 border-b" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
                 <Check size={14} style={{ color: "#000000", flexShrink: 0 }} />
-                <span className="text-sm" style={{ color: "rgba(0,0,0,0.7)", fontFamily: "'DM Sans', sans-serif" }}>{item}</span>
+                <span className="text-sm" style={{ color: "rgba(0,0,0,0.7)" }}>{item}</span>
               </div>
             ))}
-            <button className="btn-primary-gradient mt-7 w-full py-3 rounded-xl text-sm">
+            <button className="btn-primary-gradient mt-7 w-full py-3 rounded-full text-sm">
               Launch a Campaign
             </button>
           </div>
 
-          <div className="who-card rounded-2xl p-6 transition-all duration-300"
+          <div className="who-card rounded-3xl p-6 transition-all duration-300"
             style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.1)", boxShadow: "0 8px 28px rgba(0,0,0,0.02)" }}
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#000000"; e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.05)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(0,0,0,0.1)"; e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(0,0,0,0.02)"; }}>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "#d1f8ff", color: "#000000", border: "1px solid rgba(0,0,0,0.05)" }}><Camera size={20} /></div>
-              <h3 className="text-xl font-bold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Creators</h3>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "#d1f8ff", color: "#000000", border: "1px solid rgba(0,0,0,0.05)" }}><Camera size={20} /></div>
+              <h3 className="text-xl font-bold text-black">Creators</h3>
             </div>
             {creatorTypes.map((item) => (
               <div key={item} className="flex items-center gap-3 py-2 border-b" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
                 <Check size={14} style={{ color: "#000000", flexShrink: 0 }} />
-                <span className="text-sm" style={{ color: "rgba(0,0,0,0.7)", fontFamily: "'DM Sans', sans-serif" }}>{item}</span>
+                <span className="text-sm" style={{ color: "rgba(0,0,0,0.7)" }}>{item}</span>
               </div>
             ))}
-            <button className="btn-secondary-dark mt-7 w-full py-3 rounded-xl text-sm">
+            <button className="btn-secondary-dark mt-7 w-full py-3 rounded-full text-sm">
               Start Creating Free
             </button>
           </div>
@@ -3133,12 +3107,12 @@ function FAQ() {
     <section ref={sectionRef} className="py-40 px-8" style={{ background: "linear-gradient(180deg, #f0fafd 0%, #ffffff 100%)" }}>
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
-          <span className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 block" style={{ color: "#000000", fontFamily: "'DM Sans', sans-serif" }}>FAQ</span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Questions, answered</h2>
+          <span className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 block" style={{ color: "#000000" }}>FAQ</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black">Questions, answered</h2>
         </div>
         <div className="flex flex-col gap-3">
           {faqs.map(({ q, a }, i) => (
-            <div key={i} className="faq-item rounded-2xl overflow-hidden cursor-pointer transition-all duration-300"
+            <div key={i} className="faq-item rounded-3xl overflow-hidden cursor-pointer transition-all duration-300"
               style={{
                 background: "#ffffff",
                 border: open === i ? "1px solid rgba(0,0,0,0.15)" : "1px solid rgba(0,0,0,0.08)",
@@ -3146,7 +3120,7 @@ function FAQ() {
               }}
               onClick={() => setOpen(open === i ? null : i)}>
               <div className="flex items-center justify-between px-5 py-4 gap-4">
-                <p className="text-sm font-semibold text-black" style={{ fontFamily: "'DM Sans', sans-serif" }}>{q}</p>
+                <p className="text-sm font-semibold text-black">{q}</p>
                 <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300"
                   style={{ background: open === i ? "#d1f8ff" : "rgba(0,0,0,0.05)" }}>
                   <ChevronDown size={14} style={{ color: open === i ? "#000000" : "rgba(0,0,0,0.4)", transform: open === i ? "rotate(180deg)" : "none", transition: "transform 0.3s ease" }} />
@@ -3158,7 +3132,7 @@ function FAQ() {
                 transition: "max-height 0.35s ease",
               }}>
                 <div className="px-5 pb-4">
-                  <p className="text-[13px] leading-relaxed" style={{ color: "rgba(0,0,0,0.6)", fontFamily: "'DM Sans', sans-serif" }}>{a}</p>
+                  <p className="text-[13px] leading-relaxed" style={{ color: "rgba(0,0,0,0.6)" }}>{a}</p>
                 </div>
               </div>
             </div>
@@ -3231,20 +3205,19 @@ function CTABanner() {
                 <Trophy size={11} className="fill-white" />
                 Live Now
               </span>
-              <span className="flex items-center gap-1 text-black/80 font-medium tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <span className="flex items-center gap-1 text-black/80 font-medium tracking-wide">
                 The Arena is Open
                 <ArrowUpRight size={13} className="text-black/40 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-black" />
               </span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-black mb-4 leading-tight"
-              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-black mb-4 leading-tight">
               The future of marketing
               <br />
               <span style={{ color: "#000000" }}>
                 belongs to creators
               </span>
             </h2>
-            <p className="text-base max-w-xl mx-auto mb-8" style={{ color: "rgba(0,0,0,0.6)", fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="text-base max-w-xl mx-auto mb-8" style={{ color: "rgba(0,0,0,0.6)" }}>
               Join thousands of brands and creators building the world's largest creator-powered ecosystem.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -3255,7 +3228,7 @@ function CTABanner() {
                 Start Creating Free
               </button>
             </div>
-            <p className="mt-6 text-xs" style={{ color: "rgba(0,0,0,0.4)", fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="mt-6 text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>
               No credit card required · Free for creators · Launch in under 30 minutes
             </p>
           </div>
@@ -3310,7 +3283,7 @@ function CardContent({ c, hovered = false }: { c: typeof ALL_CAMPAIGN_DATA[0]; h
   const urgencyColor = c.daysLeft <= 3 ? "#ef4444" : c.daysLeft <= 7 ? "#f59e0b" : "#22c55e";
 
   return (
-    <div className="flex flex-col h-full rounded-2xl overflow-hidden bg-white">
+    <div className="flex flex-col h-full rounded-3xl overflow-hidden bg-white">
 
       {/* ─── Image Zone ─── */}
       <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
@@ -3339,18 +3312,17 @@ function CardContent({ c, hovered = false }: { c: typeof ALL_CAMPAIGN_DATA[0]; h
         </div>
 
         {/* Brand badge — top left */}
-        <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-lg"
+        <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-full"
           style={{
             background: "rgba(0,0,0,0.72)",
             backdropFilter: "blur(8px)",
             border: "1px solid rgba(255,255,255,0.1)",
           }}>
-          <div className="w-4 h-4 rounded-sm flex items-center justify-center text-[8px] font-extrabold text-white"
-            style={{ background: c.logoColor, fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <div className="font-heading w-4 h-4 rounded-full flex items-center justify-center text-[8px] font-extrabold text-white"
+            style={{ background: c.logoColor }}>
             {c.logo}
           </div>
-          <span className="text-[10px] font-bold text-white/90 truncate max-w-[90px]"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}>{c.brand}</span>
+          <span className="text-[10px] font-bold text-white/90 truncate max-w-[90px]">{c.brand}</span>
         </div>
 
         {/* HOT / Match pill — top right */}
@@ -3369,7 +3341,6 @@ function CardContent({ c, hovered = false }: { c: typeof ALL_CAMPAIGN_DATA[0]; h
                 background: "rgba(209,248,255,0.95)",
                 border: "1px solid rgba(0,0,0,0.12)",
                 backdropFilter: "blur(6px)",
-                fontFamily: "'DM Sans', sans-serif",
               }}>
               {matchRate}% Match
             </span>
@@ -3426,7 +3397,6 @@ function CardContent({ c, hovered = false }: { c: typeof ALL_CAMPAIGN_DATA[0]; h
                 background: "rgba(209,248,255,0.6)",
                 color: "rgba(0,0,0,0.6)",
                 border: "1px solid rgba(0,0,0,0.07)",
-                fontFamily: "'DM Sans', sans-serif",
               }}>
               {tag}
             </span>
@@ -3437,7 +3407,6 @@ function CardContent({ c, hovered = false }: { c: typeof ALL_CAMPAIGN_DATA[0]; h
         <h3
           className="text-sm font-bold text-black leading-snug line-clamp-2"
           style={{
-            fontFamily: "'Bricolage Grotesque', sans-serif",
             transition: "opacity 0.2s",
             opacity: hovered ? 0.85 : 1,
           }}>
@@ -3446,8 +3415,7 @@ function CardContent({ c, hovered = false }: { c: typeof ALL_CAMPAIGN_DATA[0]; h
 
         {/* Budget progress */}
         <div>
-          <div className="flex justify-between items-center text-[10px] mb-1.5"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <div className="flex justify-between items-center text-[10px] mb-1.5">
             <span className="font-semibold text-black/50">Budget filled</span>
             <span className="font-extrabold" style={{ color: isAlmostFull ? "#ef4444" : "#000000" }}>
               {percent}%
@@ -3465,7 +3433,7 @@ function CardContent({ c, hovered = false }: { c: typeof ALL_CAMPAIGN_DATA[0]; h
             />
           </div>
           <div className="flex justify-between items-center text-[10px] mt-1"
-            style={{ color: "rgba(0,0,0,0.4)", fontFamily: "'DM Sans', sans-serif" }}>
+            style={{ color: "rgba(0,0,0,0.4)" }}>
             <span>{c.spent} spent</span>
             <span>{c.budget}</span>
           </div>
@@ -3479,17 +3447,15 @@ function CardContent({ c, hovered = false }: { c: typeof ALL_CAMPAIGN_DATA[0]; h
             style={{
               background: "rgba(0,0,0,0.04)",
               color: "rgba(0,0,0,0.55)",
-              fontFamily: "'DM Sans', sans-serif",
             }}>
             <Users size={10} style={{ color: "rgba(0,0,0,0.4)" }} />
             <span>{c.creators.toLocaleString()} creators</span>
           </div>
 
           {/* Pay rate */}
-          <div className="flex items-center gap-1 px-3 py-1.5 rounded-full text-[10px] font-extrabold text-white"
+          <div className="font-heading flex items-center gap-1 px-3 py-1.5 rounded-full text-[10px] font-extrabold text-white"
             style={{
               background: "#000000",
-              fontFamily: "'Bricolage Grotesque', sans-serif",
               letterSpacing: "0.02em",
             }}>
             <DollarSign size={9} />
@@ -3516,7 +3482,7 @@ function CampaignCard({ c, onClick, delay = 0 }: { c: typeof ALL_CAMPAIGN_DATA[0
   return (
     <div
       ref={ref}
-      className="group relative w-full opacity-0 rounded-2xl cursor-pointer flex flex-col"
+      className="group relative w-full opacity-0 rounded-3xl cursor-pointer flex flex-col"
       style={{
         background: "#ffffff",
         border: hovered ? "1px solid rgba(0,0,0,0.18)" : "1px solid rgba(0,0,0,0.07)",
@@ -3584,13 +3550,13 @@ function CampaignDetailModal({ campaign, onClose }: { campaign: typeof ALL_CAMPA
 
           {/* Brand badge */}
           <div className="absolute bottom-4 left-5 flex items-center gap-2">
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-extrabold text-xs"
-              style={{ background:campaign.logoColor, fontFamily:"'Bricolage Grotesque',sans-serif" }}>{campaign.logo}</div>
+            <div className="w-9 h-9 rounded-full flex items-center justify-center text-white font-extrabold text-xs"
+              style={{ background:campaign.logoColor }}>{campaign.logo}</div>
             <div>
-              <p className="text-sm font-bold text-black" style={{ fontFamily:"'Bricolage Grotesque',sans-serif" }}>{campaign.brand}</p>
+              <p className="text-sm font-bold text-black">{campaign.brand}</p>
               <div className="flex gap-1 mt-0.5">
                 {campaign.tags.map(t => {
-                  return <span key={t} className="px-1.5 py-0.5 rounded text-xs font-semibold" style={{ background:"rgba(0,0,0,0.05)", color:"#000000", border:"1px solid rgba(0,0,0,0.08)", fontFamily:"'DM Sans',sans-serif", fontSize:10 }}>{t}</span>; })}
+                  return <span key={t} className="px-1.5 py-0.5 rounded text-xs font-semibold" style={{ background:"rgba(0,0,0,0.05)", color:"#000000", border:"1px solid rgba(0,0,0,0.08)", fontSize:10 }}>{t}</span>; })}
               </div>
             </div>
           </div>
@@ -3598,7 +3564,7 @@ function CampaignDetailModal({ campaign, onClose }: { campaign: typeof ALL_CAMPA
 
         {/* Scrollable Body */}
         <div className="flex-1 overflow-y-auto px-6 pt-4 pb-6 custom-modal-scrollbar">
-          <h2 className="text-2xl font-extrabold text-black mb-2" style={{ fontFamily:"'Bricolage Grotesque',sans-serif" }}>{campaign.title}</h2>
+          <h2 className="text-2xl font-extrabold text-black mb-2">{campaign.title}</h2>
 
           {/* Key metrics */}
           <div className="grid grid-cols-4 gap-3 mb-6">
@@ -3632,7 +3598,7 @@ function CampaignDetailModal({ campaign, onClose }: { campaign: typeof ALL_CAMPA
                 iconColor: "#dc2626" 
               },
             ].map(({ label, val, icon, iconBg, iconColor }) => (
-              <div key={label} className="rounded-2xl p-3 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-[1.03] cursor-pointer"
+              <div key={label} className="rounded-3xl p-3 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-[1.03] cursor-pointer"
                 style={{ 
                   background: "rgba(255, 255, 255, 0.85)", 
                   border: `1px solid ${iconBg.replace("0.08", "0.2")}`, 
@@ -3650,22 +3616,22 @@ function CampaignDetailModal({ campaign, onClose }: { campaign: typeof ALL_CAMPA
                   e.currentTarget.style.background = "rgba(255, 255, 255, 0.85)";
                 }}
               >
-                <div className="w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 flex-shrink-0"
+                <div className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 flex-shrink-0"
                   style={{ background: iconBg, color: iconColor }}>
                   {icon}
                 </div>
                 <div className="mt-2.5 w-full flex-1 flex flex-col justify-center">
-                  <p className="text-xs md:text-sm font-extrabold text-black leading-tight tracking-tight whitespace-nowrap overflow-hidden text-ellipsis" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }} title={val}>{val}</p>
-                  <p className="text-[9px] font-bold uppercase tracking-wider mt-0.5 text-black/40" style={{ fontFamily: "'DM Sans', sans-serif" }}>{label}</p>
+                  <p className="font-heading text-xs md:text-sm font-extrabold text-black leading-tight tracking-tight whitespace-nowrap overflow-hidden text-ellipsis" title={val}>{val}</p>
+                  <p className="text-[9px] font-bold uppercase tracking-wider mt-0.5 text-black/40">{label}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Brief */}
-          <div className="rounded-2xl p-5 mb-5" style={{ background:"rgba(0,0,0,0.02)", border:"1px solid rgba(0,0,0,0.04)", boxShadow:"0 4px 16px rgba(0,0,0,0.01)" }}>
-            <p className="text-sm font-bold text-black mb-2" style={{ fontFamily:"'Bricolage Grotesque',sans-serif" }}>Campaign Brief</p>
-            <p className="text-sm leading-relaxed" style={{ color:"rgba(0,0,0,0.6)", fontFamily:"'DM Sans',sans-serif" }}>
+          <div className="rounded-3xl p-5 mb-5" style={{ background:"rgba(0,0,0,0.02)", border:"1px solid rgba(0,0,0,0.04)", boxShadow:"0 4px 16px rgba(0,0,0,0.01)" }}>
+            <p className="text-sm font-bold text-black mb-2">Campaign Brief</p>
+            <p className="text-sm leading-relaxed" style={{ color:"rgba(0,0,0,0.6)" }}>
               Create authentic, engaging content featuring {campaign.brand}'s products or services. Content should feel native to the platform — no hard sells. Show how {campaign.brand} fits into your real life. High-energy edits, storytelling formats, and before/after content performs best on this campaign.
             </p>
           </div>
@@ -3681,7 +3647,7 @@ function CampaignDetailModal({ campaign, onClose }: { campaign: typeof ALL_CAMPA
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-2.5">
                 <Check size={14} className="flex-shrink-0 mt-0.5 text-black"/>
-                <span className="text-sm" style={{ color:"rgba(0,0,0,0.7)", fontFamily:"'DM Sans',sans-serif" }}>{item}</span>
+                <span className="text-sm" style={{ color:"rgba(0,0,0,0.7)" }}>{item}</span>
               </div>
             ))}
           </div>
@@ -3690,7 +3656,7 @@ function CampaignDetailModal({ campaign, onClose }: { campaign: typeof ALL_CAMPA
         {/* Sticky Footer */}
         <div className="p-5 border-t border-black/5 bg-white rounded-b-3xl flex-shrink-0"
           style={{ boxShadow: "0 -8px 24px rgba(0,0,0,0.02)" }}>
-          <button className="btn-primary-gradient w-full py-4 rounded-2xl text-base font-bold shadow-sm">
+          <button className="btn-primary-gradient w-full py-4 rounded-full text-base font-bold shadow-sm">
             Join Campaign — Start Earning
           </button>
         </div>
@@ -3735,7 +3701,7 @@ function CustomDropdown({
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 py-1.5 w-44 rounded-xl bg-white border border-black/12 shadow-2xl z-[150] overflow-y-auto max-h-60" style={{ scrollbarWidth: "none" }}>
+        <div className="absolute right-0 mt-2 py-1.5 w-44 rounded-full bg-white border border-black/12 shadow-2xl z-[150] overflow-y-auto max-h-60" style={{ scrollbarWidth: "none" }}>
           {options.map((opt) => (
             <button
               key={opt}
@@ -3850,8 +3816,7 @@ export function CampaignInnerPage({ onClose, onHome }: { onClose:()=>void; onHom
 
   return (
     <>
-      <div ref={pageRef} className="fixed inset-0 z-[100] overflow-y-auto bg-white text-black"
-        style={{ fontFamily:"'DM Sans',sans-serif" }}>
+      <div ref={pageRef} className="fixed inset-0 z-[100] overflow-y-auto bg-white text-black">
 
         {/* ── Global navigation bar (solid white) ── */}
         <Nav solid={true} />
@@ -3895,8 +3860,8 @@ export function CampaignInnerPage({ onClose, onHome }: { onClose:()=>void; onHom
                 <div className="relative z-10 px-6 md:px-16 pt-24 pb-16 max-w-2xl flex flex-col justify-center h-full">
                   {/* Brand badge */}
                   <div className="camp-hero-item flex items-center gap-2 mb-3">
-                    <div className="w-5 h-5 rounded-md flex items-center justify-center text-white font-extrabold text-[9px]"
-                      style={{ background: camp.logoColor, fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                    <div className="font-heading w-5 h-5 rounded-full flex items-center justify-center text-white font-extrabold text-[9px]"
+                      style={{ background: camp.logoColor }}>
                       {camp.logo}
                     </div>
                     <span className="text-xs font-bold text-black/80">{camp.brand}</span>
@@ -3904,7 +3869,7 @@ export function CampaignInnerPage({ onClose, onHome }: { onClose:()=>void; onHom
                   </div>
 
                   {/* Giant movie style title */}
-                  <h1 className="camp-hero-item text-4xl md:text-5xl lg:text-6xl font-extrabold text-black mb-3 leading-tight tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h1 className="camp-hero-item text-4xl md:text-5xl lg:text-6xl font-extrabold text-black mb-3 leading-tight tracking-tight">
                     {camp.title}
                   </h1>
 
@@ -3925,14 +3890,12 @@ export function CampaignInnerPage({ onClose, onHome }: { onClose:()=>void; onHom
                   {/* Large styled rect buttons */}
                   <div className="camp-hero-item flex items-center gap-3">
                     <button onClick={() => setSelectedCamp(camp)}
-                      className="bg-black text-white hover:bg-black/90 transition-all duration-200 font-bold px-6 py-3 rounded-lg text-sm flex items-center gap-2 shadow-lg cursor-pointer"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}
+                      className="bg-black text-white hover:bg-black/90 transition-all duration-200 font-bold px-6 py-3 rounded-full text-sm flex items-center gap-2 shadow-lg cursor-pointer"
                     >
                       <Flame size={16} className="fill-white text-white" /> Join Campaign
                     </button>
                     <button onClick={() => setSelectedCamp(camp)}
-                      className="bg-white text-black hover:bg-black/5 transition-all duration-200 font-bold px-6 py-3 rounded-lg text-sm flex items-center gap-2 border border-black/25 backdrop-blur-md cursor-pointer"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}
+                      className="bg-white text-black hover:bg-black/5 transition-all duration-200 font-bold px-6 py-3 rounded-full text-sm flex items-center gap-2 border border-black/25 backdrop-blur-md cursor-pointer"
                     >
                       <Play size={14} className="fill-black text-black" /> View Brief
                     </button>
@@ -3986,7 +3949,7 @@ export function CampaignInnerPage({ onClose, onHome }: { onClose:()=>void; onHom
                 value={search} 
                 onChange={e => setSearch(e.target.value)}
                 placeholder="Campaigns and creators"
-                className="w-full pl-9 pr-14 py-2 rounded-lg text-xs outline-none transition-all duration-200 placeholder:text-black/40 text-black"
+                className="w-full pl-9 pr-14 py-2 rounded-full text-xs outline-none transition-all duration-200 placeholder:text-black/40 text-black"
                 style={{ 
                   background: "rgba(0, 0, 0, 0.03)", 
                   border: "1px solid rgba(0, 0, 0, 0.08)", 
@@ -4066,12 +4029,11 @@ export function CampaignInnerPage({ onClose, onHome }: { onClose:()=>void; onHom
         <div className="px-6 md:px-12 py-6 flex items-center gap-2 overflow-x-auto" style={{ scrollbarWidth:"none" }}>
           {CATS.map(cat => (
             <button key={cat} onClick={() => setActiveCat(cat)}
-              className="px-4 py-2 rounded-lg text-xs font-bold whitespace-nowrap transition-all duration-200 flex-shrink-0 cursor-pointer"
+              className="px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 flex-shrink-0 cursor-pointer"
               style={{
                 background: activeCat===cat ? "#000000" : "#ffffff",
                 color:      activeCat===cat ? "#ffffff" : "rgba(0,0,0,0.6)",
                 border:     `1px solid ${activeCat===cat ? "#000000" : "rgba(0,0,0,0.12)"}`,
-                fontFamily: "'DM Sans',sans-serif",
               }}>
               {cat}
             </button>
@@ -4085,7 +4047,7 @@ export function CampaignInnerPage({ onClose, onHome }: { onClose:()=>void; onHom
               {/* Row 1: Featured (Trending Now) */}
               {trendingCampaigns.length > 0 && (
                 <div className="select-none">
-                  <h2 className="text-lg md:text-xl font-bold text-black mb-4 px-6 md:px-12 tracking-wide" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h2 className="text-lg md:text-xl font-bold text-black mb-4 px-6 md:px-12 tracking-wide">
                     Trending Now
                   </h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 px-6 md:px-12 py-3">
@@ -4099,7 +4061,7 @@ export function CampaignInnerPage({ onClose, onHome }: { onClose:()=>void; onHom
               {/* Row 2: Clipping Arenas */}
               {clippingCampaigns.length > 0 && (
                 <div className="select-none">
-                  <h2 className="text-lg md:text-xl font-bold text-black mb-4 px-6 md:px-12 tracking-wide" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h2 className="text-lg md:text-xl font-bold text-black mb-4 px-6 md:px-12 tracking-wide">
                     Clipping & Content Edits
                   </h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 px-6 md:px-12 py-3">
@@ -4113,7 +4075,7 @@ export function CampaignInnerPage({ onClose, onHome }: { onClose:()=>void; onHom
               {/* Row 3: Product Challenges */}
               {productCampaigns.length > 0 && (
                 <div className="select-none">
-                  <h2 className="text-lg md:text-xl font-bold text-black mb-4 px-6 md:px-12 tracking-wide" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h2 className="text-lg md:text-xl font-bold text-black mb-4 px-6 md:px-12 tracking-wide">
                     Product Integration & Branding
                   </h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 px-6 md:px-12 py-3">
@@ -4127,7 +4089,7 @@ export function CampaignInnerPage({ onClose, onHome }: { onClose:()=>void; onHom
               {/* Row 4: Personal Brand & Entertainment */}
               {entertainmentCampaigns.length > 0 && (
                 <div className="select-none">
-                  <h2 className="text-lg md:text-xl font-bold text-black mb-4 px-6 md:px-12 tracking-wide" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h2 className="text-lg md:text-xl font-bold text-black mb-4 px-6 md:px-12 tracking-wide">
                     Creators & Entertainment
                   </h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 px-6 md:px-12 py-3">
@@ -4142,16 +4104,16 @@ export function CampaignInnerPage({ onClose, onHome }: { onClose:()=>void; onHom
             /* Otherwise, show standard category grid of results */
             <div className="px-6 md:px-12">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-lg font-extrabold text-black flex items-center gap-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <h2 className="text-lg font-extrabold text-black flex items-center gap-2">
                   {search === "" ? `${activeCat} Campaigns` : `Search Results`}
-                  <span className="text-sm font-normal text-black/40" style={{ fontFamily: "'DM Sans',sans-serif" }}>{filtered.length} found</span>
+                  <span className="text-sm font-normal text-black/40">{filtered.length} found</span>
                 </h2>
               </div>
 
               {filtered.length === 0 ? (
                 <div className="text-center py-24 select-none">
-                  <p className="text-lg font-bold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>No matches in this category</p>
-                  <p className="text-sm text-black/50" style={{ fontFamily: "'DM Sans', sans-serif" }}>Try checking your search filters or browse other genres</p>
+                  <p className="font-heading text-lg font-bold text-black mb-2">No matches in this category</p>
+                  <p className="text-sm text-black/50">Try checking your search filters or browse other genres</p>
                 </div>
               ) : (
                 <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
@@ -4208,7 +4170,7 @@ function VideoShowcaseCard({
 
   return (
     <div 
-      className="vs-card group relative aspect-[9/16] rounded-2xl overflow-hidden cursor-pointer w-full max-w-[210px] md:max-w-[225px] mx-auto transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,0,0,0.15)] hover:border-black/30"
+      className="vs-card group relative aspect-[9/16] rounded-3xl overflow-hidden cursor-pointer w-full max-w-[210px] md:max-w-[225px] mx-auto transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,0,0,0.15)] hover:border-black/30"
       style={{ border: "1px solid rgba(0,0,0,0.1)" }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -4492,7 +4454,7 @@ function VideoShowcase() {
 
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-14 vs-header">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-[0.2em] uppercase mb-3" style={{ background: "#f5f5f5", color: "#000000", border: "1px solid rgba(0,0,0,0.08)", fontFamily: "'DM Sans', sans-serif" }}>
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-[0.2em] uppercase mb-3" style={{ background: "#f5f5f5", color: "#000000", border: "1px solid rgba(0,0,0,0.08)" }}>
             Creator Showcase
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 tracking-tight">

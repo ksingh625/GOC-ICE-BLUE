@@ -91,10 +91,10 @@ export default function HowItWorksPage() {
           <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase bg-[#d1f8ff] text-black border border-black/5 mb-6">
             Gamified Marketing Workflow
           </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
             How Game Of Creators Works
           </h1>
-          <p className="text-base md:text-lg text-black/60 max-w-xl mx-auto mb-10 font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-base md:text-lg text-black/60 max-w-xl mx-auto mb-10 font-medium">
             The world's first contest-powered system where brands set targets, creators compete, and only winning content is licensed.
           </p>
 
@@ -129,21 +129,21 @@ export default function HowItWorksPage() {
               <div 
                 key={idx}
                 onClick={() => setActiveStep(idx)}
-                className={`p-6 rounded-2xl border text-left cursor-pointer transition-all duration-300 ${
+                className={`p-6 rounded-3xl border text-left cursor-pointer transition-all duration-300 ${
                   activeStep === idx 
                     ? "bg-[#d1f8ff]/40 border-black shadow-lg" 
                     : "bg-white border-neutral-100 hover:border-black/20"
                 }`}
               >
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2.5 rounded-xl bg-white border border-neutral-100 flex-shrink-0">
+                  <div className="p-2.5 rounded-3xl bg-white border border-neutral-100 flex-shrink-0">
                     {step.icon}
                   </div>
-                  <h3 className="text-base font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h3 className="text-base font-extrabold text-black">
                     {step.title}
                   </h3>
                 </div>
-                <p className="text-xs text-black/60 leading-relaxed font-medium pl-12" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <p className="text-xs text-black/60 leading-relaxed font-medium pl-12">
                   {step.desc}
                 </p>
               </div>
@@ -162,16 +162,16 @@ export default function HowItWorksPage() {
                 <span className="text-xs font-black text-black/40">Status: Active</span>
               </div>
 
-              <h2 className="text-2xl font-black text-black mb-4" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+              <h2 className="text-2xl font-black text-black mb-4">
                 {currentSteps[activeStep].title}
               </h2>
-              <p className="text-sm text-black/70 leading-relaxed font-medium mb-8" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-sm text-black/70 leading-relaxed font-medium mb-8">
                 {currentSteps[activeStep].desc}
               </p>
             </div>
 
             {/* Custom Metric Card */}
-            <div className="p-4 rounded-xl bg-white border border-black/5 flex items-center justify-between relative z-10 shadow-sm">
+            <div className="p-4 rounded-3xl bg-white border border-black/5 flex items-center justify-between relative z-10 shadow-sm">
               <div>
                 <p className="text-[10px] font-bold text-black/40 uppercase tracking-wider">{currentSteps[activeStep].metric}</p>
                 <p className="text-lg font-black text-black mt-0.5">{currentSteps[activeStep].stat}</p>
@@ -187,7 +187,7 @@ export default function HowItWorksPage() {
       {/* CTA */}
       <section className="py-20 px-6 text-center">
         <div className="max-w-2xl mx-auto p-10 rounded-3xl bg-gradient-to-b from-[#f0fafd] to-white border border-black/8">
-          <h2 className="text-3xl font-black mb-4" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-3xl font-black mb-4">
             Ready to get started?
           </h2>
           <p className="text-sm text-black/60 mb-8 max-w-md mx-auto">

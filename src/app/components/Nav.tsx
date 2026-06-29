@@ -111,7 +111,6 @@ export function Nav({
                 className="text-sm font-medium relative group"
                 style={{
                   color: active ? activeColor : inactiveColor,
-                  fontFamily: "'DM Sans', sans-serif",
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = activeColor)}
                 onMouseLeave={(e) =>
@@ -154,7 +153,7 @@ export function Nav({
 
               {profileOpen && (
                 <div
-                  className={`absolute right-0 mt-2 w-48 rounded-xl border p-2 shadow-2xl z-50 backdrop-blur-md ${
+                  className={`absolute right-0 mt-2 w-48 rounded-3xl border p-2 shadow-2xl z-50 backdrop-blur-md ${
                     isDark
                       ? "bg-slate-900/95 border-white/10 text-white"
                       : "bg-white/95 border-black/10 text-black"
@@ -163,21 +162,21 @@ export function Nav({
                   <Link
                     to="/get-started"
                     onClick={() => setProfileOpen(false)}
-                    className="block w-full text-left px-4 py-2 text-xs font-semibold rounded-lg hover:bg-white/5 transition-colors"
+                    className="block w-full text-left px-4 py-2 text-xs font-semibold rounded-full hover:bg-white/5 transition-colors"
                   >
                     My Profile
                   </Link>
                   <Link
                     to="/campaigns"
                     onClick={() => setProfileOpen(false)}
-                    className="block w-full text-left px-4 py-2 text-xs font-semibold rounded-lg hover:bg-white/5 transition-colors"
+                    className="block w-full text-left px-4 py-2 text-xs font-semibold rounded-full hover:bg-white/5 transition-colors"
                   >
                     Campaigns
                   </Link>
                   <Link
                     to="/pricing"
                     onClick={() => setProfileOpen(false)}
-                    className="block w-full text-left px-4 py-2 text-xs font-semibold rounded-lg hover:bg-white/5 transition-colors text-purple-400"
+                    className="block w-full text-left px-4 py-2 text-xs font-semibold rounded-full hover:bg-white/5 transition-colors text-purple-400"
                   >
                     Billing & Pricing
                   </Link>
@@ -187,7 +186,7 @@ export function Nav({
                       setProfileOpen(false);
                       navigate("/");
                     }}
-                    className="block w-full text-left px-4 py-2 text-xs font-semibold rounded-lg hover:bg-red-500/10 text-red-400 transition-colors"
+                    className="block w-full text-left px-4 py-2 text-xs font-semibold rounded-full hover:bg-red-500/10 text-red-400 transition-colors"
                   >
                     Logout
                   </button>
@@ -237,7 +236,6 @@ export function Nav({
               to={item.href}
               onClick={() => setMobileOpen(false)}
               className={`text-sm font-medium ${isDark ? "text-white/70" : "text-black/70"}`}
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               {item.label}
             </Link>

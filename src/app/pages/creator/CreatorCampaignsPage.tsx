@@ -106,7 +106,7 @@ export default function CreatorCampaignsPage() {
 
         <div>
           {/* Card Thumbnail Image */}
-          <div className="relative aspect-video rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-200/40 mb-4">
+          <div className="relative aspect-video rounded-3xl overflow-hidden bg-neutral-100 border border-neutral-200/40 mb-4">
             <img 
               src={c.img} 
               alt={c.title} 
@@ -121,15 +121,15 @@ export default function CreatorCampaignsPage() {
 
           {/* Brand Info & Avatar */}
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-5.5 h-5.5 rounded-lg flex items-center justify-center text-white font-extrabold text-[9px] shadow-xs"
-              style={{ background: c.logoColor, fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <div className="font-heading w-5.5 h-5.5 rounded-full flex items-center justify-center text-white font-extrabold text-[9px] shadow-xs"
+              style={{ background: c.logoColor }}>
               {c.logo}
             </div>
             <span className="text-[10px] font-black text-neutral-450 tracking-wide uppercase">{c.brand}</span>
           </div>
 
           {/* Title */}
-          <h3 className="text-sm font-black text-black group-hover:text-black line-clamp-1 leading-snug" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h3 className="text-sm font-black text-black group-hover:text-black line-clamp-1 leading-snug">
             {c.title}
           </h3>
 
@@ -173,7 +173,7 @@ export default function CreatorCampaignsPage() {
             </div>
           </div>
 
-          <button className="w-full py-2.5 rounded-xl border border-neutral-200 group-hover:border-black text-[11px] font-black text-neutral-600 group-hover:text-black bg-white group-hover:bg-[#d1f8ff]/25 transition-all flex items-center justify-center gap-1">
+          <button className="w-full py-2.5 rounded-full border border-neutral-200 group-hover:border-black text-[11px] font-black text-neutral-600 group-hover:text-black bg-white group-hover:bg-[#d1f8ff]/25 transition-all flex items-center justify-center gap-1">
             <span>View Brief</span>
             <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
           </button>
@@ -188,7 +188,7 @@ export default function CreatorCampaignsPage() {
       {/* ── HEADER TITLE ── */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-100 pb-5">
         <div>
-          <h1 className="text-3xl font-black text-black tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h1 className="text-3xl font-black text-black tracking-tight">
             Campaigns Arena
           </h1>
           <p className="text-xs text-neutral-500 font-semibold mt-1">Submit links, track clipping performance, and collect payouts directly.</p>
@@ -197,13 +197,13 @@ export default function CreatorCampaignsPage() {
         <div className="flex gap-2">
           <button 
             onClick={() => navigate("/creator/getting-started")}
-            className="px-4 py-2 border border-neutral-200 bg-white hover:bg-neutral-50 rounded-xl text-xs font-black text-neutral-600 transition-all cursor-pointer shadow-xs"
+            className="px-4 py-2 border border-neutral-200 bg-white hover:bg-neutral-50 rounded-full text-xs font-black text-neutral-600 transition-all cursor-pointer shadow-xs"
           >
             How it works
           </button>
           <button 
             onClick={() => navigate("/creator/submissions")}
-            className="btn-primary-gradient px-4 py-2 rounded-xl text-xs font-black shadow-sm"
+            className="btn-primary-gradient px-4 py-2 rounded-full text-xs font-black shadow-sm"
           >
             My Submissions
           </button>
@@ -220,12 +220,12 @@ export default function CreatorCampaignsPage() {
             placeholder="Search campaigns, brands, or platforms... (Press Ctrl+K)"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-11 pr-4 py-3 rounded-2xl border border-neutral-200 text-xs focus:outline-none focus:border-black transition-all bg-white shadow-xs"
+            className="w-full pl-11 pr-4 py-3 rounded-full border border-neutral-200 text-xs focus:outline-none focus:border-black transition-all bg-white shadow-xs"
           />
         </div>
 
         {/* Tab filters (Live vs Ended) */}
-        <div className="bg-neutral-100 p-1 rounded-xl border border-black/5 flex w-full md:w-auto">
+        <div className="bg-neutral-100 p-1 rounded-full border border-black/5 flex w-full md:w-auto">
           {(["Live", "All", "Ended"] as const).map((tab) => {
             const count = 
               tab === "All" ? ALL_CAMPAIGN_DATA.length :
@@ -236,7 +236,7 @@ export default function CreatorCampaignsPage() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-4 py-2 rounded-lg text-xs font-extrabold transition-all cursor-pointer whitespace-nowrap ${
+                className={`px-4 py-2 rounded-full text-xs font-extrabold transition-all cursor-pointer whitespace-nowrap ${
                   activeTab === tab 
                     ? "bg-white text-black shadow-xs" 
                     : "text-neutral-500 hover:text-black"
@@ -259,7 +259,7 @@ export default function CreatorCampaignsPage() {
             <select 
               value={platformFilter}
               onChange={(e) => setPlatformFilter(e.target.value)}
-              className="appearance-none bg-white border border-neutral-200/80 hover:border-black rounded-xl pl-3.5 pr-8 py-2 text-[11px] font-black text-neutral-600 cursor-pointer focus:outline-none shadow-xs"
+              className="appearance-none bg-white border border-neutral-200/80 hover:border-black rounded-full pl-3.5 pr-8 py-2 text-[11px] font-black text-neutral-600 cursor-pointer focus:outline-none shadow-xs"
             >
               <option>All Platforms</option>
               <option>TikTok</option>
@@ -274,7 +274,7 @@ export default function CreatorCampaignsPage() {
             <select 
               value={typeFilter}
               onChange={(e) => setTypeFilter(e.target.value)}
-              className="appearance-none bg-white border border-neutral-200/80 hover:border-black rounded-xl pl-3.5 pr-8 py-2 text-[11px] font-black text-neutral-600 cursor-pointer focus:outline-none shadow-xs"
+              className="appearance-none bg-white border border-neutral-200/80 hover:border-black rounded-full pl-3.5 pr-8 py-2 text-[11px] font-black text-neutral-600 cursor-pointer focus:outline-none shadow-xs"
             >
               <option>All Campaign Types</option>
               <option>Milestone</option>
@@ -292,7 +292,7 @@ export default function CreatorCampaignsPage() {
             <button
               key={f}
               onClick={() => setContentType(f)}
-              className={`px-3 py-1.5 rounded-lg text-[10px] font-black transition-all border cursor-pointer ${
+              className={`px-3 py-1.5 rounded-full text-[10px] font-black transition-all border cursor-pointer ${
                 contentType === f 
                   ? "bg-black text-white border-black" 
                   : "bg-white text-neutral-600 border-neutral-200/85 hover:border-black"
@@ -343,7 +343,7 @@ export default function CreatorCampaignsPage() {
                       <span className="text-[10px] text-neutral-350 font-bold uppercase tracking-wider">Ends In {camp.daysLeft} days</span>
                     </div>
 
-                    <h2 className="text-xl md:text-2xl font-black tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                    <h2 className="text-xl md:text-2xl font-black tracking-tight">
                       {camp.title}
                     </h2>
                     <p className="text-[11px] text-neutral-300 font-semibold line-clamp-2 leading-relaxed max-w-md">
@@ -354,7 +354,7 @@ export default function CreatorCampaignsPage() {
                   <div className="flex items-center gap-4 mt-4">
                     <button 
                       onClick={() => setSelectedCamp(camp)}
-                      className="px-5 py-2.5 rounded-xl bg-[#d1f8ff] hover:bg-white text-black text-xs font-black transition-all flex items-center gap-1 cursor-pointer shadow"
+                      className="px-5 py-2.5 rounded-full bg-[#d1f8ff] hover:bg-white text-black text-xs font-black transition-all flex items-center gap-1 cursor-pointer shadow"
                     >
                       <PlayCircle size={14} /> Join Campaign
                     </button>
@@ -370,18 +370,18 @@ export default function CreatorCampaignsPage() {
                   <div className="space-y-4">
                     <div>
                       <p className="text-[9px] uppercase tracking-wider text-neutral-400 font-bold">Escrow Released</p>
-                      <h4 className="text-lg font-black text-white" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{camp.spent} / {camp.budget}</h4>
+                      <h4 className="text-lg font-black text-white">{camp.spent} / {camp.budget}</h4>
                       <div className="w-40 bg-white/20 rounded-full h-1 mt-1.5 overflow-hidden">
                         <div className="bg-[#d1f8ff] h-full rounded-full" style={{ width: `${percent}%` }} />
                       </div>
                     </div>
                     
                     <div className="flex justify-end gap-2">
-                      <div className="px-2.5 py-1 bg-white/10 rounded-lg text-center">
+                      <div className="px-2.5 py-1 bg-white/10 rounded-full text-center">
                         <p className="text-[11px] font-black text-white">{camp.submissions}</p>
                         <p className="text-[7px] uppercase tracking-widest text-neutral-400 font-bold mt-0.5">Clips</p>
                       </div>
-                      <div className="px-2.5 py-1 bg-white/10 rounded-lg text-center">
+                      <div className="px-2.5 py-1 bg-white/10 rounded-full text-center">
                         <p className="text-[11px] font-black text-[#d1f8ff]">{camp.payRate}</p>
                         <p className="text-[7px] uppercase tracking-widest text-neutral-400 font-bold mt-0.5">Payout</p>
                       </div>
@@ -423,7 +423,7 @@ export default function CreatorCampaignsPage() {
               <div className="space-y-3.5">
                 <div className="flex items-center gap-1.5">
                   <Flame className="text-black fill-[#d1f8ff]" size={16} />
-                  <h3 className="text-base font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Trending Contests</h3>
+                  <h3 className="text-base font-black text-black">Trending Contests</h3>
                 </div>
                 <div className="flex overflow-x-auto gap-6 pb-4 scrollbar-none custom-modal-scrollbar">
                   {trendingCampaigns.map(renderCampaignCard)}
@@ -436,7 +436,7 @@ export default function CreatorCampaignsPage() {
               <div className="space-y-3.5">
                 <div className="flex items-center gap-1.5">
                   <Video className="text-black" size={16} />
-                  <h3 className="text-base font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Video UGC & Clipping Deals</h3>
+                  <h3 className="text-base font-black text-black">Video UGC & Clipping Deals</h3>
                 </div>
                 <div className="flex overflow-x-auto gap-6 pb-4 scrollbar-none custom-modal-scrollbar">
                   {clippingCampaigns.map(renderCampaignCard)}
@@ -449,7 +449,7 @@ export default function CreatorCampaignsPage() {
               <div className="space-y-3.5">
                 <div className="flex items-center gap-1.5">
                   <Smartphone className="text-black" size={16} />
-                  <h3 className="text-base font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Product Reviews & Showcase</h3>
+                  <h3 className="text-base font-black text-black">Product Reviews & Showcase</h3>
                 </div>
                 <div className="flex overflow-x-auto gap-6 pb-4 scrollbar-none custom-modal-scrollbar">
                   {productCampaigns.map(renderCampaignCard)}
@@ -462,7 +462,7 @@ export default function CreatorCampaignsPage() {
               <div className="space-y-3.5">
                 <div className="flex items-center gap-1.5">
                   <Compass className="text-black" size={16} />
-                  <h3 className="text-base font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>TikTok & Instagram Challenges</h3>
+                  <h3 className="text-base font-black text-black">TikTok & Instagram Challenges</h3>
                 </div>
                 <div className="flex overflow-x-auto gap-6 pb-4 scrollbar-none custom-modal-scrollbar">
                   {socialCampaigns.map(renderCampaignCard)}
@@ -501,12 +501,12 @@ export default function CreatorCampaignsPage() {
               </button>
 
               <div className="absolute bottom-4 left-5 flex items-center gap-2">
-                <div className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-extrabold text-sm shadow"
-                  style={{ background: selectedCamp.logoColor, fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <div className="font-heading w-9 h-9 rounded-full flex items-center justify-center text-white font-extrabold text-sm shadow"
+                  style={{ background: selectedCamp.logoColor }}>
                   {selectedCamp.logo}
                 </div>
                 <div>
-                  <h4 className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{selectedCamp.brand}</h4>
+                  <h4 className="text-sm font-black text-black">{selectedCamp.brand}</h4>
                   <div className="flex gap-1.5 mt-0.5 flex-wrap">
                     {selectedCamp.tags.map(t => (
                       <span key={t} className="px-2 py-0.5 rounded text-[8px] font-extrabold bg-[#d1f8ff] text-black border border-black/5 uppercase">
@@ -521,7 +521,7 @@ export default function CreatorCampaignsPage() {
             {/* Scrollable details content */}
             <div className="flex-1 overflow-y-auto p-6 space-y-6">
               <div>
-                <h3 className="text-xl font-extrabold text-black tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <h3 className="text-xl font-extrabold text-black tracking-tight">
                   {selectedCamp.title}
                 </h3>
                 <p className="text-xs text-neutral-500 mt-2 leading-relaxed font-semibold">
@@ -537,10 +537,10 @@ export default function CreatorCampaignsPage() {
                   { label: "Submissions", val: selectedCamp.submissions, icon: <Users size={14} className="text-purple-500" /> },
                   { label: "Days Left", val: selectedCamp.daysLeft, icon: <Clock size={14} className="text-blue-500" /> }
                 ].map((m, idx) => (
-                  <div key={idx} className="p-3 bg-slate-50/50 border border-neutral-200/60 rounded-2xl flex flex-col justify-between">
+                  <div key={idx} className="p-3 bg-slate-50/50 border border-neutral-200/60 rounded-3xl flex flex-col justify-between">
                     <div className="text-neutral-400">{m.icon}</div>
                     <div className="mt-3">
-                      <p className="text-xs font-black text-black leading-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{m.val}</p>
+                      <p className="font-heading text-xs font-black text-black leading-tight">{m.val}</p>
                       <p className="text-[8px] font-extrabold text-neutral-400 uppercase tracking-wider mt-0.5">{m.label}</p>
                     </div>
                   </div>
@@ -548,8 +548,8 @@ export default function CreatorCampaignsPage() {
               </div>
 
               {/* Guidelines */}
-              <div className="p-4 rounded-2xl bg-[#d1f8ff]/15 border border-black/5 space-y-2.5">
-                <h4 className="text-xs font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Participation Guidelines</h4>
+              <div className="p-4 rounded-3xl bg-[#d1f8ff]/15 border border-black/5 space-y-2.5">
+                <h4 className="text-xs font-extrabold text-black">Participation Guidelines</h4>
                 <ul className="text-[10px] text-neutral-600 space-y-2 list-disc list-inside font-semibold leading-normal">
                   <li>Minimum views requirement: **{selectedCamp.views}** views to unlock top tier multipliers.</li>
                   <li>Incorporate native call-outs and packaging shots in the first 4 seconds.</li>
@@ -566,7 +566,7 @@ export default function CreatorCampaignsPage() {
                   setSelectedCamp(null);
                   navigate("/creator/submissions");
                 }}
-                className="w-full btn-primary-gradient py-3.5 rounded-xl text-xs font-black shadow-sm"
+                className="w-full btn-primary-gradient py-3.5 rounded-full text-xs font-black shadow-sm"
               >
                 Join Campaign — Submit Video Link
               </button>

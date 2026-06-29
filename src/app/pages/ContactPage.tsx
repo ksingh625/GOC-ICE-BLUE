@@ -42,7 +42,7 @@ export default function ContactPage() {
             <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase bg-[#d1f8ff] text-black border border-black/5 mb-4">
               Get in Touch
             </span>
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
               Contact Our Team
             </h1>
             <p className="text-xs text-neutral-500 leading-relaxed mt-2 font-medium">
@@ -51,8 +51,8 @@ export default function ContactPage() {
           </div>
 
           <div className="space-y-4">
-            <div className="flex gap-3 bg-[#fafafa] p-4 rounded-xl border border-neutral-100 shadow-sm">
-              <div className="w-10 h-10 rounded-lg bg-white border border-neutral-100 flex items-center justify-center text-purple-600">
+            <div className="flex gap-3 bg-[#fafafa] p-4 rounded-3xl border border-neutral-100 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-white border border-neutral-100 flex items-center justify-center text-purple-600">
                 <Mail size={16} />
               </div>
               <div>
@@ -61,8 +61,8 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="flex gap-3 bg-[#fafafa] p-4 rounded-xl border border-neutral-100 shadow-sm">
-              <div className="w-10 h-10 rounded-lg bg-white border border-neutral-100 flex items-center justify-center text-purple-600">
+            <div className="flex gap-3 bg-[#fafafa] p-4 rounded-3xl border border-neutral-100 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-white border border-neutral-100 flex items-center justify-center text-purple-600">
                 <MapPin size={16} />
               </div>
               <div>
@@ -82,7 +82,7 @@ export default function ContactPage() {
               <div className="w-4 h-4 rounded-full bg-purple-500 border border-white relative z-10" />
             </div>
 
-            <div className="relative z-10 bg-black/60 backdrop-blur-md border border-white/10 p-3 rounded-xl text-left">
+            <div className="relative z-10 bg-black/60 backdrop-blur-md border border-white/10 p-3 rounded-3xl text-left">
               <p className="text-[10px] font-extrabold text-white leading-none">Game of Creators SF</p>
               <p className="text-[8px] text-white/50 mt-0.5">Market Street, SF, CA</p>
             </div>
@@ -93,7 +93,7 @@ export default function ContactPage() {
         <div className="md:col-span-3 bg-[#fafafa] rounded-3xl border border-neutral-100 p-8 shadow-sm">
           {!success ? (
             <form onSubmit={handleMessageSubmit} className="space-y-5">
-              <h2 className="text-xl font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Send us a message</h2>
+              <h2 className="text-xl font-extrabold text-black">Send us a message</h2>
               
               <div>
                 <label className="block text-[10px] font-extrabold uppercase text-neutral-500 mb-1.5">Full Name</label>
@@ -103,7 +103,7 @@ export default function ContactPage() {
                   placeholder="e.g. Ashish Singh"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors bg-white"
+                  className="w-full px-4 py-3 rounded-full border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors bg-white"
                 />
               </div>
 
@@ -115,7 +115,7 @@ export default function ContactPage() {
                   placeholder="e.g. ashish@gmail.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors bg-white"
+                  className="w-full px-4 py-3 rounded-full border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors bg-white"
                 />
               </div>
 
@@ -127,13 +127,13 @@ export default function ContactPage() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors resize-none bg-white"
+                  className="w-full px-4 py-3 rounded-full border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors resize-none bg-white"
                 />
               </div>
 
               <button 
                 type="submit"
-                className="w-full btn-primary-gradient py-3.5 rounded-xl text-xs flex items-center justify-center gap-1.5"
+                className="w-full btn-primary-gradient py-3.5 rounded-full text-xs flex items-center justify-center gap-1.5"
               >
                 Send Direct Message
                 <Send size={13} />
@@ -145,7 +145,7 @@ export default function ContactPage() {
                 <Check size={24} />
               </div>
               <div>
-                <h2 className="text-2xl font-black text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Message Sent!</h2>
+                <h2 className="text-2xl font-black text-black mb-2">Message Sent!</h2>
                 <p className="text-xs text-neutral-500 max-w-xs mx-auto leading-relaxed">
                   Thank you, <strong>{name}</strong>. We've received your request and our support coordinators will get back to you at <strong>{email}</strong> within 12 hours.
                 </p>

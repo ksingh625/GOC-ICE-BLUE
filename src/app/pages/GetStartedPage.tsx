@@ -69,7 +69,7 @@ export default function GetStartedPage() {
 
           {step === 1 && (
             <div>
-              <h2 className="text-2xl font-black mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Tell us about your brand</h2>
+              <h2 className="text-2xl font-black mb-1">Tell us about your brand</h2>
               <p className="text-xs text-neutral-500 mb-6">Let's set up your brand profile to attract creator partners.</p>
               
               <div className="space-y-4">
@@ -82,7 +82,7 @@ export default function GetStartedPage() {
                       placeholder="e.g. Lumina Cosmetics"
                       value={brandName}
                       onChange={(e) => setBrandName(e.target.value)}
-                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-black transition-colors"
+                      className="w-full pl-11 pr-4 py-3 rounded-full border border-neutral-200 text-sm focus:outline-none focus:border-black transition-colors"
                     />
                   </div>
                 </div>
@@ -96,7 +96,7 @@ export default function GetStartedPage() {
                       placeholder="e.g. https://lumina.com"
                       value={website}
                       onChange={(e) => setWebsite(e.target.value)}
-                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-black transition-colors"
+                      className="w-full pl-11 pr-4 py-3 rounded-full border border-neutral-200 text-sm focus:outline-none focus:border-black transition-colors"
                     />
                   </div>
                 </div>
@@ -106,7 +106,7 @@ export default function GetStartedPage() {
 
           {step === 2 && (
             <div>
-              <h2 className="text-2xl font-black mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Create Contest Brief Draft</h2>
+              <h2 className="text-2xl font-black mb-1">Create Contest Brief Draft</h2>
               <p className="text-xs text-neutral-500 mb-6">Define the instructions and theme of your game contest.</p>
 
               <div className="space-y-4">
@@ -117,7 +117,7 @@ export default function GetStartedPage() {
                     placeholder="e.g. Unboxing & Glow-up TikTok Challenge"
                     value={briefTitle}
                     onChange={(e) => setBriefTitle(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-black transition-colors"
+                    className="w-full px-4 py-3 rounded-full border border-neutral-200 text-sm focus:outline-none focus:border-black transition-colors"
                   />
                 </div>
 
@@ -126,7 +126,7 @@ export default function GetStartedPage() {
                   <select 
                     value={niche}
                     onChange={(e) => setNiche(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm bg-white focus:outline-none focus:border-black transition-colors"
+                    className="w-full px-4 py-3 rounded-full border border-neutral-200 text-sm bg-white focus:outline-none focus:border-black transition-colors"
                   >
                     <option value="Lifestyle">Lifestyle</option>
                     <option value="Beauty">Beauty / Cosmetics</option>
@@ -144,7 +144,7 @@ export default function GetStartedPage() {
                     value={briefDesc}
                     onChange={(e) => setBriefDesc(e.target.value)}
                     rows={4}
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-black transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-full border border-neutral-200 text-sm focus:outline-none focus:border-black transition-colors resize-none"
                   />
                 </div>
               </div>
@@ -153,12 +153,12 @@ export default function GetStartedPage() {
 
           {step === 3 && (
             <div>
-              <h2 className="text-2xl font-black mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Set Your Contest Prize Budget</h2>
+              <h2 className="text-2xl font-black mb-1">Set Your Contest Prize Budget</h2>
               <p className="text-xs text-neutral-500 mb-6">Choose how much you want to distribute to the top creators.</p>
 
               <div>
                 <label className="block text-xs font-extrabold uppercase tracking-wider text-neutral-600 mb-3">Prize Budget ($USD)</label>
-                <div className="flex items-center gap-4 bg-neutral-50 border border-neutral-200 p-6 rounded-2xl mb-6">
+                <div className="flex items-center gap-4 bg-neutral-50 border border-neutral-200 p-6 rounded-3xl mb-6">
                   <DollarSign size={24} className="text-neutral-500" />
                   <span className="text-3xl font-black">{budget.toLocaleString()}</span>
                 </div>
@@ -173,7 +173,7 @@ export default function GetStartedPage() {
                   className="w-full accent-black mb-6"
                 />
 
-                <div className="bg-purple-50 border border-purple-200/50 p-4 rounded-xl text-xs text-purple-950 font-medium">
+                <div className="bg-purple-50 border border-purple-200/50 p-4 rounded-3xl text-xs text-purple-950 font-medium">
                   <strong>Estimated Reach:</strong> With a budget of ${budget.toLocaleString()}, we expect about {(budget / 50).toFixed(0)} to {(budget / 20).toFixed(0)} high-quality video submissions from creators.
                 </div>
               </div>
@@ -185,7 +185,7 @@ export default function GetStartedPage() {
               <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 flex items-center justify-center mx-auto mb-6">
                 <Check size={28} />
               </div>
-              <h2 className="text-3xl font-black mb-3" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Your campaign is live!</h2>
+              <h2 className="text-3xl font-black mb-3">Your campaign is live!</h2>
               <p className="text-sm text-neutral-500 max-w-sm mx-auto mb-8 leading-relaxed">
                 Congratulations! Your contest draft <strong>{briefTitle || "UGC Video Challenge"}</strong> has been created. Our team will review the details and start matching creators shortly.
               </p>
@@ -225,12 +225,12 @@ export default function GetStartedPage() {
           
           <div className="bg-white border border-neutral-200/80 rounded-3xl p-5 shadow-lg relative overflow-hidden text-left">
             {/* Visual Cover mockup */}
-            <div className="aspect-[16/10] bg-neutral-900 rounded-2xl flex flex-col justify-between p-4 relative mb-4 overflow-hidden">
+            <div className="aspect-[16/10] bg-neutral-900 rounded-3xl flex flex-col justify-between p-4 relative mb-4 overflow-hidden">
               {/* Background gradient mask */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
               
               {/* Brand logo pill */}
-              <div className="relative z-10 inline-flex items-center gap-1.5 bg-black/60 backdrop-blur-sm border border-white/10 px-2 py-0.5 rounded-lg text-white">
+              <div className="relative z-10 inline-flex items-center gap-1.5 bg-black/60 backdrop-blur-sm border border-white/10 px-2 py-0.5 rounded-full text-white">
                 <div className="w-4 h-4 rounded bg-purple-500 flex items-center justify-center text-[8px] font-black text-white">
                   {brandName ? brandName.charAt(0).toUpperCase() : "G"}
                 </div>
@@ -249,7 +249,7 @@ export default function GetStartedPage() {
             </div>
 
             {/* Info details */}
-            <h3 className="text-sm font-extrabold mb-1.5 text-black truncate" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h3 className="text-sm font-extrabold mb-1.5 text-black truncate">
               {briefTitle || "My Contest Brief Title"}
             </h3>
             <p className="text-[11px] text-neutral-500 leading-relaxed line-clamp-3 mb-4">

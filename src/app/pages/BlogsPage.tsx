@@ -65,7 +65,7 @@ export default function BlogsPage() {
           <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase bg-[#d1f8ff] text-black border border-black/5 mb-4">
             Resources & Blogs
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             The Creator Economy Playbook
           </h1>
           <p className="text-sm text-black/60 max-w-lg font-medium">
@@ -76,7 +76,7 @@ export default function BlogsPage() {
 
       {/* FILTER BAR & SEARCH */}
       <section className="max-w-5xl mx-auto px-6 py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-sm">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white p-4 rounded-3xl border border-neutral-200/80 shadow-sm">
           {/* Search Box */}
           <div className="relative w-full md:max-w-xs">
             <Search className="absolute left-3.5 top-3.5 text-neutral-400" size={16} />
@@ -85,7 +85,7 @@ export default function BlogsPage() {
               placeholder="Search articles..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-11 pr-4 py-2.5 rounded-xl border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors bg-slate-50/50"
+              className="w-full pl-11 pr-4 py-2.5 rounded-full border border-neutral-200 text-xs focus:outline-none focus:border-black transition-colors bg-slate-50/50"
             />
           </div>
 
@@ -95,7 +95,7 @@ export default function BlogsPage() {
               <button
                 key={cat}
                 onClick={() => setCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
                   category === cat 
                     ? "bg-black text-white" 
                     : "bg-slate-100 text-neutral-600 hover:bg-slate-200/70"
@@ -129,7 +129,7 @@ export default function BlogsPage() {
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-extrabold text-black mb-2 leading-snug hover:text-purple-600 transition-colors cursor-pointer" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h3 className="text-lg font-extrabold text-black mb-2 leading-snug hover:text-purple-600 transition-colors cursor-pointer">
                     {post.title}
                   </h3>
                   <p className="text-xs text-neutral-500 leading-relaxed font-medium mb-6">

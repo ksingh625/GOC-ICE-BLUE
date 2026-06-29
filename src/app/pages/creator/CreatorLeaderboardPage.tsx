@@ -130,7 +130,7 @@ export default function CreatorLeaderboardPage() {
       {/* ── HEADER ── */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-neutral-100 pb-5">
         <div>
-          <h1 className="text-3xl font-black text-black tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h1 className="text-3xl font-black text-black tracking-tight">
             Leaderboard Podiums
           </h1>
           <p className="text-xs text-neutral-500 font-semibold mt-1">Participate, win campaigns, accumulate views, and climb the rankings podium.</p>
@@ -144,18 +144,18 @@ export default function CreatorLeaderboardPage() {
             placeholder="Search creators..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-neutral-200 text-xs focus:outline-none focus:border-black bg-white shadow-xs"
+            className="w-full pl-9 pr-4 py-2.5 rounded-full border border-neutral-200 text-xs focus:outline-none focus:border-black bg-white shadow-xs"
           />
         </div>
       </div>
 
       {/* ── METRIC TOGGLES ── */}
-      <div className="flex bg-neutral-100 p-0.5 rounded-xl border border-black/5 self-start w-fit">
+      <div className="flex bg-neutral-100 p-0.5 rounded-full border border-black/5 self-start w-fit">
         {(["winnings", "views", "coins"] as const).map(m => (
           <button 
             key={m}
             onClick={() => setActiveMetric(m)}
-            className={`px-4 py-2 rounded-lg text-xs font-black transition-all cursor-pointer capitalize ${
+            className={`px-4 py-2 rounded-full text-xs font-black transition-all cursor-pointer capitalize ${
               activeMetric === m ? "bg-white text-black shadow-xs" : "text-neutral-550 hover:text-black"
             }`}
           >
@@ -264,7 +264,7 @@ export default function CreatorLeaderboardPage() {
       {/* ── RANKINGS TABLE ── */}
       <div className="bg-white border border-neutral-200/85 rounded-3xl overflow-hidden shadow-xs">
         <div className="px-6 py-4.5 border-b border-neutral-100 flex items-center justify-between">
-          <h3 className="text-sm font-black text-black uppercase tracking-wider" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Full Leaderboard rankings</h3>
+          <h3 className="text-sm font-black text-black uppercase tracking-wider">Full Leaderboard rankings</h3>
           <span className="text-[10px] bg-neutral-100 border border-black/5 px-2 py-0.5 rounded-full font-bold text-neutral-450">
             {ranked.length} Active Creators
           </span>
@@ -308,7 +308,7 @@ export default function CreatorLeaderboardPage() {
                         <p className="font-black text-black flex items-center gap-1">
                           @{item.name}
                           {isMe && (
-                            <span className="text-[7px] bg-black text-[#d1f8ff] font-black uppercase px-1 py-0.2 rounded-md">
+                            <span className="text-[7px] bg-black text-[#d1f8ff] font-black uppercase px-1 py-0.2 rounded-full">
                               YOU
                             </span>
                           )}
@@ -331,10 +331,10 @@ export default function CreatorLeaderboardPage() {
         <div className="px-6 py-4 border-t border-neutral-100 flex items-center justify-between">
           <span className="text-[10px] text-neutral-450 font-bold">Showing 1-{ranked.length} of {ranked.length} creators</span>
           <div className="flex gap-2">
-            <button className="p-1.5 rounded-lg border border-neutral-200 text-neutral-450 hover:bg-neutral-50 cursor-pointer disabled:opacity-50" disabled>
+            <button className="p-1.5 rounded-full border border-neutral-200 text-neutral-450 hover:bg-neutral-50 cursor-pointer disabled:opacity-50" disabled>
               <ChevronLeft size={14} />
             </button>
-            <button className="p-1.5 rounded-lg border border-neutral-200 text-neutral-450 hover:bg-neutral-50 cursor-pointer disabled:opacity-50" disabled>
+            <button className="p-1.5 rounded-full border border-neutral-200 text-neutral-450 hover:bg-neutral-50 cursor-pointer disabled:opacity-50" disabled>
               <ChevronRight size={14} />
             </button>
           </div>

@@ -195,7 +195,7 @@ export default function CreatorSubmissionsPage() {
       {/* ── HEADER TITLE ── */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-neutral-100 pb-5">
         <div>
-          <h1 className="text-3xl font-black text-black tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h1 className="text-3xl font-black text-black tracking-tight">
             Submissions & Winnings
           </h1>
           <p className="text-xs text-neutral-500 font-semibold mt-1">Submit your UGC links, verify view counts, and request escrow cashouts.</p>
@@ -210,7 +210,7 @@ export default function CreatorSubmissionsPage() {
               placeholder="Search submissions..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 rounded-xl border border-neutral-200 text-xs focus:outline-none focus:border-black bg-white shadow-xs"
+              className="w-full pl-9 pr-4 py-2 rounded-full border border-neutral-200 text-xs focus:outline-none focus:border-black bg-white shadow-xs"
             />
           </div>
 
@@ -219,7 +219,7 @@ export default function CreatorSubmissionsPage() {
               setWizardStep(1);
               setSubmitModalOpen(true);
             }}
-            className="btn-primary-gradient px-4 py-2.5 rounded-xl text-xs font-black shadow-sm whitespace-nowrap cursor-pointer flex items-center gap-1.5"
+            className="btn-primary-gradient px-4 py-2.5 rounded-full text-xs font-black shadow-sm whitespace-nowrap cursor-pointer flex items-center gap-1.5"
           >
             <Plus size={13} /> Submit Video Link
           </button>
@@ -236,12 +236,12 @@ export default function CreatorSubmissionsPage() {
           { label: "Estimated Cash", val: `$${pendingEarnings.toFixed(2)}`, icon: <TrendingUp size={14} className="text-teal-500" /> },
           { label: "Estimated Bonus", val: "$0.00", icon: <Sparkles size={14} className="text-pink-500" /> }
         ].map((c, idx) => (
-          <div key={idx} className="bg-white border border-neutral-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between">
+          <div key={idx} className="bg-white border border-neutral-200/80 rounded-3xl p-4 shadow-xs flex flex-col justify-between">
             <div className="flex items-center justify-between gap-2 border-b border-neutral-50 pb-2 mb-2">
               <span className="text-[9px] font-black uppercase tracking-wider text-neutral-400 leading-none">{c.label}</span>
               {c.icon}
             </div>
-            <p className="text-sm font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{c.val}</p>
+            <p className="font-heading text-sm font-black text-black">{c.val}</p>
           </div>
         ))}
       </div>
@@ -294,7 +294,7 @@ export default function CreatorSubmissionsPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-sm font-extrabold text-black tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h3 className="text-sm font-extrabold text-black tracking-tight">
                     {sub.campaignTitle}
                   </h3>
                   
@@ -324,13 +324,13 @@ export default function CreatorSubmissionsPage() {
 
                 {/* Audit simulation button for testing */}
                 {isPending && (
-                  <div className="mt-5 pt-3 border-t border-neutral-100 flex items-center justify-between gap-4 bg-[#d1f8ff]/10 p-3 rounded-2xl">
+                  <div className="mt-5 pt-3 border-t border-neutral-100 flex items-center justify-between gap-4 bg-[#d1f8ff]/10 p-3 rounded-3xl">
                     <span className="text-[9px] text-neutral-500 font-semibold leading-normal">
                       Verify this sandbox link to simulate campaign audit views & winnings.
                     </span>
                     <button
                       onClick={() => handleSimulateAudit(sub.id)}
-                      className="px-3.5 py-1.5 bg-black hover:bg-[#d1f8ff] text-white hover:text-black text-[10px] font-black rounded-lg transition-all flex items-center gap-1 cursor-pointer whitespace-nowrap shadow-xs"
+                      className="px-3.5 py-1.5 bg-black hover:bg-[#d1f8ff] text-white hover:text-black text-[10px] font-black rounded-full transition-all flex items-center gap-1 cursor-pointer whitespace-nowrap shadow-xs"
                     >
                       <Sparkles size={11} /> Approve Audit
                     </button>
@@ -338,7 +338,7 @@ export default function CreatorSubmissionsPage() {
                 )}
 
                 {isRejected && (
-                  <div className="mt-4 p-2.5 rounded-xl bg-red-50 border border-red-100 flex items-start gap-2">
+                  <div className="mt-4 p-2.5 rounded-3xl bg-red-50 border border-red-100 flex items-start gap-2">
                     <ShieldAlert size={14} className="text-red-500 mt-0.5 flex-shrink-0" />
                     <p className="text-[9px] text-red-600 leading-normal font-semibold">Video hooks must clearly show branding items. Avoid duplicate clips.</p>
                   </div>
@@ -368,7 +368,7 @@ export default function CreatorSubmissionsPage() {
             {/* Modal Header */}
             <div className="flex justify-between items-center border-b border-neutral-100 pb-3">
               <div>
-                <h3 className="text-base font-black text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <h3 className="text-base font-black text-black">
                   Submit Clipping Link
                 </h3>
                 <p className="text-[9px] text-neutral-400 font-bold uppercase tracking-wider mt-0.5">Wizard Step {wizardStep} of 3</p>
@@ -391,7 +391,7 @@ export default function CreatorSubmissionsPage() {
                     <select 
                       value={selectedCampId}
                       onChange={(e) => setSelectedCampId(parseInt(e.target.value))}
-                      className="w-full bg-white border border-neutral-200 rounded-xl px-4 py-3 text-xs font-black text-neutral-700 focus:outline-none focus:border-black appearance-none shadow-xs"
+                      className="w-full bg-white border border-neutral-200 rounded-full px-4 py-3 text-xs font-black text-neutral-700 focus:outline-none focus:border-black appearance-none shadow-xs"
                     >
                       {ALL_CAMPAIGN_DATA.filter(c => c.daysLeft > 0).map(c => (
                         <option key={c.id} value={c.id}>{c.title} ({c.brand})</option>
@@ -415,7 +415,7 @@ export default function CreatorSubmissionsPage() {
                           key={p.name}
                           type="button"
                           onClick={() => setChosenPlatform(p.name as any)}
-                          className={`p-3 rounded-xl border-2 transition-all text-xs font-black flex flex-col items-center gap-1.5 cursor-pointer ${
+                          className={`p-3 rounded-3xl border-2 transition-all text-xs font-black flex flex-col items-center gap-1.5 cursor-pointer ${
                             isSelected ? p.style : "border-neutral-200 bg-white hover:border-black/30"
                           }`}
                         >
@@ -429,7 +429,7 @@ export default function CreatorSubmissionsPage() {
 
                 <button 
                   onClick={() => setWizardStep(2)}
-                  className="w-full btn-primary-gradient py-3.5 rounded-xl text-xs font-black shadow-xs flex items-center justify-center gap-1.5"
+                  className="w-full btn-primary-gradient py-3.5 rounded-full text-xs font-black shadow-xs flex items-center justify-center gap-1.5"
                 >
                   <span>Continue</span>
                   <ArrowUpRight size={13} />
@@ -456,7 +456,7 @@ export default function CreatorSubmissionsPage() {
                       }
                       value={videoUrl}
                       onChange={(e) => setVideoUrl(e.target.value)}
-                      className={`w-full pl-10 pr-4 py-3.5 border rounded-xl text-xs focus:outline-none bg-slate-50/20 ${
+                      className={`w-full pl-10 pr-4 py-3.5 border rounded-full text-xs focus:outline-none bg-slate-50/20 ${
                         validationError ? "border-red-400 focus:border-red-400" : "border-neutral-200 focus:border-black"
                       }`}
                     />
@@ -475,14 +475,14 @@ export default function CreatorSubmissionsPage() {
                 <div className="flex gap-2">
                   <button 
                     onClick={() => setWizardStep(1)}
-                    className="flex-1 py-3.5 rounded-xl border border-neutral-200 hover:border-black text-xs font-black text-neutral-600 transition-all cursor-pointer bg-white"
+                    className="flex-1 py-3.5 rounded-full border border-neutral-200 hover:border-black text-xs font-black text-neutral-600 transition-all cursor-pointer bg-white"
                   >
                     Back
                   </button>
                   <button 
                     disabled={!videoUrl || !!validationError}
                     onClick={() => setWizardStep(3)}
-                    className="flex-1 btn-primary-gradient py-3.5 rounded-xl text-xs font-black shadow-xs disabled:opacity-50 cursor-pointer"
+                    className="flex-1 btn-primary-gradient py-3.5 rounded-full text-xs font-black shadow-xs disabled:opacity-50 cursor-pointer"
                   >
                     Review brief
                   </button>
@@ -493,7 +493,7 @@ export default function CreatorSubmissionsPage() {
             {/* STEP 3: SUMMARY & DECLARATION */}
             {wizardStep === 3 && (
               <div className="space-y-5">
-                <div className="p-4 bg-slate-50/80 border border-neutral-200 rounded-2xl space-y-2.5">
+                <div className="p-4 bg-slate-50/80 border border-neutral-200 rounded-3xl space-y-2.5">
                   <h4 className="text-[10px] font-black uppercase text-neutral-400 tracking-wider">Submission Review</h4>
                   <div className="text-xs space-y-1">
                     <p className="text-black font-extrabold">{getCampaignTitle(selectedCampId)}</p>
@@ -517,14 +517,14 @@ export default function CreatorSubmissionsPage() {
                 <div className="flex gap-2">
                   <button 
                     onClick={() => setWizardStep(2)}
-                    className="flex-1 py-3.5 rounded-xl border border-neutral-200 hover:border-black text-xs font-black text-neutral-600 transition-all cursor-pointer bg-white"
+                    className="flex-1 py-3.5 rounded-full border border-neutral-200 hover:border-black text-xs font-black text-neutral-600 transition-all cursor-pointer bg-white"
                   >
                     Back
                   </button>
                   <button 
                     onClick={handleSubmitLink}
                     disabled={!checkedTerms}
-                    className="flex-1 btn-primary-gradient py-3.5 rounded-xl text-xs font-black shadow-xs disabled:opacity-50 cursor-pointer"
+                    className="flex-1 btn-primary-gradient py-3.5 rounded-full text-xs font-black shadow-xs disabled:opacity-50 cursor-pointer"
                   >
                     Confirm & Submit
                   </button>

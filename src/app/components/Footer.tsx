@@ -65,8 +65,7 @@ export function Footer({ theme = "light" }: FooterProps) {
             <p 
               className="text-sm leading-relaxed mb-6 max-w-xs" 
               style={{ 
-                color: isDark ? "rgba(255,255,255,0.6)" : "rgba(0,0,0,0.6)", 
-                fontFamily: "'DM Sans', sans-serif" 
+                color: isDark ? "rgba(255,255,255,0.6)" : "rgba(0,0,0,0.6)" 
               }}
             >
               Democratizing creator marketing. Making brand opportunities accessible to everyone, regardless of audience size, location, or background.
@@ -76,7 +75,7 @@ export function Footer({ theme = "light" }: FooterProps) {
                 <a 
                   key={i} 
                   href={href}
-                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200"
+                  className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200"
                   style={{ 
                     background: isDark ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)", 
                     color: isDark ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.5)", 
@@ -106,8 +105,7 @@ export function Footer({ theme = "light" }: FooterProps) {
               <p 
                 className="text-xs font-bold tracking-widest uppercase mb-4" 
                 style={{ 
-                  color: isDark ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.45)", 
-                  fontFamily: "'DM Sans', sans-serif" 
+                  color: isDark ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.45)" 
                 }}
               >
                 {heading}
@@ -121,8 +119,7 @@ export function Footer({ theme = "light" }: FooterProps) {
                       to={href} 
                       className="text-sm transition-colors duration-150"
                       style={{ 
-                        color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)", 
-                        fontFamily: "'DM Sans', sans-serif" 
+                        color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" 
                       }}
                       onMouseEnter={(e) => (e.currentTarget.style.color = isDark ? "#ffffff" : "#000000")}
                       onMouseLeave={(e) => (e.currentTarget.style.color = isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)")}
@@ -143,15 +140,14 @@ export function Footer({ theme = "light" }: FooterProps) {
           <p 
             className="text-xs" 
             style={{ 
-              color: isDark ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.4)", 
-              fontFamily: "'DM Sans', sans-serif" 
+              color: isDark ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.4)" 
             }}
           >
             © 2026 Game of Creators. All rights reserved.
           </p>
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border transition-colors text-[10px] font-extrabold uppercase tracking-wider cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border transition-colors text-[10px] font-extrabold uppercase tracking-wider cursor-pointer"
             style={{
               background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)",
               borderColor: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)",

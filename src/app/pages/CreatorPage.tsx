@@ -29,8 +29,7 @@ function Badge({ icon, label }: { icon: React.ReactNode; label: string }) {
     <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6"
       style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.1)` }}>
       <span className="text-black/60">{icon}</span>
-      <span className="text-xs font-bold uppercase tracking-widest text-black/70"
-        style={{ fontFamily: "'DM Sans', sans-serif" }}>{label}</span>
+      <span className="text-xs font-bold uppercase tracking-widest text-black/70">{label}</span>
     </div>
   );
 }
@@ -64,7 +63,7 @@ function WhyCreatorVisual({ step }: { step: number }) {
     // Follower-Free Entry
     return (
       <div className="absolute inset-0 flex items-center justify-center p-4">
-        <div className="w-full max-w-[220px] rounded-xl border bg-white p-3 shadow-sm" style={{ borderColor: BORDER }}>
+        <div className="w-full max-w-[220px] rounded-3xl border bg-white p-3 shadow-sm" style={{ borderColor: BORDER }}>
           <span className="text-[8px] font-black uppercase text-black/40 block mb-2">Creator Engagement Yield</span>
           <div className="space-y-2">
             <div>
@@ -95,7 +94,7 @@ function WhyCreatorVisual({ step }: { step: number }) {
     // Fair Performance-Based Rankings
     return (
       <div className="absolute inset-0 flex items-center justify-center p-3">
-        <div className="w-full max-w-[200px] bg-white rounded-xl border p-3 shadow-sm" style={{ borderColor: BORDER }}>
+        <div className="w-full max-w-[200px] bg-white rounded-3xl border p-3 shadow-sm" style={{ borderColor: BORDER }}>
           <div className="flex items-center justify-between mb-2 pb-1 border-b" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
             <span className="text-[8px] font-black uppercase text-black/40">Verified Payout Audit</span>
             <span className="text-[8px] font-bold text-green-600">✓ API Verified</span>
@@ -120,7 +119,7 @@ function WhyCreatorVisual({ step }: { step: number }) {
   // Escrow Secured Payouts
   return (
     <div className="absolute inset-0 flex items-center justify-center p-4">
-      <div className="w-full max-w-[200px] rounded-xl border bg-white p-3 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
+      <div className="w-full max-w-[200px] rounded-3xl border bg-white p-3 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
         <div className="flex items-center gap-1.5 mb-2">
           <div className="w-5 h-5 rounded-full bg-black flex items-center justify-center text-white">
             <Lock size={10} className="text-[#d1f8ff]" />
@@ -155,7 +154,7 @@ function HowCreatorWorksVisual({ step }: { step: number }) {
     // Browse Active Challenges
     return (
       <div className="absolute inset-0 flex items-center justify-center p-4">
-        <div className="w-full max-w-[220px] rounded-xl border bg-white p-3 shadow-sm" style={{ borderColor: BORDER }}>
+        <div className="w-full max-w-[220px] rounded-3xl border bg-white p-3 shadow-sm" style={{ borderColor: BORDER }}>
           <span className="text-[8px] font-black uppercase text-black/40 block mb-2">Open Creator Challenges</span>
           <div className="space-y-1.5">
             {[
@@ -182,12 +181,12 @@ function HowCreatorWorksVisual({ step }: { step: number }) {
     // Create & Submit
     return (
       <div className="absolute inset-0 flex items-center justify-center p-3">
-        <div className="w-full max-w-[200px] rounded-xl border bg-white p-3 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
+        <div className="w-full max-w-[200px] rounded-3xl border bg-white p-3 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
           <div className="flex items-center justify-between mb-2">
             <span className="text-[8px] font-black uppercase text-black/40">Upload Wizard</span>
             <span className="text-[8px] font-bold text-black/50 animate-pulse">Processing...</span>
           </div>
-          <div className="flex gap-2 items-center bg-black/5 p-2 rounded-lg mb-2">
+          <div className="flex gap-2 items-center bg-black/5 p-2 rounded-3xl mb-2">
             <div className="w-7 h-9 bg-black/10 rounded flex items-center justify-center relative overflow-hidden">
               <Camera size={12} className="text-black/30" />
             </div>
@@ -210,10 +209,10 @@ function HowCreatorWorksVisual({ step }: { step: number }) {
   // Cash Out Payout
   return (
     <div className="absolute inset-0 flex items-center justify-center p-4">
-      <div className="w-full max-w-[180px] bg-white border rounded-xl p-3 shadow-sm text-center" style={{ borderColor: BORDER }}>
+      <div className="w-full max-w-[180px] bg-white border rounded-3xl p-3 shadow-sm text-center" style={{ borderColor: BORDER }}>
         <p className="text-[8px] text-black/40 uppercase font-black mb-1">Creator Wallet Balance</p>
         <p className="text-2xl font-black text-black mb-2.5">$1,500.00</p>
-        <button className="w-full bg-black hover:bg-neutral-800 text-white text-[9px] font-black py-2 rounded-lg cursor-pointer transition-colors shadow-xs">
+        <button className="w-full bg-black hover:bg-neutral-800 text-white text-[9px] font-black py-2 rounded-full cursor-pointer transition-colors shadow-xs">
           Cash Out to Bank
         </button>
         <div className="flex items-center justify-center gap-1 mt-2 text-[7px] text-black/40 font-semibold">
@@ -261,15 +260,14 @@ function CreatorHero() {
             style={{ background: ICE, boxShadow: "0 0 8px rgba(209,248,255,0.8)" }}>
             <Flame size={11} className="fill-current" />
           </span>
-          <span className="text-xs font-bold uppercase tracking-widest text-black/70"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <span className="text-xs font-bold uppercase tracking-widest text-black/70">
             Democratizing Creator Earnings
           </span>
         </div>
 
         {/* Headline */}
         <h1 ref={headRef} className="hero-h1 text-5xl md:text-7xl font-extrabold leading-[1.05] mb-6 tracking-tight"
-          style={{ color: BLK, fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          style={{ color: BLK }}>
           Earn Based on Your Creativity,<br />
           <span className="relative">
             Not Your{" "}
@@ -284,7 +282,7 @@ function CreatorHero() {
 
         {/* Subheadline */}
         <p className="hero-sub text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
-          style={{ color: "rgba(0,0,0,0.55)", fontFamily: "'DM Sans', sans-serif" }}>
+          style={{ color: "rgba(0,0,0,0.55)" }}>
           Zero follower requirements. Choose from open campaigns, submit your video according to the brief,
           and earn direct, escrow-protected rewards based on real content performance.
         </p>
@@ -308,11 +306,10 @@ function CreatorHero() {
             { val: "200+", label: "Open Daily Campaigns" },
             { val: "24 Hours", label: "Average Cash Out Time" },
           ].map((stat) => (
-            <div key={stat.label} className="rounded-2xl px-4 py-5 text-center"
+            <div key={stat.label} className="rounded-full px-4 py-5 text-center"
               style={{ background: "#ffffff", border: `1px solid ${BORDER}`, boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
-              <p className="text-2xl font-extrabold text-black mb-1"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{stat.val}</p>
-              <p className="text-xs text-black/50 font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>{stat.label}</p>
+              <p className="font-heading text-2xl font-extrabold text-black mb-1">{stat.val}</p>
+              <p className="text-xs text-black/50 font-medium">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -350,7 +347,7 @@ function TrustBar() {
   return (
     <div className="py-10 border-y overflow-hidden" style={{ background: ICE_DIM, borderColor: BORDER }}>
       <p className="text-center mb-6 text-xs font-semibold tracking-[0.22em] uppercase"
-        style={{ color: "rgba(0,0,0,0.35)", fontFamily: "'DM Sans', sans-serif" }}>
+        style={{ color: "rgba(0,0,0,0.35)" }}>
         Earn by creating for top brands
       </p>
       <div className="relative overflow-hidden">
@@ -364,8 +361,7 @@ function TrustBar() {
               style={{ padding: "6px 32px" }}>
               {i > 0 && <span className="w-1 h-1 rounded-full mr-6 flex-shrink-0" style={{ background: "rgba(0,0,0,0.15)", marginLeft: -24 }} />}
               <span className="text-black/30">{brand.icon}</span>
-              <span className="font-bold tracking-[0.15em] uppercase text-sm text-black/35 whitespace-nowrap"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{brand.name}</span>
+              <span className="font-heading font-bold tracking-[0.15em] uppercase text-sm text-black/35 whitespace-nowrap">{brand.name}</span>
             </div>
           ))}
         </div>
@@ -415,18 +411,17 @@ function WhyGOC() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<Trophy size={13} />} label="Creator Benefits" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             Built for Content Creators
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             The old way required follower audits and negotiation. The GOC way pays you for your craft.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {reasons.map((r, i) => (
-            <div key={i} className="why-card rounded-2xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col"
+            <div key={i} className="why-card rounded-3xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col"
               style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "rgba(0,0,0,0.14)";
@@ -443,7 +438,7 @@ function WhyGOC() {
                   style={{ background: "linear-gradient(to bottom, transparent, #ffffff)" }} />
               </div>
               <div className="p-6 pt-2.5 flex-1 flex flex-col">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+                <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 flex-shrink-0"
                   style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
                   <span className="text-black">{r.icon}</span>
                 </div>
@@ -451,10 +446,10 @@ function WhyGOC() {
                   style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-black/60">{r.highlight}</span>
                 </div>
-                <h3 className="text-xl font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <h3 className="text-xl font-extrabold text-black mb-2">
                   {r.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-black/55 flex-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <p className="text-sm leading-relaxed text-black/55 flex-1">
                   {r.desc}
                 </p>
               </div>
@@ -510,18 +505,17 @@ function HowItWorks() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<Zap size={13} />} label="Step-by-step Guide" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             Three Steps to Get Paid
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             Join contests, upload your content, and watch your earnings grow.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {steps.map((step, i) => (
-            <div key={i} className="step-card rounded-2xl overflow-hidden relative flex flex-col group transition-all duration-300 hover:-translate-y-1"
+            <div key={i} className="step-card rounded-3xl overflow-hidden relative flex flex-col group transition-all duration-300 hover:-translate-y-1"
               style={{ background: "#ffffff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)", minHeight: 400 }}>
               
               <div className="relative h-44 w-full flex-shrink-0" style={{ background: ICE_DIM }}>
@@ -532,12 +526,12 @@ function HowItWorks() {
               </div>
 
               <div className="p-6 pt-2.5 flex-1 flex flex-col z-10 relative">
-                <div className="absolute top-2 right-4 text-6xl font-extrabold pointer-events-none select-none"
-                  style={{ color: "rgba(0,0,0,0.03)", fontFamily: "'Bricolage Grotesque', sans-serif", lineHeight: 1 }}>
+                <div className="font-heading absolute top-2 right-4 text-6xl font-extrabold pointer-events-none select-none"
+                  style={{ color: "rgba(0,0,0,0.03)", lineHeight: 1 }}>
                   {step.num}
                 </div>
 
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+                <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 flex-shrink-0"
                   style={{ background: ICE, border: `1px solid rgba(0,0,0,0.1)` }}>
                   <span className="text-black">{step.icon}</span>
                 </div>
@@ -547,14 +541,14 @@ function HowItWorks() {
                   <span className="text-[10px] font-bold uppercase tracking-wider text-black/50">Step {i + 1}</span>
                 </div>
 
-                <h3 className="text-xl font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <h3 className="text-xl font-extrabold text-black mb-2">
                   {step.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-black/55 mb-4 flex-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <p className="text-sm leading-relaxed text-black/55 mb-4 flex-1">
                   {step.desc}
                 </p>
                 <div className="pt-4 border-t mt-auto" style={{ borderColor: "rgba(0,0,0,0.07)" }}>
-                  <p className="text-xs text-black/40 italic" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  <p className="text-xs text-black/40 italic">
                     {step.detail}
                   </p>
                 </div>
@@ -612,19 +606,18 @@ function CreatorEarningsEstimator() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<BarChart3 size={13} />} label="Reward Calculator" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             Estimate Your Rewards
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             Adjust the campaign size and rank triggers to see how much you could earn.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 items-start">
           {/* Controls */}
-          <div className="rounded-2xl p-8" style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
-            <h3 className="text-lg font-extrabold text-black mb-8" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <div className="rounded-3xl p-8" style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
+            <h3 className="text-lg font-extrabold text-black mb-8">
               Configure Estimation Parameters
             </h3>
 
@@ -632,9 +625,8 @@ function CreatorEarningsEstimator() {
               {/* Prize Pool Budget */}
               <div>
                 <div className="flex justify-between items-center mb-3">
-                  <label className="text-xs font-bold text-black/60 uppercase tracking-wide"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}>Campaign Prize Pool</label>
-                  <span className="text-2xl font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <label className="text-xs font-bold text-black/60 uppercase tracking-wide">Campaign Prize Pool</label>
+                  <span className="font-heading text-2xl font-extrabold text-black">
                     ${budget.toLocaleString()}
                   </span>
                 </div>
@@ -642,15 +634,14 @@ function CreatorEarningsEstimator() {
                   onChange={(e) => setBudget(Number(e.target.value))}
                   className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
                   style={{ background: `linear-gradient(to right, ${BLK} 0%, ${BLK} ${((budget - 1000) / 24000) * 100}%, rgba(0,0,0,0.12) ${((budget - 1000) / 24000) * 100}%, rgba(0,0,0,0.12) 100%)` }} />
-                <div className="flex justify-between text-xs text-black/30 mt-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <div className="flex justify-between text-xs text-black/30 mt-2">
                   <span>$1,000</span><span>$25,000</span>
                 </div>
               </div>
 
               {/* Target Rank Selection */}
               <div>
-                <label className="block text-xs font-bold text-black/60 uppercase tracking-wide mb-3"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}>Target Campaign Ranking</label>
+                <label className="block text-xs font-bold text-black/60 uppercase tracking-wide mb-3">Target Campaign Ranking</label>
                 <div className="grid grid-cols-3 gap-2">
                   {[
                     { id: "1st", label: "🥇 1st Place" },
@@ -658,7 +649,7 @@ function CreatorEarningsEstimator() {
                     { id: "top15", label: "🥉 Top 15 Pool" },
                   ].map((r) => (
                     <button key={r.id} onClick={() => setRank(r.id as any)}
-                      className="py-2.5 px-2 rounded-xl text-xs font-bold border transition-all duration-300 cursor-pointer text-center"
+                      className="py-2.5 px-2 rounded-full text-xs font-bold border transition-all duration-300 cursor-pointer text-center"
                       style={{
                         background: rank === r.id ? ICE : "transparent",
                         borderColor: rank === r.id ? "rgba(0,0,0,0.15)" : BORDER,
@@ -671,7 +662,7 @@ function CreatorEarningsEstimator() {
               </div>
 
               {/* Payout note */}
-              <div className="rounded-xl p-4" style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
+              <div className="rounded-3xl p-4" style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
                 <p className="text-[10px] font-black uppercase tracking-widest text-black/40 mb-1">Rank Payout Ratio</p>
                 <p className="text-xs text-black/60 leading-relaxed font-semibold">
                   Under GOC models, campaign pools are guaranteed and distributed entirely among ranking participants. {rank === "1st" ? "1st Place earns 35%." : rank === "top5" ? "Top 5 creators split 40% (8% each)." : "Top 15 creators split 25% (1.67% each)."}
@@ -688,24 +679,24 @@ function CreatorEarningsEstimator() {
               { label: "Total Competitors (avg.)", val: "42 participants", icon: <Users size={18} />, sub: "Average submission rate per campaign" },
               { label: "Earn rate", val: "100%", icon: <Check size={18} />, sub: "Escrow-protected prizes, zero payout default risk" },
             ].map((metric, i) => (
-              <div key={i} className="rounded-2xl p-6 flex items-center gap-5"
+              <div key={i} className="rounded-3xl p-6 flex items-center gap-5"
                 style={{ background: i === 0 ? BLK : "#fff", border: `1px solid ${i === 0 ? BLK : BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
+                <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
                   style={{ background: i === 0 ? ICE : ICE_DIM }}>
                   <span style={{ color: BLK }}>{metric.icon}</span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-bold uppercase tracking-wide mb-1"
-                    style={{ color: i === 0 ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.45)", fontFamily: "'DM Sans', sans-serif" }}>
+                    style={{ color: i === 0 ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.45)" }}>
                     {metric.label}
                   </p>
-                  <p className="text-3xl font-extrabold"
-                    style={{ color: i === 0 ? "#fff" : BLK, fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <p className="font-heading text-3xl font-extrabold"
+                    style={{ color: i === 0 ? "#fff" : BLK }}>
                     {metric.val}
                   </p>
                 </div>
                 <p className="text-[10px] text-right max-w-[110px] flex-shrink-0"
-                  style={{ color: i === 0 ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.35)", fontFamily: "'DM Sans', sans-serif" }}>
+                  style={{ color: i === 0 ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.35)" }}>
                   {metric.sub}
                 </p>
               </div>
@@ -722,7 +713,7 @@ function CreatorBentoVisual({ step }: { step: number }) {
   if (step === 0) {
     return (
       <div className="absolute inset-0 flex items-center justify-center p-4">
-        <div className="w-full max-w-[180px] rounded-xl border bg-white p-3 shadow-sm" style={{ borderColor: BORDER }}>
+        <div className="w-full max-w-[180px] rounded-3xl border bg-white p-3 shadow-sm" style={{ borderColor: BORDER }}>
           <div className="flex items-center gap-1.5 mb-2">
             <div className="w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center text-[10px] font-bold text-black/60">👤</div>
             <div className="min-w-0 flex-1">
@@ -730,7 +721,7 @@ function CreatorBentoVisual({ step }: { step: number }) {
               <p className="text-[7px] text-black/45">142 followers</p>
             </div>
           </div>
-          <div className="bg-[#d1f8ff]/30 border border-[#d1f8ff]/60 rounded-lg p-2 text-center">
+          <div className="bg-[#d1f8ff]/30 border border-[#d1f8ff]/60 rounded-3xl p-2 text-center">
             <span className="text-[8px] font-bold text-black/60 uppercase tracking-wider block mb-0.5">Campaign Rank #1</span>
             <span className="text-xs font-black text-black">$1,750 Payout</span>
           </div>
@@ -767,7 +758,7 @@ function CreatorBentoVisual({ step }: { step: number }) {
   if (step === 2) {
     return (
       <div className="absolute inset-0 flex items-center justify-center p-4">
-        <div className="w-full max-w-[150px] rounded-xl border bg-white p-2.5 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
+        <div className="w-full max-w-[150px] rounded-3xl border bg-white p-2.5 shadow-sm relative overflow-hidden" style={{ borderColor: BORDER }}>
           <div className="flex items-center gap-1.5 mb-1.5">
             <Lock size={12} className="text-black" />
             <span className="text-[8px] font-bold text-black uppercase tracking-wider">ESCROW VAULT</span>
@@ -921,11 +912,10 @@ function FeaturesBento() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<Sparkles size={13} />} label="Platform Features" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             Built for Content Creators
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             Every feature is designed around one goal: paying you transparently for your creative craft.
           </p>
         </div>
@@ -933,7 +923,7 @@ function FeaturesBento() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
           {features.map((f, i) => (
             <div key={i}
-              className={`bento-card rounded-2xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col ${f.wide ? "md:col-span-2 md:flex-row items-stretch" : "md:col-span-1"}`}
+              className={`bento-card rounded-3xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col ${f.wide ? "md:col-span-2 md:flex-row items-stretch" : "md:col-span-1"}`}
               style={{ background: "#ffffff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "rgba(0,0,0,0.14)";
@@ -946,14 +936,14 @@ function FeaturesBento() {
               {f.wide ? (
                 <>
                   <div className="p-7 flex-1 flex flex-col justify-center">
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 flex-shrink-0"
                       style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
                       <span className="text-black">{f.icon}</span>
                     </div>
-                    <h3 className="text-lg font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                    <h3 className="text-lg font-extrabold text-black mb-2">
                       {f.title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                    <p className="text-sm leading-relaxed text-black/55">
                       {f.desc}
                     </p>
                   </div>
@@ -971,14 +961,14 @@ function FeaturesBento() {
                       style={{ background: "linear-gradient(to bottom, transparent, #ffffff)" }} />
                   </div>
                   <div className="p-6 pt-2.5 flex-1">
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 flex-shrink-0"
                       style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
                       <span className="text-black">{f.icon}</span>
                     </div>
-                    <h3 className="text-lg font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                    <h3 className="text-lg font-extrabold text-black mb-2">
                       {f.title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                    <p className="text-sm leading-relaxed text-black/55">
                       {f.desc}
                     </p>
                   </div>
@@ -1049,20 +1039,18 @@ function Integrations() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<Globe size={13} />} label="Integrations" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             Connect Your Accounts & Payout Channels
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             Link your social networks to sync submissions and configure where you cash out your earnings.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Social Platforms Panel */}
-          <div className="rounded-2xl p-8 bg-white border" style={{ borderColor: BORDER, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
-            <h3 className="text-lg font-extrabold text-black mb-6 flex items-center gap-2"
-              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <div className="rounded-3xl p-8 bg-white border" style={{ borderColor: BORDER, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
+            <h3 className="text-lg font-extrabold text-black mb-6 flex items-center gap-2">
               <Share2 size={18} className="text-black/60" /> Social Channels
             </h3>
             <div className="space-y-4">
@@ -1070,9 +1058,9 @@ function Integrations() {
                 const isConnected = connected[p.key];
                 const isConnecting = connecting[p.key];
                 return (
-                  <div key={p.key} className="flex items-center justify-between p-4 rounded-xl border bg-[#f9fafb]" style={{ borderColor: BORDER }}>
+                  <div key={p.key} className="flex items-center justify-between p-4 rounded-3xl border bg-[#f9fafb]" style={{ borderColor: BORDER }}>
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-lg flex items-center justify-center bg-white border shadow-xs" style={{ color: p.color, borderColor: BORDER }}>
+                      <div className="w-9 h-9 rounded-full flex items-center justify-center bg-white border shadow-xs" style={{ color: p.color, borderColor: BORDER }}>
                         {p.icon}
                       </div>
                       <div>
@@ -1096,9 +1084,8 @@ function Integrations() {
           </div>
 
           {/* Cashout Platforms Panel */}
-          <div className="rounded-2xl p-8 bg-white border" style={{ borderColor: BORDER, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
-            <h3 className="text-lg font-extrabold text-black mb-6 flex items-center gap-2"
-              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <div className="rounded-3xl p-8 bg-white border" style={{ borderColor: BORDER, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
+            <h3 className="text-lg font-extrabold text-black mb-6 flex items-center gap-2">
               <DollarSign size={18} className="text-black/60" /> Payout Methods
             </h3>
             <div className="space-y-4">
@@ -1106,9 +1093,9 @@ function Integrations() {
                 const isConnected = connected[p.key];
                 const isConnecting = connecting[p.key];
                 return (
-                  <div key={p.key} className="flex items-center justify-between p-4 rounded-xl border bg-[#f9fafb]" style={{ borderColor: BORDER }}>
+                  <div key={p.key} className="flex items-center justify-between p-4 rounded-3xl border bg-[#f9fafb]" style={{ borderColor: BORDER }}>
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-lg flex items-center justify-center bg-white border shadow-xs" style={{ color: p.color, borderColor: BORDER }}>
+                      <div className="w-9 h-9 rounded-full flex items-center justify-center bg-white border shadow-xs" style={{ color: p.color, borderColor: BORDER }}>
                         {p.icon}
                       </div>
                       <div>
@@ -1195,18 +1182,17 @@ function CreatorProtection() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<Shield size={13} />} label="Creator Safeguards" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             Creator Bill of Rights
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             We designed GOC to be the fairest, most legally and financially transparent arena for content creators globally.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-5">
           {protections.map((p, i) => (
-            <div key={i} className="protect-card rounded-2xl p-7 group transition-all duration-300 hover:-translate-y-1"
+            <div key={i} className="protect-card rounded-3xl p-7 group transition-all duration-300 hover:-translate-y-1"
               style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "rgba(0,0,0,0.14)";
@@ -1217,7 +1203,7 @@ function CreatorProtection() {
                 e.currentTarget.style.boxShadow = "0 4px 24px rgba(0,0,0,0.05)";
               }}>
               <div className="flex items-start justify-between mb-5">
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
                   style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
                   <span className="text-black">{p.icon}</span>
                 </div>
@@ -1226,10 +1212,10 @@ function CreatorProtection() {
                   {p.badge}
                 </div>
               </div>
-              <h3 className="text-lg font-extrabold text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+              <h3 className="text-lg font-extrabold text-black mb-2">
                 {p.title}
               </h3>
-              <p className="text-sm leading-relaxed text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-sm leading-relaxed text-black/55">
                 {p.desc}
               </p>
             </div>
@@ -1237,24 +1223,24 @@ function CreatorProtection() {
         </div>
 
         {/* Legal Frame Ribbon */}
-        <div className="mt-10 rounded-2xl px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6"
+        <div className="mt-10 rounded-full px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6"
           style={{ background: BLK, border: "1px solid rgba(255,255,255,0.06)" }}>
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
+            <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
               style={{ background: ICE }}>
               <Shield size={22} className="text-black" />
             </div>
             <div>
-              <p className="font-extrabold text-white text-sm" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+              <p className="font-heading font-extrabold text-white text-sm">
                 Fair-deal templates by default. No tricky legal print.
               </p>
-              <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>
                 GOC agreements protect content creators under standard legal frameworks. You work on your terms.
               </p>
             </div>
           </div>
           <button className="flex-shrink-0 flex items-center gap-2.5 px-7 py-3.5 rounded-full font-bold text-sm transition-all duration-300 whitespace-nowrap cursor-pointer"
-            style={{ background: "#ffffff", color: BLK, fontFamily: "'DM Sans', sans-serif" }}>
+            style={{ background: "#ffffff", color: BLK }}>
             Read Creator Agreement Docs <ArrowRight size={16} />
           </button>
         </div>
@@ -1315,11 +1301,10 @@ function CreatorArenaSimulator() {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <Badge icon={<Tv size={13} />} label="Interactive Demo" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             The Creator Arena in Action
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             Try choosing a brief, reading compliance checklists, and simulating content submissions.
           </p>
         </div>
@@ -1334,7 +1319,7 @@ function CreatorArenaSimulator() {
               <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
               <span className="w-3 h-3 rounded-full bg-[#27c93f]" />
             </div>
-            <div className="flex items-center gap-1.5 px-5 py-1.5 rounded-lg text-xs"
+            <div className="flex items-center gap-1.5 px-5 py-1.5 rounded-full text-xs"
               style={{ background: "#fff", border: `1px solid ${BORDER}`, width: 260 }}>
               <div className="w-1.5 h-1.5 rounded-full bg-[#27c93f] animate-pulse" />
               <span className="text-black/45 select-none font-mono">arena.gameofcreators.com</span>
@@ -1355,13 +1340,13 @@ function CreatorArenaSimulator() {
                 const isActive = selectedCamp.id === c.id;
                 return (
                   <button key={c.id} onClick={() => { setSelectedCamp(c); setArenaStep("brief"); }}
-                    className="w-full text-left p-3.5 rounded-2xl border transition-all duration-300 cursor-pointer flex gap-3 items-center"
+                    className="w-full text-left p-3.5 rounded-full border transition-all duration-300 cursor-pointer flex gap-3 items-center"
                     style={{
                       background: isActive ? "#ffffff" : "transparent",
                       borderColor: isActive ? "rgba(0,0,0,0.12)" : "transparent",
                       boxShadow: isActive ? "0 4px 12px rgba(0,0,0,0.03)" : "none"
                     }}>
-                    <div className="w-8 h-8 rounded-xl bg-[#d1f8ff] flex items-center justify-center flex-shrink-0 text-black">
+                    <div className="w-8 h-8 rounded-full bg-[#d1f8ff] flex items-center justify-center flex-shrink-0 text-black">
                       <Zap size={14} />
                     </div>
                     <div className="min-w-0 flex-1">
@@ -1381,13 +1366,13 @@ function CreatorArenaSimulator() {
                 <div className="space-y-5">
                   <div>
                     <span className="text-[10px] font-bold text-[#000000] uppercase tracking-wide bg-[#d1f8ff] px-2 py-0.5 rounded">Campaign Details</span>
-                    <h3 className="text-xl font-extrabold text-black mt-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                    <h3 className="text-xl font-extrabold text-black mt-2">
                       {selectedCamp.title}
                     </h3>
                     <p className="text-xs text-black/55 mt-1">Brief Category: {selectedCamp.niche} Challenge</p>
                   </div>
 
-                  <div className="rounded-2xl border p-5 space-y-3" style={{ background: "#ffffff" }}>
+                  <div className="rounded-3xl border p-5 space-y-3" style={{ background: "#ffffff" }}>
                     <p className="text-[9px] font-black uppercase text-black/40 tracking-wider">Campaign Checklist</p>
                     <div className="grid sm:grid-cols-2 gap-3">
                       {selectedCamp.checklist.map((rule, idx) => (
@@ -1418,7 +1403,7 @@ function CreatorArenaSimulator() {
                   <div className="w-16 h-16 rounded-full bg-[#d1f8ff] flex items-center justify-center text-black mb-4">
                     <Camera size={26} />
                   </div>
-                  <h3 className="text-lg font-black text-black mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h3 className="text-lg font-black text-black mb-2">
                     Submit Your UGC Video
                   </h3>
                   <p className="text-xs text-black/50 max-w-sm mb-5 leading-relaxed">
@@ -1444,7 +1429,7 @@ function CreatorArenaSimulator() {
                 <div className="flex-1 flex flex-col justify-center items-center text-center">
                   <div className="w-12 h-12 rounded-full border-2 border-t-black animate-spin mb-4"
                     style={{ borderColor: `rgba(0,0,0,0.06) rgba(0,0,0,0.06) rgba(0,0,0,0.06) ${BLK}` }} />
-                  <h3 className="text-lg font-black text-black mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h3 className="text-lg font-black text-black mb-1">
                     Auditing Brief Compliance...
                   </h3>
                   <p className="text-xs text-black/45 max-w-xs leading-relaxed">
@@ -1456,9 +1441,9 @@ function CreatorArenaSimulator() {
               {/* Step 4: Wallet updates */}
               {arenaStep === "wallet" && (
                 <div className="space-y-5">
-                  <div className="text-center p-6 bg-green-50/50 border border-green-200 rounded-2xl relative overflow-hidden">
+                  <div className="text-center p-6 bg-green-50/50 border border-green-200 rounded-3xl relative overflow-hidden">
                     <div className="text-4xl mb-3">🎉</div>
-                    <h3 className="text-lg font-black text-green-900" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                    <h3 className="text-lg font-black text-green-900">
                       Submission Audited & Ranked!
                     </h3>
                     <p className="text-xs text-green-800/70 mt-1 max-w-xs mx-auto">
@@ -1538,34 +1523,31 @@ function FAQ() {
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<Lightbulb size={13} />} label="FAQ" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             Common Questions
           </h2>
-          <p className="text-lg text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg text-black/55">
             Everything you need to know to kickstart your creator journey on GOC.
           </p>
         </div>
 
         <div className="space-y-3">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="rounded-2xl overflow-hidden transition-all duration-300"
+            <div key={idx} className="rounded-3xl overflow-hidden transition-all duration-300"
               style={{
                 background: openIdx === idx ? ICE_DIM : "#fafafa",
                 border: `1px solid ${openIdx === idx ? "rgba(0,0,0,0.1)" : BORDER}`,
               }}>
               <button onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
                 className="w-full px-6 py-5 flex items-center justify-between text-left">
-                <span className="text-base font-bold text-black pr-4"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                <span className="font-heading text-base font-bold text-black pr-4">
                   {faq.question}
                 </span>
                 <ChevronRight size={18} className="flex-shrink-0 transition-all duration-300"
                   style={{ color: openIdx === idx ? BLK : "rgba(0,0,0,0.3)", transform: openIdx === idx ? "rotate(90deg)" : "none" }} />
               </button>
               <div className="overflow-hidden transition-all duration-300" style={{ maxHeight: openIdx === idx ? "200px" : "0" }}>
-                <p className="px-6 pb-5 text-base leading-relaxed text-black/60"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <p className="px-6 pb-5 text-base leading-relaxed text-black/60">
                   {faq.answer}
                 </p>
               </div>
@@ -1613,32 +1595,31 @@ function CTABanner() {
             style={{ background: `radial-gradient(ellipse, ${ICE} 0%, transparent 70%)`, opacity: 0.12, filter: "blur(30px)" }} />
 
           <div className="relative z-10">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6"
               style={{ background: ICE, boxShadow: `0 8px 24px rgba(209,248,255,0.25)` }}>
               <Rocket size={28} className="text-black" />
             </div>
-            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6"
-              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
               Monetize Your UGC Craft<br />Without the Audits
             </h2>
             <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10"
-              style={{ color: "rgba(255,255,255,0.6)", fontFamily: "'DM Sans', sans-serif" }}>
+              style={{ color: "rgba(255,255,255,0.6)" }}>
               Join thousands of micro-creators on Game of Creators. Review active brand briefs and cash out rank prizes directly.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button className="flex items-center gap-3 px-10 py-5 rounded-full font-bold text-base transition-all duration-300"
-                style={{ background: "#ffffff", color: BLK, boxShadow: "0 8px 24px rgba(255,255,255,0.15)", fontFamily: "'DM Sans', sans-serif" }}>
+                style={{ background: "#ffffff", color: BLK, boxShadow: "0 8px 24px rgba(255,255,255,0.15)" }}>
                 <span>Start Creating Now</span>
                 <ArrowRight size={18} />
               </button>
               <button className="flex items-center gap-2.5 px-8 py-5 rounded-full font-bold text-base transition-all duration-300"
-                style={{ background: "rgba(255,255,255,0.08)", color: "#fff", border: "1px solid rgba(255,255,255,0.15)", fontFamily: "'DM Sans', sans-serif" }}>
+                style={{ background: "rgba(255,255,255,0.08)", color: "#fff", border: "1px solid rgba(255,255,255,0.15)" }}>
                 <Megaphone size={18} /> Read Guide Docs
               </button>
             </div>
 
-            <p className="mt-8 text-sm" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="mt-8 text-sm" style={{ color: "rgba(255,255,255,0.35)" }}>
               No subscriptions · No contracts · 100% Escrow protected payouts
             </p>
           </div>
@@ -1709,11 +1690,10 @@ function SocialProof() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge icon={<Star size={13} />} label="Creator Reviews" />
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5"
-            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-5">
             Real Creator Success Stories
           </h2>
-          <p className="text-lg max-w-xl mx-auto text-black/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-lg max-w-xl mx-auto text-black/55">
             Real reviews, real payouts, direct ranking metrics.
           </p>
         </div>
@@ -1721,14 +1701,14 @@ function SocialProof() {
         {/* Metrics Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
           {METRICS.map((m, i) => (
-            <div key={i} className="metric-card rounded-2xl p-6 text-center"
+            <div key={i} className="metric-card rounded-3xl p-6 text-center"
               style={{ background: i % 2 === 0 ? ICE_DIM : "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.04)" }}>
-              <div className="w-10 h-10 rounded-xl mx-auto flex items-center justify-center mb-3"
+              <div className="w-10 h-10 rounded-full mx-auto flex items-center justify-center mb-3"
                 style={{ background: i % 2 === 0 ? ICE : ICE_DIM }}>
                 <span className="text-black">{m.icon}</span>
               </div>
-              <p className="text-3xl font-extrabold text-black mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{m.val}</p>
-              <p className="text-xs text-black/45 font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>{m.label}</p>
+              <p className="font-heading text-3xl font-extrabold text-black mb-1">{m.val}</p>
+              <p className="text-xs text-black/45 font-medium">{m.label}</p>
             </div>
           ))}
         </div>
@@ -1739,8 +1719,7 @@ function SocialProof() {
 
           <div className="max-w-3xl mx-auto text-center">
             <div className="text-5xl mb-6 leading-none" style={{ color: ICE, fontFamily: "Georgia, serif" }}>"</div>
-            <p className="text-xl md:text-2xl font-medium leading-relaxed text-black mb-8"
-              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <p className="font-heading text-xl md:text-2xl font-medium leading-relaxed text-black mb-8">
               {t.quote}
             </p>
 
@@ -1749,7 +1728,7 @@ function SocialProof() {
               {t.stats.map((s) => (
                 <div key={s.label} className="flex items-center gap-1.5 px-4 py-2 rounded-full"
                   style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
-                  <span className="text-lg font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{s.val}</span>
+                  <span className="font-heading text-lg font-extrabold text-black">{s.val}</span>
                   <span className="text-xs text-black/45 font-medium">{s.label}</span>
                 </div>
               ))}
@@ -1759,8 +1738,8 @@ function SocialProof() {
             <div className="flex items-center justify-center gap-3">
               <img src={t.avatar} className="w-12 h-12 rounded-full border-2" style={{ borderColor: ICE }} />
               <div className="text-left">
-                <p className="text-sm font-extrabold text-black" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{t.name}</p>
-                <p className="text-xs text-black/45" style={{ fontFamily: "'DM Sans', sans-serif" }}>{t.role}</p>
+                <p className="font-heading text-sm font-extrabold text-black">{t.name}</p>
+                <p className="text-xs text-black/45">{t.role}</p>
               </div>
             </div>
           </div>

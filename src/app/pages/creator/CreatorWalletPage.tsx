@@ -226,17 +226,17 @@ export default function CreatorWalletPage() {
       
       {/* ── HEADER ── */}
       <div className="border-b border-neutral-100 pb-5">
-        <h1 className="text-3xl font-black text-black tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+        <h1 className="text-3xl font-black text-black tracking-tight">
           Wallet & Cashout
         </h1>
         <p className="text-xs text-neutral-500 font-semibold mt-1">Audit verification payouts, cashout via Paypal, and redeem GOC store coins.</p>
       </div>
 
       {/* ── TAB SWITCHER ── */}
-      <div className="bg-neutral-100 p-1 rounded-2xl border border-black/5 flex w-full">
+      <div className="bg-neutral-100 p-1 rounded-full border border-black/5 flex w-full">
         <button 
           onClick={() => setWalletTab("cash")}
-          className={`flex-1 py-3 rounded-xl text-xs font-black transition-all cursor-pointer ${
+          className={`flex-1 py-3 rounded-full text-xs font-black transition-all cursor-pointer ${
             walletTab === "cash" 
               ? "bg-white text-black shadow-xs" 
               : "text-neutral-500 hover:text-black"
@@ -246,7 +246,7 @@ export default function CreatorWalletPage() {
         </button>
         <button 
           onClick={() => setWalletTab("coins")}
-          className={`flex-1 py-3 rounded-xl text-xs font-black transition-all cursor-pointer ${
+          className={`flex-1 py-3 rounded-full text-xs font-black transition-all cursor-pointer ${
             walletTab === "coins" 
               ? "bg-white text-black shadow-xs" 
               : "text-neutral-500 hover:text-black"
@@ -257,13 +257,13 @@ export default function CreatorWalletPage() {
       </div>
 
       {promoSuccess && (
-        <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center gap-2 text-emerald-700 text-xs font-bold animate-fade-in shadow-xs">
+        <div className="p-4 rounded-3xl bg-emerald-50 border border-emerald-100 flex items-center gap-2 text-emerald-700 text-xs font-bold animate-fade-in shadow-xs">
           <Check size={16} /> {promoSuccess}
         </div>
       )}
 
       {promoError && (
-        <div className="p-4 rounded-xl bg-red-50 border border-red-150 flex items-center gap-2 text-red-650 text-xs font-bold animate-fade-in shadow-xs">
+        <div className="p-4 rounded-3xl bg-red-50 border border-red-150 flex items-center gap-2 text-red-650 text-xs font-bold animate-fade-in shadow-xs">
           <AlertCircle size={16} /> {promoError}
         </div>
       )}
@@ -278,11 +278,11 @@ export default function CreatorWalletPage() {
               <div className="flex justify-between items-start">
                 <div>
                   <span className="text-[9px] font-black uppercase tracking-wider text-neutral-400">Total Cash Earned</span>
-                  <h3 className="text-2.5xl font-black text-black mt-2 tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h3 className="text-2.5xl font-black text-black mt-2 tracking-tight">
                     ${lifetimeWinnings.toFixed(2)}
                   </h3>
                 </div>
-                <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-100/50 text-emerald-600">
+                <div className="p-2.5 rounded-3xl bg-emerald-50 border border-emerald-100/50 text-emerald-600">
                   <DollarSign size={16} />
                 </div>
               </div>
@@ -294,11 +294,11 @@ export default function CreatorWalletPage() {
               <div className="flex justify-between items-start">
                 <div>
                   <span className="text-[9px] font-black uppercase tracking-wider text-neutral-400">Available to Withdraw</span>
-                  <h3 className="text-2.5xl font-black text-black mt-2 tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h3 className="text-2.5xl font-black text-black mt-2 tracking-tight">
                     ${availableCash.toFixed(2)}
                   </h3>
                 </div>
-                <div className="p-2.5 rounded-xl bg-black text-[#d1f8ff] border-black shadow-xs">
+                <div className="p-2.5 rounded-3xl bg-black text-[#d1f8ff] border-black shadow-xs">
                   <Wallet size={16} />
                 </div>
               </div>
@@ -310,11 +310,11 @@ export default function CreatorWalletPage() {
               <div className="flex justify-between items-start">
                 <div>
                   <span className="text-[9px] font-black uppercase tracking-wider text-neutral-400">Escrow Audits Checked</span>
-                  <h3 className="text-2.5xl font-black text-black mt-2 tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h3 className="text-2.5xl font-black text-black mt-2 tracking-tight">
                     {submissions.filter(s => s.status === "VERIFIED" || s.status === "PAID").length}
                   </h3>
                 </div>
-                <div className="p-2.5 rounded-xl bg-purple-50 border border-purple-100/50 text-purple-650">
+                <div className="p-2.5 rounded-3xl bg-purple-50 border border-purple-100/50 text-purple-650">
                   <Award size={16} />
                 </div>
               </div>
@@ -327,7 +327,7 @@ export default function CreatorWalletPage() {
             <button 
               disabled={availableCash < 5}
               onClick={() => setWithdrawModalOpen(true)}
-              className={`py-3.5 px-5 rounded-2xl text-xs font-black shadow-xs flex items-center justify-center gap-2 cursor-pointer transition-all ${
+              className={`py-3.5 px-5 rounded-full text-xs font-black shadow-xs flex items-center justify-center gap-2 cursor-pointer transition-all ${
                 availableCash >= 5 
                   ? "bg-black text-white hover:bg-[#d1f8ff] hover:text-black border border-black" 
                   : "bg-neutral-100 border border-neutral-200 text-neutral-400 cursor-not-allowed"
@@ -339,7 +339,7 @@ export default function CreatorWalletPage() {
             
             <button 
               onClick={() => setPayoutModalOpen(true)}
-              className="py-3.5 px-5 btn-primary-gradient rounded-2xl text-xs font-black shadow-xs flex items-center justify-center gap-2"
+              className="py-3.5 px-5 btn-primary-gradient rounded-full text-xs font-black shadow-xs flex items-center justify-center gap-2"
             >
               <CreditCard size={14} className="text-[#d1f8ff]" /> Manage Paypal Email
             </button>
@@ -348,7 +348,7 @@ export default function CreatorWalletPage() {
           {/* Cash Withdrawals Table */}
           <div className="bg-white border border-neutral-200/85 rounded-3xl overflow-hidden shadow-xs">
             <div className="px-6 py-4.5 border-b border-neutral-100 flex items-center justify-between">
-              <h3 className="text-sm font-black text-black uppercase tracking-wider" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Cashout Request Ledger</h3>
+              <h3 className="text-sm font-black text-black uppercase tracking-wider">Cashout Request Ledger</h3>
               <span className="text-[9px] bg-neutral-150 border border-black/5 px-2 py-0.5 rounded-full font-bold text-neutral-500 uppercase tracking-widest">
                 {withdrawals.length} transactions
               </span>
@@ -398,11 +398,11 @@ export default function CreatorWalletPage() {
               <div className="flex justify-between items-start">
                 <div>
                   <span className="text-[9px] font-black uppercase tracking-wider text-neutral-400 font-bold">GOC Store Coins Balance</span>
-                  <h3 className="text-3xl font-black text-black mt-2 tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                  <h3 className="text-3xl font-black text-black mt-2 tracking-tight">
                     {coins}
                   </h3>
                 </div>
-                <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-100 text-amber-600">
+                <div className="p-2.5 rounded-3xl bg-amber-50 border border-amber-100 text-amber-600">
                   <Coins size={18} />
                 </div>
               </div>
@@ -422,11 +422,11 @@ export default function CreatorWalletPage() {
                   placeholder="Enter sandbox promo code..."
                   value={promoCode}
                   onChange={e => setPromoCode(e.target.value)}
-                  className="flex-1 px-3 py-2 border border-neutral-200 rounded-xl text-xs focus:outline-none focus:border-black bg-slate-50/20"
+                  className="flex-1 px-3 py-2 border border-neutral-200 rounded-full text-xs focus:outline-none focus:border-black bg-slate-50/20"
                 />
                 <button 
                   type="submit"
-                  className="px-4 py-2 bg-black hover:bg-[#d1f8ff] text-white hover:text-black font-black rounded-xl text-xs transition-colors cursor-pointer border border-black/10"
+                  className="px-4 py-2 bg-black hover:bg-[#d1f8ff] text-white hover:text-black font-black rounded-full text-xs transition-colors cursor-pointer border border-black/10"
                 >
                   Apply
                 </button>
@@ -437,7 +437,7 @@ export default function CreatorWalletPage() {
           {/* Vouchers Store */}
           <div className="bg-white border border-neutral-200/85 rounded-3xl p-6 shadow-xs">
             <div className="border-b border-neutral-100 pb-3 mb-6">
-              <h3 className="text-sm font-black text-black uppercase tracking-wider" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Voucher redemption store</h3>
+              <h3 className="text-sm font-black text-black uppercase tracking-wider">Voucher redemption store</h3>
               <p className="text-[10px] text-neutral-550 font-semibold mt-0.5">Claim reward vouchers immediately by spending your earned coins.</p>
             </div>
 
@@ -449,9 +449,9 @@ export default function CreatorWalletPage() {
                 return (
                   <div 
                     key={v.id} 
-                    className="border border-neutral-200/80 rounded-2xl p-4 flex gap-4 bg-slate-50/15 hover:border-black hover:shadow-md transition-all duration-300 relative overflow-hidden text-left"
+                    className="border border-neutral-200/80 rounded-3xl p-4 flex gap-4 bg-slate-50/15 hover:border-black hover:shadow-md transition-all duration-300 relative overflow-hidden text-left"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-black/5 border border-black/5 flex items-center justify-center text-black flex-shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-black/5 border border-black/5 flex items-center justify-center text-black flex-shrink-0">
                       <Gift size={20} className="text-neutral-700" />
                     </div>
                     
@@ -469,7 +469,7 @@ export default function CreatorWalletPage() {
                         <button 
                           disabled={!canClaim || isClaiming}
                           onClick={() => handleRedeemVoucher(v.name, v.cost)}
-                          className={`px-4 py-2 rounded-xl text-[10px] font-black border transition-all cursor-pointer ${
+                          className={`px-4 py-2 rounded-full text-[10px] font-black border transition-all cursor-pointer ${
                             isClaiming ? "bg-neutral-100 border-neutral-200 text-neutral-450 cursor-wait" :
                             canClaim 
                               ? "bg-black border-black text-white hover:bg-[#d1f8ff] hover:text-black hover:border-black shadow-xs" 
@@ -489,7 +489,7 @@ export default function CreatorWalletPage() {
           {/* Statement History Table */}
           <div className="bg-white border border-neutral-200/85 rounded-3xl overflow-hidden shadow-xs">
             <div className="px-6 py-4.5 border-b border-neutral-100">
-              <h3 className="text-sm font-black text-black uppercase tracking-wider" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Statement ledger history</h3>
+              <h3 className="text-sm font-black text-black uppercase tracking-wider">Statement ledger history</h3>
             </div>
 
             <table className="w-full text-left border-collapse text-xs">
@@ -536,7 +536,7 @@ export default function CreatorWalletPage() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-center border-b border-neutral-100 pb-3">
-              <h3 className="text-sm font-black text-black uppercase tracking-wider" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Paypal Configuration</h3>
+              <h3 className="text-sm font-black text-black uppercase tracking-wider">Paypal Configuration</h3>
               <button onClick={() => setPayoutModalOpen(false)} className="text-neutral-400 hover:text-black">
                 <X size={16} />
               </button>
@@ -549,7 +549,7 @@ export default function CreatorWalletPage() {
                   type="email"
                   value={paypalEmail}
                   onChange={(e) => setPaypalEmail(e.target.value)}
-                  className="w-full px-4 py-3 border border-neutral-200 rounded-xl text-xs focus:outline-none focus:border-black bg-slate-50/20"
+                  className="w-full px-4 py-3 border border-neutral-200 rounded-full text-xs focus:outline-none focus:border-black bg-slate-50/20"
                 />
               </div>
             </div>
@@ -560,7 +560,7 @@ export default function CreatorWalletPage() {
                 setPromoSuccess("Paypal account configuration updated!");
                 setTimeout(() => setPromoSuccess(null), 3000);
               }}
-              className="w-full btn-primary-gradient py-3.5 rounded-xl text-xs font-black shadow-xs cursor-pointer"
+              className="w-full btn-primary-gradient py-3.5 rounded-full text-xs font-black shadow-xs cursor-pointer"
             >
               Update Config
             </button>
@@ -580,14 +580,14 @@ export default function CreatorWalletPage() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-center border-b border-neutral-100 pb-3">
-              <h3 className="text-sm font-black text-black uppercase tracking-wider" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Request Paypal Cashout</h3>
+              <h3 className="text-sm font-black text-black uppercase tracking-wider">Request Paypal Cashout</h3>
               <button type="button" onClick={() => setWithdrawModalOpen(false)} className="text-neutral-400 hover:text-black cursor-pointer">
                 <X size={16} />
               </button>
             </div>
             
             <div className="space-y-4">
-              <div className="p-3 bg-neutral-50 rounded-xl border border-neutral-100 flex items-center justify-between text-xs font-semibold">
+              <div className="p-3 bg-neutral-50 rounded-3xl border border-neutral-100 flex items-center justify-between text-xs font-semibold">
                 <span className="text-neutral-400">Available cashout balance</span>
                 <span className="text-black font-black">${availableCash.toFixed(2)}</span>
               </div>
@@ -603,7 +603,7 @@ export default function CreatorWalletPage() {
                   placeholder="e.g. 10.00"
                   value={withdrawAmount}
                   onChange={(e) => setWithdrawAmount(e.target.value)}
-                  className="w-full px-4 py-3 border border-neutral-200 rounded-xl text-xs focus:outline-none focus:border-black bg-slate-50/20"
+                  className="w-full px-4 py-3 border border-neutral-200 rounded-full text-xs focus:outline-none focus:border-black bg-slate-50/20"
                 />
                 <p className="text-[8px] text-neutral-450 mt-1 font-semibold pl-1">PayPal payouts take ~24 hours to clear audits.</p>
               </div>
@@ -611,7 +611,7 @@ export default function CreatorWalletPage() {
 
             <button 
               type="submit"
-              className="w-full btn-primary-gradient py-3.5 rounded-xl text-xs font-black shadow-xs cursor-pointer"
+              className="w-full btn-primary-gradient py-3.5 rounded-full text-xs font-black shadow-xs cursor-pointer"
             >
               Submit Cashout Request
             </button>
@@ -646,7 +646,7 @@ export default function CreatorWalletPage() {
                 <p className="text-[10px] text-neutral-450 font-semibold mt-1">Copy and redeem your voucher code below.</p>
               </div>
 
-              <div className="bg-slate-50/80 border border-neutral-200 rounded-xl p-3.5 flex items-center justify-between font-mono text-xs font-black select-all">
+              <div className="bg-slate-50/80 border border-neutral-200 rounded-3xl p-3.5 flex items-center justify-between font-mono text-xs font-black select-all">
                 <span>{redemptionCodeModal.code}</span>
                 <button 
                   onClick={() => handleCopyCode(redemptionCodeModal.code)}
@@ -660,7 +660,7 @@ export default function CreatorWalletPage() {
 
             <button 
               onClick={() => setRedemptionCodeModal(null)}
-              className="w-full btn-primary-gradient py-3 rounded-xl text-xs font-black cursor-pointer shadow-xs"
+              className="w-full btn-primary-gradient py-3 rounded-full text-xs font-black cursor-pointer shadow-xs"
             >
               Return to Store
             </button>

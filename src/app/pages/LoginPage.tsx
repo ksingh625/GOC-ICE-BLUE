@@ -123,8 +123,8 @@ export default function LoginPage() {
           setTimeout(() => navigate("/creator/dashboard"), 1000);
         } else if (matchesBrand) {
           setRole("brand");
-          setSuccessMsg("Welcome back, Partner! Loading Campaigns...");
-          setTimeout(() => navigate("/campaigns"), 1000);
+          setSuccessMsg("Welcome back, Partner! Loading Dashboard...");
+          setTimeout(() => navigate("/brand/dashboard"), 1000);
         } else {
           setErrorMsg("Invalid credentials. Try using the quick sandbox demo buttons below!");
         }
@@ -176,14 +176,14 @@ export default function LoginPage() {
             origin: { y: 0.6 }
           });
           setSuccessMsg("Brand Workspace initialized! Let's launch your first campaign.");
-          setTimeout(() => navigate("/campaigns"), 1200);
+          setTimeout(() => navigate("/brand/dashboard"), 1200);
         }
       }
     }, 1000);
   };
 
   return (
-    <div className="min-h-screen bg-white text-black flex flex-col md:flex-row font-sans" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+    <div className="min-h-screen bg-white text-black flex flex-col md:flex-row font-sans">
       
       {/* ── LEFT PANEL: PREMIUM VISUAL SHOWCASE ── */}
       <div className="w-full md:w-[45%] bg-black text-white flex flex-col justify-between p-10 md:p-16 relative overflow-hidden">
@@ -194,7 +194,7 @@ export default function LoginPage() {
         {/* Header Logo */}
         <Link to="/" className="flex items-center gap-3 relative z-10 self-start">
           <img src={GOCLogo} alt="GOC Logo" className="h-10 w-auto filter brightness-0 invert" />
-          <span className="font-extrabold text-base tracking-widest mt-1.5 uppercase" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+          <span className="font-heading font-extrabold text-base tracking-widest mt-1.5 uppercase">
             Portal
           </span>
         </Link>
@@ -205,7 +205,7 @@ export default function LoginPage() {
             <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white bg-white/10 border border-white/20 px-4 py-1.5 rounded-full w-fit block">
               Creator Arena 2.0
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]">
               Enter the Arena <br className="hidden lg:inline" /> of GOC Creators.
             </h1>
             <p className="text-sm md:text-base text-neutral-400 font-medium max-w-md leading-relaxed">
@@ -222,7 +222,7 @@ export default function LoginPage() {
                 : "bg-white/5 border-transparent opacity-50 hover:opacity-70"
             }`}>
               <div className="flex items-start gap-4">
-                <div className={`p-3 rounded-2xl flex-shrink-0 ${role === "creator" ? "bg-white text-black" : "bg-white/10 text-white"}`}>
+                <div className={`p-3 rounded-3xl flex-shrink-0 ${role === "creator" ? "bg-white text-black" : "bg-white/10 text-white"}`}>
                   <Sparkles size={20} />
                 </div>
                 <div>
@@ -241,7 +241,7 @@ export default function LoginPage() {
                 : "bg-white/5 border-transparent opacity-50 hover:opacity-70"
             }`}>
               <div className="flex items-start gap-4">
-                <div className={`p-3 rounded-2xl flex-shrink-0 ${role === "brand" ? "bg-white text-black" : "bg-white/10 text-white"}`}>
+                <div className={`p-3 rounded-3xl flex-shrink-0 ${role === "brand" ? "bg-white text-black" : "bg-white/10 text-white"}`}>
                   <Building2 size={20} />
                 </div>
                 <div>
@@ -264,7 +264,7 @@ export default function LoginPage() {
           
           {/* Header Description */}
           <div>
-            <h2 className="text-3xl font-black text-black tracking-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+            <h2 className="text-3xl font-black text-black tracking-tight">
               {mode === "signin" ? "Sign In to GOC" : "Complete Your Profile"}
             </h2>
             <p className="text-sm text-neutral-500 mt-2 font-medium">
@@ -276,23 +276,23 @@ export default function LoginPage() {
 
           {/* Feedback Toasts */}
           {errorMsg && (
-            <div className="p-3.5 rounded-xl bg-red-50 border border-red-150 text-red-650 text-xs font-bold flex items-center gap-2 animate-fade-in">
+            <div className="p-3.5 rounded-3xl bg-red-50 border border-red-150 text-red-650 text-xs font-bold flex items-center gap-2 animate-fade-in">
               <AlertCircle size={15} />
               {errorMsg}
             </div>
           )}
           {successMsg && (
-            <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-150 text-emerald-700 text-xs font-bold flex items-center gap-2 animate-fade-in">
+            <div className="p-3.5 rounded-3xl bg-emerald-50 border border-emerald-150 text-emerald-700 text-xs font-bold flex items-center gap-2 animate-fade-in">
               <CheckCircle size={15} />
               {successMsg}
             </div>
           )}
 
           {/* Mode Tabs (Sign In vs Create Account) */}
-          <div className="bg-neutral-100 p-1.5 rounded-2xl border border-black/5 flex w-full">
+          <div className="bg-neutral-100 p-1.5 rounded-3xl border border-black/5 flex w-full">
             <button
               onClick={() => setMode("signin")}
-              className={`flex-1 py-3 rounded-xl text-sm font-bold transition-all cursor-pointer ${
+              className={`flex-1 py-3 rounded-full text-sm font-bold transition-all cursor-pointer ${
                 mode === "signin" 
                   ? "bg-white text-black shadow-sm" 
                   : "text-neutral-500 hover:text-black"
@@ -302,7 +302,7 @@ export default function LoginPage() {
             </button>
             <button
               onClick={() => setMode("signup")}
-              className={`flex-1 py-3 rounded-xl text-sm font-bold transition-all cursor-pointer ${
+              className={`flex-1 py-3 rounded-full text-sm font-bold transition-all cursor-pointer ${
                 mode === "signup" 
                   ? "bg-white text-black shadow-sm" 
                   : "text-neutral-500 hover:text-black"
@@ -318,7 +318,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={() => setRole("creator")}
-              className={`p-5 rounded-2xl border-2 text-left transition-all cursor-pointer flex flex-col gap-3 ${
+              className={`p-5 rounded-3xl border-2 text-left transition-all cursor-pointer flex flex-col gap-3 ${
                 role === "creator" 
                   ? "bg-[#f5f5f5] border-black" 
                   : "bg-white border-neutral-200 hover:border-black/30"
@@ -335,7 +335,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={() => setRole("brand")}
-              className={`p-5 rounded-2xl border-2 text-left transition-all cursor-pointer flex flex-col gap-3 ${
+              className={`p-5 rounded-3xl border-2 text-left transition-all cursor-pointer flex flex-col gap-3 ${
                 role === "brand" 
                   ? "bg-[#f5f5f5] border-black" 
                   : "bg-white border-neutral-200 hover:border-black/30"
@@ -367,7 +367,7 @@ export default function LoginPage() {
                           placeholder="e.g. Ashish Singh"
                           value={fullName}
                           onChange={e => setFullName(e.target.value)}
-                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20"
+                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-full text-sm focus:outline-none focus:border-black bg-slate-50/20"
                         />
                       </div>
                     </div>
@@ -381,7 +381,7 @@ export default function LoginPage() {
                           placeholder="e.g. gamer_ash"
                           value={username}
                           onChange={e => setUsername(e.target.value)}
-                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20"
+                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-full text-sm focus:outline-none focus:border-black bg-slate-50/20"
                         />
                       </div>
                     </div>
@@ -394,7 +394,7 @@ export default function LoginPage() {
                           placeholder="e.g. +91 9876543210"
                           value={phone}
                           onChange={e => setPhone(e.target.value)}
-                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20"
+                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-full text-sm focus:outline-none focus:border-black bg-slate-50/20"
                         />
                       </div>
                     </div>
@@ -411,7 +411,7 @@ export default function LoginPage() {
                           placeholder="e.g. Roobet Gaming"
                           value={brandName}
                           onChange={e => setBrandName(e.target.value)}
-                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20"
+                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-full text-sm focus:outline-none focus:border-black bg-slate-50/20"
                         />
                       </div>
                     </div>
@@ -425,7 +425,7 @@ export default function LoginPage() {
                           placeholder="e.g. https://roobet.com"
                           value={website}
                           onChange={e => setWebsite(e.target.value)}
-                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20"
+                          className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-full text-sm focus:outline-none focus:border-black bg-slate-50/20"
                         />
                       </div>
                     </div>
@@ -447,7 +447,7 @@ export default function LoginPage() {
                   placeholder={role === "creator" ? "e.g. creator@goc.com" : "e.g. brand@goc.com"}
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  className={`w-full pl-11 pr-4 py-3.5 border rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20 transition-all ${
+                  className={`w-full pl-11 pr-4 py-3.5 border rounded-full text-sm focus:outline-none focus:border-black bg-slate-50/20 transition-all ${
                     highlightDemo ? "border-emerald-500 shadow-md ring-2 ring-emerald-500/10" : "border-neutral-200"
                   }`}
                 />
@@ -465,7 +465,7 @@ export default function LoginPage() {
                   placeholder="••••••••••••"
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  className={`w-full pl-11 pr-4 py-3.5 border rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20 transition-all ${
+                  className={`w-full pl-11 pr-4 py-3.5 border rounded-full text-sm focus:outline-none focus:border-black bg-slate-50/20 transition-all ${
                     highlightDemo ? "border-emerald-500 shadow-md ring-2 ring-emerald-500/10" : "border-neutral-200"
                   }`}
                 />
@@ -483,7 +483,7 @@ export default function LoginPage() {
                     placeholder="Enter GOC referral code"
                     value={referral}
                     onChange={e => setReferral(e.target.value)}
-                    className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black bg-slate-50/20"
+                    className="w-full pl-11 pr-4 py-3.5 border border-neutral-200 rounded-full text-sm focus:outline-none focus:border-black bg-slate-50/20"
                   />
                 </div>
               </div>
@@ -493,7 +493,7 @@ export default function LoginPage() {
             <button 
               type="submit"
               disabled={loading}
-              className="w-full bg-black text-white hover:bg-neutral-800 transition-colors py-4 rounded-xl text-sm font-black shadow-sm cursor-pointer flex items-center justify-center gap-2 mt-8"
+              className="w-full bg-black text-white hover:bg-neutral-800 transition-colors py-4 rounded-full text-sm font-black shadow-sm cursor-pointer flex items-center justify-center gap-2 mt-8"
             >
               {loading ? (
                 <span>Entering Arena...</span>
@@ -514,14 +514,14 @@ export default function LoginPage() {
             <div className="grid grid-cols-2 gap-3">
               <button 
                 onClick={() => handleAutofill("creator")}
-                className="py-3 px-3 border border-neutral-200 rounded-xl hover:border-black text-xs font-bold text-neutral-700 hover:text-black transition-all bg-slate-50/30 flex items-center justify-center gap-2 cursor-pointer"
+                className="py-3 px-3 border border-neutral-200 rounded-full hover:border-black text-xs font-bold text-neutral-700 hover:text-black transition-all bg-slate-50/30 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Sparkles size={14} className="text-amber-500" />
                 gamer_ash (Creator)
               </button>
               <button 
                 onClick={() => handleAutofill("brand")}
-                className="py-3 px-3 border border-neutral-200 rounded-xl hover:border-black text-xs font-bold text-neutral-700 hover:text-black transition-all bg-slate-50/30 flex items-center justify-center gap-2 cursor-pointer"
+                className="py-3 px-3 border border-neutral-200 rounded-full hover:border-black text-xs font-bold text-neutral-700 hover:text-black transition-all bg-slate-50/30 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Building2 size={14} className="text-purple-500" />
                 brand_admin (Brand)
