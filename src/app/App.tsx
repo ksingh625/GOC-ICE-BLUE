@@ -628,25 +628,22 @@ function Hero({ onBrowse }: { onBrowse?: () => void }) {
         .fromTo(subRef.current, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.7 }, 0.8)
         .fromTo(ctaRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 1.0);
 
-      // Cool 3D scroll animation for the dashboard mockup
+      // Smooth parallax scroll effect for the dashboard mockup
       if (dashRef.current) {
         gsap.set(dashRef.current, { 
-          transformPerspective: 1400, 
-          rotationX: 25, 
-          opacity: 0.4, 
-          scale: 0.85, 
-          y: 80 
+          opacity: 0.5, 
+          scale: 0.95, 
+          y: 60 
         });
         
         gsap.to(dashRef.current, {
-          rotationX: 0,
           opacity: 1,
           scale: 1,
           y: 0,
-          ease: "power3.out",
+          ease: "power2.out",
           scrollTrigger: {
             trigger: dashRef.current,
-            start: "top 90%",
+            start: "top 95%",
             end: "top 30%",
             scrub: 1, 
           }
@@ -817,7 +814,7 @@ function Hero({ onBrowse }: { onBrowse?: () => void }) {
         </div>
 
         {/* Dashboard Mockup */}
-        <div ref={dashRef} className="relative mx-auto max-w-4xl rounded-full overflow-hidden"
+        <div ref={dashRef} className="relative mx-auto max-w-4xl rounded-3xl overflow-hidden"
           style={{ border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 20px 50px rgba(0,0,0,0.06)", background: "#ffffff" }}>
           <HeroDashboard />
         </div>
@@ -1331,7 +1328,7 @@ function ComparisonTable() {
 
   return (
     <section ref={ref} className="py-24 px-8" style={{ background: "linear-gradient(180deg, #f0fafd 0%, #ffffff 100%)" }}>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <span className="text-xs font-semibold tracking-[0.22em] uppercase mb-3 block"
@@ -1710,14 +1707,8 @@ function ForBrands() {
 
         {/* Feature Cards Stack with Scroll Effect */}
         <div className="max-w-4xl mx-auto w-full mb-20 relative">
-          <div className="absolute -left-6 lg:-left-16 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 text-black/40 opacity-70 pointer-events-none">
-             <div className="w-1 h-24 rounded-full bg-black/10 relative overflow-hidden">
-                <div className="absolute top-0 w-full h-6 bg-black rounded-full animate-[bounce_2s_infinite]" />
-             </div>
-             <span className="text-[9px] font-bold uppercase tracking-widest" style={{ writingMode: 'vertical-lr', transform: 'rotate(180deg)' }}>Scroll to explore</span>
-          </div>
           
-          <div className="w-full h-[650px] overflow-y-auto flex flex-col gap-6 p-2 lg:p-4 rounded-[2rem]"
+          <div className="w-full h-[650px] overflow-y-auto overscroll-y-auto flex flex-col gap-6 p-2 lg:p-4 rounded-[2rem] pb-24"
                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
             
             <div className="sticky top-0 z-10 w-full transition-all duration-300">
@@ -1898,39 +1889,29 @@ function ForBrands() {
 
             <div className="sticky top-[72px] z-40 w-full transition-all duration-300">
               <BrandFeatureCard
-              title="Niche Talent & Safety"
-                desc="Reach creators across any demographic, country, and niche with automated AI brand-safety guardrails."
-                icon={<Users size={18} />}
+              title="Real-Time Analytics & Tracking"
+                desc="Monitor submissions, engagement metrics, and ROI in a centralized dashboard updated instantly."
+                icon={<TrendingUp size={18} />}
               >
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-black/8">
                   <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Creator Pool</p>
-                    <p className="font-heading text-sm font-black text-black">8,400+ Active</p>
-                    <p className="text-[9px] text-black/60">highly vetted profiles</p>
+                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Performance</p>
+                    <p className="font-heading text-sm font-black text-black">Live Dashboard</p>
+                    <p className="text-[9px] text-black/60">metrics update instantly</p>
                   </div>
                   <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Moderation</p>
-                    <p className="font-heading text-sm font-black text-black">AI Auto-Review</p>
-                    <p className="text-[9px] text-black/60">safety filter active</p>
+                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Insights</p>
+                    <p className="font-heading text-sm font-black text-black">Deep Analytics</p>
+                    <p className="text-[9px] text-black/60">audience demographics</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mt-2">
-                  <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex flex-col justify-between h-32">
-                    <div className="flex items-center gap-1 justify-center -space-x-1 mt-2">
-                      {[
-                        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop",
-                        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop",
-                        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop"
-                      ].map((img, i) => (
-                        <img key={i} src={img} className="w-6.5 h-6.5 rounded-full border border-white object-cover shadow-sm" />
-                      ))}
-                    </div>
-                    <div className="flex flex-wrap gap-1 justify-center mb-1">
-                      {["#Skincare", "#Fitness", "#Tech"].map((t) => (
-                        <span key={t} className="text-[8px] px-1.5 py-0.2 rounded-full font-bold bg-[#ffffff] border border-black/5 text-black">
-                          {t}
-                        </span>
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex flex-col justify-end h-32 relative overflow-hidden">
+                    <div className="absolute top-3 left-3 text-[8px] font-bold text-black/50 uppercase">Engagement</div>
+                    <div className="flex items-end gap-1.5 h-16 mt-4 w-full">
+                      {[40, 70, 45, 90, 60].map((h, i) => (
+                        <div key={i} className="flex-1 bg-black rounded-t-sm" style={{ height: `${h}%`, opacity: i === 3 ? 1 : 0.3 }} />
                       ))}
                     </div>
                   </div>
@@ -1938,14 +1919,12 @@ function ForBrands() {
                   <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex items-center justify-center h-32">
                     <div className="w-full bg-white border border-black/8 rounded-3xl p-2.5 flex flex-col justify-between h-[96px]">
                       <div>
-                        <p className="text-[7px] text-black/45 uppercase font-bold tracking-wider">Safety Filters</p>
-                        <p className="font-heading text-[9px] font-black text-black leading-tight">Strict Brand Fit</p>
+                        <p className="text-[7px] text-black/45 uppercase font-bold tracking-wider">Live ROI</p>
+                        <p className="font-heading text-lg font-black text-black leading-none mt-1">4.2x</p>
                       </div>
-                      <div className="flex justify-between items-center mt-1">
-                        <span className="text-[7px] text-black/60 font-semibold">Moderation Mode</span>
-                        <div className="w-6.5 h-4 bg-black rounded-full p-0.5 relative">
-                          <div className="w-3 h-3 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm" />
-                        </div>
+                      <div className="flex items-center gap-1 mt-2">
+                        <TrendingUp size={10} className="text-black" />
+                        <span className="text-[7px] text-black font-bold">+18% this week</span>
                       </div>
                     </div>
                   </div>
@@ -1955,56 +1934,48 @@ function ForBrands() {
 
             <div className="sticky top-[96px] z-50 w-full transition-all duration-300">
               <BrandFeatureCard
-              title="Clear Rights & Max ROI"
-                desc="Every winning submission comes with full advertising rights. Keep acquisition costs up to 85% lower."
-                icon={<Shield size={18} />}
+              title="Seamless Global Payouts"
+                desc="Eliminate invoicing nightmares. We handle creator payments, tax compliance, and global transfers automatically."
+                icon={<DollarSign size={18} />}
               >
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-black/8">
                   <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Ad Rights</p>
-                    <p className="font-heading text-sm font-black text-black">Pre-Cleared</p>
-                    <p className="text-[9px] text-black/60">unlimited ads usage</p>
+                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Payouts</p>
+                    <p className="font-heading text-sm font-black text-black">1-Click Payments</p>
+                    <p className="text-[9px] text-black/60">pay 100s instantly</p>
                   </div>
                   <div>
-                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">ROI Spark</p>
-                    <p className="font-heading text-sm font-black text-black">85% Savings</p>
-                    <p className="text-[9px] text-black/60">vs traditional agency</p>
+                    <p className="text-[9px] text-black/55 uppercase font-black tracking-wider">Compliance</p>
+                    <p className="font-heading text-sm font-black text-black">Auto-Tax Forms</p>
+                    <p className="text-[9px] text-black/60">100% compliant globally</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mt-2">
-                  <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex items-center justify-center h-32">
-                    <div className="w-full bg-white border border-black/8 rounded-3xl p-2.5 flex flex-col justify-between h-[96px] relative overflow-hidden">
-                      <div className="absolute -right-3 -bottom-3 w-8 h-8 rounded-full border border-black/15 flex items-center justify-center text-[5px] text-black/15 font-black uppercase rotate-[-20deg]">
-                        OK
-                      </div>
-                      <div className="flex justify-between items-center border-b border-black/8 pb-0.5">
-                        <span className="text-[6px] text-black/40 font-bold uppercase">Rights</span>
-                        <span className="text-[5px] text-black font-bold bg-[#f5f5f5] px-0.5 rounded">Unlimited</span>
-                      </div>
-                      <div className="space-y-0.5 my-1">
-                        <div className="w-8 h-0.5 bg-black/10 rounded-full" />
-                        <div className="w-12 h-0.5 bg-black/5 rounded-full" />
-                      </div>
-                      <p className="text-[7px] text-black/60 font-semibold leading-none">Organic & Paid Ads</p>
+                  <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex flex-col justify-center h-32">
+                    <div className="w-full bg-white border border-black/8 rounded-2xl p-2 mb-2 flex items-center justify-between shadow-sm">
+                       <div className="flex items-center gap-2">
+                          <div className="w-5 h-5 rounded-full bg-black/5 flex items-center justify-center"><Check size={8} className="text-black"/></div>
+                          <div className="text-[7px] font-bold">@alex_creates</div>
+                       </div>
+                       <div className="text-[7px] font-black">$450</div>
+                    </div>
+                    <div className="w-full bg-white border border-black/8 rounded-2xl p-2 flex items-center justify-between shadow-sm opacity-60">
+                       <div className="flex items-center gap-2">
+                          <div className="w-5 h-5 rounded-full bg-black/5 flex items-center justify-center"><Check size={8} className="text-black"/></div>
+                          <div className="text-[7px] font-bold">@sarah_vlogs</div>
+                       </div>
+                       <div className="text-[7px] font-black">$200</div>
                     </div>
                   </div>
 
                   <div className="bg-[#f5f5f5] border border-black/8 rounded-3xl p-3 flex items-center justify-center h-32">
-                    <div className="w-full bg-white border border-black/8 rounded-3xl p-2.5 flex flex-col justify-between h-[96px]">
-                      <div className="flex items-end justify-around h-10 mt-1">
-                        <div className="flex flex-col items-center w-5">
-                          <div className="w-full bg-black/10 rounded-t-sm h-8" />
-                          <span className="text-[5px] text-black/40 font-bold mt-0.5">Agency</span>
-                        </div>
-                        <div className="flex flex-col items-center w-5">
-                          <div className="w-full bg-black rounded-t-sm h-2.5" />
-                          <span className="text-[5px] text-black font-bold mt-0.5">GOC</span>
-                        </div>
-                      </div>
-                      <div className="text-[7px] font-black text-center text-black bg-[#f5f5f5] rounded py-0.5">
-                        85% SAVINGS
-                      </div>
+                    <div className="w-full bg-white border border-black/8 rounded-3xl p-3 flex flex-col justify-between h-[96px] text-center">
+                       <div className="mx-auto w-8 h-8 rounded-full bg-[#d1f8ff] flex items-center justify-center mb-1">
+                          <Globe size={14} className="text-black" />
+                       </div>
+                       <p className="font-heading text-[10px] font-black text-black">Global Support</p>
+                       <p className="text-[7px] text-black/60 font-semibold leading-tight mt-0.5">Payments in 130+ currencies</p>
                     </div>
                   </div>
                 </div>
@@ -3032,11 +3003,11 @@ function WhoItsFor() {
         </div>
         <div className="grid md:grid-cols-2 gap-12">
           <div className="who-card rounded-3xl p-6 transition-all duration-300"
-            style={{ background: "#d1f8ff", border: "1px solid rgba(0,0,0,0.1)", boxShadow: "0 8px 28px rgba(0,0,0,0.02)" }}
+            style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.1)", boxShadow: "0 8px 28px rgba(0,0,0,0.02)" }}
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#000000"; e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.05)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(0,0,0,0.1)"; e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(0,0,0,0.02)"; }}>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "#ffffff", color: "#000000", border: "1px solid rgba(0,0,0,0.1)" }}><Target size={20} /></div>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "#d1f8ff", color: "#000000", border: "1px solid rgba(0,0,0,0.05)" }}><Target size={20} /></div>
               <h3 className="text-xl font-bold text-black">Brands</h3>
             </div>
             {brandTypes.map((item) => (

@@ -1,4 +1,8 @@
 import { Play, CheckCircle, BarChart2, DollarSign, ArrowRight, TrendingUp, Search, Handshake } from "lucide-react";
+import imgCreate from "../../../assets/images/create_campaign.png";
+import imgSubmit from "../../../assets/images/creators_submit.png";
+import imgReview from "../../../assets/images/review_submissions.png";
+import imgDistribute from "../../../assets/images/distribute_payouts.png";
 
 export default function BrandGettingStartedPage() {
   return (
@@ -71,36 +75,36 @@ export default function BrandGettingStartedPage() {
         <h3 className="text-center font-bold text-black text-lg">How It Works</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           <div className="text-center flex flex-col items-center relative">
-            <div className="w-8 h-8 rounded-full bg-black text-white font-black flex items-center justify-center mb-4 z-10 border-4 border-white">1</div>
-            <div className="w-16 h-16 bg-neutral-50 rounded-full border border-black/5 text-black flex items-center justify-center mb-4 shadow-sm">
-               <TrendingUp size={28} />
+            <div className="w-8 h-8 rounded-full bg-black text-white font-black flex items-center justify-center mb-4 z-10 border-4 border-white shadow-sm">1</div>
+            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 shadow-sm border border-neutral-100 relative group bg-neutral-50">
+               <img src={imgCreate} alt="Create Campaign" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <h4 className="font-bold text-black text-sm mb-2">Create Campaign</h4>
-            <p className="text-[10px] text-neutral-500">Set your budget, requirements, platform, and payout structure.</p>
+            <p className="text-xs text-neutral-500">Set your budget, requirements, platform, and payout structure.</p>
           </div>
           <div className="text-center flex flex-col items-center relative">
-            <div className="w-8 h-8 rounded-full bg-black text-white font-black flex items-center justify-center mb-4 z-10 border-4 border-white">2</div>
-            <div className="w-16 h-16 bg-neutral-50 rounded-full border border-black/5 text-black flex items-center justify-center mb-4 shadow-sm">
-               <Play size={28} />
+            <div className="w-8 h-8 rounded-full bg-black text-white font-black flex items-center justify-center mb-4 z-10 border-4 border-white shadow-sm">2</div>
+            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 shadow-sm border border-neutral-100 relative group bg-neutral-50">
+               <img src={imgSubmit} alt="Creators Submit" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <h4 className="font-bold text-black text-sm mb-2">Creators Submit</h4>
-            <p className="text-[10px] text-neutral-500">Creators create and submit video content linked to your brand.</p>
+            <p className="text-xs text-neutral-500">Creators create and submit video content linked to your brand.</p>
           </div>
           <div className="text-center flex flex-col items-center relative">
-            <div className="w-8 h-8 rounded-full bg-black text-white font-black flex items-center justify-center mb-4 z-10 border-4 border-white">3</div>
-            <div className="w-16 h-16 bg-neutral-50 rounded-full border border-black/5 text-black flex items-center justify-center mb-4 shadow-sm">
-               <Search size={28} />
+            <div className="w-8 h-8 rounded-full bg-black text-white font-black flex items-center justify-center mb-4 z-10 border-4 border-white shadow-sm">3</div>
+            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 shadow-sm border border-neutral-100 relative group bg-neutral-50">
+               <img src={imgReview} alt="Review Submissions" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <h4 className="font-bold text-black text-sm mb-2">Review Submissions</h4>
-            <p className="text-[10px] text-neutral-500">Verify content meets guidelines before they post on their channels.</p>
+            <p className="text-xs text-neutral-500">Verify content meets guidelines before they post on their channels.</p>
           </div>
           <div className="text-center flex flex-col items-center relative">
-            <div className="w-8 h-8 rounded-full bg-black text-white font-black flex items-center justify-center mb-4 z-10 border-4 border-white">4</div>
-            <div className="w-16 h-16 bg-neutral-50 rounded-full border border-black/5 text-black flex items-center justify-center mb-4 shadow-sm">
-               <Handshake size={28} />
+            <div className="w-8 h-8 rounded-full bg-black text-white font-black flex items-center justify-center mb-4 z-10 border-4 border-white shadow-sm">4</div>
+            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 shadow-sm border border-neutral-100 relative group bg-neutral-50">
+               <img src={imgDistribute} alt="Distribute Payouts" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <h4 className="font-bold text-black text-sm mb-2">Distribute</h4>
-            <p className="text-[10px] text-neutral-500">Payouts are distributed automatically based on content performance.</p>
+            <p className="text-xs text-neutral-500">Payouts are distributed automatically based on content performance.</p>
           </div>
         </div>
         <div className="flex justify-center mt-6">

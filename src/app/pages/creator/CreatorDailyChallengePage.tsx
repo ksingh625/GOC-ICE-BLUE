@@ -60,11 +60,11 @@ export default function CreatorDailyChallengePage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
           {/* Main Prize Pool Card */}
-          <div className="lg:col-span-2 relative overflow-hidden rounded-3xl bg-[#d1f8ff] text-black p-8 shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-black/5 group">
+          <div className="lg:col-span-2 relative overflow-hidden rounded-3xl bg-white text-black p-8 shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-black/5 group">
             <div className="relative z-10 flex flex-col md:flex-row justify-between h-full gap-8">
               <div className="flex flex-col justify-between">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/60 border border-black/5 text-[10px] font-black uppercase tracking-widest text-black mb-6 shadow-sm">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#d1f8ff] border border-black/5 text-[10px] font-black uppercase tracking-widest text-black mb-6 shadow-sm">
                     <Trophy size={12} className="text-black" />
                     Today's Prize Pool
                   </div>

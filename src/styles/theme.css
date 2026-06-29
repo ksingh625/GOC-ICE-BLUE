@@ -209,7 +209,7 @@
 
 .btn-primary-gradient:active {
   transform: translateY(0);
-  background: #d1f8ff !important;
+  background: #f5f5f5 !important;
   color: #000000 !important;
   box-shadow: 
     0 2px 6px rgba(0, 0, 0, 0.08);
@@ -233,7 +233,7 @@
 
 .btn-secondary-dark:hover {
   transform: translateY(-2px);
-  background: #d1f8ff !important;
+  background: #f5f5f5 !important;
   box-shadow: 
     0 8px 20px rgba(0, 0, 0, 0.1);
 }
@@ -263,7 +263,7 @@
 
 .btn-secondary-white:hover {
   transform: translateY(-2px);
-  background: #d1f8ff !important;
+  background: #f5f5f5 !important;
   border-color: #000000 !important;
   box-shadow: 
     0 8px 20px rgba(0, 0, 0, 0.1);

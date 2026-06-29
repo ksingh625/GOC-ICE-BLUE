@@ -5,6 +5,10 @@ import {
   ArrowRight, DollarSign, Trophy, Zap, Eye, Target,
   CheckCircle, XCircle, Shield, TrendingUp, Sparkles
 } from "lucide-react";
+import CreatorBrowse from "../../../imports/creator_browse.png";
+import CreatorSubmit from "../../../imports/creator_submit.png";
+import CreatorViewsTracked from "../../../imports/creator_views_tracked.png";
+import CreatorGetPaid from "../../../imports/creator_get_paid.png";
 
 export default function CreatorGettingStartedPage() {
   const navigate = useNavigate();
@@ -18,6 +22,7 @@ export default function CreatorGettingStartedPage() {
       title: "Browse Campaigns",
       desc: "Explore live brand contests that match your niche — gaming, lifestyle, beauty, or tech.",
       color: "#d1f8ff",
+      image: CreatorBrowse,
     },
     {
       num: "02",
@@ -25,6 +30,7 @@ export default function CreatorGettingStartedPage() {
       title: "Create & Submit",
       desc: "Film an authentic review or clip, post it on TikTok/Instagram/YouTube, and paste the link.",
       color: "#e0fce4",
+      image: CreatorSubmit,
     },
     {
       num: "03",
@@ -32,6 +38,7 @@ export default function CreatorGettingStartedPage() {
       title: "Views Get Tracked",
       desc: "Our system auto-pulls your view count every 24 hours. Rankings update daily in real-time.",
       color: "#fef9c3",
+      image: CreatorViewsTracked,
     },
     {
       num: "04",
@@ -39,6 +46,7 @@ export default function CreatorGettingStartedPage() {
       title: "Get Paid",
       desc: "Once verified, funds release from escrow straight to your GOC wallet. Withdraw anytime.",
       color: "#fce7f3",
+      image: CreatorGetPaid,
     },
   ];
 
@@ -205,6 +213,9 @@ export default function CreatorGettingStartedPage() {
 
           {steps.map((s, i) => (
             <div key={i} className="relative z-10 flex flex-col items-start gap-4">
+              <div className="w-full aspect-square rounded-3xl overflow-hidden bg-neutral-50 border border-neutral-200/60 shadow-[0_4px_16px_rgba(0,0,0,0.02)] relative group flex items-center justify-center p-4">
+                <img src={s.image} alt={s.title} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-md" />
+              </div>
               <div
                 className="w-16 h-16 rounded-full flex items-center justify-center text-black shadow-sm border border-neutral-200/60 relative"
                 style={{ background: s.color }}

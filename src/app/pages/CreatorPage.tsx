@@ -18,8 +18,8 @@ import {
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 // ─── Design Tokens ─────────────────────────────────────────────────────────────
-const ICE = "#d1f8ff";          // accent ice blue
-const ICE_DIM = "rgba(209,248,255,0.2)";  // section tint
+const ICE = "#f5f5f5";          // premium grey
+const ICE_DIM = "#f9fafb";  // section tint
 const BLK = "#000000";          // primary black
 const BORDER = "rgba(0,0,0,0.08)";
 
@@ -614,9 +614,9 @@ function CreatorEarningsEstimator() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-start">
+        <div className="grid md:grid-cols-2 gap-8">
           {/* Controls */}
-          <div className="rounded-3xl p-8" style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
+          <div className="rounded-3xl p-8 h-full flex flex-col justify-between" style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
             <h3 className="text-lg font-extrabold text-black mb-8">
               Configure Estimation Parameters
             </h3>
@@ -651,7 +651,7 @@ function CreatorEarningsEstimator() {
                     <button key={r.id} onClick={() => setRank(r.id as any)}
                       className="py-2.5 px-2 rounded-full text-xs font-bold border transition-all duration-300 cursor-pointer text-center"
                       style={{
-                        background: rank === r.id ? ICE : "transparent",
+                        background: rank === r.id ? "#f5f5f5" : "transparent",
                         borderColor: rank === r.id ? "rgba(0,0,0,0.15)" : BORDER,
                         color: rank === r.id ? BLK : "rgba(0,0,0,0.5)"
                       }}>
@@ -662,7 +662,7 @@ function CreatorEarningsEstimator() {
               </div>
 
               {/* Payout note */}
-              <div className="rounded-3xl p-4" style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
+              <div className="rounded-3xl p-4 mt-auto" style={{ background: "#f5f5f5", border: `1px solid rgba(0,0,0,0.06)` }}>
                 <p className="text-[10px] font-black uppercase tracking-widest text-black/40 mb-1">Rank Payout Ratio</p>
                 <p className="text-xs text-black/60 leading-relaxed font-semibold">
                   Under GOC models, campaign pools are guaranteed and distributed entirely among ranking participants. {rank === "1st" ? "1st Place earns 35%." : rank === "top5" ? "Top 5 creators split 40% (8% each)." : "Top 15 creators split 25% (1.67% each)."}
@@ -672,17 +672,17 @@ function CreatorEarningsEstimator() {
           </div>
 
           {/* Results */}
-          <div className="space-y-4">
+          <div className="flex flex-col justify-between h-full gap-4">
             {[
               { label: "Estimated Payout", val: `$${estimatedPayout.toLocaleString()}`, icon: <DollarSign size={18} />, sub: `Based on your chosen outcome: ${rankLabel}` },
               { label: "Est. Views Target", val: viewsTarget.toLocaleString(), icon: <Eye size={18} />, sub: "Target view range to compete in this tier" },
               { label: "Total Competitors (avg.)", val: "42 participants", icon: <Users size={18} />, sub: "Average submission rate per campaign" },
               { label: "Earn rate", val: "100%", icon: <Check size={18} />, sub: "Escrow-protected prizes, zero payout default risk" },
             ].map((metric, i) => (
-              <div key={i} className="rounded-3xl p-6 flex items-center gap-5"
+              <div key={i} className="rounded-3xl p-6 flex items-center gap-5 flex-1"
                 style={{ background: i === 0 ? BLK : "#fff", border: `1px solid ${i === 0 ? BLK : BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
                 <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: i === 0 ? ICE : ICE_DIM }}>
+                  style={{ background: i === 0 ? "#ffffff" : "#f5f5f5" }}>
                   <span style={{ color: BLK }}>{metric.icon}</span>
                 </div>
                 <div className="flex-1 min-w-0">
@@ -721,7 +721,7 @@ function CreatorBentoVisual({ step }: { step: number }) {
               <p className="text-[7px] text-black/45">142 followers</p>
             </div>
           </div>
-          <div className="bg-[#d1f8ff]/30 border border-[#d1f8ff]/60 rounded-3xl p-2 text-center">
+          <div className="bg-[#f5f5f5] border border-neutral-200 rounded-3xl p-2 text-center">
             <span className="text-[8px] font-bold text-black/60 uppercase tracking-wider block mb-0.5">Campaign Rank #1</span>
             <span className="text-xs font-black text-black">$1,750 Payout</span>
           </div>
@@ -903,7 +903,7 @@ function FeaturesBento() {
       icon: <Award size={20} />,
       title: "Merit-Based Rewards",
       desc: "Scale your earnings. The better your content performs in front of real audiences, the higher your payouts.",
-      wide: true,
+      full: true,
     },
   ];
 
@@ -921,9 +921,9 @@ function FeaturesBento() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
-          {features.map((f, i) => (
+          {features.map((f: any, i) => (
             <div key={i}
-              className={`bento-card rounded-3xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col ${f.wide ? "md:col-span-2 md:flex-row items-stretch" : "md:col-span-1"}`}
+              className={`bento-card rounded-3xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col ${f.full ? "md:col-span-3 md:flex-row items-stretch" : f.wide ? "md:col-span-2 md:flex-row items-stretch" : "md:col-span-1"}`}
               style={{ background: "#ffffff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "rgba(0,0,0,0.14)";
@@ -933,7 +933,7 @@ function FeaturesBento() {
                 e.currentTarget.style.borderColor = BORDER;
                 e.currentTarget.style.boxShadow = "0 4px 24px rgba(0,0,0,0.05)";
               }}>
-              {f.wide ? (
+              {f.wide || f.full ? (
                 <>
                   <div className="p-7 flex-1 flex flex-col justify-center">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 flex-shrink-0"
@@ -1208,7 +1208,7 @@ function CreatorProtection() {
                   <span className="text-black">{p.icon}</span>
                 </div>
                 <div className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider"
-                  style={{ background: ICE, border: `1px solid rgba(0,0,0,0.08)`, color: BLK }}>
+                  style={{ background: "#f5f5f5", border: `1px solid rgba(0,0,0,0.08)`, color: BLK }}>
                   {p.badge}
                 </div>
               </div>
@@ -1227,7 +1227,7 @@ function CreatorProtection() {
           style={{ background: BLK, border: "1px solid rgba(255,255,255,0.06)" }}>
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-              style={{ background: ICE }}>
+              style={{ background: "#f5f5f5" }}>
               <Shield size={22} className="text-black" />
             </div>
             <div>
@@ -1325,7 +1325,7 @@ function CreatorArenaSimulator() {
               <span className="text-black/45 select-none font-mono">arena.gameofcreators.com</span>
             </div>
             {/* Wallet display */}
-            <div className="flex items-center gap-1 bg-[#d1f8ff] px-3 py-1 rounded-full text-xs font-black text-black">
+            <div className="flex items-center gap-1 bg-[#f5f5f5] px-3 py-1 rounded-full text-xs font-black text-black">
               <span>Wallet:</span>
               <span>${wallet.toLocaleString()}</span>
             </div>
@@ -1346,7 +1346,7 @@ function CreatorArenaSimulator() {
                       borderColor: isActive ? "rgba(0,0,0,0.12)" : "transparent",
                       boxShadow: isActive ? "0 4px 12px rgba(0,0,0,0.03)" : "none"
                     }}>
-                    <div className="w-8 h-8 rounded-full bg-[#d1f8ff] flex items-center justify-center flex-shrink-0 text-black">
+                    <div className="w-8 h-8 rounded-full bg-[#f5f5f5] flex items-center justify-center flex-shrink-0 text-black">
                       <Zap size={14} />
                     </div>
                     <div className="min-w-0 flex-1">
@@ -1365,7 +1365,7 @@ function CreatorArenaSimulator() {
               {arenaStep === "brief" && (
                 <div className="space-y-5">
                   <div>
-                    <span className="text-[10px] font-bold text-[#000000] uppercase tracking-wide bg-[#d1f8ff] px-2 py-0.5 rounded">Campaign Details</span>
+                    <span className="text-[10px] font-bold text-[#000000] uppercase tracking-wide bg-[#f5f5f5] px-2 py-0.5 rounded">Campaign Details</span>
                     <h3 className="text-xl font-extrabold text-black mt-2">
                       {selectedCamp.title}
                     </h3>

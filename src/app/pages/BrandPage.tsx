@@ -773,9 +773,9 @@ function ROICalculator() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-start">
+        <div className="grid md:grid-cols-2 gap-8">
           {/* Controls */}
-          <div className="rounded-3xl p-8" style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
+          <div className="rounded-3xl p-8 flex flex-col h-full" style={{ background: "#fff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
             <h3 className="text-lg font-extrabold text-black mb-8">
               Configure Your Campaign
             </h3>
@@ -816,7 +816,7 @@ function ROICalculator() {
               </div>
 
               {/* Reward Structure */}
-              <div className="rounded-3xl p-4" style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
+              <div className="rounded-3xl p-4 mt-auto" style={{ background: ICE_DIM, border: `1px solid rgba(0,0,0,0.06)` }}>
                 <p className="text-[10px] font-black uppercase tracking-widest text-black/40 mb-3">Prize Distribution</p>
                 <div className="space-y-2">
                   {[
@@ -838,7 +838,7 @@ function ROICalculator() {
           </div>
 
           {/* Results */}
-          <div className="space-y-4">
+          <div className="flex flex-col justify-between h-full gap-4">
             {[
               { label: "Unique Videos Generated", val: `~${videosGenerated}`, icon: <Camera size={18} />, sub: "Based on creator participation rate" },
               { label: "Estimated Total Views", val: `${(estimatedViews / 1000000).toFixed(1)}M`, icon: <Eye size={18} />, sub: "Across all creator audiences" },
@@ -931,7 +931,7 @@ function FeaturesBento() {
       icon: <Award size={20} />,
       title: "Merit-Based Payouts",
       desc: "Creators are incentivised to make their best work. Higher quality content = higher rankings = bigger prizes.",
-      wide: true,
+      full: true,
     },
   ];
 
@@ -949,9 +949,9 @@ function FeaturesBento() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
-          {features.map((f, i) => (
+          {features.map((f: any, i) => (
             <div key={i}
-              className={`bento-card rounded-3xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col ${f.wide ? "md:col-span-2 md:flex-row items-stretch" : "md:col-span-1"}`}
+              className={`bento-card rounded-3xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col ${f.full ? "md:col-span-3 md:flex-row items-stretch" : f.wide ? "md:col-span-2 md:flex-row items-stretch" : "md:col-span-1"}`}
               style={{ background: "#ffffff", border: `1px solid ${BORDER}`, boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "rgba(0,0,0,0.14)";
@@ -961,7 +961,7 @@ function FeaturesBento() {
                 e.currentTarget.style.borderColor = BORDER;
                 e.currentTarget.style.boxShadow = "0 4px 24px rgba(0,0,0,0.05)";
               }}>
-              {f.wide ? (
+              {f.wide || f.full ? (
                 <>
                   <div className="p-7 flex-1 flex flex-col justify-center">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 flex-shrink-0"
@@ -1110,7 +1110,7 @@ function BrandPortalSimulator() {
                       <button key={p.id} onClick={() => setPlatform(p.id as any)}
                         className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-full text-xs font-bold border transition-all duration-300 cursor-pointer"
                         style={{
-                          background: platform === p.id ? ICE : "transparent",
+                          background: platform === p.id ? "#f5f5f5" : "transparent",
                           borderColor: platform === p.id ? "rgba(0,0,0,0.15)" : BORDER,
                           color: platform === p.id ? BLK : "rgba(0,0,0,0.5)"
                         }}>
@@ -1127,7 +1127,7 @@ function BrandPortalSimulator() {
                       <button key={n} onClick={() => setNiche(n)}
                         className="py-2.5 px-4 rounded-full text-xs font-bold border transition-all duration-300 cursor-pointer text-left"
                         style={{
-                          background: niche === n ? ICE : "transparent",
+                          background: niche === n ? "#f5f5f5" : "transparent",
                           borderColor: niche === n ? "rgba(0,0,0,0.15)" : BORDER,
                           color: niche === n ? BLK : "rgba(0,0,0,0.5)"
                         }}>
@@ -1881,7 +1881,7 @@ function BrandProtection() {
                   <span className="text-black">{p.icon}</span>
                 </div>
                 <div className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider"
-                  style={{ background: ICE, border: `1px solid rgba(0,0,0,0.08)`, color: BLK }}>
+                  style={{ background: "#f5f5f5", border: `1px solid rgba(0,0,0,0.08)`, color: BLK }}>
                   {p.badge}
                 </div>
               </div>

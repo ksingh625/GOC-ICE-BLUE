@@ -82,7 +82,7 @@ export function Nav({
           : "none",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center group focus:outline-none">
           <img
             src={GOCLogo}

@@ -20,7 +20,8 @@ export default function BlogsPage() {
       category: "Brands",
       readTime: "6 min read",
       date: "June 24, 2026",
-      bgGradient: "from-purple-500 to-pink-500"
+      bgGradient: "from-purple-500 to-pink-500",
+      image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80"
     },
     {
       title: "5 Tips to Win More Creator Contest Deals on GOC",
@@ -28,7 +29,8 @@ export default function BlogsPage() {
       category: "Creators",
       readTime: "4 min read",
       date: "June 18, 2026",
-      bgGradient: "from-emerald-500 to-teal-500"
+      bgGradient: "from-emerald-500 to-teal-500",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
     },
     {
       title: "Democratising UGC Licensing: IP Ownership Guidelines",
@@ -36,7 +38,8 @@ export default function BlogsPage() {
       category: "Guides",
       readTime: "8 min read",
       date: "June 12, 2026",
-      bgGradient: "from-blue-500 to-indigo-500"
+      bgGradient: "from-blue-500 to-indigo-500",
+      image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80"
     },
     {
       title: "The Shift from Pay-per-Post Influencers to Gamified UGC",
@@ -44,7 +47,8 @@ export default function BlogsPage() {
       category: "Brands",
       readTime: "5 min read",
       date: "June 05, 2026",
-      bgGradient: "from-amber-500 to-orange-500"
+      bgGradient: "from-amber-500 to-orange-500",
+      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80"
     }
   ];
 
@@ -115,33 +119,42 @@ export default function BlogsPage() {
             {filteredPosts.map((post, idx) => (
               <div 
                 key={idx}
-                className="bg-white border border-neutral-200/80 rounded-3xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between text-left"
+                className="bg-white border border-neutral-200/80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group cursor-pointer"
               >
-                <div>
-                  {/* Category Pill */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[9px] font-extrabold uppercase tracking-widest bg-purple-50 text-purple-600 border border-purple-100 px-2.5 py-0.5 rounded-full">
+                {/* Image Section */}
+                <div className="relative h-48 w-full overflow-hidden">
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="text-[9px] font-extrabold uppercase tracking-widest bg-white/95 backdrop-blur-sm text-black px-2.5 py-1 rounded-full shadow-sm">
                       {post.category}
                     </span>
-                    <div className="flex items-center gap-1.5 text-[10px] text-neutral-400">
-                      <Clock size={11} />
-                      <span>{post.readTime}</span>
-                    </div>
                   </div>
-
-                  <h3 className="text-lg font-extrabold text-black mb-2 leading-snug hover:text-purple-600 transition-colors cursor-pointer">
-                    {post.title}
-                  </h3>
-                  <p className="text-xs text-neutral-500 leading-relaxed font-medium mb-6">
-                    {post.desc}
-                  </p>
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-neutral-100 mt-auto">
-                  <span className="text-[10px] text-neutral-450 font-semibold">{post.date}</span>
-                  <button className="inline-flex items-center gap-1 text-xs font-extrabold text-black hover:text-purple-600 transition-colors">
-                    Read Article <ArrowRight size={13} />
-                  </button>
+                {/* Content Section */}
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-center gap-1.5 text-[10px] text-neutral-400 mb-3 font-semibold">
+                    <Clock size={11} />
+                    <span>{post.readTime}</span>
+                  </div>
+
+                  <h3 className="text-xl font-extrabold text-black mb-3 leading-snug group-hover:text-black/70 transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-xs text-neutral-500 leading-relaxed font-medium mb-6 line-clamp-3 flex-1">
+                    {post.desc}
+                  </p>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-neutral-100 mt-auto">
+                    <span className="text-[10px] text-neutral-450 font-bold uppercase tracking-wider">{post.date}</span>
+                    <button className="inline-flex items-center gap-1 text-xs font-extrabold text-black group-hover:translate-x-1 transition-transform">
+                      Read Article <ArrowRight size={13} />
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}

@@ -11,7 +11,7 @@ export function Footer({ theme = "light" }: FooterProps) {
 
   const cols = [
     { heading: "Platform", links: ["How It Works", "For Brands", "For Creators", "Campaigns", "Pricing"] },
-    { heading: "Company", links: ["About Us", "Blog", "Careers", "Press", "Contact"] },
+    { heading: "Company", links: ["About Us", "Blog", "Careers", "Contact"] },
     { heading: "Legal", links: ["Privacy Policy", "Terms of Service", "Cookie Policy", "Creator Agreement"] },
   ];
 
@@ -82,7 +82,7 @@ export function Footer({ theme = "light" }: FooterProps) {
                     border: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.08)" 
                   }}
                   onMouseEnter={(e) => { 
-                    e.currentTarget.style.background = "#d1f8ff"; 
+                    e.currentTarget.style.background = "#f5f5f5"; 
                     e.currentTarget.style.color = "#000000"; 
                     e.currentTarget.style.borderColor = "rgba(0,0,0,0.15)"; 
                     e.currentTarget.style.transform = "translateY(-2px)"; 
