@@ -1,4 +1,4 @@
-import { Plus, PhoneCall, Search, LayoutGrid, List, ChevronDown } from "lucide-react";
+import { Plus, PhoneCall, Search, LayoutGrid, List, ChevronDown, DollarSign } from "lucide-react";
 import { Link } from "react-router";
 
 export default function BrandCampaignsPage() {

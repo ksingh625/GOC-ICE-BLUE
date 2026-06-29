@@ -133,7 +133,7 @@ export default function CreatorDashboardLayout() {
         </div>
 
         {/* Navigation Items */}
-        <div className="flex-1 py-6 px-4 space-y-2 overflow-y-auto">
+        <div className="flex-1 py-6 px-4 space-y-3 overflow-y-auto">
           {navItems.map((item) => {
             const active = location.pathname === item.href;
             return (
@@ -142,17 +142,17 @@ export default function CreatorDashboardLayout() {
                 to={item.href}
                 className={`flex items-center gap-4 px-4 py-3.5 rounded-full transition-all duration-200 group text-left relative ${
                   active 
-                    ? "bg-black text-white shadow-md font-bold" 
+                    ? "bg-neutral-100 text-black font-extrabold shadow-none" 
                     : "text-neutral-500 hover:text-black hover:bg-neutral-100"
                 }`}
               >
-                <div className={`transition-transform duration-200 group-hover:scale-105 ${active ? "text-white" : "text-neutral-400 group-hover:text-black"}`}>
+                <div className={`transition-transform duration-200 group-hover:scale-105 ${active ? "text-black" : "text-neutral-400 group-hover:text-black"}`}>
                   {item.icon}
                 </div>
                 {!sidebarCollapsed && (
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-bold leading-tight">{item.label}</p>
-                    <p className={`text-xs mt-1 leading-none font-medium truncate transition-colors ${active ? "text-white/70" : "text-neutral-400 group-hover:text-neutral-500"}`}>
+                    <p className={`text-xs mt-1 leading-none font-medium truncate transition-colors ${active ? "text-neutral-500 font-medium" : "text-neutral-400 group-hover:text-neutral-500"}`}>
                       {item.desc}
                     </p>
                   </div>
@@ -210,7 +210,7 @@ export default function CreatorDashboardLayout() {
                     onClick={() => setMobileSidebarOpen(false)}
                     className={`flex items-center gap-3.5 px-3.5 py-3 rounded-full transition-all ${
                       active 
-                        ? "bg-[#d1f8ff]/50 text-black font-black" 
+                        ? "bg-neutral-100 text-black font-extrabold" 
                         : "text-neutral-500 hover:text-black hover:bg-neutral-50"
                     }`}
                   >

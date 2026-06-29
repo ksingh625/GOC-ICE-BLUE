@@ -14,14 +14,14 @@ export default function BrandSettingsPage() {
         <h1 className="text-3xl font-extrabold text-black">
           Settings
         </h1>
-        <p className="text-sm text-neutral-500 font-medium">Manage your account settings and preferences</p>
+        <p className="text-base text-neutral-600 font-medium">Manage your account settings and preferences</p>
       </div>
 
       {/* Main Settings List */}
-      <div className="space-y-3">
-        <button className="w-full flex items-center justify-between p-4 bg-white border border-black/5 rounded-full hover:border-black/20 hover:shadow-sm transition-all group">
+      <div className="bg-white rounded-3xl border border-neutral-100 shadow-sm flex flex-col">
+        <button className="w-full flex items-center justify-between p-4 bg-white border-b border-neutral-100 last:border-b-0 hover:bg-neutral-50/50 rounded-none first:rounded-t-3xl last:rounded-b-3xl transition-all group">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-neutral-50 flex items-center justify-center text-black border border-black/5">
+            <div className="w-10 h-10 flex items-center justify-center text-neutral-500">
               <User size={18} />
             </div>
             <span className="text-sm font-bold text-black">Profile information</span>
@@ -29,9 +29,9 @@ export default function BrandSettingsPage() {
           <ChevronRight size={18} className="text-neutral-400 group-hover:text-black transition-colors" />
         </button>
 
-        <button className="w-full flex items-center justify-between p-4 bg-white border border-black/5 rounded-full hover:border-black/20 hover:shadow-sm transition-all group">
+        <button className="w-full flex items-center justify-between p-4 bg-white border-b border-neutral-100 last:border-b-0 hover:bg-neutral-50/50 rounded-none first:rounded-t-3xl last:rounded-b-3xl transition-all group">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-neutral-50 flex items-center justify-center text-black border border-black/5">
+            <div className="w-10 h-10 flex items-center justify-center text-neutral-500">
               <CreditCard size={18} />
             </div>
             <span className="text-sm font-bold text-black">Subscription and Billing</span>
@@ -39,9 +39,9 @@ export default function BrandSettingsPage() {
           <ChevronRight size={18} className="text-neutral-400 group-hover:text-black transition-colors" />
         </button>
 
-        <button className="w-full flex items-center justify-between p-4 bg-white border border-black/5 rounded-full hover:border-black/20 hover:shadow-sm transition-all group">
+        <button className="w-full flex items-center justify-between p-4 bg-white border-b border-neutral-100 last:border-b-0 hover:bg-neutral-50/50 rounded-none first:rounded-t-3xl last:rounded-b-3xl transition-all group">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-neutral-50 flex items-center justify-center text-black border border-black/5">
+            <div className="w-10 h-10 flex items-center justify-center text-neutral-500">
               <Shield size={18} />
             </div>
             <span className="text-sm font-bold text-black">Change Password</span>
@@ -49,9 +49,9 @@ export default function BrandSettingsPage() {
           <ChevronRight size={18} className="text-neutral-400 group-hover:text-black transition-colors" />
         </button>
 
-        <button className="w-full flex items-center justify-between p-4 bg-white border border-black/5 rounded-full hover:border-black/20 hover:shadow-sm transition-all group">
+        <button className="w-full flex items-center justify-between p-4 bg-white border-b border-neutral-100 last:border-b-0 hover:bg-neutral-50/50 rounded-none first:rounded-t-3xl last:rounded-b-3xl transition-all group">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-neutral-50 flex items-center justify-center text-black border border-black/5">
+            <div className="w-10 h-10 flex items-center justify-center text-neutral-500">
               <FileText size={18} />
             </div>
             <span className="text-sm font-bold text-black">Terms of Use</span>
@@ -59,9 +59,9 @@ export default function BrandSettingsPage() {
           <ChevronRight size={18} className="text-neutral-400 group-hover:text-black transition-colors" />
         </button>
 
-        <button className="w-full flex items-center justify-between p-4 bg-white border border-black/5 rounded-full hover:border-black/20 hover:shadow-sm transition-all group">
+        <button className="w-full flex items-center justify-between p-4 bg-white border-b border-neutral-100 last:border-b-0 hover:bg-neutral-50/50 rounded-none first:rounded-t-3xl last:rounded-b-3xl transition-all group">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-neutral-50 flex items-center justify-center text-black border border-black/5">
+            <div className="w-10 h-10 flex items-center justify-center text-neutral-500">
               <Search size={18} />
             </div>
             <span className="text-sm font-bold text-black">Privacy Policy</span>
@@ -69,9 +69,9 @@ export default function BrandSettingsPage() {
           <ChevronRight size={18} className="text-neutral-400 group-hover:text-black transition-colors" />
         </button>
 
-        <button className="w-full flex items-center justify-between p-4 bg-white border border-black/5 rounded-full hover:border-black/20 hover:shadow-sm transition-all group">
+        <button className="w-full flex items-center justify-between p-4 bg-white border-b border-neutral-100 last:border-b-0 hover:bg-neutral-50/50 rounded-none first:rounded-t-3xl last:rounded-b-3xl transition-all group">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-neutral-50 flex items-center justify-center text-black border border-black/5">
+            <div className="w-10 h-10 flex items-center justify-center text-neutral-500">
               <Gift size={18} />
             </div>
             <span className="text-sm font-bold text-black">Share Referral Links</span>
@@ -86,39 +86,39 @@ export default function BrandSettingsPage() {
           <h3 className="text-lg font-bold text-black">
             Follow Us & Join Communities
           </h3>
-          <p className="text-sm text-neutral-500 font-medium mt-1">
+          <p className="text-base text-neutral-600 font-medium mt-1">
             Stay connected with us on social media and join our creator communities for updates, support, and exclusive opportunities.
           </p>
         </div>
 
         {/* Social Media */}
-        <div className="space-y-3">
+        <div className="bg-white rounded-3xl border border-neutral-100 shadow-sm flex flex-col">
           <h4 className="text-sm font-bold text-black">Social Media</h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <button className="flex items-center justify-between p-4 bg-white border border-black/5 rounded-full hover:border-black/20 transition-all group">
+            <button className="flex items-center justify-between p-4 bg-white border border-neutral-100 rounded-3xl hover:border-neutral-300 transition-all group">
               <div className="flex items-center gap-3">
                 <Twitter size={18} className="text-black" />
                 <span className="text-sm font-bold text-black">Twitter (X)</span>
               </div>
               <ExternalLink size={14} className="text-neutral-400 group-hover:text-black transition-colors" />
             </button>
-            <button className="flex items-center justify-between p-4 bg-white border border-black/5 rounded-full hover:border-black/20 transition-all group">
+            <button className="flex items-center justify-between p-4 bg-white border border-neutral-100 rounded-3xl hover:border-neutral-300 transition-all group">
               <div className="flex items-center gap-3">
-                <Instagram size={18} className="text-pink-600" />
+                <Instagram size={18} className="text-black" />
                 <span className="text-sm font-bold text-black">Instagram</span>
               </div>
               <ExternalLink size={14} className="text-neutral-400 group-hover:text-black transition-colors" />
             </button>
-            <button className="flex items-center justify-between p-4 bg-white border border-black/5 rounded-full hover:border-black/20 transition-all group">
+            <button className="flex items-center justify-between p-4 bg-white border border-neutral-100 rounded-3xl hover:border-neutral-300 transition-all group">
               <div className="flex items-center gap-3">
-                <Youtube size={18} className="text-red-600" />
+                <Youtube size={18} className="text-black" />
                 <span className="text-sm font-bold text-black">YouTube</span>
               </div>
               <ExternalLink size={14} className="text-neutral-400 group-hover:text-black transition-colors" />
             </button>
-            <button className="flex items-center justify-between p-4 bg-white border border-black/5 rounded-full hover:border-black/20 transition-all group">
+            <button className="flex items-center justify-between p-4 bg-white border border-neutral-100 rounded-3xl hover:border-neutral-300 transition-all group">
               <div className="flex items-center gap-3">
-                <Linkedin size={18} className="text-blue-600" />
+                <Linkedin size={18} className="text-black" />
                 <span className="text-sm font-bold text-black">LinkedIn</span>
               </div>
               <ExternalLink size={14} className="text-neutral-400 group-hover:text-black transition-colors" />
@@ -130,9 +130,9 @@ export default function BrandSettingsPage() {
         <div className="space-y-3 pt-2">
           <h4 className="text-sm font-bold text-black">Join Our Communities</h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <button className="flex items-center justify-between p-4 bg-[#f2f3f5] border border-[#e3e5e8] rounded-full hover:border-[#5865F2]/50 transition-all group text-left">
+            <button className="flex items-center justify-between p-4 bg-white border border-neutral-100 rounded-3xl hover:border-neutral-300 transition-all group text-left">
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#5865F2] shadow-sm">
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-black shadow-sm">
                   <MessageCircle size={20} />
                 </div>
                 <div>
@@ -143,9 +143,9 @@ export default function BrandSettingsPage() {
               <ExternalLink size={14} className="text-neutral-400 group-hover:text-black transition-colors" />
             </button>
             
-            <button className="flex items-center justify-between p-4 bg-[#e8f5e9] border border-[#c8e6c9] rounded-full hover:border-[#25D366]/50 transition-all group text-left">
+            <button className="flex items-center justify-between p-4 bg-white border border-neutral-100 rounded-3xl hover:border-neutral-300 transition-all group text-left">
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#25D366] shadow-sm">
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-black shadow-sm">
                   <Smartphone size={20} />
                 </div>
                 <div>
@@ -161,7 +161,7 @@ export default function BrandSettingsPage() {
 
       {/* Logout Box */}
       <div className="pt-6">
-        <div className="flex items-center justify-between p-4 bg-white border border-black/5 rounded-3xl shadow-sm">
+        <div className="flex items-center justify-between p-4 bg-red-50/50 border border-red-100 rounded-3xl p-6">
           <div className="flex items-center gap-3 text-red-500">
             <LogOut size={20} />
             <span className="text-sm font-bold">Log out</span>

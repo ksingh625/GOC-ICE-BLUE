@@ -233,7 +233,7 @@ export default function CreatorWalletPage() {
       </div>
 
       {/* ── TAB SWITCHER ── */}
-      <div className="bg-neutral-100 p-1 rounded-full border border-black/5 flex w-full">
+      <div className="bg-neutral-100 p-1 rounded-full border border-neutral-100 flex w-full">
         <button 
           onClick={() => setWalletTab("cash")}
           className={`flex-1 py-3 rounded-full text-xs font-black transition-all cursor-pointer ${
@@ -349,7 +349,7 @@ export default function CreatorWalletPage() {
           <div className="bg-white border border-neutral-200/85 rounded-3xl overflow-hidden shadow-xs">
             <div className="px-6 py-4.5 border-b border-neutral-100 flex items-center justify-between">
               <h3 className="text-sm font-black text-black uppercase tracking-wider">Cashout Request Ledger</h3>
-              <span className="text-[9px] bg-neutral-150 border border-black/5 px-2 py-0.5 rounded-full font-bold text-neutral-500 uppercase tracking-widest">
+              <span className="text-[9px] bg-neutral-150 border border-neutral-100 px-2 py-0.5 rounded-full font-bold text-neutral-500 uppercase tracking-widest">
                 {withdrawals.length} transactions
               </span>
             </div>
@@ -451,7 +451,7 @@ export default function CreatorWalletPage() {
                     key={v.id} 
                     className="border border-neutral-200/80 rounded-3xl p-4 flex gap-4 bg-slate-50/15 hover:border-black hover:shadow-md transition-all duration-300 relative overflow-hidden text-left"
                   >
-                    <div className="w-12 h-12 rounded-full bg-black/5 border border-black/5 flex items-center justify-center text-black flex-shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-black/5 border border-neutral-100 flex items-center justify-center text-black flex-shrink-0">
                       <Gift size={20} className="text-neutral-700" />
                     </div>
                     

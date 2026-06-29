@@ -133,7 +133,7 @@ export default function CreatorLeaderboardPage() {
           <h1 className="text-3xl font-black text-black tracking-tight">
             Leaderboard Podiums
           </h1>
-          <p className="text-xs text-neutral-500 font-semibold mt-1">Participate, win campaigns, accumulate views, and climb the rankings podium.</p>
+          <p className="text-sm text-neutral-500 font-semibold mt-1">Participate, win campaigns, accumulate views, and climb the rankings podium.</p>
         </div>
 
         {/* Search */}
@@ -331,10 +331,10 @@ export default function CreatorLeaderboardPage() {
         <div className="px-6 py-4 border-t border-neutral-100 flex items-center justify-between">
           <span className="text-[10px] text-neutral-450 font-bold">Showing 1-{ranked.length} of {ranked.length} creators</span>
           <div className="flex gap-2">
-            <button className="p-1.5 rounded-full border border-neutral-200 text-neutral-450 hover:bg-neutral-50 cursor-pointer disabled:opacity-50" disabled>
+            <button className="p-1.5 rounded-full border border-neutral-200 text-neutral-450 hover:bg-neutral-50/50 cursor-pointer disabled:opacity-50" disabled>
               <ChevronLeft size={14} />
             </button>
-            <button className="p-1.5 rounded-full border border-neutral-200 text-neutral-450 hover:bg-neutral-50 cursor-pointer disabled:opacity-50" disabled>
+            <button className="p-1.5 rounded-full border border-neutral-200 text-neutral-450 hover:bg-neutral-50/50 cursor-pointer disabled:opacity-50" disabled>
               <ChevronRight size={14} />
             </button>
           </div>
