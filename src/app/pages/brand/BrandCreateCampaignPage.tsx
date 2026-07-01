@@ -254,13 +254,13 @@ export default function BrandCreateCampaignPage() {
         <div>
           <h3 className="text-sm font-medium text-neutral-700 mb-3 border-b border-neutral-100 pb-2">Bonus (Optional)</h3>
           <div className="flex items-center gap-4">
-            <span className="text-sm font-medium text-neutral-500 w-16">Entry</span>
+            <span className="text-sm font-medium text-neutral-500 w-[104px] whitespace-nowrap">Pay Per Video</span>
             <div className="relative flex-1">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500">$</span>
               <input type="number" placeholder="0.00" className="w-full h-10 border border-neutral-200 rounded-lg bg-neutral-50 hover:bg-neutral-100 transition-colors pl-7 pr-3 text-sm font-medium focus:outline-none focus:border-neutral-300 focus:bg-white focus:ring-4 focus:ring-neutral-100" />
             </div>
           </div>
-          <p className="text-xs text-neutral-500 mt-1 pl-20">Pay a flat fee to creators for every verified submission.</p>
+          <p className="text-xs text-neutral-500 mt-1 pl-[120px]">Pay a flat fee to creators for every verified submission.</p>
         </div>
       </div>
       
@@ -286,6 +286,24 @@ export default function BrandCreateCampaignPage() {
         <div className="mb-6">
           <h1 className="text-3xl font-extrabold text-black font-heading mb-1">Create Campaign</h1>
           <p className="text-sm text-neutral-600">Complete the steps below to launch your campaign.</p>
+        </div>
+
+        {/* Sticky Progress Indicator */}
+        <div className="sticky top-0 z-20 py-4 mb-6 bg-[#fafafa]/95 backdrop-blur-sm border-b border-neutral-200/50 -mx-4 px-4 sm:mx-0 sm:px-0">
+          <div className="flex items-center justify-between mb-2">
+            <div className="text-sm font-bold text-black">
+              Step {activeStep} of {steps.length}: <span className="font-medium text-neutral-600">{steps.find(s => s.id === activeStep)?.name}</span>
+            </div>
+            <div className="text-xs font-medium text-neutral-500 bg-neutral-100 px-2.5 py-1 rounded-full">
+              {steps.length - activeStep === 0 ? 'Last step' : `${steps.length - activeStep} steps left`}
+            </div>
+          </div>
+          <div className="w-full h-1.5 bg-neutral-200 rounded-full overflow-hidden">
+            <div 
+              className="h-full bg-black transition-all duration-500 ease-out" 
+              style={{ width: `${(activeStep / steps.length) * 100}%` }} 
+            />
+          </div>
         </div>
 
         {/* Accordion Container */}

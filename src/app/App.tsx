@@ -1213,7 +1213,7 @@ function HowItWorks() {
               }}
             >
               {/* Visual zone — upper */}
-              <div className="relative flex-shrink-0" style={{ height: 190, background: "#d1f8ff" }}>
+              <div className="relative flex-shrink-0" style={{ height: 190, background: "rgba(209,248,255,0.2)" }}>
                 {/* Subtle grid */}
                 <div className="absolute inset-0 opacity-[0.06]"
                   style={{
@@ -1357,15 +1357,13 @@ function ComparisonTable() {
           </div>
 
           {/* Rows */}
-          {rows.map(({ label, goc, old, highlight }, i) => (
-            <div key={label} className="cmp-row grid grid-cols-3 transition-all duration-200 group cursor-default"
+          {rows.map(({ label, goc, old }, i) => (
+            <div key={label} className="cmp-row grid grid-cols-3 cursor-default"
               style={{
-                background: highlight ? "rgba(209,248,255,0.18)" : "#ffffff",
+                background: "#ffffff",
                 borderTop: i === 0 ? "none" : "1px solid rgba(0,0,0,0.06)",
                 opacity: 0,
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(209,248,255,0.35)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = highlight ? "rgba(209,248,255,0.18)" : "#ffffff"; }}
             >
               <div className="px-6 py-4 text-sm font-semibold text-black/60 flex items-center">{label}</div>
               <div className="px-6 py-4 flex items-center gap-2">

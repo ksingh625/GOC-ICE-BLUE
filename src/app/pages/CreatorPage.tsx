@@ -825,19 +825,87 @@ function CreatorBentoVisual({ step }: { step: number }) {
       </div>
     );
   }
+  return <LeaderboardVisual />;
+}
+
+function LeaderboardVisual() {
+  const listRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    if (!listRef.current) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(".leaderboard-item", 
+        { x: 20, opacity: 0 }, 
+        { 
+          x: 0, opacity: 1, stagger: 0.15, duration: 0.5, ease: "back.out(1.5)",
+          scrollTrigger: {
+            trigger: listRef.current,
+            start: "top 80%"
+          }
+        }
+      );
+      gsap.fromTo(".podium-bar",
+        { scaleY: 0 },
+        { 
+          scaleY: 1, stagger: 0.1, duration: 0.6, ease: "back.out(1.2)", transformOrigin: "bottom center", delay: 0.2,
+          scrollTrigger: { trigger: listRef.current, start: "top 80%" }
+        }
+      );
+      gsap.fromTo(".podium-avatar",
+        { scale: 0, opacity: 0 },
+        { 
+          scale: 1, opacity: 1, stagger: 0.1, duration: 0.5, ease: "back.out(2)", delay: 0.4,
+          scrollTrigger: { trigger: listRef.current, start: "top 80%" }
+        }
+      );
+    }, listRef);
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="absolute inset-0 flex flex-col justify-between p-3.5">
+    <div ref={listRef} className="absolute inset-0 flex flex-col justify-between p-3.5">
       <div className="flex items-center justify-between mb-1.5">
         <span className="text-[8px] font-black uppercase text-black/40">Leaderboard Rankings</span>
         <span className="text-[8px] font-bold text-green-600">✓ Audited</span>
       </div>
+      
+      <div className="flex-1 flex items-end justify-center gap-1.5 px-2 mt-2 mb-1">
+        {/* 2nd Place */}
+        <div className="flex flex-col items-center">
+          <div className="podium-avatar w-5 h-5 rounded-full bg-slate-200 border-2 border-white z-10 shadow-xs overflow-hidden">
+             <img src="https://i.pravatar.cc/100?img=12" alt="2nd" className="w-full h-full object-cover" />
+          </div>
+          <div className="podium-bar w-10 h-8 bg-[#f5f5f5] rounded-t border border-black/10 -mt-2 flex items-end justify-center pb-1">
+             <span className="text-[7px] font-black text-black/30">2</span>
+          </div>
+        </div>
+        {/* 1st Place */}
+        <div className="flex flex-col items-center z-10">
+          <div className="podium-avatar w-6 h-6 rounded-full bg-yellow-100 border-2 border-white z-10 shadow-md overflow-hidden relative">
+             <img src="https://i.pravatar.cc/100?img=45" alt="1st" className="w-full h-full object-cover" />
+          </div>
+          <div className="podium-bar w-10 h-12 bg-black rounded-t border border-black -mt-2 flex items-end justify-center pb-1 shadow-md">
+             <span className="text-[7px] font-black text-white/50">1</span>
+          </div>
+        </div>
+        {/* 3rd Place */}
+        <div className="flex flex-col items-center">
+          <div className="podium-avatar w-5 h-5 rounded-full bg-amber-100 border-2 border-white z-10 shadow-xs overflow-hidden">
+             <img src="https://i.pravatar.cc/100?img=47" alt="3rd" className="w-full h-full object-cover" />
+          </div>
+          <div className="podium-bar w-10 h-5 bg-[#f5f5f5] rounded-t border border-black/10 -mt-2 flex items-end justify-center pb-1">
+             <span className="text-[7px] font-black text-black/30">3</span>
+          </div>
+        </div>
+      </div>
+
       <div className="space-y-1">
         {[
           { rank: "🥇", handle: "@fitbyfiona", score: "98", prize: "$1,750" },
           { rank: "🥈", handle: "@zenmove", score: "94", prize: "$1,000" },
           { rank: "🥉", handle: "@runnerspark", score: "89", prize: "$750" }
         ].map((item) => (
-          <div key={item.handle} className="flex items-center justify-between bg-white border rounded px-2 py-1 shadow-xs text-[8px]" style={{ borderColor: BORDER }}>
+          <div key={item.handle} className="leaderboard-item flex items-center justify-between bg-white border rounded px-2 py-1 shadow-xs text-[8px]" style={{ borderColor: BORDER }}>
             <div className="flex items-center gap-1">
               <span>{item.rank}</span>
               <span className="font-bold text-black">{item.handle}</span>

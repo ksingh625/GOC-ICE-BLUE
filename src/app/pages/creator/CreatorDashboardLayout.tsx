@@ -126,9 +126,9 @@ export default function CreatorDashboardLayout() {
         }`}
       >
         {/* Logo Section */}
-        <div className="h-16 border-b border-neutral-200/60 flex items-center px-5 overflow-hidden">
-          <Link to="/" className="flex items-center flex-shrink-0">
-            <img src={GOCLogo} alt="GOC Logo" className="h-8 w-auto filter brightness-0" />
+        <div className={`h-16 border-b border-neutral-200/60 flex items-center overflow-hidden transition-all duration-300 ${sidebarCollapsed ? 'justify-center px-0' : 'px-5'}`}>
+          <Link to="/" className={`flex items-center ${sidebarCollapsed ? 'w-[26px] overflow-hidden justify-start' : 'flex-shrink-0'}`}>
+            <img src={GOCLogo} alt="GOC Logo" className={`h-8 w-auto filter brightness-0 ${sidebarCollapsed ? 'max-w-none' : ''}`} />
           </Link>
         </div>
 

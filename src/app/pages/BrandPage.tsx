@@ -11,7 +11,7 @@ import {
   Crown, Rocket, Globe, Play, ChevronRight, Lock,
   Instagram, Youtube, Twitter, Facebook, Linkedin,
   ArrowUpRight, Flame, Eye, Share2,
-  CheckCircle2, Lightbulb, Briefcase, Megaphone, Tv, Camera,
+  CheckCircle2, Lightbulb, Briefcase, Megaphone, Tv, Camera, Calendar
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
@@ -1649,7 +1649,7 @@ function CTABanner() {
               </button>
               <button className="flex items-center gap-2.5 px-8 py-5 rounded-full font-bold text-base transition-all duration-300"
                 style={{ background: "rgba(255,255,255,0.08)", color: "#fff", border: "1px solid rgba(255,255,255,0.15)" }}>
-                <Megaphone size={18} /> Talk to a Human
+                <Calendar size={18} /> Book a Demo
               </button>
             </div>
 
